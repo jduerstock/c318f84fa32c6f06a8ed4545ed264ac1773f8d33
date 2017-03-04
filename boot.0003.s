@@ -95,6 +95,10 @@
 	.short	0xaa5a
 .endm
 
+.macro	_IconServicesDispatch
+	.short	0xaa75
+.endm
+
 .macro	_StartupDispatch
 	.short	0xaa7d
 .endm
@@ -19213,7 +19217,7 @@ sub_1000cda2:
 	movew	%d6,%sp@-
 	pea	%fp@(-404)
 	moveq	#35,%d0
-	.short	0xaa75
+	_IconServicesDispatch
 	tstw	%sp@+
 	bnes	.L1000ce74
 	subql	#2,%sp
@@ -19226,7 +19230,7 @@ sub_1000cda2:
 	movel	%d0,%sp@-
 	movel	%fp@(-404),%sp@-
 	moveq	#14,%d0
-	.short	0xaa75
+	_IconServicesDispatch
 	tstw	%sp@+
 	bnes	.L1000ce60
 	moveq	#1,%d7
@@ -19236,7 +19240,7 @@ sub_1000cda2:
 	movel	#1936224119,%sp@-
 	movel	#1768843636,%sp@-
 	moveq	#8,%d0
-	.short	0xaa75
+	_IconServicesDispatch
 	addqw	#2,%sp
 
 .L1000ce74:
