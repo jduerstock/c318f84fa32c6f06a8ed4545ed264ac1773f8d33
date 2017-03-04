@@ -55,6 +55,10 @@
 	.short	0xa9c9
 .endm
 
+.macro	_RGBForeColor
+	.short	0xaa14
+.endm
+
 .macro	_HighLevelFSDispatch
 	.short	0xaa52
 .endm
@@ -69,6 +73,10 @@
 
 .macro	_StartupDispatch
 	.short	0xaa7d
+.endm
+
+.macro	_MPDispatch	/* undocumented -- MultiprocessingDispatch */
+	.short	0xaa7f
 .endm
 
 .macro	_NameRegistryDispatch
@@ -5635,7 +5643,7 @@ sub_10003988:
 
 .L10003a8a:
 	pea	%fp@(-12)
-	.short	0xaa14
+	_RGBForeColor
 	pea	%fp@(-6)
 	.short	0xaa15
 	pea	%fp@(-30)
@@ -5902,7 +5910,7 @@ sub_10003f4c:
 	movew	#-21846,%fp@(-12)
 	movew	#-21846,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%fp@(-6),%sp@-
 	movew	%fp@(-4),%d0
 	subqw	#2,%d0
@@ -5919,7 +5927,7 @@ sub_10003f4c:
 	movew	#-1,%fp@(-12)
 	movew	#-1,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%fp@(-6),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -5944,7 +5952,7 @@ sub_10003f4c:
 	clrl	%fp@(-12)
 	clrw	%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	bras	.L10004010
 
 .L1000400a:
@@ -6343,7 +6351,7 @@ sub_10004380:
 	movew	#-17477,%fp@(-12)
 	movew	#-17477,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	pea	%fp@(-8)
 	.short	0xa8a2
 	pea	%fp@(-8)
@@ -6355,7 +6363,7 @@ sub_10004380:
 	clrl	%fp@(-12)
 	clrw	%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
 	.short	0xa893
@@ -6368,7 +6376,7 @@ sub_10004380:
 	movew	#21845,%fp@(-12)
 	movew	#21845,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6385,7 +6393,7 @@ sub_10004380:
 	movew	#-30584,%fp@(-12)
 	movew	#-30584,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6407,7 +6415,7 @@ sub_10004380:
 	movew	#-8739,%fp@(-12)
 	movew	#-8739,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6433,7 +6441,7 @@ sub_10004380:
 	movew	#-17477,%fp@(-12)
 	movew	#-17477,%fp@(-14)
 	pea	%fp@(-14)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6452,7 +6460,7 @@ sub_10004380:
 	clrl	%fp@(-18)
 	clrw	%fp@(-20)
 	pea	%fp@(-20)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
 	.short	0xa893
@@ -6469,7 +6477,7 @@ sub_10004380:
 	movew	#21845,%fp@(-18)
 	movew	#21845,%fp@(-20)
 	pea	%fp@(-20)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6490,7 +6498,7 @@ sub_10004380:
 	movew	#-30584,%fp@(-18)
 	movew	#-30584,%fp@(-20)
 	pea	%fp@(-20)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6516,7 +6524,7 @@ sub_10004380:
 	movew	#-17477,%fp@(-18)
 	movew	#-17477,%fp@(-20)
 	pea	%fp@(-20)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6535,7 +6543,7 @@ sub_10004380:
 	movew	#-8739,%fp@(-18)
 	movew	#-8739,%fp@(-20)
 	pea	%fp@(-20)
-	.short	0xaa14
+	_RGBForeColor
 	movew	%a4@(2),%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6715,7 +6723,7 @@ sub_10004668:
 	clrl	%fp@(-616)
 	clrw	%fp@(-618)
 	pea	%fp@(-618)
-	.short	0xaa14
+	_RGBForeColor
 	pea	%fp@(-524)
 	.short	0xaa15
 	pea	%fp@(-532)
@@ -7314,17 +7322,65 @@ sub_10004f16:
 	rts
 
 sub_10004f5c:
-	.short	0x4E56,0xFFFC
-	.short	0x2F0C,0x286E,0x0008,0x486E,0xFFFC,0xA874,0x2F2E,0xFFFC
-	.short	0x4EBA,0xEE2A,0x7200,0x1200,0x4A81,0x588F,0x2F01,0x486C
-	.short	0x000E,0x4EBA,0xFF3A,0x2F2E,0xFFFC,0x4EBA,0xEE10,0x4A00
-	.short	0x4FEF,0x000C,0x673C,0x4A14,0x6738,0x486C,0x0002,0xAA14
-	.short	0x486C,0x0008,0xAA15,0x4AAC,0x0022,0x6706,0x2F2C,0x0022
-	.short	0xAA0A,0x4A2C,0x0001,0x672C,0x4AAC,0x0026,0x6708,0x2F2C
-	.short	0x0026,0xAA0B,0x601E,0x486C,0x002A,0x4EBA,0xFF4A,0x584F
-	.short	0x6012,0x486C,0x002A,0xA87C,0x2F2C,0x0032,0xA862,0x2F2C
-	.short	0x0036,0xA863,0x3F2C,0x0020,0xA889,0x286E,0xFFF8,0x4E5E
-	.short	0x4E75
+	linkw	%fp,#-4
+	movel	%a4,%sp@-
+	moveal	%fp@(8),%a4
+	pea	%fp@(-4)
+	.short	0xa874
+	movel	%fp@(-4),%sp@-
+	jsr	%pc@(sub_10003d9c)
+	moveq	#0,%d1
+	moveb	%d0,%d1
+	tstl	%d1
+	addql	#4,%sp
+	movel	%d1,%sp@-
+	pea	%a4@(14)
+	jsr	%pc@(sub_10004ebe)
+	movel	%fp@(-4),%sp@-
+	jsr	%pc@(sub_10003d9c)
+	tstb	%d0
+	lea	%sp@(12),%sp
+	beqs	.L10004fd2
+	tstb	%a4@
+	beqs	.L10004fd2
+	pea	%a4@(2)
+	_RGBForeColor
+	pea	%a4@(8)
+	.short	0xaa15
+	tstl	%a4@(34)
+	beqs	.L10004fb2
+	movel	%a4@(34),%sp@-
+	.short	0xaa0a
+
+.L10004fb2:
+	tstb	%a4@(1)
+	beqs	.L10004fe4
+	tstl	%a4@(38)
+	beqs	.L10004fc6
+	movel	%a4@(38),%sp@-
+	.short	0xaa0b
+	bras	.L10004fe4
+
+.L10004fc6:
+	pea	%a4@(42)
+	jsr	%pc@(sub_10004f16)
+	addqw	#4,%sp
+	bras	.L10004fe4
+
+.L10004fd2:
+	pea	%a4@(42)
+	.short	0xa87c
+	movel	%a4@(50),%sp@-
+	.short	0xa862
+	movel	%a4@(54),%sp@-
+	.short	0xa863
+
+.L10004fe4:
+	movew	%a4@(32),%sp@-
+	.short	0xa889
+	moveal	%fp@(-8),%a4
+	unlk	%fp
+	rts
 
 sub_10004ff2:
 	linkw	%fp,#-4
@@ -7439,12 +7495,46 @@ sub_10004ff2:
 	rts
 
 sub_1000514c:
-	.short	0x4E56,0x0000
-	.short	0x48E7,0x0708,0x3A2E,0x000E,0x286E,0x0008,0x200C,0x6734
-	.short	0x2054,0x3028,0x0006,0x48C0,0x2C00,0x5286,0x7E00,0x601E
-	.short	0x2054,0x2007,0xE780,0xBA70,0x0808,0x660E,0x2054,0x2007
-	.short	0xE780,0x4870,0x080A,0xAA14,0x600A,0x2007,0x5287,0x48C6
-	.short	0xBC87,0x6EDC,0x4CEE,0x10E0,0xFFF0,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d5-%d7/%a4,%sp@-
+	movew	%fp@(14),%d5
+	moveal	%fp@(8),%a4
+	movel	%a4,%d0
+	beqs	.L10005194
+	moveal	%a4@,%a0
+	movew	%a0@(6),%d0
+	extl	%d0
+	movel	%d0,%d6
+	addql	#1,%d6
+	moveq	#0,%d7
+	bras	.L1000518e
+
+.L10005170:
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#3,%d0
+	cmpw	%a0@(8,%d0:l),%d5
+	bnes	.L1000518a
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#3,%d0
+	pea	%a0@(0xa,%d0:l)
+	_RGBForeColor
+	bras	.L10005194
+
+.L1000518a:
+	movel	%d7,%d0
+	addql	#1,%d7
+
+.L1000518e:
+	extl	%d6
+	cmpl	%d7,%d6
+	bgts	.L10005170
+
+.L10005194:
+	moveml	%fp@(-16),%d5-%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000519e:
 	linkw	%fp,#-4
@@ -12786,7 +12876,7 @@ sub_10008c54:
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	movew	#-13,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d5
 	bnew	.L10008d54
 	subql	#4,%sp
@@ -12795,7 +12885,7 @@ sub_10008c54:
 	movel	%d0,%sp@-
 	movel	%d7,%sp@-
 	movew	#-10,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d5
 	bnes	.L10008d54
 	movel	%d7,%a3@(16)
@@ -12810,7 +12900,7 @@ sub_10008c54:
 	movel	%d0,%sp@-
 	movel	#67108864,%sp@-
 	movew	#-24,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d5
 	bnes	.L10008d54
 	movel	#67108864,%a3@(20)
@@ -12885,7 +12975,7 @@ sub_10008d62:
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	movew	#-13,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d5
 	bnew	.L10008e7e
 	addl	%d3,%a3@(8)
@@ -12942,7 +13032,7 @@ sub_10008d62:
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	movew	#-13,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d0
 	movel	%sp@+,%d2
 	movel	%d0,%d5
@@ -13016,7 +13106,7 @@ sub_10008e90:
 	movel	%d1,%d3
 	subql	#4,%sp
 	movew	#-52,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	cmpl	%sp@+,%d3
 	bhiw	.L10008fcc
 	movel	%d3,%d5
@@ -13032,7 +13122,7 @@ sub_10008e90:
 	moveq	#1,%d1
 	movel	%d1,%sp@-
 	movew	#-14,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d7
 	bnes	.L10008fcc
 	movel	%a3,%d0
@@ -13056,7 +13146,7 @@ sub_10008e90:
 	lsrl	%d1,%d3
 	subql	#4,%sp
 	movew	#-52,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	cmpl	%sp@+,%d3
 	bhis	.L10008fcc
 	movel	%d3,%d6
@@ -13072,7 +13162,7 @@ sub_10008e90:
 	moveq	#1,%d1
 	movel	%d1,%sp@-
 	movew	#-14,%sp@-
-	.short	0xaa7f
+	_MPDispatch
 	movel	%sp@+,%d7
 	bnes	.L10008fcc
 	movel	%a4,%d0
