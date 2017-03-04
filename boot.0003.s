@@ -3,12 +3,20 @@
 	.short	0xa004
 .endm
 
+.macro	_Status
+	.short	0xa005
+.endm
+
 .macro	_SetZone
 	.short	0xa01b
 .endm
 
 .macro	_HUnlock
 	.short	0xa02a
+.endm
+
+.macro	_DisposeHandle
+	.short	0xa023
 .endm
 
 .macro	_Delay
@@ -3560,7 +3568,7 @@ sub_100025da:
 	movew	%a0@,%d1
 	moveal	%a4,%a0
 	_HUnlock
-	.short	0xa023
+	_DisposeHandle
 	subaw	#24,%sp
 	moveal	%sp,%a4
 	subqw	#4,%sp
@@ -4508,7 +4516,7 @@ sub_10002e6c:
 	moveal	%d0,%a3
 	bnew	.L10002e9e
 	moveal	%a2,%a0
-	.short	0xa023
+	_DisposeHandle
 	braw	.L10002fce
 
 .L10002f36:
@@ -5135,7 +5143,7 @@ sub_10003476:
 	movew	#12,%fp@(-24)
 	movel	%a4,%fp@(-22)
 	lea	%fp@(-50),%a0
-	.short	0xa005
+	_Status
 	movew	%d0,%d7
 	moveml	%fp@(-58),%d7/%a4
 	unlk	%fp
@@ -5163,7 +5171,7 @@ sub_100034b4:
 	movew	#28,%fp@(-24)
 	movel	%a4,%fp@(-22)
 	lea	%fp@(-50),%a0
-	.short	0xa005
+	_Status
 	movew	%d0,%d7
 	bnes	.L1000350a
 	moveq	#-1,%d0
@@ -5802,7 +5810,7 @@ sub_10003de8:
 	tstw	%sp@+
 	beqs	.L10003e4a
 	moveal	%fp@(-4),%a0
-	.short	0xa023
+	_DisposeHandle
 	moveq	#0,%d0
 	movel	%d0,%fp@(-4)
 
@@ -6338,7 +6346,7 @@ sub_10004028:
 	tstb	%d6
 	beqs	.L10004370
 	moveal	%fp@(-4),%a0
-	.short	0xa023
+	_DisposeHandle
 	bras	.L10004370
 
 .L1000436c:
@@ -11196,7 +11204,7 @@ sub_100077e2:
 	movel	%a4,%sp@-
 	.short	0xa9ad
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L10007802:
 	moveal	%fp@(-4),%a4
@@ -11589,7 +11597,7 @@ sub_10007a14:
 
 .L10007b8e:
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L10007b92:
 	subql	#2,%sp
@@ -13937,7 +13945,7 @@ sub_1000935e:
 	moveal	%a4,%a0
 	_HUnlock
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 	moveal	%a3,%a0
 	_SetZone
 
@@ -14113,7 +14121,7 @@ sub_100095a6:
 	cmpal	#-1,%a4
 	beqs	.L100095c8
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 	moveq	#0,%d0
 	movel	%d0,%a3@
 
@@ -15389,7 +15397,7 @@ sub_1000a0be:
 	tstl	%a2@
 	bnes	.L1000a254
 	moveal	%a4@(6),%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L1000a254:
 	cmpiw	#-2821,%d7
@@ -15897,7 +15905,7 @@ sub_1000a66e:
 .L1000a724:
 	tstb	%fp@(8)
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L1000a72c:
 	moveal	%a2,%a0
@@ -17177,7 +17185,7 @@ sub_1000b3b6:
 	tstl	%a4@
 	bnes	.L1000b488
 	moveal	%a3@(6),%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L1000b488:
 	movew	%d7,%d0
@@ -17558,7 +17566,7 @@ sub_1000b5b2:
 	moveal	%fp@(-46),%a0
 	_HUnlock
 	moveal	%fp@(-46),%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L1000b7f2:
 	movel	%a4,%d0
@@ -17566,7 +17574,7 @@ sub_1000b5b2:
 	moveal	%a4,%a0
 	_HUnlock
 	moveal	%a4,%a0
-	.short	0xa023
+	_DisposeHandle
 
 .L1000b7fe:
 	movew	%d6,%sp@-
@@ -17989,8 +17997,18 @@ sub_1000bfb6:
 	.short	0x4E75
 
 sub_1000c022:
-	.short	0x4E56,0x0000,0x2F0C,0x286E,0x0008,0x200C,0x6704
-	.short	0x204C,0xA023,0x286E,0xFFFC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	movel	%a4,%sp@-
+	moveal	%fp@(8),%a4
+	movel	%a4,%d0
+	beqs	.L1000c034
+	moveal	%a4,%a0
+	_DisposeHandle
+
+.L1000c034:
+	moveal	%fp@(-4),%a4
+	unlk	%fp
+	rts
 
 sub_1000c03c:
 	linkw	%fp,#0
@@ -19135,7 +19153,7 @@ sub_1000cd14:
 	moveal	%d1,%a0
 
 .L1000cd5a:
-	.short	0xa023
+	_DisposeHandle
 
 .L1000cd5c:
 	moveal	0xd1c,%a0
@@ -19576,19 +19594,64 @@ sub_1000d122:
 	rts
 
 sub_1000d198:
-	.short	0x4E56,0xFF9E,0x48E7,0x1308
-	.short	0x286E,0x000C,0x4206,0x7E00,0x42AE,0xFFCC,0x42AE,0xFFC8
-	.short	0x42AE,0xFFC4,0x42AE,0xFFC0,0x42AE,0xFFBC,0x42AE,0xFFB8
-	.short	0x42AE,0xFFB4,0x7000,0x2D40,0xFFB0,0x426E,0xFFAE,0x2D40
-	.short	0xFFAA,0x2D40,0xFFA6,0x42AE,0xFFA2,0x2D40,0xFF9E,0x2D40
-	.short	0xFFFC,0x2D40,0xFFF8,0x2D40,0xFFF4,0x2D40,0xFFF0,0x2D40
-	.short	0xFFEC,0x2D40,0xFFE8,0x2D40,0xFFE4,0x2D40,0xFFE0,0x2D40
-	.short	0xFFDC,0x2D40,0xFFD8,0x2D40,0xFFD4,0x2D40,0xFFD0,0x3D6E
-	.short	0x000A,0xFFB6,0x3D7C,0x0020,0xFFB8,0x41EE,0xFFD0,0x2D48
-	.short	0xFFBA,0x41EE,0xFF9E,0xA005,0x4A40,0x6614,0x7007,0xC0AE
-	.short	0xFFE0,0x7207,0xB280,0x57C3,0x4403,0x1C03,0x2E2E,0xFFE4
-	.short	0x200C,0x6702,0x2887,0x1006,0x4CEE,0x10C8,0xFF8E,0x4E5E
-	.short	0x4E75
+	linkw	%fp,#-98
+	moveml	%d3/%d6-%d7/%a4,%sp@-
+	moveal	%fp@(12),%a4
+	clrb	%d6
+	moveq	#0,%d7
+	clrl	%fp@(-52)
+	clrl	%fp@(-56)
+	clrl	%fp@(-60)
+	clrl	%fp@(-64)
+	clrl	%fp@(-68)
+	clrl	%fp@(-72)
+	clrl	%fp@(-76)
+	moveq	#0,%d0
+	movel	%d0,%fp@(-80)
+	clrw	%fp@(-82)
+	movel	%d0,%fp@(-86)
+	movel	%d0,%fp@(-90)
+	clrl	%fp@(-94)
+	movel	%d0,%fp@(-98)
+	movel	%d0,%fp@(-4)
+	movel	%d0,%fp@(-8)
+	movel	%d0,%fp@(-12)
+	movel	%d0,%fp@(-16)
+	movel	%d0,%fp@(-20)
+	movel	%d0,%fp@(-24)
+	movel	%d0,%fp@(-28)
+	movel	%d0,%fp@(-32)
+	movel	%d0,%fp@(-36)
+	movel	%d0,%fp@(-40)
+	movel	%d0,%fp@(-44)
+	movel	%d0,%fp@(-48)
+	movew	%fp@(10),%fp@(-74)
+	movew	#32,%fp@(-72)
+	lea	%fp@(-48),%a0
+	movel	%a0,%fp@(-70)
+	lea	%fp@(-98),%a0
+	_Status
+	tstw	%d0
+	bnes	.L1000d240
+	moveq	#7,%d0
+	andl	%fp@(-32),%d0
+	moveq	#7,%d1
+	cmpl	%d0,%d1
+	seq	%d3
+	negb	%d3
+	moveb	%d3,%d6
+	movel	%fp@(-28),%d7
+
+.L1000d240:
+	movel	%a4,%d0
+	beqs	.L1000d246
+	movel	%d7,%a4@
+
+.L1000d246:
+	moveb	%d6,%d0
+	moveml	%fp@(-114),%d3/%d6-%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000d252:
 	linkw	%fp,#0
