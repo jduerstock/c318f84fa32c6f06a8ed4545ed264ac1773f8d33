@@ -75,6 +75,10 @@
 	.short	0xaa14
 .endm
 
+.macro	_RGBBackColor
+	.short	0xaa15
+.endm
+
 .macro	_TestDeviceAttribute
 	.short	0xaa2c
 .endm
@@ -5669,7 +5673,7 @@ sub_10003988:
 	pea	%fp@(-12)
 	_RGBForeColor
 	pea	%fp@(-6)
-	.short	0xaa15
+	_RGBBackColor
 	pea	%fp@(-30)
 	.short	0xa899
 	moveq	#0,%d0
@@ -6589,7 +6593,7 @@ sub_10004380:
 	movew	#-1,%fp@(-4)
 	movew	#-1,%fp@(-6)
 	pea	%fp@(-6)
-	.short	0xaa15
+	_RGBBackColor
 	movel	%a4,%sp@-
 	.short	0xa8a3
 
@@ -6749,7 +6753,7 @@ sub_10004668:
 	pea	%fp@(-618)
 	_RGBForeColor
 	pea	%fp@(-524)
-	.short	0xaa15
+	_RGBBackColor
 	pea	%fp@(-532)
 	.short	0xa8a3
 	movew	%fp@(-530),%sp@-
@@ -7376,7 +7380,7 @@ sub_10004f5c:
 	pea	%a4@(2)
 	_RGBForeColor
 	pea	%a4@(8)
-	.short	0xaa15
+	_RGBBackColor
 	tstl	%a4@(34)
 	beqs	.L10004fb2
 	movel	%a4@(34),%sp@-
