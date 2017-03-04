@@ -31,6 +31,10 @@
 	.short	0xa20c
 .endm
 
+.macro	_BlockMoveData
+	.short	0xa22e
+.endm
+
 .macro	_NewPtrSysClear
 	.short	0xa71e
 .endm
@@ -233,7 +237,7 @@ str_10000162:
 	bnew	.L100001d0
 	movel	%a1@(2),%d0
 	exg	%a0,%a1
-	.short	0xa22e
+	_BlockMoveData
 	movew	#363,%a1@
 	movel	#842,%a1@(2)
 	movel	%a1,0x2b6
@@ -356,7 +360,7 @@ str_10000162:
 	moveal	%a1,%sp
 	lea	%a5@(-400),%a0
 	movel	#2572,%d0
-	.short	0xa22e
+	_BlockMoveData
 	lea	%a1@(400),%a5
 	lea	%a5@(624),%fp
 	movel	%a5,0x904
@@ -801,7 +805,7 @@ str_10000700:
 	moveal	%a1,%sp
 	lea	%a5@(-400),%a0
 	movel	#2572,%d0
-	.short	0xa22e
+	_BlockMoveData
 	lea	%a1@(400),%a5
 	lea	%a5@(624),%fp
 	movel	%a5,0x904
@@ -2276,7 +2280,7 @@ sub_100019ba:
 	moveb	%a0@,%d0
 	addqb	#1,%d0
 	lea	%a5@(220),%a1
-	.short	0xa22e
+	_BlockMoveData
 	movew	%fp@(14),%d1
 	movel	%fp@(10),%d7
 	bsrw	sub_100019fa
@@ -6944,7 +6948,7 @@ sub_100049fa:
 	addl	%d1,%d0
 	addal	%d0,%a1
 	moveq	#68,%d0
-	.short	0xa22e
+	_BlockMoveData
 	bras	.L10004a90
 
 .L10004a8e:
@@ -7619,7 +7623,7 @@ sub_1000521e:
 	extw	%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveal	%fp@(-4),%a4
 	unlk	%fp
 	rts
@@ -7643,7 +7647,7 @@ sub_10005240:
 	addql	#1,%d0
 	lea	%a4@(%d0:l),%a1
 	movel	%d6,%d0
-	.short	0xa22e
+	_BlockMoveData
 	movel	%d7,%d0
 	addl	%d6,%d0
 	moveb	%d0,%a4@
@@ -9435,7 +9439,7 @@ sub_100065b4:
 	moveb	%a2@,%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveal	%a4,%a0
 	.short	0xa05e
 
@@ -9478,7 +9482,7 @@ sub_1000663e:
 	moveb	%a2@,%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveq	#0,%d0
 	movew	%d5,%d0
 	cmpiw	#48,%d0
@@ -10449,7 +10453,7 @@ sub_1000725a:
 	lea	%a4@(%d0:w),%a1
 	moveq	#0,%d0
 	moveb	%fp@(-262),%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveb	%fp@(-262),%d0
 	addb	%d0,%a4@
 	subql	#2,%sp
@@ -10671,7 +10675,7 @@ sub_10007542:
 	moveal	%d0,%a1
 	moveq	#0,%d0
 	moveb	%a4@,%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveb	%a4@,%a3@
 
 .L1000758e:
@@ -11395,7 +11399,7 @@ sub_10007bde:
 	moveb	%a3@,%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 
 .L10007c46:
 	clrb	%d5
@@ -14394,7 +14398,7 @@ sub_10009a38:
 	movel	%d7,%d0
 	moveal	%a3@,%a0
 	moveal	%a2,%a1
-	.short	0xa22e
+	_BlockMoveData
 	moveal	%a2,%a0
 	movel	%d7,%d0
 	.short	0xfe0c
@@ -16605,7 +16609,7 @@ sub_1000b1c0:
 	moveb	%a4@(42),%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-286)
@@ -16686,7 +16690,7 @@ sub_1000b28a:
 	moveb	%a4@(42),%d0
 	addqw	#1,%d0
 	extl	%d0
-	.short	0xa22e
+	_BlockMoveData
 	pea	%fp@(-282)
 	jsr	%pc@(sub_1000b3b6)
 	movew	%d0,%d7
@@ -17573,13 +17577,13 @@ sub_1000bd54:
 	extl	%d7
 	subl	%d7,%d0
 	subql	#1,%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveal	%a3,%a0
 	addql	#1,%a0
 	lea	%a4@(%d7:w),%a1
 	moveq	#0,%d0
 	moveb	%a3@,%d0
-	.short	0xa22e
+	_BlockMoveData
 	addb	%d6,%a4@
 
 .L1000bdd6:
@@ -17708,7 +17712,7 @@ sub_1000c03c:
 	moveal	%d0,%a0
 	moveal	%fp@(20),%a1
 	moveq	#4,%d0
-	.short	0xa22e
+	_BlockMoveData
 
 .L1000c0f0:
 	moveq	#1,%d6
@@ -17929,23 +17933,98 @@ sub_1000c412:
 	.short	0x18C8,0xFFEC,0x4E5E,0x4E75
 
 sub_1000c4a8:
-	.short	0x4E56,0xFFF8,0x48E7,0x1118
-	.short	0x286E,0x0008,0x41FA,0x007A,0x2D48,0xFFF8,0x41FA,0x006C
-	.short	0x2D48,0xFFFC,0x4207,0x2F2E,0xFFFC,0x2F2E,0xFFF8,0x4EBA
-	.short	0xFE14,0x2640,0x200B,0x504F,0x6744,0x598F,0x2F0B,0x4EBA
-	.short	0x8A32,0x201F,0x1880,0x204B,0x224C,0x5289,0x7000,0x1014
-	.short	0x4A80,0xA22E,0x6002,0x5314,0x7000,0x1014,0x4A80,0x630E
-	.short	0x7000,0x1014,0x7200,0x1234,0x0000,0x4A81,0x67E8,0x204B
-	.short	0xA01F,0x7000,0x1014,0x4A80,0x52C3,0x4403,0x1E03,0x1007
-	.short	0x4CEE,0x1888,0xFFE8,0x4E5E,0x4E75,0x6D6F,0x6465,0x6C00
+	linkw	%fp,#-8
+	moveml	%d3/%d7/%a3-%a4,%sp@-
+	moveal	%fp@(8),%a4
+	lea	%pc@(str_1000c530),%a0
+	movel	%a0,%fp@(-8)
+	lea	%pc@(str_1000c52a),%a0
+	movel	%a0,%fp@(-4)
+	clrb	%d7
+	movel	%fp@(-4),%sp@-
+	movel	%fp@(-8),%sp@-
+	jsr	%pc@(sub_1000c2e4)
+	moveal	%d0,%a3
+	movel	%a3,%d0
+	addqw	#8,%sp
+	beqs	.L1000c51e
+	subql	#4,%sp
+	movel	%a3,%sp@-
+	jsr	%pc@(sub_10004f12)
+	movel	%sp@+,%d0
+	moveb	%d0,%a4@
+	moveal	%a3,%a0
+	moveal	%a4,%a1
+	addql	#1,%a1
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	tstl	%d0
+	_BlockMoveData
+	bras	.L1000c4f8
+
+.L1000c4f6:
+	subqb	#1,%a4@
+
+.L1000c4f8:
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	tstl	%d0
+	blss	.L1000c50e
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d1
+	moveb	%a4@(%d0:w),%d1
+	tstl	%d1
+	beqs	.L1000c4f6
+
+.L1000c50e:
+	moveal	%a3,%a0
+	.short	0xa01f
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	tstl	%d0
+	shi	%d3
+	negb	%d3
+	moveb	%d3,%d7
+
+.L1000c51e:
+	moveb	%d7,%d0
+	moveml	%fp@(-24),%d3/%d7/%a3-%a4
+	unlk	%fp
+	rts
+
+str_1000c52a:
+	.short	0x6D6F,0x6465,0x6C00
+
+str_1000c530:
 	.short	0x4465,0x7669,0x6365,0x733A,0x6465,0x7669,0x6365,0x2D74
 	.short	0x7265,0x6500
 
 sub_1000c544:
-	.short	0x4E56,0x0000,0x48E7,0x0018,0x266E,0x0008
-	.short	0x7000,0x1013,0x5240,0x48C0,0xA51E,0x2848,0x200C,0x670E
-	.short	0x204B,0x224C,0x7000,0x1013,0x5240,0x48C0,0xA22E,0x200C
-	.short	0x4CEE,0x1800,0xFFF8,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%a3-%a4,%sp@-
+	moveal	%fp@(8),%a3
+	moveq	#0,%d0
+	moveb	%a3@,%d0
+	addqw	#1,%d0
+	extl	%d0
+	.short	0xa51e
+	moveal	%a0,%a4
+	movel	%a4,%d0
+	beqs	.L1000c56e
+	moveal	%a3,%a0
+	moveal	%a4,%a1
+	moveq	#0,%d0
+	moveb	%a3@,%d0
+	addqw	#1,%d0
+	extl	%d0
+	_BlockMoveData
+
+.L1000c56e:
+	movel	%a4,%d0
+	moveml	%fp@(-8),%a3-%a4
+	unlk	%fp
+	rts
 
 sub_1000c57a:
 	.short	0x4E56,0xFF00,0x48E7
@@ -18695,7 +18774,7 @@ sub_1000cd14:
 	movel	%a0@,%d0
 	moveal	%d0,%a0
 	moveq	#16,%d0
-	.short	0xa22e
+	_BlockMoveData
 	moveal	0xd1c,%a0
 	movel	%d1,0xd1c
 	bras	.L1000cd5a
@@ -18723,7 +18802,7 @@ sub_1000cd14:
 	oriw	#9728,%sr
 	exg	%a0,%a1
 	movel	%d1,%d0
-	.short	0xa22e
+	_BlockMoveData
 	movel	%a1,0x2b6
 	movew	%sp@+,%sr
 	.short	0xa01f
