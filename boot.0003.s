@@ -1,4 +1,6 @@
 
+CurMap	=	0xa5a
+
 .macro	_Control
 	.short	0xa004
 .endm
@@ -200,9 +202,9 @@ sub_10000000:
 
 .L10000074:
 	movew	0xa58,%d0
-	cmpw	0xa5a,%d0
+	cmpw	CurMap,%d0
 	beqw	.L100000de
-	movew	0xa5a,%a0@(24)
+	movew	CurMap,%a0@(24)
 	moveq	#8,%d0
 	_HFSDispatch
 	cmpiw	#0,%d0
@@ -216,7 +218,7 @@ sub_10000000:
 .L100000a6:
 	addaw	#80,%sp
 	movew	0xa58,%d0
-	cmpw	0xa5a,%d0
+	cmpw	CurMap,%d0
 	beqw	.L100000de
 	moveal	0xa54,%a0
 	moveal	%a0@,%a0
@@ -308,7 +310,7 @@ str_10000162:
 	_SysError
 
 .L100001d2:
-	movew	0xa5a,%d0
+	movew	CurMap,%d0
 	cmpw	0xa58,%d0
 	beqs	.L100001e4
 	moveal	0x2b6,%a0
@@ -522,7 +524,7 @@ str_10000162:
 	bsrw	sub_10002366
 
 .L1000040a:
-	movew	0xa5a,%sp@-
+	movew	CurMap,%sp@-
 	clrw	%sp@-
 	jsr	%pc@(sub_10007f70)
 	movew	%sp@+,%d1
@@ -533,7 +535,7 @@ str_10000162:
 .L1000041c:
 	moveal	0xbb8,%a0
 	st	%a0@(2927)
-	movew	%sp@+,0xa5a
+	movew	%sp@+,CurMap
 	bsrw	sub_10002acc
 	jsr	%pc@(sub_1000790c)
 	movel	#1650618232,%d0
@@ -995,10 +997,10 @@ str_10000700:
 	bset	#0,%a0@(23)
 	bset	#2,%a0@(23)
 	bset	#3,%a0@(23)
-	movew	0xa5a,%sp@-
+	movew	CurMap,%sp@-
 	moveal	0xa50,%a0
 	moveal	%a0@,%a0
-	movew	%a0@(20),0xa5a
+	movew	%a0@(20),CurMap
 	moveml	%d2/%a1-%a3,%sp@-
 	subqw	#4,%sp
 	bsrl	sub_1000970e
@@ -1011,7 +1013,7 @@ str_10000700:
 	moveml	%sp@+,%d2/%a1-%a3
 	swap	%d1
 	movew	%d1,0x15a
-	movew	%sp@,0xa5a
+	movew	%sp@,CurMap
 	bsrw	sub_100024d6
 	btst	#5,0xb20
 	bnes	.L100009d4
@@ -1052,12 +1054,12 @@ str_10000700:
 	movel	0xa54,%sp@-
 	moveq	#4,%d0
 	.short	0xa822
-	movew	%sp@,0xa5a
+	movew	%sp@,CurMap
 	bsrw	sub_100023ac
-	movew	%sp@,0xa5a
+	movew	%sp@,CurMap
 	bsrl	sub_10007bde
 	bsrw	sub_100025da
-	movew	%sp@+,0xa5a
+	movew	%sp@+,CurMap
 	bsrl	sub_10008a2e
 	movew	%a5@(50),%sp@-
 	movel	%a5@(52),%sp@-
@@ -1103,7 +1105,7 @@ str_10000ac0:
 	.byte	0x00
 
 .L10000ad4:
-	movew	0xa5a,%d0
+	movew	CurMap,%d0
 	cmpiw	#3,%d0
 	beqs	.L10000afa
 	cmpw	0xa58,%d0
@@ -3481,7 +3483,7 @@ sub_1000251c:
 	movel	0xa54,%sp@-
 	movew	0xa58,%sp@-
 	movel	%pc@(word_1000255c),0xa54
-	movew	0xa5a,0xa58
+	movew	CurMap,0xa58
 	moveal	%pc@(word_10002558),%a0
 	jsr	%a0@
 	movew	%sp@+,0xa58
@@ -3852,7 +3854,7 @@ off_100026be:
 	movew	0xa58,%d0
 
 .L1000286c:
-	movew	0xa5a,%sp@-
+	movew	CurMap,%sp@-
 	movew	%d0,%sp@-
 	movew	%d0,%sp@-
 	_UseResFile
@@ -3871,7 +3873,7 @@ off_100026be:
 
 .L10002896:
 	moveal	%sp@+,%a2
-	movew	%sp@+,0xa5a
+	movew	%sp@+,CurMap
 	braw	.L1000291e
 
 .L100028a0:
@@ -4247,7 +4249,7 @@ sub_10002bf8:
 
 sub_10002c24:
 	movel	%a0,%sp@-
-	movew	0xa5a,%sp@-
+	movew	CurMap,%sp@-
 	.short	0xa9e6
 	.short	0xa9cc
 	movel	%a1,%sp@-
@@ -4311,7 +4313,7 @@ sub_10002c24:
 	moveml	%sp@+,%a3-%fp
 
 .L10002cd2:
-	movew	%sp@+,0xa5a
+	movew	%sp@+,CurMap
 	moveal	%sp@+,%a0
 	rts
 
@@ -4321,7 +4323,7 @@ sub_10002cda:
 sub_10002ce2:
 	clrb	0x8f3
 	moveml	%a0-%a2,%sp@-
-	movew	0xa5a,%sp@-
+	movew	CurMap,%sp@-
 	bsrw	sub_10002d1e
 	movel	#1651861368,%d0
 	_Gestalt
@@ -4341,7 +4343,7 @@ sub_10002ce2:
 	movel	%a5@,%sp@-
 	_InitGraf
 	.short	0xaa90
-	movew	%sp@+,0xa5a
+	movew	%sp@+,CurMap
 	moveml	%sp@+,%a0-%a2
 	rts
 
@@ -7728,7 +7730,7 @@ sub_10005284:
 sub_100052c6:
 	moveal	0xa50,%a0
 	moveal	%a0@,%a0
-	movew	%a0@(20),0xa5a
+	movew	%a0@(20),CurMap
 	moveq	#0,%d0
 	bsrw	sub_10001922
 	movel	%d0,%d6
@@ -14330,8 +14332,8 @@ sub_1000970e:
 	moveq	#1,%d0
 	andl	%fp@(-4),%d0
 	beqs	.L10009780
-	movew	0xa5a,%d7
-	movew	0xa58,0xa5a
+	movew	CurMap,%d7
+	movew	0xa58,CurMap
 	subql	#4,%sp
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
@@ -14344,7 +14346,7 @@ sub_1000970e:
 	movel	%a0@,%fp@(-8)
 
 .L1000977c:
-	movew	%d7,0xa5a
+	movew	%d7,CurMap
 
 .L10009780:
 	movel	%fp@(-8),%fp@(8)
@@ -18984,7 +18986,7 @@ sub_1000cac2:
 	linkw	%fp,#0
 	moveml	%d6-%d7/%a4,%sp@-
 	moveal	%fp@(8),%a4
-	movew	0xa5a,%d6
+	movew	CurMap,%d6
 	movel	%a4,%sp@-
 	.short	0xa992
 	movel	%a4@,%sp@-
@@ -19001,7 +19003,7 @@ sub_1000cac2:
 	movew	%d0,%d7
 
 .L1000caf6:
-	movew	%d6,0xa5a
+	movew	%d6,CurMap
 	movew	%d7,%d0
 	moveml	%fp@(-12),%d6-%d7/%a4
 	unlk	%fp
