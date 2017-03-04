@@ -83,6 +83,10 @@
 	.short	0xa9c9
 .endm
 
+.macro	_OpenCPort
+	.short	0xaa00
+.endm
+
 .macro	_CloseCPort
 	.short	0xaa02
 .endm
@@ -7893,7 +7897,7 @@ sub_100055a8:
 	andiw	#-16384,%d0
 	beqs	.L10005612
 	_CloseCPort
-	.short	0xaa00
+	_OpenCPort
 	bras	.L10005616
 
 .L10005612:
@@ -19301,7 +19305,7 @@ sub_1000cda2:
 	pea	%fp@(-12)
 	jsr	%pc@(sub_1000cf0e)
 	pea	%fp@(-120)
-	.short	0xaa00
+	_OpenCPort
 	movel	#1768124270,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
