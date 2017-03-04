@@ -127,6 +127,10 @@
 	.short	0xaaf3
 .endm
 
+.macro	_IconDispatch
+	.short	0xabc9
+.endm
+
 .macro	_NameRegistryDispatch
 	.short	0xabe9
 .endm
@@ -19357,7 +19361,7 @@ sub_1000cda2:
 	movew	%d0,%sp@-
 	movew	%d6,%sp@-
 	movew	#1280,%d0
-	.short	0xabc9
+	_IconDispatch
 	tstw	%sp@+
 	bnes	.L1000ce92
 	moveq	#1,%d7
