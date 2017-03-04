@@ -11,6 +11,10 @@
 	.short	0xa01b
 .endm
 
+.macro	_DisposePtr
+	.short	0xa01f
+.endm
+
 .macro	_HUnlock
 	.short	0xa02a
 .endm
@@ -293,7 +297,7 @@ str_10000162:
 	movew	#363,%a1@
 	movel	#842,%a1@(2)
 	movel	%a1,0x2b6
-	.short	0xa01f
+	_DisposePtr
 	beqs	.L100001d2
 
 .L100001d0:
@@ -7060,7 +7064,7 @@ sub_100049fa:
 
 .L10004b10:
 	moveal	%fp@(-4),%a0
-	.short	0xa01f
+	_DisposePtr
 
 .L10004b16:
 	moveal	%fp@(-8),%a0
@@ -7089,7 +7093,7 @@ sub_10004b2e:
 	lea	%a4@(578),%a0
 	.short	0xa059
 	moveal	%a4@(562),%a0
-	.short	0xa01f
+	_DisposePtr
 	moveq	#0,%d0
 	movel	%d0,%a4@(562)
 
@@ -9434,7 +9438,7 @@ sub_1000643e:
 	movel	%a4,%d0
 	beqs	.L100065a8
 	moveal	%a4,%a0
-	.short	0xa01f
+	_DisposePtr
 
 .L100065a8:
 	moveb	%d6,%d0
@@ -9984,7 +9988,7 @@ sub_100069d2:
 
 .L10006a88:
 	moveal	%a4,%a0
-	.short	0xa01f
+	_DisposePtr
 	subql	#2,%sp
 	movel	#1633968754,%sp@-
 	movew	#515,%d0
@@ -10550,7 +10554,7 @@ sub_100070ee:
 	cmpl	%sp@+,%d0
 	bnes	.L10007180
 	moveal	%a3,%a0
-	.short	0xa01f
+	_DisposePtr
 
 .L10007180:
 	moveml	%fp@(-28),%d3/%d6-%d7/%a3-%a4
@@ -16299,7 +16303,7 @@ sub_1000ab2c:
 	movew	%d0,%d7
 	bnes	.L1000abca
 	moveal	%fp@(-30),%a0
-	.short	0xa01f
+	_DisposePtr
 	bras	.L1000abdc
 
 .L1000abca:
@@ -18447,7 +18451,7 @@ sub_1000c4a8:
 
 .L1000c50e:
 	moveal	%a3,%a0
-	.short	0xa01f
+	_DisposePtr
 	moveq	#0,%d0
 	moveb	%a4@,%d0
 	tstl	%d0
@@ -18653,7 +18657,7 @@ sub_1000c686:
 	addqw	#4,%sp
 	beqs	.L1000c76a
 	moveal	%a2,%a0
-	.short	0xa01f
+	_DisposePtr
 
 .L1000c76a:
 	tstb	%d6
@@ -19273,7 +19277,7 @@ sub_1000cd14:
 	_BlockMoveData
 	movel	%a1,0x2b6
 	movew	%sp@+,%sr
-	.short	0xa01f
+	_DisposePtr
 	moveal	%a1,%a0
 
 .L1000cd96:
