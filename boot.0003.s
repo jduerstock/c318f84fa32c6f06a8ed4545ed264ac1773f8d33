@@ -51,6 +51,10 @@
 	.short	0xa22e
 .endm
 
+.macro	_HFSDispatch
+	.short	0xa260
+.endm
+
 .macro	_NewPtrSys
 	.short	0xa51e
 .endm
@@ -164,7 +168,7 @@ sub_10000000:
 	clrw	%a0@(22)
 	movew	0xa58,%a0@(24)
 	moveq	#8,%d0
-	.short	0xa260
+	_HFSDispatch
 	cmpiw	#0,%d0
 	bnes	.L10000074
 	movew	%a0@(52),%a5@(50)
@@ -176,7 +180,7 @@ sub_10000000:
 	beqw	.L100000de
 	movew	0xa5a,%a0@(24)
 	moveq	#8,%d0
-	.short	0xa260
+	_HFSDispatch
 	cmpiw	#0,%d0
 	bnes	.L100000a6
 	movel	%a0@(58),%a5@(58)
@@ -4989,7 +4993,7 @@ sub_1000335c:
 	movel	%fp@(8),%fp@(-24)
 	lea	%fp@(-52),%a0
 	moveq	#5,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%fp@(26)
 	unlk	%fp
 	moveal	%sp@+,%a0
@@ -9600,7 +9604,7 @@ sub_1000663e:
 	movel	%fp@(-4),%fp@(-400)
 	lea	%fp@(-436),%a0
 	moveq	#5,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%d6
 	bras	.L10006770
 
@@ -11431,7 +11435,7 @@ sub_100079d2:
 	clrw	%fp@(-34)
 	lea	%fp@(-62),%a0
 	moveq	#8,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%d7
 	movew	%fp@(-10),%a4@
 	movel	%fp@(-4),%a4@(2)
@@ -13586,7 +13590,7 @@ sub_1000905a:
 	movel	%fp@(16),%fp@(-94)
 	lea	%fp@(-142),%a0
 	moveq	#9,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%fp@(-2)
 	bnew	.L10009252
 	moveq	#16,%d0
@@ -16799,7 +16803,7 @@ sub_1000b03c:
 .L1000b09a:
 	lea	%fp@(-370),%a0
 	moveq	#9,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%d6
 	bnew	.L1000b146
 	moveq	#16,%d0
@@ -16883,12 +16887,42 @@ sub_1000b03c:
 	rts
 
 sub_1000b166:
-	.short	0x4E56,0xFFC2,0x48E7,0x0108,0x286E
-	.short	0x000C,0x558F,0x2F2E,0x0008,0xA9A4,0x3E1F,0x6604,0x7E02
-	.short	0x600A,0x0C47,0x0001,0x6604,0x70CE,0x602A,0x204C,0x5C88
-	.short	0x2D48,0xFFD4,0x426E,0xFFD8,0x3D47,0xFFDA,0x426E,0xFFDE
-	.short	0x41EE,0xFFC2,0x7008,0xA260,0x3E00,0x38AE,0xFFF6,0x296E
-	.short	0xFFFC,0x0002,0x3007,0x4CEE,0x1080,0xFFBA,0x4E5E,0x4E75
+	linkw	%fp,#-62
+	moveml	%d7/%a4,%sp@-
+	moveal	%fp@(12),%a4
+	subql	#2,%sp
+	movel	%fp@(8),%sp@-
+	.short	0xa9a4
+	movew	%sp@+,%d7
+	bnes	.L1000b182
+	moveq	#2,%d7
+	bras	.L1000b18c
+
+.L1000b182:
+	cmpiw	#1,%d7
+	bnes	.L1000b18c
+	moveq	#-50,%d0
+	bras	.L1000b1b6
+
+.L1000b18c:
+	moveal	%a4,%a0
+	addql	#6,%a0
+	movel	%a0,%fp@(-44)
+	clrw	%fp@(-40)
+	movew	%d7,%fp@(-38)
+	clrw	%fp@(-34)
+	lea	%fp@(-62),%a0
+	moveq	#8,%d0
+	_HFSDispatch
+	movew	%d0,%d7
+	movew	%fp@(-10),%a4@
+	movel	%fp@(-4),%a4@(2)
+	movew	%d7,%d0
+
+.L1000b1b6:
+	moveml	%fp@(-70),%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000b1c0:
 	linkw	%fp,#-356
@@ -17294,7 +17328,7 @@ sub_1000b50a:
 	movel	%a0,%fp@(-114)
 	lea	%fp@(-132),%a0
 	moveq	#8,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%d7
 	bnes	.L1000b5a2
 	movew	%fp@(-80),%fp@(-70)
@@ -17987,14 +18021,62 @@ sub_1000bde0:
 	.short	0xFFF2,0x4E5E,0x4E75
 
 sub_1000bfb6:
-	.short	0x4E56,0x0000,0x2F0C,0x598F,0x2F2E
-	.short	0x0008,0x3F2E,0x000E,0xA9A0,0x285F,0x200C,0x6710,0x4A94
-	.short	0x660C,0x558F,0xA9AF,0x4A5F,0x6604,0x2F0C,0xA9A2,0x200C
-	.short	0x672E,0x4A94,0x672A,0x558F,0xA9AF,0x4A5F,0x6622,0x598F
-	.short	0x2F0C,0x4EBA,0x8B36,0x41F8,0x000C,0x5448,0xB1DF,0x6210
-	.short	0x2054,0x7001,0xB090,0x6608,0x2F0C,0xA992,0x200C,0x600A
-	.short	0x200C,0x6704,0x2F0C,0xA9A3,0x7000,0x286E,0xFFFC,0x4E5E
-	.short	0x4E75
+	linkw	%fp,#0
+	movel	%a4,%sp@-
+	subql	#4,%sp
+	movel	%fp@(8),%sp@-
+	movew	%fp@(14),%sp@-
+	.short	0xa9a0
+	moveal	%sp@+,%a4
+	movel	%a4,%d0
+	beqs	.L1000bfde
+	tstl	%a4@
+	bnes	.L1000bfde
+	subql	#2,%sp
+	.short	0xa9af
+	tstw	%sp@+
+	bnes	.L1000bfde
+	movel	%a4,%sp@-
+	.short	0xa9a2
+
+.L1000bfde:
+	movel	%a4,%d0
+	beqs	.L1000c010
+	tstl	%a4@
+	beqs	.L1000c010
+	subql	#2,%sp
+	.short	0xa9af
+	tstw	%sp@+
+	bnes	.L1000c010
+	subql	#4,%sp
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_10004b2a)
+	lea	0xc,%a0
+	addqw	#2,%a0
+	cmpal	%sp@+,%a0
+	bhis	.L1000c010
+	moveal	%a4@,%a0
+	moveq	#1,%d0
+	cmpl	%a0@,%d0
+	bnes	.L1000c010
+	movel	%a4,%sp@-
+	.short	0xa992
+	movel	%a4,%d0
+	bras	.L1000c01a
+
+.L1000c010:
+	movel	%a4,%d0
+	beqs	.L1000c018
+	movel	%a4,%sp@-
+	.short	0xa9a3
+
+.L1000c018:
+	moveq	#0,%d0
+
+.L1000c01a:
+	moveal	%fp@(-4),%a4
+	unlk	%fp
+	rts
 
 sub_1000c022:
 	linkw	%fp,#0
@@ -19421,7 +19503,7 @@ sub_1000cff2:
 	clrw	%fp@(-34)
 	lea	%fp@(-62),%a0
 	moveq	#8,%d0
-	.short	0xa260
+	_HFSDispatch
 	movew	%d0,%d7
 	bnes	.L1000d034
 	subql	#2,%sp
