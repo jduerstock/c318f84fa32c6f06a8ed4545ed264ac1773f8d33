@@ -71,6 +71,10 @@
 	.short	0xa823
 .endm
 
+.macro	_InitGraf
+	.short	0xa86e
+.endm
+
 .macro	_CurResFile
 	.short	0xa994
 .endm
@@ -4327,7 +4331,7 @@ sub_10002ce2:
 
 .L10002d0e:
 	movel	%a5@,%sp@-
-	.short	0xa86e
+	_InitGraf
 	.short	0xaa90
 	movew	%sp@+,0xa5a
 	moveml	%sp@+,%a0-%a2
@@ -4347,7 +4351,7 @@ sub_10002d1e:
 	movel	%a5,%fp@(-4)
 	lea	%fp@(-8),%a5
 	pea	%fp@(-12)
-	.short	0xa86e
+	_InitGraf
 	pea	%fp@(-330)
 	.short	0xa86f
 	moveal	%a5@,%a2
@@ -7889,7 +7893,7 @@ sub_100055a8:
 	bnes	.L10005636
 	moveal	%fp@(14),%a5
 	movel	%a5@,%sp@-
-	.short	0xa86e
+	_InitGraf
 	lea	%a5@(112),%a0
 	movel	%a0,%sp@-
 	movel	%a0,%sp@-
@@ -8282,7 +8286,7 @@ sub_10005aa0:
 	moveb	0x8f3,%fp@(-2)
 	moveb	0x8f2,%fp@(-4)
 	pea	%fp@(-16)
-	.short	0xa86e
+	_InitGraf
 	.short	0xa912
 	.short	0xa930
 	.short	0xa9cc
@@ -19300,7 +19304,7 @@ sub_1000cda2:
 	exg	%d0,%a5
 	movel	%d0,%d5
 	pea	%fp@(-128)
-	.short	0xa86e
+	_InitGraf
 	pea	%fp@(-244)
 	pea	%fp@(-12)
 	jsr	%pc@(sub_1000cf0e)
