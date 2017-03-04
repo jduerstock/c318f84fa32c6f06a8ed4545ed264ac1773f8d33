@@ -43,6 +43,10 @@
 	.short	0xa11a
 .endm
 
+.macro	_NewPtr
+	.short	0xa11e
+.endm
+
 .macro	_Gestalt
 	.short	0xa1ad
 .endm
@@ -19268,7 +19272,7 @@ sub_1000cd14:
 	moveal	%a0,%a1
 	movel	%d0,%d1
 	movel	#490,%d0
-	.short	0xa11e
+	_NewPtr
 	bnes	.L1000cd9e
 	movew	%sr,%sp@-
 	oriw	#9728,%sr
