@@ -83,6 +83,10 @@
 	.short	0xa9c9
 .endm
 
+.macro	_CloseCPort
+	.short	0xaa02
+.endm
+
 .macro	_RGBForeColor
 	.short	0xaa14
 .endm
@@ -7884,7 +7888,7 @@ sub_100055a8:
 	movew	%a0@(6),%d0
 	andiw	#-16384,%d0
 	beqs	.L10005612
-	.short	0xaa02
+	_CloseCPort
 	.short	0xaa00
 	bras	.L10005616
 
@@ -19360,7 +19364,7 @@ sub_1000cda2:
 
 .L1000ce92:
 	pea	%fp@(-120)
-	.short	0xaa02
+	_CloseCPort
 	tstb	%d7
 	beqs	.L1000cea6
 	tstb	%fp@(8)
