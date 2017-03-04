@@ -11,6 +11,10 @@
 	.short	0xa02a
 .endm
 
+.macro	_Delay
+	.short	0xa03b
+.endm
+
 .macro	_RelString
 	.short	0xa050
 .endm
@@ -5659,7 +5663,7 @@ sub_10003988:
 	tstb	%a0@
 	beqs	.L10003a8a
 	moveaw	#2,%a0
-	.short	0xa03b
+	_Delay
 
 .L10003a8a:
 	pea	%fp@(-12)
@@ -8294,7 +8298,7 @@ sub_10005af0:
 	movew	#1,%sp@-
 	.short	0xa95d
 	moveaw	#8,%a0
-	.short	0xa03b
+	_Delay
 	movel	%fp@(4),%sp@-
 	clrw	%sp@-
 	.short	0xa95d
@@ -8353,7 +8357,7 @@ sub_10005b8a:
 	moveq	#0,%d0
 	movew	%a3@+,%d0
 	moveal	%d0,%a0
-	.short	0xa03b
+	_Delay
 	dbf	%d3,.L10005bcc
 
 .L10005bdc:
@@ -10220,7 +10224,7 @@ sub_10006e4c:
 	beqw	.L10006f92
 	moveaw	#1,%a0
 	lea	%fp@(-26),%a1
-	.short	0xa03b
+	_Delay
 	movel	%d0,%a1@
 	moveb	#2,%a4@
 	moveq	#0,%d0
@@ -10252,7 +10256,7 @@ sub_10006e4c:
 .L10006f26:
 	moveaw	#1,%a0
 	lea	%fp@(-26),%a1
-	.short	0xa03b
+	_Delay
 	movel	%d0,%a1@
 	clrb	%a4@
 	moveq	#0,%d6
@@ -10344,7 +10348,7 @@ sub_10006fa2:
 	beqw	.L100070dc
 	moveaw	#1,%a0
 	lea	%fp@(-26),%a1
-	.short	0xa03b
+	_Delay
 	movel	%d0,%a1@
 	moveq	#0,%d0
 	moveb	%d6,%d0
@@ -17827,12 +17831,40 @@ sub_1000bc96:
 	.short	0x2248,0x3028,0x0002,0xB051,0x6604,0x4268,0x0002,0x286E
 	.short	0xFFFC,0x4E5E,0x4E75
 
-	.short	0x4E56,0xFFFC,0x48E7,0x0108,0x3E2E
-	.short	0x000E,0x0C47,0x0001,0x6630,0x48C7,0x2F07,0x2F2E,0x0008
-	.short	0x4EBA,0xFCDA,0x2840,0x2F0C,0x7001,0x3F00,0xA95D,0x307C
-	.short	0x000A,0x43EE,0xFFFC,0xA03B,0x2280,0x2F0C,0x7000,0x3F00
-	.short	0xA95D,0x7001,0x504F,0x6002,0x7000,0x4CEE,0x1080,0xFFF4
-	.short	0x4E5E,0x4E75
+sub_1000bd06:
+	linkw	%fp,#-4
+	moveml	%d7/%a4,%sp@-
+	movew	%fp@(14),%d7
+	cmpiw	#1,%d7
+	bnes	.L1000bd48
+	extl	%d7
+	movel	%d7,%sp@-
+	movel	%fp@(8),%sp@-
+	jsr	%pc@(sub_1000b9fc)
+	moveal	%d0,%a4
+	movel	%a4,%sp@-
+	moveq	#1,%d0
+	movew	%d0,%sp@-
+	.short	0xa95d
+	moveaw	#10,%a0
+	lea	%fp@(-4),%a1
+	_Delay
+	movel	%d0,%a1@
+	movel	%a4,%sp@-
+	moveq	#0,%d0
+	movew	%d0,%sp@-
+	.short	0xa95d
+	moveq	#1,%d0
+	addqw	#8,%sp
+	bras	.L1000bd4a
+
+.L1000bd48:
+	moveq	#0,%d0
+
+.L1000bd4a:
+	moveml	%fp@(-12),%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000bd54:
 	linkw	%fp,#0
