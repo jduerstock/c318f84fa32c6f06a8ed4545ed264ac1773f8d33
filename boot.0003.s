@@ -137,6 +137,10 @@ CurMap	=	0xa5a
 	.short	0xa96c
 .endm
 
+.macro	_TickCount
+	.short	0xa975
+.endm
+
 .macro	_DetachResource
 	.short	0xa992
 .endm
@@ -10503,14 +10507,14 @@ sub_10006e4c:
 	movew	%d0,%sp@
 	movew	%sp@+,%d4
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%sp@+,%d7
 
 .L10006eb8:
 	tstb	%a4@
 	bnes	.L10006ec8
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%d7,%d0
 	addql	#2,%d0
 	cmpl	%sp@+,%d0
@@ -10577,14 +10581,14 @@ sub_10006e4c:
 	movew	%d0,%sp@
 	movew	%sp@+,%d4
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%sp@+,%d7
 
 .L10006f6c:
 	tstb	%a4@
 	bnes	.L10006f7c
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%d7,%d0
 	addql	#2,%d0
 	cmpl	%sp@+,%d0
@@ -10672,14 +10676,14 @@ sub_10006fa2:
 	movew	%d0,%sp@
 	movew	%sp@+,%d3
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%sp@+,%d7
 
 .L1000703a:
 	tstb	%a3@
 	bnes	.L1000704a
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	movel	%d7,%d0
 	addql	#2,%d0
 	cmpl	%sp@+,%d0
@@ -17741,7 +17745,7 @@ sub_1000b5b2:
 	jsr	%a0@
 	movew	%sp@+,%d7
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	moveal	%a4@,%a0
 	movel	%sp@+,%a0@(4)
 	movew	%d7,%d0
@@ -18134,7 +18138,7 @@ sub_1000baf8:
 	_GetWRefCon
 	movel	%sp@+,%fp@(-8)
 	subql	#4,%sp
-	.short	0xa975
+	_TickCount
 	moveal	%fp@(-8),%a0
 	movel	%sp@+,%d6
 	subl	%a0@(4),%d6
