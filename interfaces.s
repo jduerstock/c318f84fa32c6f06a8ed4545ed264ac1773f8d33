@@ -201,6 +201,10 @@ CurMap	=	0xa5a
 	.short	0xa975
 .endm
 
+.macro	_UpdateDialog
+	.short	0xa978
+.endm
+
 .macro	_GetNewDialog
 	.short	0xa97c
 .endm

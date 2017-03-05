@@ -17741,7 +17741,7 @@ sub_1000b5b2:
 	jsr	%pc@(sub_1000bab0)
 	movel	%a3,%sp@-
 	movel	%a3@(24),%sp@-
-	.short	0xa978
+	_UpdateDialog
 	subql	#2,%sp
 	moveq	#-1,%d0
 	movew	%d0,%sp@-
