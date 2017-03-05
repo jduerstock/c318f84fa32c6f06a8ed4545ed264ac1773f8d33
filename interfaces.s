@@ -149,6 +149,10 @@ CurMap	=	0xa5a
 	.short	0xa871
 .endm
 
+.macro	_SetPort
+	.short	0xa873
+.endm
+
 .macro	_InitGraf
 	.short	0xa86e
 .endm

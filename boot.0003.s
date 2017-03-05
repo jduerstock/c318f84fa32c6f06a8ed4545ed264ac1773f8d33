@@ -278,7 +278,7 @@ str_10000162:
 	addqw	#1,%d0
 	movew	%d0,%a0@
 	pea	%a5@(112)
-	.short	0xa873
+	_SetPort
 	lea	%a5@(-138),%a1
 	movel	%a1,%a5@(-134)
 	lea	%a5@(-148),%a0
@@ -723,7 +723,7 @@ str_10000700:
 	addqw	#1,%d0
 	movew	%d0,%a0@
 	pea	%a5@(112)
-	.short	0xa873
+	_SetPort
 	lea	%a5@(-138),%a1
 	movel	%a1,%a5@(-134)
 	lea	%a5@(-148),%a0
@@ -5518,7 +5518,7 @@ sub_10003988:
 	moveal	%a5@,%a0
 	movel	%a0@,%fp@(-34)
 	pea	%a5@(112)
-	.short	0xa873
+	_SetPort
 	pea	%fp@(-30)
 	.short	0xa898
 	.short	0xa89e
@@ -5577,7 +5577,7 @@ sub_10003988:
 	movel	%d1,%sp@-
 	jsr	%pc@(sub_10004668)
 	movel	%fp@(-34),%sp@-
-	.short	0xa873
+	_SetPort
 	movel	%sp@+,0x118
 	moveml	%sp@+,%d0-%d2/%a0-%a1
 	unlk	%fp
@@ -5592,7 +5592,7 @@ sub_10003ac8:
 	movel	%sp,%sp@-
 	.short	0xa874
 	movel	0x9de,%sp@-
-	.short	0xa873
+	_SetPort
 	subqw	#4,%sp
 	.short	0xa924
 	subqw	#4,%sp
@@ -5604,7 +5604,7 @@ sub_10003ac8:
 	.short	0xa90d
 	movel	%a3,%sp@-
 	.short	0xa8d9
-	.short	0xa873
+	_SetPort
 	moveal	%sp@+,%a3
 	jmp	%pc@(sub_10004d70)
 
@@ -7829,13 +7829,13 @@ sub_1000539a:
 	movel	%sp,%sp@-
 	.short	0xa874
 	pea	%a5@(112)
-	.short	0xa873
+	_SetPort
 	movel	%a2,%sp@-
 	movel	%a4,%sp@-
 	.short	0xa8f6
 	movel	%a2,%sp@-
 	_ReleaseResource
-	.short	0xa873
+	_SetPort
 	moveml	%sp@+,%d0-%d4/%a0-%a4
 	rts
 
@@ -8140,7 +8140,7 @@ sub_100056ae:
 	movel	%sp,%sp@-
 	.short	0xa874
 	pea	%a5@(112)
-	.short	0xa873
+	_SetPort
 	subqw	#4,%sp
 	movew	#-20235,%sp@-
 	.short	0xa9bc
@@ -8252,7 +8252,7 @@ word_100057ce:
 	_ReleaseResource
 
 .L10005886:
-	.short	0xa873
+	_SetPort
 	bras	.L1000589c
 
 .L1000588a:
@@ -17715,7 +17715,7 @@ sub_1000b5b2:
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_1000ba1e)
 	movel	%a3,%sp@-
-	.short	0xa873
+	_SetPort
 	movel	%a3,%sp@-
 	.short	0xa91f
 	subql	#2,%sp
@@ -17882,7 +17882,7 @@ sub_1000b5b2:
 
 .L1000b7d2:
 	movel	%fp@(-54),%sp@-
-	.short	0xa873
+	_SetPort
 	movel	%a3,%d0
 	beqs	.L1000b7e0
 	movel	%a3,%sp@-
