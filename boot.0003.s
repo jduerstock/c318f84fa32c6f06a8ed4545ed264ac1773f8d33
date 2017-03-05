@@ -69,6 +69,10 @@ CurMap	=	0xa5a
 	.short	0xa052
 .endm
 
+.macro	_MemoryDispatch
+	.short	0xa05c
+.endm
+
 .macro	_HGetState
 	.short	0xa069
 .endm
@@ -1036,7 +1040,7 @@ str_10000700:
 	lea	%pc@(.L100005a6),%a0
 	subal	%a0,%a1
 	moveq	#1,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	movel	0x322,%d0
 	addl	%d0,%d0
 	addl	0x322,%d0
@@ -1044,7 +1048,7 @@ str_10000700:
 	subal	%d0,%a0
 	moveal	%d0,%a1
 	moveq	#0,%d0
-	.short	0xa05c
+	_MemoryDispatch
 
 .L100008aa:
 	moveq	#2,%d0
@@ -1457,7 +1461,7 @@ str_10000da6:
 	tstl	0xb78
 	bmis	.L10000dc8
 	moveq	#-2,%d0
-	.short	0xa05c
+	_MemoryDispatch
 
 .L10000dc8:
 	bsrw	sub_1000619a
@@ -3035,7 +3039,7 @@ sub_10001fa2:
 	tstl	0xb78
 	bmis	.L10001fde
 	moveq	#-3,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	subl	%a5@(26),%d0
 	bmis	.L10001fde
 	cmpl	%d1,%d0
@@ -3180,7 +3184,7 @@ sub_100020e0:
 	lea	%pc@(.L100005a6),%a0
 	subal	%a0,%a1
 	moveq	#0,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	movel	0x120,%d0
 	beqs	.L10002194
 	cmpil	#-1,%d0
@@ -3197,7 +3201,7 @@ sub_100020e0:
 	subal	%a0,%a1
 	subql	#1,%a1
 	moveq	#0,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	tstw	%d0
 	bnes	.L10002160
 	movel	%sp@,0x10c
@@ -3241,13 +3245,13 @@ sub_100020e0:
 	addaw	#4096,%a0
 	moveml	%a0-%a1,%sp@-
 	moveq	#12,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	moveml	%sp@,%a0-%a1
 	moveq	#13,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	moveml	%sp@+,%a0-%a1
 	moveq	#12,%d0
-	.short	0xa05c
+	_MemoryDispatch
 
 .L100021d6:
 	bsrs	sub_1000223a
@@ -3266,7 +3270,7 @@ str_100021dc:
 
 sub_1000223a:
 	moveq	#-6,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	movel	%d0,%d4
 	moveal	0x68ffeff0,%a0
 	movel	%a0@,%d3
@@ -3465,7 +3469,7 @@ sub_100023e2:
 	moveal	0x2a6,%a1
 	subl	%a1@,%d1
 	moveq	#-3,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	subl	%a5@(26),%d0
 	bpls	.L10002422
 	moveal	%a1@,%a0
@@ -4417,9 +4421,9 @@ sub_10002c24:
 	subal	%d0,%a0
 	moveal	%d0,%a1
 	moveq	#1,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	moveq	#-1,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	bras	.L10002cd2
 
 .L10002cc0:
@@ -9091,7 +9095,7 @@ sub_10005e0a:
 	bmis	.L10005e48
 	lea	0x6,%a1
 	moveq	#0,%d0
-	.short	0xa05c
+	_MemoryDispatch
 
 .L10005e48:
 	movew	#20217,%a0@
@@ -15245,7 +15249,7 @@ sub_10009a38:
 	moveal	%a2,%a0
 	moveal	%d6,%a1
 	moveq	#4,%d0
-	.short	0xa05c
+	_MemoryDispatch
 	tstw	%d0
 	bnew	.L10009bd6
 	subqw	#4,%sp
