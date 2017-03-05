@@ -1,6 +1,10 @@
 
 CurMap	=	0xa5a
 
+.macro	_Open
+	.short	0xa000
+.endm
+
 .macro	_Control
 	.short	0xa004
 .endm
@@ -1584,7 +1588,7 @@ str_10000eda:
 	lea	%pc@(str_10000f38),%a2
 	movel	%a2,%a0@(18)
 	clrb	%a0@(27)
-	.short	0xa000
+	_Open
 	bnes	.L10000f32
 	moveal	%a0,%a2
 	subqw	#4,%sp
@@ -3379,7 +3383,7 @@ sub_1000231a:
 	moveb	#1,%a2@+
 	lea	%a5@(1648),%a1
 	movel	%a1,%a2@
-	.short	0xa000
+	_Open
 	bnes	.L10002362
 	.short	0xa011
 	bnes	.L10002360
@@ -4893,7 +4897,7 @@ sub_10003114:
 	dbf	%d0,.L10003116
 	movel	%sp@(58),%sp@(18)
 	moveal	%sp,%a0
-	.short	0xa000
+	_Open
 	moveal	%sp@(54),%a0
 	movew	%sp@(24),%a0@
 	moveal	%sp@(50),%a0
