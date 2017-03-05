@@ -37,6 +37,10 @@ CurMap	=	0xa5a
 	.short	0xa02e
 .endm
 
+.macro	_GetOSEvent
+	.short	0xa031
+.endm
+
 .macro	_Delay
 	.short	0xa03b
 .endm
@@ -103,6 +107,10 @@ CurMap	=	0xa5a
 
 .macro	_AliasDispatch
 	.short	0xa823
+.endm
+
+.macro	_GlobalToLocal
+	.short	0xa871
 .endm
 
 .macro	_InitGraf
@@ -18542,7 +18550,7 @@ sub_1000be98:
 .L1000beba:
 	moveq	#10,%d0
 	lea	%fp@(-20),%a0
-	.short	0xa031
+	_GetOSEvent
 	addqw	#1,%d0
 	tstb	%d0
 	beqw	.L1000bf54
@@ -18558,7 +18566,7 @@ sub_1000be98:
 	movel	%d0,%fp@(-28)
 	movel	%fp@(-10),%fp@(-24)
 	pea	%fp@(-24)
-	.short	0xa871
+	_GlobalToLocal
 	subql	#2,%sp
 	movel	%fp@(-24),%sp@-
 	movel	%a4,%sp@-
