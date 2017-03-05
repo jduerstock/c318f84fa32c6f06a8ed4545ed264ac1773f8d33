@@ -18227,9 +18227,16 @@ sub_1000b958:
 	rts
 
 sub_1000b9fc:
-	.short	0x4E56,0xFFF2
-	.short	0x2F2E,0x0008,0x3F2E,0x000E,0x486E,0xFFF2,0x486E,0xFFFC
-	.short	0x486E,0xFFF4,0xA98D,0x202E,0xFFFC,0x4E5E,0x4E75
+	linkw	%fp,#-14
+	movel	%fp@(8),%sp@-
+	movew	%fp@(14),%sp@-
+	pea	%fp@(-14)
+	pea	%fp@(-4)
+	pea	%fp@(-12)
+	.short	0xa98d
+	movel	%fp@(-4),%d0
+	unlk	%fp
+	rts
 
 sub_1000ba1e:
 	linkw	%fp,#-292
