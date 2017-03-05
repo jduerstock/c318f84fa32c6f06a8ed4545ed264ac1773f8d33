@@ -2169,7 +2169,7 @@ sub_100019ba:
 	moveq	#0,%d7
 	subqw	#4,%sp
 	movew	%fp@(8),%sp@-
-	.short	0xa9ba
+	_GetString
 	movel	%sp@+,%d0
 	beqs	.L100019ea
 	moveal	%d0,%a0
@@ -5720,7 +5720,7 @@ sub_10003de8:
 	moveal	%a0@,%a0
 	movew	%a4@(2),%a0@(2)
 	movel	%fp@(-4),%sp@-
-	.short	0xa9aa
+	_ChangedResource
 	moveq	#0,%d0
 	movew	%d0,%sp@-
 	.short	0xa999
@@ -8208,7 +8208,7 @@ word_100057ce:
 	beqs	.L10005886
 	subqw	#4,%sp
 	movew	%d0,%sp@-
-	.short	0xa9ba
+	_GetString
 	movel	%sp@+,%d0
 	beqs	.L10005886
 	moveal	%d0,%a2
@@ -9595,7 +9595,7 @@ sub_100065b4:
 	beqs	.L10006630
 	subql	#4,%sp
 	movew	%d7,%sp@-
-	.short	0xa9ba
+	_GetString
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqs	.L10006630
@@ -14665,7 +14665,7 @@ sub_100097e4:
 	moveal	%fp@(8),%a3
 	subql	#4,%sp
 	movew	#-16413,%sp@-
-	.short	0xa9ba
+	_GetString
 	moveal	%sp@+,%a4
 	moveq	#0,%d7
 	movel	%a4,%d0
@@ -14699,7 +14699,7 @@ sub_100097e4:
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_100033d2)
 	movel	%a4,%sp@-
-	.short	0xa9aa
+	_ChangedResource
 	addqw	#4,%sp
 
 .L1000983e:
@@ -16485,7 +16485,7 @@ sub_1000a94a:
 	movel	%a1@+,%a0@+
 	movel	%a1@+,%a0@+
 	movel	%a4,%sp@-
-	.short	0xa9aa
+	_ChangedResource
 	bras	.L1000aac2
 
 .L1000aab6:
@@ -16509,13 +16509,11 @@ sub_1000a94a:
 
 str_1000aad4:
 	.byte	0x1a
-	.ascii	"Debugger Nub Configuration"
-	.byte	0x00
+	.string	"Debugger Nub Configuration"
 
 str_1000aaf0:	
 	.byte	0x18
-	.ascii	"Debugger Nub Preferences"
-	.byte	0x00
+	.string	"Debugger Nub Preferences"
 
 sub_1000ab0a:
 	linkw	%fp,#0

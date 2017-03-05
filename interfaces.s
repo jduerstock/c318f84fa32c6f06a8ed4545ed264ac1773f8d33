@@ -309,12 +309,20 @@ CurMap	=	0xa5a
 	.short	0xa9a5
 .endm
 
+.macro	_ChangedResource
+	.short	0xa9aa
+.endm
+
 .macro	_ResError
 	.short	0xa9af
 .endm
 
 .macro	_GetCursor
 	.short	0xa9b9
+.endm
+
+.macro	_GetString
+	.short	0xa9ba
 .endm
 
 .macro	_SysBeep
