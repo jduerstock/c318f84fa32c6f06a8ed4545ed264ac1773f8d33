@@ -161,6 +161,10 @@ CurMap	=	0xa5a
 	.short	0xa917
 .endm
 
+.macro	_ShowControl
+	.short	0xa957
+.endm
+
 .macro	_HideControl
 	.short	0xa958
 .endm
@@ -18485,7 +18489,7 @@ sub_1000bab0:
 	jsr	%pc@(sub_1000b9fc)
 	moveal	%d0,%a4
 	movel	%a4,%sp@-
-	.short	0xa957
+	_ShowControl
 	movel	%a4,%sp@-
 	movew	%fp@(14),%sp@-
 	_SetControlValue
