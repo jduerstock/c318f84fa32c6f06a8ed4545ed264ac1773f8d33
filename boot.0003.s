@@ -5587,13 +5587,13 @@ sub_10003712:
 	rts
 
 word_10003766:
-	.short	0xA092
+	.short	0xa092
 
 word_10003768:
-	.short	0xAAF3
+	.short	0xaaf3
 
 word_1000376a:
-	.short	0xA89F
+	.short	0xa89f
 
 off_1000376c:
 	.short	0x0000,0x0000
