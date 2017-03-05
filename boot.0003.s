@@ -141,6 +141,10 @@ CurMap	=	0xa5a
 	.short	0xa86e
 .endm
 
+.macro	_LineTo
+	.short	0xa891
+.endm
+
 .macro	_GetWRefCon
 	.short	0xa917
 .endm
@@ -6121,12 +6125,12 @@ sub_10003f4c:
 	movew	%d0,%sp@-
 	.short	0xa893
 	movel	%fp@(-8),%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%fp@(-2),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%fp@(-8),%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#-1,%fp@(-10)
 	movew	#-1,%fp@(-12)
 	movew	#-1,%fp@(-14)
@@ -6145,14 +6149,14 @@ sub_10003f4c:
 	movew	%fp@(-4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%fp@(-2),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%fp@(-8),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	clrl	%fp@(-12)
 	clrw	%fp@(-14)
 	pea	%fp@(-14)
@@ -6206,12 +6210,12 @@ sub_10004028:
 	.short	0xa893
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6225,7 +6229,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6239,7 +6243,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6253,7 +6257,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	moveq	#4,%d0
 	movel	%d0,%sp@-
 	movel	%fp@(-4),%sp@-
@@ -6267,7 +6271,7 @@ sub_10004028:
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6281,7 +6285,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6295,14 +6299,14 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	moveq	#6,%d0
 	movel	%d0,%sp@-
 	movel	%fp@(-4),%sp@-
@@ -6320,14 +6324,14 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	movel	%fp@(-4),%sp@-
@@ -6345,7 +6349,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6359,7 +6363,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6373,7 +6377,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6387,7 +6391,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	movel	%fp@(-4),%sp@-
@@ -6405,7 +6409,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6419,21 +6423,21 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%d0
 	addqw	#5,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%d0
 	addqw	#5,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6447,7 +6451,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	movel	%fp@(-4),%sp@-
@@ -6465,7 +6469,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6479,7 +6483,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6493,7 +6497,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#5,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	lea	%sp@(48),%sp
 	bras	.L10004360
 
@@ -6575,7 +6579,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#21845,%fp@(-10)
 	movew	#21845,%fp@(-12)
 	movew	#21845,%fp@(-14)
@@ -6592,7 +6596,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#-30584,%fp@(-10)
 	movew	#-30584,%fp@(-12)
 	movew	#-30584,%fp@(-14)
@@ -6609,12 +6613,12 @@ sub_10004380:
 	addqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#-8739,%fp@(-10)
 	movew	#-8739,%fp@(-12)
 	movew	#-8739,%fp@(-14)
@@ -6633,14 +6637,14 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#-17477,%fp@(-10)
 	movew	#-17477,%fp@(-12)
 	movew	#-17477,%fp@(-14)
@@ -6655,7 +6659,7 @@ sub_10004380:
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	braw	.L1000465c
 
 .L10004512:
@@ -6672,7 +6676,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 
 .L1000453c:
 	cmpiw	#2,%d7
@@ -6693,7 +6697,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 
 .L10004578:
 	cmpiw	#3,%d7
@@ -6714,12 +6718,12 @@ sub_10004380:
 	addqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa891
+	_LineTo
 
 .L100045c0:
 	cmpiw	#4,%d7
@@ -6742,7 +6746,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	movew	#-8739,%fp@(-16)
 	movew	#-8739,%fp@(-18)
 	movew	#-8739,%fp@(-20)
@@ -6761,7 +6765,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa891
+	_LineTo
 	bras	.L1000465c
 
 .L10004640:
