@@ -1403,7 +1403,7 @@ str_10000fe0:
 	beqs	.L10001068
 	subqw	#4,%sp
 	movel	%d0,%sp@-
-	.short	0xa9a5
+	_GetResourceSizeOnDisk
 	movel	%sp@+,%d5
 	tstw	0xa60
 	bnes	.L10001068
@@ -2810,7 +2810,7 @@ sub_10002028:
 .L1000203c:
 	subqw	#4,%sp
 	movel	%d1,%sp@-
-	.short	0xa9a5
+	_GetResourceSizeOnDisk
 	movel	%sp@+,%d5
 	addil	#262144,%d5
 	bsrw	sub_10001f4e
@@ -14194,7 +14194,7 @@ sub_1000935e:
 	beqs	.L100093f8
 	subql	#4,%sp
 	movel	%a4,%sp@-
-	.short	0xa9a5
+	_GetResourceSizeOnDisk
 	movel	%sp@+,%d7
 	movel	%a4,%sp@-
 	_DetachResource

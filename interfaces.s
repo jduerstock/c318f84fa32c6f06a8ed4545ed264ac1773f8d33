@@ -293,6 +293,10 @@ CurMap	=	0xa5a
 	.short	0xa9a3
 .endm
 
+.macro	_GetResourceSizeOnDisk
+	.short	0xa9a5
+.endm
+
 .macro	_ResError
 	.short	0xa9af
 .endm
