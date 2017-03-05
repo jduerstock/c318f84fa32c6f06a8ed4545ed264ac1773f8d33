@@ -2868,7 +2868,7 @@ sub_100020be:
 	movew	%d6,%sp@-
 	tstw	%d4
 	bmis	.L100020d0
-	.short	0xa80e
+	_Get1IndResource
 	bras	.L100020d2
 
 .L100020d0:
@@ -16958,7 +16958,7 @@ off_1000aef2:
 	subql	#4,%sp
 	movel	%d5,%sp@-
 	movew	%d6,%sp@-
-	.short	0xa80e
+	_Get1IndResource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqw	.L1000b026
@@ -18077,7 +18077,7 @@ sub_1000b958:
 	movel	#1399681652,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa80e
+	_Get1IndResource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L1000b9e8
