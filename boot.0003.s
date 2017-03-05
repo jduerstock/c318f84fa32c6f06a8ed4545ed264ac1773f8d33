@@ -177,6 +177,10 @@ CurMap	=	0xa5a
 	.short	0xaa5a
 .endm
 
+.macro	_ControlDispatch
+	.short	0xaa73
+.endm
+
 .macro	_IconServicesDispatch
 	.short	0xaa75
 .endm
@@ -18452,7 +18456,7 @@ off_1000be0a:
 .L1000be12:
 	movel	%a4,%sp@-
 	movew	#12,%d0
-	.short	0xaa73
+	_ControlDispatch
 	bras	.L1000be78
 
 .L1000be1c:
@@ -18629,7 +18633,7 @@ sub_1000bf60:
 	movel	%d1,%sp@-
 	pea	%fp@(-1)
 	movew	#18,%d0
-	.short	0xaa73
+	_ControlDispatch
 	movew	%sp@+,%d7
 	movew	%d7,%d0
 
