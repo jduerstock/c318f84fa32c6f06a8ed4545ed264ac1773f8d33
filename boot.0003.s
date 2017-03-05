@@ -14,7 +14,7 @@ sub_10000000:
 	_WriteXPRAM
 	addql	#4,%sp
 	movew	#2,%sp@-
-	.short	0xa895
+	_ShutDown
 
 .L1000002c:
 	clrw	%a5@(50)
@@ -1064,7 +1064,7 @@ str_10000c26:
 	tstw	%a5@(20)
 	beqs	.L10000c46
 	movew	#2,%sp@-
-	.short	0xa895
+	_ShutDown
 
 .L10000c46:
 	moveml	%a0-%a1,%sp@-
@@ -10872,7 +10872,7 @@ sub_1000718a:
 	moveq	#118,%d0
 	_SysError
 	movew	#2,%sp@-
-	.short	0xa895
+	_ShutDown
 
 .L100071e0:
 	moveml	%fp@(-16),%d3/%d7/%a3-%a4
@@ -13448,14 +13448,14 @@ sub_10008c08:
 	movel	%a4,%sp@-
 	_DetachResource
 	moveal	%a4,%a0
-	.short	0xa064
+	_MoveHHi
 	moveal	%a4,%a0
 	_HLock
 	movel	%a4@,%sp@-
 	moveq	#8,%d0
 	movew	%d0,%sp@-
 	movew	#3,%sp@-
-	.short	0xa895
+	_ShutDown
 
 .L10008c46:
 	moveal	%a3,%a0
@@ -16095,7 +16095,7 @@ sub_1000a5ec:
 
 .L1000a630:
 	moveal	%a3,%a0
-	.short	0xa064
+	_MoveHHi
 	moveal	%a3,%a0
 	_HLock
 	movel	%a3,%sp@-
@@ -16162,7 +16162,7 @@ sub_1000a66e:
 	movel	%a4,%sp@-
 	_DetachResource
 	moveal	%a4,%a0
-	.short	0xa064
+	_MoveHHi
 	moveal	%a4,%a0
 	_HLock
 	subql	#4,%sp

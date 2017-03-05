@@ -77,6 +77,10 @@ CurMap	=	0xa5a
 	.short	0xa05c
 .endm
 
+.macro	_MoveHHi
+	.short	0xa064
+.endm
+
 .macro	_HGetState
 	.short	0xa069
 .endm
@@ -171,6 +175,10 @@ CurMap	=	0xa5a
 
 .macro	_MoveTo
 	.short	0xa893
+.endm
+
+.macro	_ShutDown
+	.short	0xa895
 .endm
 
 .macro	_GetWRefCon
