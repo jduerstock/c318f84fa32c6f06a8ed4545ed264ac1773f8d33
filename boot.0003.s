@@ -10642,23 +10642,112 @@ sub_10006c78:
 	rts
 
 sub_10006d4a:
-	.short	0x4E56,0x0000,0x48E7
-	.short	0x0F08,0x182E,0x000F,0xA077,0x3E00,0x4246,0x4205,0x2878
-	.short	0x0CF8,0x4A2E,0x000B,0x6700,0x0096,0x48C6,0x2006,0x2200
-	.short	0xC0FC,0x000C,0x4841,0xC2FC,0x000C,0x4841,0x4241,0xD081
-	.short	0xB834,0x0802,0x666C,0x48C7,0x2007,0x2200,0xC0FC,0x000C
-	.short	0x4841,0xC2FC,0x000C,0x4841,0x4241,0xD081,0x19AE,0x0013
-	.short	0x0802,0x48C6,0x2006,0x2200,0xC0FC,0x000C,0x4841,0xC2FC
-	.short	0x000C,0x4841,0x4241,0xD081,0x48C7,0x2207,0x2401,0xC2FC
-	.short	0x000C,0x4842,0xC4FC,0x000C,0x4842,0x4242,0xD282,0x19B4
-	.short	0x0801,0x1801,0x48C7,0x2007,0x2200,0xC0FC,0x000C,0x4841
-	.short	0xC2FC,0x000C,0x4841,0x4241,0xD081,0x19BC,0x00C0,0x0800
-	.short	0x3C07,0x3006,0x5246,0xBE46,0x6C00,0xFF70,0x6044,0x48C7
-	.short	0x2007,0x2200,0xC0FC,0x000C,0x4841,0xC2FC,0x000C,0x4841
-	.short	0x4241,0xD081,0xB834,0x0802,0x661E,0x48C7,0x2007,0x2200
-	.short	0xC0FC,0x000C,0x4841,0xC2FC,0x000C,0x4841,0x4241,0xD081
-	.short	0x19AE,0x0013,0x0802,0x7A01,0x5347,0x4A47,0x6704,0x4A05
-	.short	0x67BC,0x4CEE,0x10F0,0xFFEC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d4-%d7/%a4,%sp@-
+	moveb	%fp@(15),%d4
+	.short	0xa077
+	movew	%d0,%d7
+	clrw	%d6
+	clrb	%d5
+	moveal	0xcf8,%a4
+	tstb	%fp@(11)
+	beqw	.L10006dfe
+
+.L10006d6a:
+	extl	%d6
+	movel	%d6,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	cmpb	%a4@(2,%d0:l),%d4
+	bnes	.L10006df2
+	extl	%d7
+	movel	%d7,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	moveb	%fp@(19),%a4@(2,%d0:l)
+	extl	%d6
+	movel	%d6,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	extl	%d7
+	movel	%d7,%d1
+	movel	%d1,%d2
+	muluw	#12,%d1
+	swap	%d2
+	muluw	#12,%d2
+	swap	%d2
+	clrw	%d2
+	addl	%d2,%d1
+	moveb	%a4@(1,%d0:l),%a4@(1,%d1:l)
+	extl	%d7
+	movel	%d7,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	moveb	#0xc0,%a4@(%d0:l)
+	movew	%d7,%d6
+
+.L10006df2:
+	movew	%d6,%d0
+	addqw	#1,%d6
+	cmpw	%d6,%d7
+	bgew	.L10006d6a
+	bras	.L10006e42
+
+.L10006dfe:
+	extl	%d7
+	movel	%d7,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	cmpb	%a4@(2,%d0:l),%d4
+	bnes	.L10006e38
+	extl	%d7
+	movel	%d7,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	moveb	%fp@(19),%a4@(2,%d0:l)
+	moveq	#1,%d5
+
+.L10006e38:
+	subqw	#1,%d7
+	tstw	%d7
+	beqs	.L10006e42
+	tstb	%d5
+	beqs	.L10006dfe
+
+.L10006e42:
+	moveml	%fp@(-20),%d4-%d7/%a4
+	unlk	%fp
+	rts
 
 sub_10006e4c:
 	linkw	%fp,#-26
