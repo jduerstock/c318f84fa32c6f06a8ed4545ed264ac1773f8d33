@@ -29,6 +29,10 @@ CurMap	=	0xa5a
 	.short	0xa02a
 .endm
 
+.macro	_BlockMove
+	.short	0xa02e
+.endm
+
 .macro	_Delay
 	.short	0xa03b
 .endm
@@ -254,7 +258,7 @@ sub_10000000:
 	addl	%a1,%d0
 	subal	%d0,%sp
 	moveal	%sp,%a1
-	.short	0xa02e
+	_BlockMove
 	jmp	%a1@
 
 sub_100000fa:
@@ -475,7 +479,7 @@ str_10000162:
 	movel	%a1,%d0
 	subal	%d0,%sp
 	moveal	%sp,%a1
-	.short	0xa02e
+	_BlockMove
 	movel	%sp,0x908
 	moveal	%sp,%a0
 	subal	0x322,%a0
@@ -911,7 +915,7 @@ str_10000700:
 	movel	%a1,%d0
 	subal	%d0,%sp
 	moveal	%sp,%a1
-	.short	0xa02e
+	_BlockMove
 	movel	%sp,0x908
 	moveal	%sp,%a0
 	subal	0x322,%a0
@@ -974,7 +978,7 @@ str_10000700:
 	bnew	sub_1000193a
 	exg	%a0,%a1
 	movel	%a2,%d0
-	.short	0xa02e
+	_BlockMove
 	movel	%a1,%a5@(12)
 	lea	%a5@(-400),%a0
 	clrl	%a0@(18)
@@ -3522,7 +3526,7 @@ sub_10002568:
 	moveal	%a0,%a1
 	lea	%pc@(sub_1000251c),%a0
 	moveq	#74,%d0
-	.short	0xa02e
+	_BlockMove
 	moveal	0xa50,%a0
 	movel	%a0,%a1@(64)
 	moveal	%a0@,%a0
@@ -3556,7 +3560,7 @@ sub_100025b4:
 	moveal	%a0,%a1
 	lea	%pc@(sub_100025a8),%a0
 	moveq	#12,%d0
-	.short	0xa02e
+	_BlockMove
 	moveal	%a1,%a0
 	movew	#-24489,%d0
 	.short	0xa247
@@ -4188,7 +4192,7 @@ sub_10002acc:
 	moveal	%a0,%a3
 	moveal	%a0,%a1
 	moveal	%a2,%a0
-	.short	0xa02e
+	_BlockMove
 	moveal	%a3,%a0
 	clrw	%d0
 	movew	#-21527,%d0
@@ -4985,7 +4989,7 @@ sub_100032b4:
 .L100032ec:
 	moveb	%a0@,%d0
 	addqw	#1,%d0
-	.short	0xa02e
+	_BlockMove
 
 .L100032f2:
 	unlk	%fp
@@ -8795,7 +8799,7 @@ sub_10005e0a:
 	lea	%pc@(.L10005e66),%a0
 	moveal	%a2,%a1
 	movel	%a3,%d0
-	.short	0xa02e
+	_BlockMove
 	movel	%a2,0x5c
 
 .L10005e2c:
@@ -8895,7 +8899,7 @@ sub_10005eba:
 	lea	%pc@(sub_10005eb4),%a0
 	moveal	%a2,%a1
 	movel	%a3,%d0
-	.short	0xa02e
+	_BlockMove
 	moveal	%a2,%a1
 	oriw	#1792,%sr
 	lea	0x400,%a0
@@ -10081,7 +10085,7 @@ sub_100069d2:
 	lea	%pc@(sub_10006aa6),%a0
 	moveal	%a3,%a1
 	movel	%d7,%d0
-	.short	0xa02e
+	_BlockMove
 	movew	%a4@(4),%d0
 	extl	%d0
 	addl	%d0,%d0
@@ -10116,7 +10120,7 @@ sub_100069d2:
 	lea	%pc@(sub_10006928),%a0
 	moveal	%a3,%a1
 	movel	%d7,%d0
-	.short	0xa02e
+	_BlockMove
 	moveal	%a3,%a0
 	movew	#-24453,%d0
 	.short	0xa247
@@ -16428,7 +16432,7 @@ sub_1000ab2c:
 	moveal	%a3,%a0
 	moveal	%a4,%a1
 	moveq	#26,%d0
-	.short	0xa02e
+	_BlockMove
 	movel	#1668179566,%d0
 	moveal	%a4,%a0
 	lea	%fp@(-30),%a1
