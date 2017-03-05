@@ -5302,7 +5302,7 @@ word_10003766:
 	.short	0xa092
 
 word_10003768:
-	.short	0xaaf3
+	_ExpansionBusDispatch
 
 word_1000376a:
 	.short	0xa89f
