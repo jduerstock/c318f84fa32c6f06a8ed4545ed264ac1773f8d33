@@ -121,6 +121,10 @@ CurMap	=	0xa5a
 	.short	0xa86e
 .endm
 
+.macro	_GetWRefCon
+	.short	0xa917
+.endm
+
 .macro	_HideControl
 	.short	0xa958
 .endm
@@ -18127,7 +18131,7 @@ sub_1000baf8:
 	moveq	#1,%d7
 	subql	#4,%sp
 	movel	%a3,%sp@-
-	.short	0xa917
+	_GetWRefCon
 	movel	%sp@+,%fp@(-8)
 	subql	#4,%sp
 	.short	0xa975
@@ -18474,7 +18478,7 @@ sub_1000bde0:
 	moveal	%fp@(8),%a4
 	subql	#4,%sp
 	movel	%a4,%sp@-
-	.short	0xa917
+	_GetWRefCon
 	moveal	%sp@+,%a3
 	movew	%fp@(12),%d0
 	cmpiw	#3,%d0
@@ -18557,7 +18561,7 @@ sub_1000be98:
 	clrb	%d7
 	subql	#4,%sp
 	movel	%a4,%sp@-
-	.short	0xa917
+	_GetWRefCon
 	moveal	%sp@+,%a3
 	tstb	%a3@(12)
 	beqs	.L1000beba
