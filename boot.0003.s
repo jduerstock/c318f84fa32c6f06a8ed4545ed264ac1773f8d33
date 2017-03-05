@@ -129,6 +129,10 @@ CurMap	=	0xa5a
 	.short	0xa958
 .endm
 
+.macro	_SetControlValue
+	.short	0xa963
+.endm
+
 .macro	_TrackControl
 	.short	0xa968
 .endm
@@ -18120,7 +18124,7 @@ sub_1000bab0:
 	.short	0xa957
 	movel	%a4,%sp@-
 	movew	%fp@(14),%sp@-
-	.short	0xa963
+	_SetControlValue
 	moveal	%fp@(-4),%a4
 	unlk	%fp
 	rts
@@ -18533,7 +18537,7 @@ off_1000be0a:
 	movel	%a2,%sp@-
 	moveq	#0,%d0
 	movew	%d0,%sp@-
-	.short	0xa963
+	_SetControlValue
 	lea	%sp@(32),%sp
 	bras	.L1000be78
 
