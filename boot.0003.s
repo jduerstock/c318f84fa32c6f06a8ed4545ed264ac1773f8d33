@@ -984,7 +984,7 @@ str_10000b34:
 
 .L10000b4a:
 	moveq	#42,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	moveml	%a0-%a1,%sp@-
 	moveal	0x2b6,%a0
 	lea	%pc@(str_10000b68),%a1
@@ -1910,7 +1910,7 @@ str_100016c4:
 
 .L100016d4:
 	moveq	#34,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	bsrl	sub_10009790
 
 .L100016de:
@@ -2640,7 +2640,7 @@ sub_10001e8e:
 	movew	%d4,%sp@-
 	movew	#1,%sp@-
 	moveq	#20,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	addqw	#4,%sp
 
 .L10001ed8:
@@ -2652,7 +2652,7 @@ sub_10001e8e:
 	bsrw	sub_10002028
 	bsrs	sub_10001f38
 	moveq	#22,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	andib	#0xfe,0x10f
 	clrw	%sp@-
 	bsrw	sub_10005682
@@ -3876,10 +3876,10 @@ sub_10002a08:
 	clrw	%sp@-
 	movew	#1,%sp@-
 	moveq	#20,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	addqw	#4,%sp
 	moveq	#22,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	rts
 
 sub_10002a1c:
@@ -14649,7 +14649,7 @@ sub_10009790:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	moveq	#18,%d0
-	.short	0xa82a
+	_ComponentDispatch
 	moveal	%sp@+,%a3
 	movel	%a4,%sp@-
 	_ReleaseResource

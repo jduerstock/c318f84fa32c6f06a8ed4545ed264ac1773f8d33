@@ -173,6 +173,10 @@ CurMap	=	0xa5a
 	.short	0xa823
 .endm
 
+.macro	_ComponentDispatch
+	.short	0xa82a
+.endm
+
 .macro	_SetCursor
 	.short	0xa851
 .endm
