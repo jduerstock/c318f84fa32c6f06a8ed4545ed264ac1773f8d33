@@ -18102,9 +18102,18 @@ sub_1000bab0:
 	.short	0x286E,0xFFFC,0x4E5E,0x4E75
 
 sub_1000bad8:
-	.short	0x4E56,0x0000,0x2F0C,0x7003
-	.short	0x2F00,0x2F2E,0x0008,0x4EBA,0xFF14,0x2840,0x2F0C,0xA958
-	.short	0x286E,0xFFFC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	movel	%a4,%sp@-
+	moveq	#3,%d0
+	movel	%d0,%sp@-
+	movel	%fp@(8),%sp@-
+	jsr	%pc@(sub_1000b9fc)
+	moveal	%d0,%a4
+	movel	%a4,%sp@-
+	.short	0xa958
+	moveal	%fp@(-4),%a4
+	unlk	%fp
+	rts
 
 sub_1000baf8:
 	linkw	%fp,#-8
