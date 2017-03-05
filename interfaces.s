@@ -345,6 +345,10 @@ CurMap	=	0xa5a
 	.short	0xaa5a
 .endm
 
+.macro	_DialogDispatch
+	.short	0xaa68
+.endm
+
 .macro	_ControlDispatch
 	.short	0xaa73
 .endm

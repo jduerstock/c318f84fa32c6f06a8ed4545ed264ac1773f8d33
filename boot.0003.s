@@ -4555,7 +4555,7 @@ sub_100030da:
 	subql	#6,%sp
 	pea	%sp@(2)
 	movew	#515,%d0
-	.short	0xaa68
+	_DialogDispatch
 	tstw	%sp@+
 	bnes	.L100030ee
 	moveal	%sp@+,%a0
@@ -17721,7 +17721,7 @@ sub_1000b5b2:
 	subql	#2,%sp
 	movel	%a3,%sp@-
 	movew	#525,%d0
-	.short	0xaa68
+	_DialogDispatch
 	movel	%a3,%sp@-
 	.short	0xa915
 	.short	0xa850
@@ -17852,7 +17852,7 @@ sub_1000b5b2:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	movew	#772,%d0
-	.short	0xaa68
+	_DialogDispatch
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_1000bad8)
 	.short	0xa850
