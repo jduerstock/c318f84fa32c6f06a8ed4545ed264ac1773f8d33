@@ -201,6 +201,10 @@ CurMap	=	0xa5a
 	.short	0xa895
 .endm
 
+.macro	_ScriptUtil
+	.short	0xa8b5
+.endm
+
 .macro	_GetWRefCon
 	.short	0xa917
 .endm
@@ -335,6 +339,10 @@ CurMap	=	0xa5a
 
 .macro	_HighLevelFSDispatch
 	.short	0xaa52
+.endm
+
+.macro	_TextServicesDispatch
+	.short	0xaa54
 .endm
 
 .macro	_MixedModeDispatch

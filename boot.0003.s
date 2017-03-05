@@ -1221,7 +1221,7 @@ str_10000e38:
 .L10000e4a:
 	subqw	#2,%sp
 	movel	#-2113863718,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	addqw	#2,%sp
 	btst	#5,0xb20
 	beqs	.L10000e76
@@ -1277,7 +1277,7 @@ str_10000eda:
 .L10000ee8:
 	subqw	#2,%sp
 	movel	#-2113863734,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	addqw	#2,%sp
 	moveq	#24,%d0
 
@@ -1294,7 +1294,7 @@ str_10000eda:
 	subqw	#4,%sp
 	movew	#4,%sp@-
 	movel	#-2080243704,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	movel	%sp@+,%d0
 	cmpiw	#1,%d0
 	blew	.L10000f32
@@ -2005,7 +2005,7 @@ str_100017d6:
 .L1000181c:
 	subqw	#2,%sp
 	movel	#-2113863722,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	addqw	#2,%sp
 	bsrw	sub_10001fe6
 	moveal	%a5@(12),%a0
@@ -2773,14 +2773,14 @@ sub_10001fe6:
 	subqw	#4,%sp
 	movew	#18,%sp@-
 	movel	#-2080243704,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	movel	%sp@+,%d3
 	subqw	#4,%sp
 	movew	%d3,%sp@-
 	swap	%d3
 	movew	#28,%sp@-
 	movel	#-2080112628,%sp@-
-	.short	0xa8b5
+	_ScriptUtil
 	addqw	#2,%sp
 	movew	%sp@+,%d3
 	subqw	#4,%sp
@@ -2789,7 +2789,7 @@ sub_10001fe6:
 	clrw	%sp@-
 	movel	%a0,%sp@-
 	moveq	#14,%d0
-	.short	0xaa54
+	_TextServicesDispatch
 	addqw	#6,%sp
 	moveml	%sp@+,%d3
 	rts
