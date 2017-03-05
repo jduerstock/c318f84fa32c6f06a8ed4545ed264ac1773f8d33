@@ -17,12 +17,16 @@ CurMap	=	0xa5a
 	.short	0xa01f
 .endm
 
-.macro	_HUnlock
-	.short	0xa02a
+.macro	_GetPtrSize
+	.short	0xa021
 .endm
 
 .macro	_DisposeHandle
 	.short	0xa023
+.endm
+
+.macro	_HUnlock
+	.short	0xa02a
 .endm
 
 .macro	_Delay
@@ -4728,7 +4732,7 @@ sub_10002f78:
 sub_100030f8:
 	moveal	%sp@+,%a1
 	moveal	%sp@+,%a0
-	.short	0xa021
+	_GetPtrSize
 	movel	%d0,%sp@
 	bpls	.L10003104
 	clrl	%sp@
@@ -19670,7 +19674,7 @@ sub_1000cd14:
 	.short	0xa029
 	moveq	#0,%d0
 	moveal	0x2b6,%a0
-	.short	0xa021
+	_GetPtrSize
 	cmpil	#490,%d0
 	bges	.L1000cd96
 	moveal	%a0,%a1
