@@ -113,6 +113,10 @@ CurMap	=	0xa5a
 	.short	0xa968
 .endm
 
+.macro	_FindControl
+	.short	0xa96c
+.endm
+
 .macro	_DetachResource
 	.short	0xa992
 .endm
@@ -18559,7 +18563,7 @@ sub_1000be98:
 	movel	%fp@(-24),%sp@-
 	movel	%a4,%sp@-
 	pea	%fp@(-28)
-	.short	0xa96c
+	_FindControl
 	movew	%sp@+,%d6
 	tstl	%fp@(-28)
 	beqs	.L1000bf12
