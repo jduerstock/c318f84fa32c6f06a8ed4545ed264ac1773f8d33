@@ -10788,7 +10788,7 @@ sub_100070ee:
 	moveal	0x14c,%a4
 	movew	#-1,0x14a
 	movew	%d7,%d0
-	.short	0xa06d
+	_InitEvents
 	bras	.L1000715e
 
 .L1000711c:
