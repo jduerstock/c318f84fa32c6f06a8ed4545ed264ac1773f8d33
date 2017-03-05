@@ -93,6 +93,10 @@ CurMap	=	0xa5a
 	.short	0xa998
 .endm
 
+.macro	_ReleaseResource
+	.short	0xa9a3
+.endm
+
 .macro	_ResError
 	.short	0xa9af
 .endm
@@ -251,7 +255,7 @@ sub_10000000:
 
 sub_100000fa:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveal	0x2ae,%a0
 	addal	#65536,%a0
 	movel	%a0,0x0
@@ -637,7 +641,7 @@ str_10000162:
 	movel	%sp@+,%d0
 	beqs	.L10000574
 	movel	%d0,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movew	0x17a,%d0
 	cmpiw	#-30715,%d0
 	beqs	.L10000574
@@ -940,7 +944,7 @@ str_10000700:
 	movel	%d0,%sp@-
 	.short	0xa992
 	movel	%d6,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movel	#1835884912,%d0
 	_Gestalt
 	bnes	.L100008ea
@@ -1511,7 +1515,7 @@ str_10000f5c:
 	tstl	%a0
 	beqs	.L10000fa6
 	movel	%a0,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10000fa6:
 	movel	#1819435373,%d0
@@ -2054,7 +2058,7 @@ str_100015a4:
 	tstl	%a0
 	beqs	.L1000168e
 	movel	%a0,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000168e:
 	btst	#5,0xb20
@@ -2294,7 +2298,7 @@ sub_10001948:
 	rts
 
 .L1000196c:
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000196e:
 	bsrw	sub_10001f38
@@ -3595,7 +3599,7 @@ sub_100025da:
 	_SysError
 	movel	%sp@+,0x2ba
 	movel	%d6,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10002644:
 	lea	%a0@(-2),%a0
@@ -3947,11 +3951,11 @@ off_100026be:
 	moveal	%a4@(16),%a0
 	_HUnlock
 	movel	%a0,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveal	%a4@(20),%a0
 	_HUnlock
 	movel	%a0,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	lea	%sp@(24),%sp
 	moveml	%sp@+,%d0-%d6/%a0-%a4
 	rts
@@ -4076,7 +4080,7 @@ sub_10002a22:
 	bsrw	sub_10005aa0
 
 .L10002a5e:
-	.short	0xa9a3
+	_ReleaseResource
 	movel	%sp@+,%d2
 	rts
 
@@ -5881,7 +5885,7 @@ sub_10003de8:
 
 .L10003e90:
 	movel	%fp@(-4),%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10003e96:
 	moveml	%fp@(-12),%d7/%a4
@@ -7080,7 +7084,7 @@ sub_100049fa:
 	moveal	%fp@(-8),%a0
 	_SetZone
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10004b20:
 	moveml	%fp@(-36),%d3/%d5-%d7/%a3-%a4
@@ -7822,7 +7826,7 @@ sub_1000539a:
 	movel	%a4,%sp@-
 	.short	0xa8f6
 	movel	%a2,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	.short	0xa873
 	moveml	%sp@+,%d0-%d4/%a0-%a4
 	rts
@@ -8138,7 +8142,7 @@ sub_100056ae:
 	movel	%a3,%sp@-
 	.short	0xa8f6
 	movel	%a2,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveml	%d0-%d2/%a0-%a3,%sp@-
 	movel	%a3,%sp@-
 	bsrl	sub_10005cc2
@@ -8181,22 +8185,74 @@ word_100057ce:
 	.short	0x0000,0x0000,0x0000
 
 .L10005806:
-	.short	0x3F00,0x4A41,0x670A,0x2F0A,0x2F0B
-	.short	0xA8F6,0x2F0A,0xA9A3,0x301F,0x0C44,0xFFFF,0x6768,0x594F
-	.short	0x3F00,0xA9BA,0x201F,0x675E,0x2440,0x4267,0xA888,0x4267
-	.short	0x2F12,0xA88C,0x301F,0x0838,0x0001,0x0B21,0x6616,0x0C40
-	.short	0x00A2,0x6300,0x0010,0x3F3C,0x0020,0xA888,0x4267,0x2F12
-	.short	0xA88C,0x301F,0xE248,0x322B,0x0006,0x926B,0x0002,0xE249
-	.short	0xD26B,0x0002,0x9240,0x3F01,0x302B,0x0004,0x0440,0x002C
-	.short	0x0838,0x0001,0x0B21,0x6702,0xD044,0x3F00,0xA893,0x2F12
-	.short	0xA884,0x2F0A,0xA9A3
+	movew	%d0,%sp@-
+	tstw	%d1
+	beqs	.L10005816
+	movel	%a2,%sp@-
+	movel	%a3,%sp@-
+	.short	0xa8f6
+	movel	%a2,%sp@-
+	_ReleaseResource
+
+.L10005816:
+	movew	%sp@+,%d0
+	cmpiw	#-1,%d4
+	beqs	.L10005886
+	subqw	#4,%sp
+	movew	%d0,%sp@-
+	.short	0xa9ba
+	movel	%sp@+,%d0
+	beqs	.L10005886
+	moveal	%d0,%a2
+	clrw	%sp@-
+	.short	0xa888
+	clrw	%sp@-
+	movel	%a2@,%sp@-
+	.short	0xa88c
+	movew	%sp@+,%d0
+	btst	#1,0xb21
+	bnes	.L10005854
+	cmpiw	#162,%d0
+	blsw	.L10005854
+	movew	#32,%sp@-
+	.short	0xa888
+	clrw	%sp@-
+	movel	%a2@,%sp@-
+	.short	0xa88c
+	movew	%sp@+,%d0
+
+.L10005854:
+	lsrw	#1,%d0
+	movew	%a3@(6),%d1
+	subw	%a3@(2),%d1
+	lsrw	#1,%d1
+	addw	%a3@(2),%d1
+	subw	%d0,%d1
+	movew	%d1,%sp@-
+	movew	%a3@(4),%d0
+	subiw	#44,%d0
+	btst	#1,0xb21
+	beqs	.L1000587a
+	addw	%d4,%d0
+
+.L1000587a:
+	movew	%d0,%sp@-
+	.short	0xa893
+	movel	%a2@,%sp@-
+	.short	0xa884
+	movel	%a2,%sp@-
+	_ReleaseResource
 
 .L10005886:
-	.short	0xA873,0x6012
+	.short	0xa873
+	bras	.L1000589c
 
 .L1000588a:
 	.short	0x0C43,0x0002,0x6706
-	.short	0x5243,0x6000,0xFE4A,0x08F8,0x0002,0x0B21,0x21DF,0x0118
+	.short	0x5243,0x6000,0xFE4A,0x08F8,0x0002,0x0B21
+
+.L1000589c:
+	.short	0x21DF,0x0118
 	.short	0x4CDF,0x0F1F,0x4E75
 
 word_100058a6:
@@ -8710,7 +8766,7 @@ sub_10005cc2:
 
 .L10005df2:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10005df6:
 	tstw	%d7
@@ -9110,7 +9166,7 @@ sub_1000619a:
 	movel	%a0,%fp@(-4)
 	jsr	%a0@
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L100061d8:
 	moveal	%a3,%a0
@@ -9144,7 +9200,7 @@ sub_100061e6:
 	movel	%a0,%fp@(-4)
 	jsr	%a0@
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10006224:
 	moveal	%a3,%a0
@@ -9577,7 +9633,7 @@ sub_100065b4:
 
 .L1000662c:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10006630:
 	moveml	%fp@(-16),%d7/%a2-%a4
@@ -10693,7 +10749,7 @@ sub_100071ea:
 	movel	%a4,%d0
 	beqs	.L10007250
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	subql	#4,%sp
 	movel	#1835823725,%sp@-
 	moveq	#0,%d0
@@ -10721,7 +10777,7 @@ sub_100071ea:
 
 .L1000724c:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10007250:
 	moveml	%fp@(-12),%d7/%a4
@@ -11001,11 +11057,11 @@ sub_10007424:
 
 .L1000751a:
 	movel	%a2,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000751e:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10007522:
 	moveal	%fp@(-8),%a0
@@ -11497,15 +11553,15 @@ sub_10007918:
 
 .L100079b0:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L100079b4:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L100079b8:
 	movel	%a2,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L100079bc:
 	movew	%d7,%sp@-
@@ -11730,7 +11786,7 @@ sub_10007a14:
 
 .L10007bca:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10007bce:
 	movew	%d7,%d0
@@ -13220,7 +13276,7 @@ sub_10008af4:
 	moveal	%a4,%a0
 	_HUnlock
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10008bf6:
 	movew	%d5,%sp@-
@@ -13665,7 +13721,7 @@ sub_10008ff4:
 
 .L1000904e:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10009052:
 	moveal	%fp@(-8),%a4
@@ -13968,7 +14024,7 @@ sub_10009278:
 
 .L1000933c:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10009340:
 	movew	%d7,%d0
@@ -14141,7 +14197,7 @@ sub_1000943a:
 
 .L10009510:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveq	#0,%d0
 	moveal	%d0,%a4
 	movel	%fp@(-14),%d1
@@ -14194,7 +14250,7 @@ sub_1000953e:
 
 .L10009586:
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveq	#0,%d0
 	moveal	%d0,%a4
 	bras	.L10009598
@@ -14391,7 +14447,7 @@ sub_1000970e:
 	moveal	%a4@,%a0
 	movel	%a0@,%fp@(-8)
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movel	#1650618232,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
@@ -14454,7 +14510,7 @@ sub_10009790:
 	.short	0xa82a
 	moveal	%sp@+,%a3
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L100097da:
 	moveml	%fp@(-12),%a3-%a4
@@ -14755,7 +14811,7 @@ sub_10009a38:
 	.short	0x4c00,0x5005	/* mulul %d0,%d5 */
 	addl	%d5,%d6
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movel	%d6,%d0
 	addil	#4096,%d0
 	_NewPtrSysClear
@@ -14855,7 +14911,7 @@ sub_10009a38:
 
 .L10009bb2:
 	movel	%a3,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L10009bb6:
 	moveal	#1761603584,%a0
@@ -16970,7 +17026,7 @@ sub_1000b03c:
 	movel	%a4,%d0
 	beqs	.L1000b154
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000b154:
 	movew	%d5,%sp@-
@@ -17892,7 +17948,7 @@ sub_1000b958:
 	moveal	%a4,%a0
 	_HUnlock
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000b9e8:
 	movew	%d6,%sp@-
@@ -17999,7 +18055,7 @@ sub_1000bc04:
 	moveal	%a4@,%a0
 	asll	#2,%d0
 	movel	%a0@(4,%d0:l),%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movew	%d7,%d0
 	subqw	#1,%d7
 
@@ -18007,7 +18063,7 @@ sub_1000bc04:
 	tstw	%d7
 	bgts	.L1000bc5c
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveq	#0,%d0
 	moveal	%d0,%a4
 
@@ -18041,7 +18097,7 @@ sub_1000bc96:
 	movel	%d7,%d0
 	asll	#2,%d0
 	movel	%a0@(4,%d0:l),%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	movew	%d7,%d0
 	addqw	#1,%d7
 
@@ -18050,7 +18106,7 @@ sub_1000bc96:
 	cmpw	%a0@,%d7
 	blts	.L1000bca6
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 	moveml	%fp@(-8),%d7/%a4
 	unlk	%fp
 	rts
@@ -18440,7 +18496,7 @@ sub_1000bfb6:
 	movel	%a4,%d0
 	beqs	.L1000c018
 	movel	%a4,%sp@-
-	.short	0xa9a3
+	_ReleaseResource
 
 .L1000c018:
 	moveq	#0,%d0
