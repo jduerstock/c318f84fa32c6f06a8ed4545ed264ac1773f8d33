@@ -53,6 +53,10 @@ CurMap	=	0xa5a
 	.short	0xa052
 .endm
 
+.macro	_HSetState
+	.short	0xa06a
+.endm
+
 .macro	_GetZone
 	.short	0xa11a
 .endm
@@ -131,6 +135,10 @@ CurMap	=	0xa5a
 
 .macro	_SysError
 	.short	0xa9c9
+.endm
+
+.macro	_TEInit
+	.short	0xa9cc
 .endm
 
 .macro	_OpenCPort
@@ -4289,7 +4297,7 @@ sub_10002c24:
 	movel	%a0,%sp@-
 	movew	CurMap,%sp@-
 	.short	0xa9e6
-	.short	0xa9cc
+	_TEInit
 	movel	%a1,%sp@-
 	.short	0x2070,0x81e2,0x2010,0x006c	/* moveal	@(2010)@(6c),%a0 */
 	lea	%pc@(sub_10002cda),%a1
@@ -8506,7 +8514,7 @@ sub_10005aa0:
 	_InitGraf
 	.short	0xa912
 	.short	0xa930
-	.short	0xa9cc
+	_TEInit
 	clrl	%sp@-
 	.short	0xa97b
 	subqw	#2,%sp
@@ -17231,7 +17239,7 @@ sub_1000b1c0:
 	bgts	.L1000b212
 	moveal	%a2,%a0
 	moveb	%d5,%d0
-	.short	0xa06a
+	_HSetState
 
 .L1000b27a:
 	movew	%d7,%fp@(10)
@@ -17312,7 +17320,7 @@ sub_1000b28a:
 	bgts	.L1000b2da
 	moveal	%a2,%a0
 	moveb	%d4,%d0
-	.short	0xa06a
+	_HSetState
 
 .L1000b342:
 	movew	%d6,%d0
@@ -17510,7 +17518,7 @@ sub_1000b494:
 	bgts	.L1000b4d2
 	moveal	%a3,%a0
 	moveb	%d4,%d0
-	.short	0xa06a
+	_HSetState
 
 .L1000b4fe:
 	movew	%d6,%d0
@@ -17601,7 +17609,7 @@ sub_1000b5b2:
 	.short	0xa8fe
 	.short	0xa912
 	.short	0xa930
-	.short	0xa9cc
+	_TEInit
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	.short	0xa97b
@@ -18799,7 +18807,7 @@ sub_1000c03c:
 .L1000c114:
 	moveal	%fp@(8),%a0
 	moveb	%d5,%d0
-	.short	0xa06a
+	_HSetState
 
 .L1000c11c:
 	moveb	%d6,%d0
