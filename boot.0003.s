@@ -53,6 +53,10 @@ CurMap	=	0xa5a
 	.short	0xa052
 .endm
 
+.macro	_HGetState
+	.short	0xa069
+.endm
+
 .macro	_HSetState
 	.short	0xa06a
 .endm
@@ -17187,7 +17191,7 @@ sub_1000b1c0:
 	tstw	%d7
 	bnew	.L1000b27a
 	moveal	%a2,%a0
-	.short	0xa069
+	_HGetState
 	moveb	%d0,%d5
 	moveal	%a2,%a0
 	_HLock
@@ -17268,7 +17272,7 @@ sub_1000b28a:
 	addqw	#8,%sp
 	bnew	.L1000b342
 	moveal	%a2,%a0
-	.short	0xa069
+	_HGetState
 	moveb	%d0,%d4
 	moveal	%a2,%a0
 	_HLock
@@ -17484,7 +17488,7 @@ sub_1000b494:
 
 .L1000b4b8:
 	moveal	%a3,%a0
-	.short	0xa069
+	_HGetState
 	moveb	%d0,%d4
 	moveal	%a3,%a0
 	_HLock
@@ -18731,7 +18735,7 @@ sub_1000c03c:
 	tstl	%d0
 	blsw	.L1000c11c
 	moveal	%fp@(8),%a0
-	.short	0xa069
+	_HGetState
 	extw	%d0
 	movew	%d0,%d5
 	moveal	%fp@(8),%a0
