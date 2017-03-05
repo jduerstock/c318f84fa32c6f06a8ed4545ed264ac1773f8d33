@@ -113,6 +113,10 @@ CurMap	=	0xa5a
 	.short	0xa9a0
 .endm
 
+.macro	_LoadResource
+	.short	0xa9a2
+.endm
+
 .macro	_ReleaseResource
 	.short	0xa9a3
 .endm
@@ -13131,7 +13135,7 @@ sub_10008a2e:
 	tstl	%a4@
 	bnes	.L10008a74
 	movel	%a4,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L10008a74:
 	movel	%a4,%d0
@@ -13212,7 +13216,7 @@ sub_10008af4:
 	tstw	%sp@+
 	bnew	.L10008bfa
 	movel	%a3,%sp@-
-	.short	0xa9a2
+	_LoadResource
 	subql	#2,%sp
 	_ResError
 	movew	%sp@+,%d6
@@ -13856,7 +13860,7 @@ sub_1000905a:
 	tstl	%a3@
 	bnes	.L1000915e
 	movel	%a3,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L1000915e:
 	tstl	%a3@
@@ -14407,7 +14411,7 @@ sub_100095d4:
 	tstl	%a3@
 	bnes	.L100096c4
 	movel	%a3,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L100096c4:
 	tstl	%a3@
@@ -14557,7 +14561,7 @@ sub_100097e4:
 	movel	%a4,%d0
 	bnes	.L10009810
 	movel	%a4,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L10009810:
 	subql	#2,%sp
@@ -18584,7 +18588,7 @@ sub_1000bfb6:
 	tstw	%sp@+
 	bnes	.L1000bfde
 	movel	%a4,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L1000bfde:
 	movel	%a4,%d0
@@ -19215,7 +19219,7 @@ sub_1000c686:
 	tstl	%a3@
 	bnes	.L1000c7b0
 	movel	%a3,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L1000c7b0:
 	movel	%a3,%d0
@@ -19677,7 +19681,7 @@ sub_1000cc4e:
 	tstl	%a4@
 	bnes	.L1000cc7c
 	movel	%a4,%sp@-
-	.short	0xa9a2
+	_LoadResource
 
 .L1000cc7c:
 	movel	%a4,%d0
