@@ -37,6 +37,10 @@ CurMap	=	0xa5a
 	.short	0xa02a
 .endm
 
+.macro	_InitApplZone
+	.short	0xa02c
+.endm
+
 .macro	_SetApplLimit
 	.short	0xa02d
 .endm
@@ -2318,7 +2322,7 @@ sub_1000188e:
 	clrl	0x110
 	moveal	0x10c,%sp
 	clrl	0x964
-	.short	0xa02c
+	_InitApplZone
 	subaw	#40,%sp
 	moveal	%sp,%a5
 	movel	%a5,0x904
@@ -3417,7 +3421,7 @@ sub_10002396:
 	movel	0x10c,0x2aa
 
 .L100023a0:
-	.short	0xa02c
+	_InitApplZone
 	moveal	%sp,%a0
 	subal	0x322,%a0
 	_SetApplLimit
@@ -3426,7 +3430,7 @@ sub_10002396:
 sub_100023ac:
 	bsrs	sub_1000238c
 	beqs	.L100023b2
-	.short	0xa02c
+	_InitApplZone
 
 .L100023b2:
 	moveal	0x2a6,%a0
@@ -3641,11 +3645,11 @@ sub_10002568:
 	rts
 
 sub_100025a8:
-	.short	0xa02c
+	_InitApplZone
 
 .L100025aa:
 	jsr	0x50ff8001
-	.short	0xa02c
+	_InitApplZone
 	rts
 
 sub_100025b4:
