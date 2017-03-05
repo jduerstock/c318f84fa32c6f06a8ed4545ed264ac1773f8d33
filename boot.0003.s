@@ -16569,7 +16569,7 @@ sub_1000ab2c:
 	moveal	%a4,%a0
 	lea	%fp@(-30),%a1
 	movel	%a1,%sp@-
-	.short	0xa5ad
+	_ReplaceGestalt
 	moveal	%sp@+,%a1
 	movel	%a0,%a1@
 	movew	%d0,%d7
@@ -16583,7 +16583,7 @@ sub_1000ab2c:
 	bnes	.L1000abdc
 	movel	#1668179566,%d0
 	moveal	%a4,%a0
-	.short	0xa3ad
+	_NewGestalt
 	movew	%d0,%d7
 
 .L1000abdc:

@@ -133,6 +133,10 @@ CurMap	=	0xa5a
 	.short	0xa260
 .endm
 
+.macro	_NewGestalt
+	.short	0xa3ad
+.endm
+
 .macro	_FreeMemSys
 	.short	0xa41c
 .endm
@@ -143,6 +147,10 @@ CurMap	=	0xa5a
 
 .macro	_NewPtrSys
 	.short	0xa51e
+.endm
+
+.macro	_ReplaceGestalt
+	.short	0xa5ad
 .endm
 
 .macro	_SetToolTrapAddress
