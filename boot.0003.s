@@ -33,6 +33,10 @@ CurMap	=	0xa5a
 	.short	0xa02a
 .endm
 
+.macro	_SetApplLimit
+	.short	0xa02d
+.endm
+
 .macro	_BlockMove
 	.short	0xa02e
 .endm
@@ -358,7 +362,7 @@ sub_100000fa:
 	movel	%sp,0x908
 	moveal	%sp,%a0
 	subal	0x322,%a0
-	.short	0xa02d
+	_SetApplLimit
 	beqs	.L10000120
 	movew	#25,%d0
 	_SysError
@@ -571,7 +575,7 @@ str_10000162:
 	movel	%sp,0x908
 	moveal	%sp,%a0
 	subal	0x322,%a0
-	.short	0xa02d
+	_SetApplLimit
 	lea	%a5@(1648),%a0
 	cmpal	%a5@(16),%a0
 	blss	.L10000388
@@ -1007,7 +1011,7 @@ str_10000700:
 	movel	%sp,0x908
 	moveal	%sp,%a0
 	subal	0x322,%a0
-	.short	0xa02d
+	_SetApplLimit
 	lea	%a5@(1648),%a0
 	cmpal	%a5@(16),%a0
 	blss	.L1000087a
@@ -2353,7 +2357,7 @@ sub_1000188e:
 	subal	0x322,%a0
 
 .L1000191a:
-	.short	0xa02d
+	_SetApplLimit
 	bral	sub_10008472
 
 sub_10001922:
@@ -3412,7 +3416,7 @@ sub_10002396:
 	.short	0xa02c
 	moveal	%sp,%a0
 	subal	0x322,%a0
-	.short	0xa02d
+	_SetApplLimit
 	rts
 
 sub_100023ac:
@@ -3432,7 +3436,7 @@ sub_100023ac:
 	moveal	%sp,%a0
 	subal	0x322,%a0
 	subal	#262144,%a0
-	.short	0xa02d
+	_SetApplLimit
 	rts
 
 sub_100023e2:
@@ -13789,7 +13793,7 @@ sub_10008c54:
 	movel	%d7,%a3@(16)
 	addl	%d6,%a3@(24)
 	moveal	%d7,%a0
-	.short	0xa02d
+	_SetApplLimit
 	cmpil	#67108864,%a3@(28)
 	blss	.L10008d24
 	subql	#4,%sp
