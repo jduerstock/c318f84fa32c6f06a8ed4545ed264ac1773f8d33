@@ -105,6 +105,10 @@ CurMap	=	0xa5a
 	.short	0xa722
 .endm
 
+.macro	_Get1Resource
+	.short	0xa81f
+.endm
+
 .macro	_AliasDispatch
 	.short	0xa823
 .endm
@@ -2078,7 +2082,7 @@ str_100015a4:
 	clrl	%sp@-
 	movel	#1718907755,%sp@-
 	movew	#1,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a0
 	tstl	%a0
 	beqs	.L1000163a
@@ -2113,7 +2117,7 @@ str_100015a4:
 	clrl	%sp@-
 	movel	#1718907755,%sp@-
 	movew	#1,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a0
 	tstl	%a0
 	beqs	.L1000168e
@@ -2855,7 +2859,7 @@ sub_10001e8e:
 	subqw	#4,%sp
 	movel	#1937339258,%sp@-
 	clrw	%sp@-
-	.short	0xa81f
+	_Get1Resource
 	movel	%sp@+,%d0
 	beqs	.L10001eba
 	moveal	%d0,%a0
@@ -8776,7 +8780,7 @@ sub_10005cc2:
 	subql	#4,%sp
 	movel	#1346978644,%sp@-
 	movew	#-16500,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	tstw	%d7
 	beqs	.L10005d0a
@@ -10950,7 +10954,7 @@ sub_1000725a:
 	movel	#1836606055,%sp@-
 	moveq	#0,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqw	.L10007396
@@ -10972,7 +10976,7 @@ sub_1000725a:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqs	.L10007396
@@ -11466,7 +11470,7 @@ sub_100077e2:
 	subql	#4,%sp
 	movel	%fp@(8),%sp@-
 	movew	%fp@(14),%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10007802
@@ -11495,7 +11499,7 @@ sub_1000780e:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	movel	%sp@+,%fp@(-8)
 	bnes	.L1000783e
 	movew	#-192,%d7
@@ -11506,7 +11510,7 @@ sub_1000780e:
 	movel	#1986359923,%sp@-
 	moveq	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	movel	%sp@+,%fp@(-4)
 	subql	#2,%sp
 	pea	%fp@(-8)
@@ -11623,7 +11627,7 @@ sub_10007918:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a2
 	movel	%a2,%d0
 	beqs	.L100079bc
@@ -11654,7 +11658,7 @@ sub_10007918:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqs	.L100079b4
@@ -13294,7 +13298,7 @@ sub_10008af4:
 	subql	#4,%sp
 	movel	#1634494835,%sp@-
 	movew	#-8192,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqw	.L10008bfa
@@ -13333,7 +13337,7 @@ sub_10008af4:
 	subql	#4,%sp
 	movel	#1346457665,%sp@-
 	movew	#-8192,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10008bf6
@@ -13412,7 +13416,7 @@ sub_10008c08:
 	subql	#4,%sp
 	movel	#1935896420,%sp@-
 	movew	#-21240,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10008c46
@@ -13938,7 +13942,7 @@ sub_1000905a:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	moveq	#0,%d0
 	movel	%d0,%fp@(-152)
@@ -14346,7 +14350,7 @@ sub_1000953e:
 	movel	#1718907755,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10009598
@@ -14491,7 +14495,7 @@ sub_100095d4:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	beqs	.L100096d6
@@ -14577,7 +14581,7 @@ sub_1000970e:
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L1000977c
@@ -14611,7 +14615,7 @@ sub_10009790:
 	subql	#4,%sp
 	movel	#1735288948,%sp@-
 	movew	#-28673,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L100097da
@@ -17057,7 +17061,7 @@ sub_1000b03c:
 	subql	#4,%sp
 	movel	#1735293044,%sp@-
 	movew	#-16384,%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a4
 	movel	%a3,%fp@(-352)
 	movew	%fp@(-262),%fp@(-348)
@@ -17195,7 +17199,7 @@ sub_1000b1c0:
 	subql	#4,%sp
 	movel	#1667658343,%sp@-
 	movew	%fp@(8),%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a2
 	movel	%a2,%d0
 	bnes	.L1000b1e4
@@ -17277,7 +17281,7 @@ sub_1000b28a:
 	subql	#4,%sp
 	movel	#1667658343,%sp@-
 	movew	%fp@(10),%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a2
 	movel	%a2,%d0
 	bnes	.L1000b2ae
@@ -17499,7 +17503,7 @@ sub_1000b494:
 	subql	#4,%sp
 	movel	#1667658343,%sp@-
 	movew	%fp@(10),%sp@-
-	.short	0xa81f
+	_Get1Resource
 	moveal	%sp@+,%a3
 	movel	%a3,%d0
 	bnes	.L1000b4b8
