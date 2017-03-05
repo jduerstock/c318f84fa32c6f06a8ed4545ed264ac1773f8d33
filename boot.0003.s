@@ -177,6 +177,10 @@ CurMap	=	0xa5a
 	.short	0xa968
 .endm
 
+.macro	_DrawControls
+	.short	0xa969
+.endm
+
 .macro	_FindControl
 	.short	0xa96c
 .endm
@@ -18591,7 +18595,7 @@ sub_1000baf8:
 
 .L1000bbce:
 	movel	%a3,%sp@-
-	.short	0xa969
+	_DrawControls
 
 .L1000bbd2:
 	clrb	%d7
