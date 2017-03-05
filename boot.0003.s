@@ -11847,7 +11847,7 @@ sub_10007a14:
 	movew	%sp@+,%d7
 	bnes	.L10007b92
 	movel	#65536,%d0
-	.short	0xa122
+	_NewHandle
 	moveal	%a0,%a4
 	movel	%a4,%d0
 	bnes	.L10007b3c
@@ -16444,7 +16444,7 @@ sub_1000a94a:
 
 .L1000aa5a:
 	moveq	#16,%d0
-	.short	0xa122
+	_NewHandle
 	moveal	%a0,%a4
 	movel	%a4,%d0
 	bnes	.L1000aa6e
@@ -17678,7 +17678,7 @@ sub_1000b5b2:
 	_GetNewDialog
 	moveal	%sp@+,%a3
 	moveq	#18,%d0
-	.short	0xa122
+	_NewHandle
 	moveal	%a0,%a4
 	movel	%a3,%d0
 	beqw	.L1000b7d2

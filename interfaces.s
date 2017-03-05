@@ -93,6 +93,10 @@ CurMap	=	0xa5a
 	.short	0xa11e
 .endm
 
+.macro	_NewHandle
+	.short	0xa122
+.endm
+
 .macro	_Gestalt
 	.short	0xa1ad
 .endm
