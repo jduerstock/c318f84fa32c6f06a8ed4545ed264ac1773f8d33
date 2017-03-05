@@ -113,6 +113,10 @@ CurMap	=	0xa5a
 	.short	0xa51e
 .endm
 
+.macro	_SetToolTrapAddress
+	.short	0xa647
+.endm
+
 .macro	_NewPtrSysClear
 	.short	0xa71e
 .endm
@@ -3830,7 +3834,7 @@ off_100026be:
 	movew	%a1@+,%d0
 	cmpiw	#-22528,%d0
 	bcss	.L1000272a
-	.short	0xa647
+	_SetToolTrapAddress
 	bras	.L10002716
 
 .L1000272a:
@@ -4306,7 +4310,7 @@ sub_10002acc:
 	moveal	%a3,%a0
 	clrw	%d0
 	movew	#-21527,%d0
-	.short	0xa647
+	_SetToolTrapAddress
 
 .L10002b84:
 	rts
@@ -4916,7 +4920,7 @@ sub_1000314e:
 	moveal	%sp@+,%a0
 	tstb	%d1
 	beqs	.L1000315e
-	.short	0xa647
+	_SetToolTrapAddress
 	bras	.L10003160
 
 .L1000315e:
@@ -5620,7 +5624,7 @@ off_1000376c:
 	movew	%a0@,%d0
 	lea	%pc@(off_1000376c),%a0
 	moveal	%a0@,%a0
-	.short	0xa647
+	_SetToolTrapAddress
 
 .L100037aa:
 	rts
@@ -15557,7 +15561,7 @@ sub_10009caa:
 .L10009de0:
 	moveal	%fp@(-8),%a0
 	movew	#-21927,%d0
-	.short	0xa647
+	_SetToolTrapAddress
 	subql	#2,%sp
 	moveq	#1,%d0
 	movel	%d0,%sp@-
@@ -16619,7 +16623,7 @@ sub_1000a85e:
 	bnes	.L1000a90e
 	moveal	%fp@(-4),%a0
 	movew	#-21926,%d0
-	.short	0xa647
+	_SetToolTrapAddress
 	subql	#2,%sp
 	moveq	#1,%d0
 	movel	%d0,%sp@-
