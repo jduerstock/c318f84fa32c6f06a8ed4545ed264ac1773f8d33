@@ -101,6 +101,10 @@ CurMap	=	0xa5a
 	.short	0xa86e
 .endm
 
+.macro	_DetachResource
+	.short	0xa992
+.endm
+
 .macro	_CurResFile
 	.short	0xa994
 .endm
@@ -966,7 +970,7 @@ str_10000700:
 	moveq	#2,%d0
 	bsrw	sub_10001922
 	movel	%d0,%sp@-
-	.short	0xa992
+	_DetachResource
 	movel	%d6,%sp@-
 	_ReleaseResource
 	movel	#1835884912,%d0
@@ -3016,7 +3020,7 @@ sub_10002028:
 	tstw	%d4
 	bpls	.L10002064
 	movel	%d1,%sp@-
-	.short	0xa992
+	_DetachResource
 
 .L10002064:
 	lea	%pc@(dword_1000209e),%a0
@@ -3314,7 +3318,7 @@ sub_1000236c:
 	movel	%sp@+,%d1
 	beqs	.L1000238a
 	movel	%d1,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%d1,%a0
 	moveal	%a0@,%a0
 	moveml	%a3-%fp,%sp@-
@@ -3596,7 +3600,7 @@ sub_100025da:
 
 .L100025f8:
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	_HLock
 	moveal	%a4@,%a0
@@ -3719,7 +3723,7 @@ off_100026be:
 
 .L10002704:
 	movel	%sp@,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%sp@,%a0
 	moveal	%a0@,%a0
 	movel	%a0,%sp@-
@@ -4519,7 +4523,7 @@ sub_10002e6c:
 	clrw	%sp@-
 	.short	0xa80c
 	movel	%sp@,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%sp@+,%a0
 	.short	0xa04a
 	moveal	%a0,%a2
@@ -7521,7 +7525,7 @@ sub_10004ff2:
 	movel	%sp@+,%a3@
 	beqs	.L1000504c
 	movel	%a3@,%sp@-
-	.short	0xa992
+	_DetachResource
 	braw	.L10005136
 
 .L1000504c:
@@ -9318,7 +9322,7 @@ sub_10006296:
 	movel	%a4,%d0
 	beqs	.L10006320
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	_HLock
 	moveal	%a4@,%a3
@@ -13330,7 +13334,7 @@ sub_10008c08:
 	movel	%a4,%d0
 	beqs	.L10008c46
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	.short	0xa064
 	moveal	%a4,%a0
@@ -14081,7 +14085,7 @@ sub_1000935e:
 	.short	0xa9a5
 	movel	%sp@+,%d7
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	_HLock
 	_GetZone
@@ -14283,7 +14287,7 @@ sub_1000953e:
 
 .L10009590:
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	_HLock
 
@@ -15983,7 +15987,7 @@ sub_1000a5ec:
 	moveal	%a3,%a0
 	_HLock
 	movel	%a3,%sp@-
-	.short	0xa992
+	_DetachResource
 	movel	%d7,%a4@
 	movew	%d6,%a4@(4)
 	movel	%a3,%a4@(6)
@@ -16044,7 +16048,7 @@ sub_1000a66e:
 
 .L1000a6be:
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%a4,%a0
 	.short	0xa064
 	moveal	%a4,%a0
@@ -16866,7 +16870,7 @@ off_1000aef2:
 	moveal	%a4,%a0
 	_HLock
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	movew	%d4,%d0
 	subqw	#8,%d0
 	bmiw	.L1000b026
@@ -17571,7 +17575,7 @@ sub_1000b5b2:
 	movel	%a4,%d0
 	beqw	.L1000b7d2
 	movel	%fp@(-46),%sp@-
-	.short	0xa992
+	_DetachResource
 	moveal	%fp@(-46),%a0
 	_HLock
 	moveal	%fp@(-46),%a0
@@ -18611,7 +18615,7 @@ sub_1000bfb6:
 	cmpl	%a0@,%d0
 	bnes	.L1000c010
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	movel	%a4,%d0
 	bras	.L1000c01a
 
@@ -19513,7 +19517,7 @@ sub_1000cac2:
 	moveal	%fp@(8),%a4
 	movew	CurMap,%d6
 	movel	%a4,%sp@-
-	.short	0xa992
+	_DetachResource
 	movel	%a4@,%sp@-
 	jsr	%pc@(sub_1000ca90)
 	moveq	#0,%d0
