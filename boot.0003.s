@@ -25,6 +25,10 @@ CurMap	=	0xa5a
 	.short	0xa023
 .endm
 
+.macro	_GetHandleSize
+	.short	0xa025
+.endm
+
 .macro	_HLock
 	.short	0xa029
 .endm
@@ -342,7 +346,7 @@ sub_10000000:
 
 .L100000de:
 	moveal	%a3,%a0
-	.short	0xa025
+	_GetHandleSize
 	movel	%d0,%a5@(62)
 	lea	%pc@(sub_100000fa),%a0
 	lea	%pc@(sub_10000000),%a1
@@ -455,7 +459,7 @@ str_10000162:
 	moveml	%sp@+,%a1
 	beqs	.L1000024e
 	moveal	%d1,%a0
-	.short	0xa025
+	_GetHandleSize
 	beqs	.L1000024e
 	cmpil	#12,%d0
 	bcss	.L1000024e
@@ -537,7 +541,7 @@ str_10000162:
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
 	moveal	0xd66,%a0
-	.short	0xa025
+	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
 	.short	0xa024
@@ -982,7 +986,7 @@ str_10000700:
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
 	moveal	0xd66,%a0
-	.short	0xa025
+	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
 	.short	0xa024
@@ -4853,7 +4857,7 @@ sub_100030f8:
 sub_10003106:
 	moveal	%sp@+,%a1
 	moveal	%sp@+,%a0
-	.short	0xa025
+	_GetHandleSize
 	movel	%d0,%sp@
 	bpls	.L10003112
 	clrl	%sp@
@@ -15201,7 +15205,7 @@ sub_10009a38:
 	cmpw	%a0@(4),%d0
 	bgew	.L10009bb2
 	moveal	%a3,%a0
-	.short	0xa025
+	_GetHandleSize
 	movel	%d0,%d7
 	addil	#4095,%d7
 	andil	#-4096,%d7
