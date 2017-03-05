@@ -10493,14 +10493,59 @@ sub_10006aa6:
 	rts
 
 sub_10006b68:
-	.short	0x4E56,0x0000,0x48E7,0x0718
-	.short	0x266E,0x0008,0x2878,0x0CF8,0x4213,0x7A04,0xA077,0x3E00
-	.short	0x4206,0x48C7,0x2007,0x2200,0xC0FC,0x000C,0x4841,0xC2FC
-	.short	0x000C,0x4841,0x4241,0xD081,0x7200,0x1234,0x0802,0xB245
-	.short	0x6602,0x7C01,0x5347,0x0C47,0xFFFF,0x6F04,0x4A06,0x67D2
-	.short	0x4A06,0x660E,0x1013,0x5200,0x1680,0x7000,0x1013,0x1785
-	.short	0x0000,0x3005,0x5245,0x0C45,0x0010,0x6DB0,0x4CEE,0x18E0
-	.short	0xFFEC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d5-%d7/%a3-%a4,%sp@-
+	moveal	%fp@(8),%a3
+	moveal	0xcf8,%a4
+	clrb	%a3@
+	moveq	#4,%d5
+
+.L10006b7c:
+	.short	0xa077
+	movew	%d0,%d7
+	clrb	%d6
+
+.L10006b82:
+	extl	%d7
+	movel	%d7,%d0
+	movel	%d0,%d1
+	muluw	#12,%d0
+	swap	%d1
+	muluw	#12,%d1
+	swap	%d1
+	clrw	%d1
+	addl	%d1,%d0
+	moveq	#0,%d1
+	moveb	%a4@(2,%d0:l),%d1
+	cmpw	%d5,%d1
+	bnes	.L10006ba4
+	moveq	#1,%d6
+
+.L10006ba4:
+	subqw	#1,%d7
+	cmpiw	#-1,%d7
+	bles	.L10006bb0
+	tstb	%d6
+	beqs	.L10006b82
+
+.L10006bb0:
+	tstb	%d6
+	bnes	.L10006bc2
+	moveb	%a3@,%d0
+	addqb	#1,%d0
+	moveb	%d0,%a3@
+	moveq	#0,%d0
+	moveb	%a3@,%d0
+	moveb	%d5,%a3@(%d0:w)
+
+.L10006bc2:
+	movew	%d5,%d0
+	addqw	#1,%d5
+	cmpiw	#16,%d5
+	blts	.L10006b7c
+	moveml	%fp@(-20),%d5-%d7/%a3-%a4
+	unlk	%fp
+	rts
 
 sub_10006bd6:
 	.short	0x4E56,0x0000,0x48E7,0x0F08,0x1A2E
