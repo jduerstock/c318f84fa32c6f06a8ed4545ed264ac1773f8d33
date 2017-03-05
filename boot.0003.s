@@ -17861,7 +17861,7 @@ sub_1000b5b2:
 .L1000b7a2:
 	pea	%pc@(sub_1000baf8)
 	pea	%fp@(-6)
-	.short	0xa991
+	_ModalDialog
 	moveq	#1,%d0
 	cmpw	%fp@(-6),%d0
 	bnes	.L1000b7a2
