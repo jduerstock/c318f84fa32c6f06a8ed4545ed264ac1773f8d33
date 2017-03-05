@@ -89,6 +89,10 @@ CurMap	=	0xa5a
 	.short	0xa06a
 .endm
 
+.macro	_ADBOp
+	.short	0xa07c
+.endm
+
 .macro	_GetZone
 	.short	0xa11a
 .endm

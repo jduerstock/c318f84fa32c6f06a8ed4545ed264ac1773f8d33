@@ -10516,7 +10516,7 @@ sub_10006e4c:
 	movew	%d6,%sp@-
 	movew	%sp@+,%d0
 	moveal	%sp@+,%a0
-	.short	0xa07c
+	_ADBOp
 	movew	%d0,%sp@
 	movew	%sp@+,%d4
 	subql	#4,%sp
@@ -10562,7 +10562,7 @@ sub_10006e4c:
 	movew	%d6,%sp@-
 	movew	%sp@+,%d0
 	moveal	%sp@+,%a0
-	.short	0xa07c
+	_ADBOp
 	movew	%d0,%sp@
 	movew	%sp@+,%d4
 	clrw	%d5
@@ -10590,7 +10590,7 @@ sub_10006e4c:
 	movew	%d6,%sp@-
 	movew	%sp@+,%d0
 	moveal	%sp@+,%a0
-	.short	0xa07c
+	_ADBOp
 	movew	%d0,%sp@
 	movew	%sp@+,%d4
 	subql	#4,%sp
@@ -10685,7 +10685,7 @@ sub_10006fa2:
 	movew	%d5,%sp@-
 	movew	%sp@+,%d0
 	moveal	%sp@+,%a0
-	.short	0xa07c
+	_ADBOp
 	movew	%d0,%sp@
 	movew	%sp@+,%d3
 	subql	#4,%sp
