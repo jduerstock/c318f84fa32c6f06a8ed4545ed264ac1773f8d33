@@ -121,6 +121,10 @@ CurMap	=	0xa5a
 	.short	0xa86e
 .endm
 
+.macro	_HideControl
+	.short	0xa958
+.endm
+
 .macro	_TrackControl
 	.short	0xa968
 .endm
@@ -18110,7 +18114,7 @@ sub_1000bad8:
 	jsr	%pc@(sub_1000b9fc)
 	moveal	%d0,%a4
 	movel	%a4,%sp@-
-	.short	0xa958
+	_HideControl
 	moveal	%fp@(-4),%a4
 	unlk	%fp
 	rts
