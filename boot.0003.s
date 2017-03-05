@@ -171,7 +171,7 @@ str_10000162:
 	moveal	%a0,%a1
 	moveal	0x2a6,%a0
 	movel	%a0@,%d1
-	.short	0xa41c
+	_FreeMemSys
 	subl	%d0,%d1
 	movel	%d1,%a1@
 	moveml	%a1,%sp@-
@@ -1199,7 +1199,7 @@ str_10000de6:
 	moveal	%a1@(772),%a1
 	moveal	0x2a6,%a0
 	movel	%a0@,%d1
-	.short	0xa41c
+	_FreeMemSys
 	subl	%d0,%d1
 	subl	%a1@,%d1
 	movel	%d1,%a1@(4)
@@ -2021,7 +2021,7 @@ str_100017d6:
 	moveal	%a1@(772),%a1
 	moveal	0x2a6,%a0
 	movel	%a0@,%d1
-	.short	0xa41c
+	_FreeMemSys
 	subl	%d0,%d1
 	subl	%a1@,%d1
 	subl	%a1@(4),%d1

@@ -117,6 +117,10 @@ CurMap	=	0xa5a
 	.short	0xa260
 .endm
 
+.macro	_FreeMemSys
+	.short	0xa41c
+.endm
+
 .macro	_ReserveMemSys
 	.short	0xa440
 .endm
