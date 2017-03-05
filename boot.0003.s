@@ -496,7 +496,7 @@ str_10000162:
 	movel	0x108,%a5@(4)
 	clrw	%sp@-
 	movel	#2019716975,%sp@-
-	.short	0xa99c
+	_CountResources
 	movew	%sp@+,%d0
 	beqs	.L10000598
 	bsrl	sub_1000718a
@@ -14175,7 +14175,7 @@ sub_10009278:
 .L10009344:
 	subql	#2,%sp
 	movel	#1684632422,%sp@-
-	.short	0xa99c
+	_CountResources
 	cmpw	%sp@+,%d7
 	blew	.L10009286
 	moveml	%fp@(-14),%d7/%a4
