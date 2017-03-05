@@ -17846,7 +17846,7 @@ sub_1000b5b2:
 	jsr	%pc@(sub_1000437c)
 	movel	%fp@(-42),%sp@-
 	pea	%fp@(-38)
-	.short	0xa95f
+	_SetControlTitle
 	subql	#2,%sp
 	movel	%a3,%sp@-
 	moveq	#1,%d0

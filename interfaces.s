@@ -181,6 +181,10 @@ CurMap	=	0xa5a
 	.short	0xa95d
 .endm
 
+.macro	_SetControlTitle
+	.short	0xa95f
+.endm
+
 .macro	_SetControlValue
 	.short	0xa963
 .endm
