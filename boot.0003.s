@@ -165,6 +165,10 @@ CurMap	=	0xa5a
 	.short	0xa998
 .endm
 
+.macro	_CloseResFile
+	.short	0xa99a
+.endm
+
 .macro	_GetResource
 	.short	0xa9a0
 .endm
@@ -2949,7 +2953,7 @@ sub_10001f38:
 	beqs	.L10001f4c
 	movel	#-1,0x914
 	movew	%d4,%sp@-
-	.short	0xa99a
+	_CloseResFile
 	moveq	#-1,%d4
 
 .L10001f4c:
@@ -7984,7 +7988,7 @@ sub_100052ea:
 	bset	#1,0xb21
 
 .L10005334:
-	.short	0xa99a
+	_CloseResFile
 
 .L10005336:
 	btst	#2,0xb21
@@ -11160,7 +11164,7 @@ sub_1000725a:
 
 .L10007396:
 	movew	%d7,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L1000739a:
 	moveb	%d6,%fp@(12)
@@ -11718,7 +11722,7 @@ sub_1000780e:
 
 .L100078f6:
 	movew	%d6,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L100078fa:
 	movew	%d5,%sp@-
@@ -11821,7 +11825,7 @@ sub_10007918:
 
 .L100079bc:
 	movew	%d7,%sp@-
-	.short	0xa99a
+	_CloseResFile
 	movew	%fp@(-4),%sp@-
 	_UseResFile
 
@@ -13536,7 +13540,7 @@ sub_10008af4:
 
 .L10008bf6:
 	movew	%d5,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L10008bfa:
 	movew	%d4,%sp@-
@@ -14104,7 +14108,7 @@ sub_1000905a:
 
 .L10009170:
 	movew	%d4,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L10009174:
 	tstb	%d6
@@ -14655,7 +14659,7 @@ sub_100095d4:
 
 .L100096d6:
 	movew	%d4,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L100096da:
 	tstb	%d6
@@ -16563,7 +16567,7 @@ sub_1000a94a:
 	movel	%a4,%d0
 	bnes	.L1000aa6e
 	movew	%d7,%sp@-
-	.short	0xa99a
+	_CloseResFile
 	movew	%d6,%sp@-
 	_UseResFile
 	bras	.L1000aaca
@@ -16612,7 +16616,7 @@ sub_1000a94a:
 
 .L1000aac2:
 	movew	%d7,%sp@-
-	.short	0xa99a
+	_CloseResFile
 	movew	%d6,%sp@-
 	_UseResFile
 
@@ -18208,7 +18212,7 @@ sub_1000b958:
 
 .L1000b9e8:
 	movew	%d6,%sp@-
-	.short	0xa99a
+	_CloseResFile
 
 .L1000b9ec:
 	movew	%d5,%sp@-
