@@ -129,6 +129,10 @@ CurMap	=	0xa5a
 	.short	0xa958
 .endm
 
+.macro	_HiliteControl
+	.short	0xa95d
+.endm
+
 .macro	_SetControlValue
 	.short	0xa963
 .endm
@@ -8601,12 +8605,12 @@ sub_10005af0:
 	.short	0xa98d
 	movel	%fp@(4),%sp@-
 	movew	#1,%sp@-
-	.short	0xa95d
+	_HiliteControl
 	moveaw	#8,%a0
 	_Delay
 	movel	%fp@(4),%sp@-
 	clrw	%sp@-
-	.short	0xa95d
+	_HiliteControl
 	bras	.L10005b78
 
 .L10005b56:
@@ -18401,7 +18405,7 @@ sub_1000bd06:
 	movel	%a4,%sp@-
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa95d
+	_HiliteControl
 	moveaw	#10,%a0
 	lea	%fp@(-4),%a1
 	_Delay
@@ -18409,7 +18413,7 @@ sub_1000bd06:
 	movel	%a4,%sp@-
 	moveq	#0,%d0
 	movew	%d0,%sp@-
-	.short	0xa95d
+	_HiliteControl
 	moveq	#1,%d0
 	addqw	#8,%sp
 	bras	.L1000bd4a
