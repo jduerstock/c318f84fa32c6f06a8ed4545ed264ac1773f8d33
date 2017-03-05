@@ -227,7 +227,7 @@ str_10000162:
 	movel	#4,%sp@-
 	pea	%pc@(.L100002c6)
 	clrl	%sp@-
-	.short	0xa9e0
+	_Munger
 	movel	%sp@+,%d0
 	bmis	.L100002c6
 	moveal	0xd66,%a0
@@ -649,7 +649,7 @@ str_10000700:
 	movel	#4,%sp@-
 	pea	%pc@(.L1000078e)
 	clrl	%sp@-
-	.short	0xa9e0
+	_Munger
 	movel	%sp@+,%d0
 	bmis	.L1000078e
 	moveal	0xd66,%a0
@@ -10994,7 +10994,7 @@ sub_1000725a:
 	moveq	#0,%d1
 	movel	%d1,%sp@-
 	movel	%d1,%sp@-
-	.short	0xa9e0
+	_Munger
 	tstl	%sp@+
 	bltw	.L10007396
 	subql	#4,%sp

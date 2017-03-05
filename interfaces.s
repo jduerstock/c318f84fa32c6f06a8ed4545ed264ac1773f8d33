@@ -293,6 +293,10 @@ CurMap	=	0xa5a
 	.short	0xa9cc
 .endm
 
+.macro	_Munger
+	.short	0xa9e0
+.endm
+
 .macro	_OpenCPort
 	.short	0xaa00
 .endm
