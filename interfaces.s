@@ -281,6 +281,10 @@ CurMap	=	0xa5a
 	.short	0xa99a
 .endm
 
+.macro	_SetResLoad
+	.short	0xa99b
+.endm
+
 .macro	_CountResources
 	.short	0xa99c
 .endm

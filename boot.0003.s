@@ -1392,13 +1392,13 @@ str_10000fe0:
 	tstw	%sp@+
 	beqs	.L10001068
 	clrw	%sp@-
-	.short	0xa99b
+	_SetResLoad
 	subqw	#4,%sp
 	movel	#1684431136,%sp@-
 	movew	#-20886,%sp@-
 	_GetResource
 	movew	#1,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	movel	%sp@+,%d0
 	beqs	.L10001068
 	subqw	#4,%sp
@@ -1842,7 +1842,7 @@ str_100015a4:
 	tstb	%a0@(827)
 	bnes	.L1000163a
 	movew	#-1,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	clrl	%sp@-
 	movel	#1718907755,%sp@-
 	movew	#1,%sp@-
@@ -10961,7 +10961,7 @@ sub_1000725a:
 	bnew	.L1000739a
 	moveq	#0,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	subql	#2,%sp
 	movew	%fp@(-6),%sp@-
 	movel	%fp@(-4),%sp@-
@@ -10972,7 +10972,7 @@ sub_1000725a:
 	movew	%sp@+,%d7
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	cmpiw	#-1,%d7
 	beqw	.L1000739a
 	subql	#4,%sp
@@ -11635,7 +11635,7 @@ sub_10007918:
 	movew	%sp@+,%fp@(-4)
 	moveq	#0,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	subql	#2,%sp
 	movel	%fp@(8),%sp@-
 	moveq	#1,%d0
@@ -11645,7 +11645,7 @@ sub_10007918:
 	movew	%sp@+,%d7
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	cmpiw	#-1,%d7
 	beqs	.L100079c6
 	subql	#4,%sp
@@ -13949,7 +13949,7 @@ sub_1000905a:
 	clrb	%d6
 	moveq	#0,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	subql	#2,%sp
 	movew	%fp@(-120),%sp@-
 	movel	%fp@(-42),%sp@-
@@ -13960,7 +13960,7 @@ sub_1000905a:
 	movew	%sp@+,%d4
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	tstw	%d4
 	bles	.L10009174
 	subql	#4,%sp
@@ -14367,7 +14367,7 @@ sub_1000953e:
 	movew	%sp@+,%d7
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	moveq	#0,%d0
 	movew	%d0,%sp@-
 	_UseResFile
@@ -14502,7 +14502,7 @@ sub_100095d4:
 	clrb	%d7
 	moveq	#0,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	subql	#2,%sp
 	movew	%fp@(20),%sp@-
 	movel	%fp@(16),%sp@-
@@ -14513,7 +14513,7 @@ sub_100095d4:
 	movew	%sp@+,%d4
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa99b
+	_SetResLoad
 	tstw	%d4
 	bles	.L100096da
 	subql	#4,%sp
