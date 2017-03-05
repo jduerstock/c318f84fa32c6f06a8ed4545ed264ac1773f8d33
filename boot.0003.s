@@ -149,6 +149,10 @@ CurMap	=	0xa5a
 	.short	0xa891
 .endm
 
+.macro	_MoveTo
+	.short	0xa893
+.endm
+
 .macro	_GetWRefCon
 	.short	0xa917
 .endm
@@ -6127,7 +6131,7 @@ sub_10003f4c:
 	movew	%fp@(-4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movel	%fp@(-8),%sp@-
 	_LineTo
 	movew	%fp@(-2),%d0
@@ -6146,7 +6150,7 @@ sub_10003f4c:
 	movew	%fp@(-4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%fp@(-2),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6211,7 +6215,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
 	_LineTo
@@ -6226,7 +6230,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6240,7 +6244,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6254,7 +6258,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6270,7 +6274,7 @@ sub_10004028:
 	addqw	#2,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6282,7 +6286,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6296,7 +6300,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6321,7 +6325,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6346,7 +6350,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6360,7 +6364,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6374,7 +6378,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6388,7 +6392,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6406,7 +6410,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6420,7 +6424,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6448,7 +6452,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6466,7 +6470,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6480,7 +6484,7 @@ sub_10004028:
 	movew	%a4@,%d0
 	addqw	#4,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#4,%d0
 	movew	%d0,%sp@-
@@ -6494,7 +6498,7 @@ sub_10004028:
 	movew	%a4@(4),%d0
 	subqw	#5,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6578,7 +6582,7 @@ sub_10004380:
 	_RGBForeColor
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%sp@-
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
@@ -6593,7 +6597,7 @@ sub_10004380:
 	addqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6612,7 +6616,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6634,7 +6638,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6658,7 +6662,7 @@ sub_10004380:
 	subqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(6),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6675,7 +6679,7 @@ sub_10004380:
 	_RGBForeColor
 	movew	%a4@(2),%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%sp@-
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
@@ -6694,7 +6698,7 @@ sub_10004380:
 	addqw	#1,%d0
 	movew	%d0,%sp@-
 	movew	%a4@,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
@@ -6717,7 +6721,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#2,%d0
 	movew	%d0,%sp@-
@@ -6743,7 +6747,7 @@ sub_10004380:
 	movew	%a4@,%d0
 	addqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6762,7 +6766,7 @@ sub_10004380:
 	movew	%a4@(4),%d0
 	subqw	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movew	%a4@(2),%d0
 	addqw	#3,%d0
 	movew	%d0,%sp@-
@@ -6942,7 +6946,7 @@ sub_10004668:
 	.short	0xa8a3
 	movew	%fp@(-530),%sp@-
 	movew	%d5,%sp@-
-	.short	0xa893
+	_MoveTo
 	movel	%a4,%sp@-
 	.short	0xa884
 	movel	%fp@(-4),%sp@-
@@ -7047,7 +7051,7 @@ sub_10004668:
 	.short	0xa8a3
 	movew	%fp@(-530),%sp@-
 	movew	%d5,%sp@-
-	.short	0xa893
+	_MoveTo
 	movel	%a4,%sp@-
 	.short	0xa884
 	movel	%a4,%sp@-
@@ -8537,7 +8541,7 @@ word_100057ce:
 
 .L1000587a:
 	movew	%d0,%sp@-
-	.short	0xa893
+	_MoveTo
 	movel	%a2@,%sp@-
 	.short	0xa884
 	movel	%a2,%sp@-
