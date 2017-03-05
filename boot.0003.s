@@ -17675,7 +17675,7 @@ sub_1000b5b2:
 	movel	%d0,%sp@-
 	moveq	#-1,%d1
 	movel	%d1,%sp@-
-	.short	0xa97c
+	_GetNewDialog
 	moveal	%sp@+,%a3
 	moveq	#18,%d0
 	.short	0xa122

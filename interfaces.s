@@ -193,6 +193,10 @@ CurMap	=	0xa5a
 	.short	0xa975
 .endm
 
+.macro	_GetNewDialog
+	.short	0xa97c
+.endm
+
 .macro	_DetachResource
 	.short	0xa992
 .endm
