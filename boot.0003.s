@@ -113,6 +113,10 @@ CurMap	=	0xa5a
 	.short	0xa823
 .endm
 
+.macro	_SetCursor
+	.short	0xa851
+.endm
+
 .macro	_GlobalToLocal
 	.short	0xa871
 .endm
@@ -7243,7 +7247,7 @@ sub_10004b60:
 	clrw	%d1
 	addl	%d1,%d0
 	pea	%a0@(%d0:l)
-	.short	0xa851
+	_SetCursor
 	movel	%d7,%d0
 	exg	%d0,%a5
 	extl	%d6
@@ -7267,7 +7271,7 @@ sub_10004b60:
 	exg	%d0,%a5
 	movel	%d0,%d7
 	pea	%a4@(600)
-	.short	0xa851
+	_SetCursor
 	movel	%d7,%d0
 	exg	%d0,%a5
 	clrb	%a4@(556)
@@ -7380,7 +7384,7 @@ sub_10004cce:
 	exg	%d0,%a5
 	movel	%d0,%d6
 	pea	%a3@(94)
-	.short	0xa851
+	_SetCursor
 	movel	%d6,%d0
 	exg	%d0,%a5
 
@@ -18493,7 +18497,7 @@ sub_1000bccc:
 	asll	#2,%d0
 	moveal	%a0@(4,%d0:l),%a0
 	movel	%a0@,%sp@-
-	.short	0xa851
+	_SetCursor
 	moveal	%a4@,%a0
 	moveal	%a0,%a1
 	movew	%a0@(2),%d0
