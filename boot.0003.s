@@ -10800,7 +10800,7 @@ sub_100070ee:
 	moveaw	%a4@(6),%a0
 	movel	%a4@(8),%d0
 	lea	%fp@(-4),%a1
-	.short	0xa12f
+	_PostEvent
 	movel	%a0,%a1@
 	tstl	%fp@(-4)
 	beqs	.L1000715c
@@ -10820,7 +10820,7 @@ sub_100070ee:
 	movel	%a3,%d0
 	beqs	.L10007180
 	moveal	%a3,%a0
-	.short	0xa148
+	_PtrZone
 	movel	%a0,%fp@(-8)
 	subql	#4,%sp
 	movel	0x2a6,%sp@

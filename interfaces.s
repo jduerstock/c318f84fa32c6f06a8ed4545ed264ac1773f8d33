@@ -109,6 +109,14 @@ CurMap	=	0xa5a
 	.short	0xa122
 .endm
 
+.macro	_PostEvent
+	.short	0xa12f
+.endm
+
+.macro	_PtrZone
+	.short	0xa148
+.endm
+
 .macro	_Gestalt
 	.short	0xa1ad
 .endm
