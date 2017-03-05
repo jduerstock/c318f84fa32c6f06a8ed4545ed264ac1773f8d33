@@ -17886,7 +17886,7 @@ sub_1000b5b2:
 	movel	%a3,%d0
 	beqs	.L1000b7e0
 	movel	%a3,%sp@-
-	.short	0xa983
+	_DisposeDialog
 
 .L1000b7e0:
 	tstl	%fp@(-46)

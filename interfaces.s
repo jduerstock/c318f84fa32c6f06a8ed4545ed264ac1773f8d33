@@ -217,6 +217,10 @@ CurMap	=	0xa5a
 	.short	0xa97c
 .endm
 
+.macro	_DisposeDialog
+	.short	0xa983
+.endm
+
 .macro	_ModalDialog
 	.short	0xa991
 .endm
