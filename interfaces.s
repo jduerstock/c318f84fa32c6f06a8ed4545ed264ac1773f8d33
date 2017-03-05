@@ -241,6 +241,10 @@ CurMap	=	0xa5a
 	.short	0xa9b9
 .endm
 
+.macro	_SysBeep
+	.short	0xa9c8
+.endm
+
 .macro	_SysError
 	.short	0xa9c9
 .endm

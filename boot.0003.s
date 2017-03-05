@@ -17734,7 +17734,7 @@ sub_1000b5b2:
 	_SetWRefCon
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa9c8
+	_SysBeep
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	movel	%a3,%sp@-
