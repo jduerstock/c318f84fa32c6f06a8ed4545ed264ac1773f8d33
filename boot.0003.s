@@ -4819,9 +4819,21 @@ sub_10002f78:
 	unlk	%fp
 	rts
 
-	.short	0x5D8F,0x486F,0x0002
-	.short	0x303C,0x0203,0xAA68,0x4A5F,0x6604,0x205F,0x4ED0,0x205F
-	.short	0xDEFC,0x000C,0x4257,0x4ED0
+sub_100030da:
+	subql	#6,%sp
+	pea	%sp@(2)
+	movew	#515,%d0
+	.short	0xaa68
+	tstw	%sp@+
+	bnes	.L100030ee
+	moveal	%sp@+,%a0
+	jmp	%a0@
+
+.L100030ee:
+	moveal	%sp@+,%a0
+	addaw	#12,%sp
+	clrw	%sp@
+	jmp	%a0@
 
 sub_100030f8:
 	moveal	%sp@+,%a1
