@@ -2672,7 +2672,7 @@ sub_10001f08:
 	pea	%a5@(220)
 	clrb	%sp@-
 	clrb	0xa5e
-	.short	0xa81a
+	_HOpenResFile
 	st	0xa5e
 	movew	%sp@+,%d4
 	bmis	.L10001f30
@@ -10968,7 +10968,7 @@ sub_1000725a:
 	movel	%a2,%sp@-
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d7
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
@@ -13956,7 +13956,7 @@ sub_1000905a:
 	movel	%fp@(-124),%sp@-
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d4
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
@@ -14509,7 +14509,7 @@ sub_100095d4:
 	movel	%fp@(12),%sp@-
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d4
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
@@ -16381,7 +16381,7 @@ sub_1000a94a:
 	pea	%pc@(str_1000aaf0)
 	moveq	#3,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d7
 	cmpiw	#-1,%d7
 	bnes	.L1000a9d2
@@ -16402,7 +16402,7 @@ sub_1000a94a:
 	pea	%pc@(str_1000aaf0)
 	moveq	#3,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d7
 
 .L1000a9d2:
@@ -16418,7 +16418,7 @@ sub_1000a94a:
 	pea	%pc@(str_1000aaf0)
 	moveq	#3,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d7
 	cmpiw	#-1,%d7
 	beqw	.L1000aaca
@@ -17119,7 +17119,7 @@ sub_1000b03c:
 	movel	%fp@(-352),%sp@-
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d7
 	subql	#2,%sp
 	_ResError
@@ -18065,7 +18065,7 @@ sub_1000b958:
 	movel	%a3,%sp@-
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
-	.short	0xa81a
+	_HOpenResFile
 	movew	%sp@+,%d6
 	cmpiw	#-1,%d6
 	beqs	.L1000b9ec

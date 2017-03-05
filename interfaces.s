@@ -133,6 +133,10 @@ CurMap	=	0xa5a
 	.short	0xa722
 .endm
 
+.macro	_HOpenResFile
+	.short	0xa81a
+.endm
+
 .macro	_Get1Resource
 	.short	0xa81f
 .endm
