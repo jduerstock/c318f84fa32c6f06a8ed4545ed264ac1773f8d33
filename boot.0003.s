@@ -25,6 +25,10 @@ CurMap	=	0xa5a
 	.short	0xa023
 .endm
 
+.macro	_HLock
+	.short	0xa029
+.endm
+
 .macro	_HUnlock
 	.short	0xa02a
 .endm
@@ -3035,7 +3039,7 @@ dword_1000209e:
 
 sub_100020a2:
 	moveal	%d1,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a0@,%a1
 	movel	%a1,%d0
 	movel	%a5@,%sp@-
@@ -3586,7 +3590,7 @@ sub_100025da:
 	movel	%a4,%sp@-
 	.short	0xa992
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a0
 	addqw	#6,%a0
 	movew	%a0@+,%d0
@@ -3633,7 +3637,7 @@ sub_100025da:
 .L1000266e:
 	movel	%d0,%a4@(20)
 	moveal	%d0,%a0
-	.short	0xa029
+	_HLock
 	subqw	#4,%sp
 	movel	#1735680620,%sp@-
 	movew	%d1,%sp@-
@@ -3646,7 +3650,7 @@ sub_100025da:
 .L1000268c:
 	movel	%d0,%a4@(16)
 	moveal	%d0,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@(16),%a2
 	moveal	%a2@,%a2
 	addqw	#6,%a2
@@ -4439,7 +4443,7 @@ sub_10002dae:
 	moveal	%a0@(42),%a0
 
 .L10002dd2:
-	.short	0xa029
+	_HLock
 	movel	%a0,%sp@-
 	moveal	%a0@,%a0
 	lea	%fp@(-132),%a1
@@ -4551,7 +4555,7 @@ sub_10002e6c:
 
 .L10002f0a:
 	moveal	%a2,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a0@,%a1
 	moveal	%a3,%a0
 	bsrw	sub_10002e0a
@@ -8528,7 +8532,7 @@ sub_10005b8a:
 	beqs	.L10005be4
 	moveml	%d2-%d3/%a3,%sp@-
 	moveal	%d0,%a0
-	.short	0xa029
+	_HLock
 	movel	%a0,%sp@-
 	moveal	%a0@,%a3
 	movew	%a3@+,%d3
@@ -8586,7 +8590,7 @@ sub_10005bf2:
 	movel	%sp@+,%d2
 	beqs	.L10005c12
 	moveal	%d2,%a0
-	.short	0xa029
+	_HLock
 	movel	%a0,%sp@-
 	moveal	%a0@,%a0
 	movel	%a0,%d2
@@ -9173,7 +9177,7 @@ sub_1000619a:
 	tstl	%a4@
 	beqs	.L100061d8
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a0
 	movel	%a0,%fp@(-4)
 	jsr	%a0@
@@ -9207,7 +9211,7 @@ sub_100061e6:
 	tstl	%a4@
 	beqs	.L10006224
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a0
 	movel	%a0,%fp@(-4)
 	jsr	%a0@
@@ -9306,7 +9310,7 @@ sub_10006296:
 	movel	%a4,%sp@-
 	.short	0xa992
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a3
 	jsr	%a3@
 
@@ -9608,7 +9612,7 @@ sub_100065b4:
 	moveq	#0,%d0
 	moveal	%d0,%a4
 	moveal	%a3,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a3@,%a0
 	moveq	#0,%d0
 	moveb	%a0@,%d0
@@ -11007,9 +11011,9 @@ sub_10007424:
 	movel	%a2,%d0
 	beqw	.L1000751e
 	moveal	%a3,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a2,%a0
-	.short	0xa029
+	_HLock
 	subql	#2,%sp
 	movel	%a2@,%sp@-
 	subql	#4,%sp
@@ -11726,7 +11730,7 @@ sub_10007a14:
 
 .L10007b3c:
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	movel	#65536,%fp@(-4)
 	moveq	#0,%d6
 	bras	.L10007b8a
@@ -13241,7 +13245,7 @@ sub_10008af4:
 	tstw	%sp@+
 	bnes	.L10008bf6
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a0
 	moveb	%a0@,%d0
 	extw	%d0
@@ -13320,7 +13324,7 @@ sub_10008c08:
 	moveal	%a4,%a0
 	.short	0xa064
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	movel	%a4@,%sp@-
 	moveq	#8,%d0
 	movew	%d0,%sp@-
@@ -13744,7 +13748,7 @@ sub_1000905a:
 	linkw	%fp,#-152
 	moveml	%d3-%d7/%a3-%a4,%sp@-
 	moveal	%fp@(8),%a0
-	.short	0xa029
+	_HLock
 	lea	%fp@(-34),%a0
 	movel	%a0,%fp@(-124)
 	movew	%fp@(20),%fp@(-120)
@@ -14069,7 +14073,7 @@ sub_1000935e:
 	movel	%a4,%sp@-
 	.short	0xa992
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
@@ -14271,7 +14275,7 @@ sub_1000953e:
 	movel	%a4,%sp@-
 	.short	0xa992
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 
 .L10009598:
 	movel	%a4,%fp@(8)
@@ -15967,7 +15971,7 @@ sub_1000a5ec:
 	moveal	%a3,%a0
 	.short	0xa064
 	moveal	%a3,%a0
-	.short	0xa029
+	_HLock
 	movel	%a3,%sp@-
 	.short	0xa992
 	movel	%d7,%a4@
@@ -16034,7 +16038,7 @@ sub_1000a66e:
 	moveal	%a4,%a0
 	.short	0xa064
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	subql	#4,%sp
 	movel	%a4,%sp@-
 	jsr	%pc@(sub_10003106)
@@ -16850,7 +16854,7 @@ off_1000aef2:
 	moveq	#0,%d0
 	movel	%d0,%fp@(-16)
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	movel	%a4,%sp@-
 	.short	0xa992
 	movew	%d4,%d0
@@ -17113,7 +17117,7 @@ sub_1000b1c0:
 	.short	0xa069
 	moveb	%d0,%d5
 	moveal	%a2,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a2@,%a0
 	moveq	#0,%d6
 	movew	%a0@(30),%d6
@@ -17194,7 +17198,7 @@ sub_1000b28a:
 	.short	0xa069
 	moveb	%d0,%d4
 	moveal	%a2,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a2@,%a0
 	moveq	#0,%d5
 	movew	%a0@(30),%d5
@@ -17410,7 +17414,7 @@ sub_1000b494:
 	.short	0xa069
 	moveb	%d0,%d4
 	moveal	%a3,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a3@,%a0
 	moveq	#0,%d5
 	movew	%a0@(30),%d5
@@ -17559,11 +17563,11 @@ sub_1000b5b2:
 	movel	%fp@(-46),%sp@-
 	.short	0xa992
 	moveal	%fp@(-46),%a0
-	.short	0xa029
+	_HLock
 	moveal	%fp@(-46),%a0
 	movel	%a0@,%fp@(-4)
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	movel	%a3,%sp@-
 	movel	%a4@,%sp@-
 	.short	0xa918
@@ -17952,7 +17956,7 @@ sub_1000b958:
 	movel	%a4,%d0
 	beqs	.L1000b9e8
 	moveal	%a4,%a0
-	.short	0xa029
+	_HLock
 	moveal	%a4@,%a0
 	movel	%a0@,%d4
 	movel	#65600,%d7
@@ -18561,7 +18565,7 @@ sub_1000c03c:
 	extw	%d0
 	movew	%d0,%d5
 	moveal	%fp@(8),%a0
-	.short	0xa029
+	_HLock
 	moveal	%fp@(8),%a0
 	moveal	%a0@,%a0
 	lea	%a0@(12),%a4
@@ -19679,7 +19683,7 @@ sub_1000cd14:
 
 .L1000cd5c:
 	moveal	0xd1c,%a0
-	.short	0xa029
+	_HLock
 	moveq	#0,%d0
 	moveal	0x2b6,%a0
 	_GetPtrSize
