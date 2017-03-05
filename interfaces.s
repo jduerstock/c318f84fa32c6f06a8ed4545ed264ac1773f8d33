@@ -361,6 +361,10 @@ CurMap	=	0xa5a
 	.short	0xaa7f
 .endm
 
+.macro	_InitPalettes
+	.short	0xaa90
+.endm
+
 .macro	_ExpansionBusDispatch
 	.short	0xaaf3
 .endm

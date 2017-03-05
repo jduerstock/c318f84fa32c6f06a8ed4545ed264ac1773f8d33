@@ -4180,7 +4180,7 @@ sub_10002ce2:
 .L10002d0e:
 	movel	%a5@,%sp@-
 	_InitGraf
-	.short	0xaa90
+	_InitPalettes
 	movew	%sp@+,CurMap
 	moveml	%sp@+,%a0-%a2
 	rts
