@@ -185,6 +185,10 @@ CurMap	=	0xa5a
 	.short	0xa9af
 .endm
 
+.macro	_GetCursor
+	.short	0xa9b9
+.endm
+
 .macro	_SysError
 	.short	0xa9c9
 .endm
@@ -7097,7 +7101,7 @@ sub_100049fa:
 	movel	%d7,%d0
 	asll	#2,%d0
 	movew	%a0@(4,%d0:l),%sp@-
-	.short	0xa9b9
+	_GetCursor
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10004a8e
@@ -18412,7 +18416,7 @@ sub_1000bc04:
 	extl	%d6
 	subql	#4,%sp
 	movew	%d6,%sp@-
-	.short	0xa9b9
+	_GetCursor
 	extl	%d7
 	moveal	%a4@,%a0
 	movel	%d7,%d0
