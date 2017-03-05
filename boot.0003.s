@@ -14259,8 +14259,8 @@ str_10009402:
 
 str_1000941c:
 	.byte	0x1b
-	.ascii	"ReplaceBridgeVideoDriverLib"
-	.short	0x0000
+	.string	"ReplaceBridgeVideoDriverLib"
+	.align	2
 
 sub_1000943a:
 	linkw	%fp,#-14
