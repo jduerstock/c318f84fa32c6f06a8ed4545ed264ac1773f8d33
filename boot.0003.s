@@ -77,6 +77,10 @@ CurMap	=	0xa5a
 	.short	0xa260
 .endm
 
+.macro	_ReserveMemSys
+	.short	0xa440
+.endm
+
 .macro	_NewPtrSys
 	.short	0xa51e
 .endm
@@ -19748,7 +19752,7 @@ sub_1000cd14:
 	cmpaw	#-1,%a0
 	bnes	.L1000cd30
 	moveq	#28,%d0
-	.short	0xa440
+	_ReserveMemSys
 	moveq	#28,%d0
 	_NewHandleSysClear
 	bnes	.L1000cd9e
@@ -19758,7 +19762,7 @@ sub_1000cd14:
 .L1000cd30:
 	_HUnlock
 	moveq	#28,%d0
-	.short	0xa440
+	_ReserveMemSys
 	bnes	.L1000cd9e
 	moveq	#28,%d0
 	_NewHandleSysClear
