@@ -93,6 +93,10 @@ CurMap	=	0xa5a
 	.short	0xa998
 .endm
 
+.macro	_ResError
+	.short	0xa9af
+.endm
+
 .macro	_SysError
 	.short	0xa9c9
 .endm
@@ -5796,7 +5800,7 @@ sub_10003db8:
 	.short	0xa9a0
 	movel	%sp@+,%a4@
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	beqs	.L10003dde
 	moveq	#0,%d0
@@ -5836,7 +5840,7 @@ sub_10003de8:
 	pea	%pc@(word_10003ea2)
 	.short	0xa9ab
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	beqs	.L10003e4a
 	moveal	%fp@(-4),%a0
@@ -7757,21 +7761,84 @@ sub_100052ea:
 	.short	0x6100,0x031C,0x11DF,0x0B21,0x4E75
 
 sub_1000539a:
-	.short	0x48E7,0xF8F8,0x43FA
-	.short	0x053E,0x0C51,0x0000,0x6700,0x009A,0x41FA,0x009E,0x3211
-	.short	0x0C41,0xBF8B,0x670C,0x0C41,0xBF88,0x6706,0x323C,0x0002
-	.short	0x600E,0x323C,0x0004,0x6008,0x5088,0x4A50,0x6700,0x0074
-	.short	0xB050,0x66F4,0x3828,0x0006,0x594F,0x3F30,0x1000,0xA9BC
-	.short	0x201F,0x675E,0x2440,0x2052,0x49FA,0x04EC,0x47FA,0x04E0
-	.short	0x3028,0x0008,0x322B,0x0006,0x342B,0x0002,0x9242,0x9240
-	.short	0xE249,0xD441,0x3942,0x0002,0xD042,0x3940,0x0006,0x302B
-	.short	0x0004,0x9044,0x3940,0x0004,0x3228,0x0006,0x9041,0x3880
-	.short	0x6100,0x0222,0x42A7,0x2F0F,0xA874,0x486D,0x0070,0xA873
-	.short	0x2F0A,0x2F0C,0xA8F6,0x2F0A,0xA9A3,0xA873,0x4CDF,0x1F1F
-	.short	0x4E75,0x4CDF,0x1F1F,0x6000,0x0030,0xFFF6,0xB0F1,0xB0F0
+	moveml	%d0-%d4/%a0-%a4,%sp@-
+	lea	%pc@(word_100058de),%a1
+	cmpiw	#0,%a1@
+	beqw	.L10005442
+	lea	%pc@(word_1000544a),%a0
+	movew	%a1@,%d1
+	cmpiw	#-16501,%d1
+	beqs	.L100053c2
+	cmpiw	#-16504,%d1
+	beqs	.L100053c2
+	movew	#2,%d1
+	bras	.L100053d0
+
+.L100053c2:
+	movew	#4,%d1
+	bras	.L100053d0
+
+.L100053c8:
+	addql	#8,%a0
+	tstw	%a0@
+	beqw	.L10005442
+
+.L100053d0:
+	cmpw	%a0@,%d0
+	bnes	.L100053c8
+	movew	%a0@(6),%d4
+	subqw	#4,%sp
+	movew	%a0@(%d1:w),%sp@-
+	.short	0xa9bc
+	movel	%sp@+,%d0
+	beqs	.L10005442
+	moveal	%d0,%a2
+	moveal	%a2@,%a0
+	lea	%pc@(word_100058d6),%a4
+	lea	%pc@(word_100058ce),%a3
+	movew	%a0@(8),%d0
+	movew	%a3@(6),%d1
+	movew	%a3@(2),%d2
+	subw	%d2,%d1
+	subw	%d0,%d1
+	lsrw	#1,%d1
+	addw	%d1,%d2
+	movew	%d2,%a4@(2)
+	addw	%d2,%d0
+	movew	%d0,%a4@(6)
+	movew	%a3@(4),%d0
+	subw	%d4,%d0
+	movew	%d0,%a4@(4)
+	movew	%a0@(6),%d1
+	subw	%d1,%d0
+	movew	%d0,%a4@
+	bsrw	sub_10005644
+	clrl	%sp@-
+	movel	%sp,%sp@-
+	.short	0xa874
+	pea	%a5@(112)
+	.short	0xa873
+	movel	%a2,%sp@-
+	movel	%a4,%sp@-
+	.short	0xa8f6
+	movel	%a2,%sp@-
+	.short	0xa9a3
+	.short	0xa873
+	moveml	%sp@+,%d0-%d4/%a0-%a4
+	rts
+
+.L10005442:
+	moveml	%sp@+,%d0-%d4/%a0-%a4
+	braw	.L10005478
+
+word_1000544a:
+	.short	0xFFF6,0xB0F1,0xB0F0
 	.short	0x000F,0x0028,0xB0EF,0xB0EE,0x0024,0xFFF3,0xB0F3,0xB0F2
 	.short	0x000F,0xFFF2,0xB0F5,0xB0F4,0x0024,0x0000,0x0C40,0xFFF6
-	.short	0x6606,0x08F8,0x0003,0x0B21,0x0838,0x0005,0x0B20,0x6616
+	.short	0x6606,0x08F8,0x0003,0x0B21
+
+.L10005478:
+	.short	0x0838,0x0005,0x0B20,0x6616
 	.short	0x0C40,0xFFF6,0x6606,0x303C,0xFFFF,0x600A,0x0C40,0xFFF5
 	.short	0x6604,0x303C,0xFFFE,0x41FA,0x0068,0x3080,0x1F38,0x0B21
 	.short	0x08F8,0x0001,0x0B21,0x6100,0x0206,0x11DF,0x0B21,0x41FA
@@ -8146,7 +8213,10 @@ sub_100058ca:
 
 word_100058ce:
 	.short	0x0000
-	.short	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
+	.short	0x0000,0x0000,0x0000
+
+word_100058d6:
+	.short	0x0000,0x0000,0x0000,0x0000
 
 word_100058de:
 	.short	0x0000
@@ -11313,7 +11383,7 @@ sub_1000780e:
 	pea	%pc@(word_1000790a)
 	.short	0xa9ab
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	movew	%sp@+,%d7
 	lea	%sp@(16),%sp
 	tstw	%d7
@@ -11331,7 +11401,7 @@ sub_1000780e:
 	movew	%d6,%sp@-
 	.short	0xa999
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	movew	%sp@+,%d7
 
 .L100078f6:
@@ -12991,7 +13061,7 @@ sub_10008a2e:
 	tstl	%a4@
 	beqs	.L10008a92
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L10008a92
 	moveal	%a4@,%a0
@@ -13060,13 +13130,13 @@ sub_10008af4:
 	movel	%a3,%d0
 	beqw	.L10008bfa
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnew	.L10008bfa
 	movel	%a3,%sp@-
 	.short	0xa9a2
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	movew	%sp@+,%d6
 	bnes	.L10008b58
 	subql	#2,%sp
@@ -13099,7 +13169,7 @@ sub_10008af4:
 	movel	%a4,%d0
 	beqs	.L10008bf6
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L10008bf6
 	moveal	%a4,%a0
@@ -13136,10 +13206,10 @@ sub_10008af4:
 	movel	%a3,%sp@-
 	.short	0xa9ad
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	movew	%sp@+,%d6
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L10008bee
 	moveq	#0,%d0
@@ -14403,7 +14473,7 @@ sub_100097e4:
 	movel	%a4,%d0
 	beqs	.L10009840
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L10009840
 	movel	%a4,%d0
@@ -14413,7 +14483,7 @@ sub_100097e4:
 
 .L10009810:
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L10009840
 	movel	%a4,%d0
@@ -15842,7 +15912,7 @@ sub_1000a5ec:
 
 .L1000a650:
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000a65e
 	movew	#-192,%d0
@@ -15850,7 +15920,7 @@ sub_1000a5ec:
 
 .L1000a65e:
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	movew	%sp@+,%d0
 
 .L1000a664:
@@ -16854,7 +16924,7 @@ sub_1000b03c:
 	.short	0xa81a
 	movew	%sp@+,%d7
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000b138
 	moveq	#8,%d0
@@ -17802,7 +17872,7 @@ sub_1000b958:
 	cmpiw	#-1,%d6
 	beqs	.L1000b9ec
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000b9ec
 	subql	#4,%sp
@@ -17884,28 +17954,131 @@ sub_1000baf8:
 	.short	0x000C,0x4ED0
 
 sub_1000bc04:
-	.short	0x4E56,0x0000,0x48E7,0x1308,0x598F,0x2F3C
-	.short	0x6163,0x7572,0x3F2E,0x000A,0xA9A0,0x285F,0x200C,0x676A
-	.short	0x2054,0x4268,0x0002,0x4247,0x6056,0x48C7,0x2054,0x2007
-	.short	0xE580,0x2C30,0x0804,0x4846,0x48C6,0x598F,0x3F06,0xA9B9
-	.short	0x48C7,0x2054,0x2007,0xE580,0x219F,0x0804,0x48C7,0x2054
-	.short	0x2007,0xE580,0x4AB0,0x0804,0x6622,0x6014,0x48C7,0x2007
-	.short	0x5380,0x2054,0xE580,0x2F30,0x0804,0xA9A3,0x3007,0x5347
-	.short	0x4A47,0x6EE8,0x2F0C,0xA9A3,0x7000,0x2840,0x3007,0x5247
-	.short	0x2054,0xBE50,0x6C04,0x200C,0x66A0,0x200C,0x4CEE,0x10C8
-	.short	0xFFF0,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d3/%d6-%d7/%a4,%sp@-
+	subql	#4,%sp
+	movel	#1633908082,%sp@-
+	movew	%fp@(10),%sp@-
+	.short	0xa9a0
+	moveal	%sp@+,%a4
+	movel	%a4,%d0
+	beqs	.L1000bc8a
+	moveal	%a4@,%a0
+	clrw	%a0@(2)
+	clrw	%d7
+	bras	.L1000bc80
+
+.L1000bc2a:
+	extl	%d7
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#2,%d0
+	movel	%a0@(4,%d0:l),%d6
+	swap	%d6
+	extl	%d6
+	subql	#4,%sp
+	movew	%d6,%sp@-
+	.short	0xa9b9
+	extl	%d7
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#2,%d0
+	movel	%sp@+,%a0@(4,%d0:l)
+	extl	%d7
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#2,%d0
+	tstl	%a0@(4,%d0:l)
+	bnes	.L1000bc7c
+	bras	.L1000bc70
+
+.L1000bc5c:
+	extl	%d7
+	movel	%d7,%d0
+	subql	#1,%d0
+	moveal	%a4@,%a0
+	asll	#2,%d0
+	movel	%a0@(4,%d0:l),%sp@-
+	.short	0xa9a3
+	movew	%d7,%d0
+	subqw	#1,%d7
+
+.L1000bc70:
+	tstw	%d7
+	bgts	.L1000bc5c
+	movel	%a4,%sp@-
+	.short	0xa9a3
+	moveq	#0,%d0
+	moveal	%d0,%a4
+
+.L1000bc7c:
+	movew	%d7,%d0
+	addqw	#1,%d7
+
+.L1000bc80:
+	moveal	%a4@,%a0
+	cmpw	%a0@,%d7
+	bges	.L1000bc8a
+	movel	%a4,%d0
+	bnes	.L1000bc2a
+
+.L1000bc8a:
+	movel	%a4,%d0
+	moveml	%fp@(-16),%d3/%d6-%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000bc96:
-	.short	0x4E56,0x0000,0x48E7,0x0108,0x286E
-	.short	0x0008,0x4247,0x6012,0x48C7,0x2054,0x2007,0xE580,0x2F30
-	.short	0x0804,0xA9A3,0x3007,0x5247,0x2054,0xBE50,0x6DE8,0x2F0C
-	.short	0xA9A3,0x4CEE,0x1080,0xFFF8,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d7/%a4,%sp@-
+	moveal	%fp@(8),%a4
+	clrw	%d7
+	bras	.L1000bcb8
 
-	.short	0x4E56,0x0000
-	.short	0x2F0C,0x286E,0x0008,0x2054,0x3028,0x0002,0x5268,0x0002
-	.short	0x48C0,0x2054,0xE580,0x2070,0x0804,0x2F10,0xA851,0x2054
-	.short	0x2248,0x3028,0x0002,0xB051,0x6604,0x4268,0x0002,0x286E
-	.short	0xFFFC,0x4E5E,0x4E75
+.L1000bca6:
+	extl	%d7
+	moveal	%a4@,%a0
+	movel	%d7,%d0
+	asll	#2,%d0
+	movel	%a0@(4,%d0:l),%sp@-
+	.short	0xa9a3
+	movew	%d7,%d0
+	addqw	#1,%d7
+
+.L1000bcb8:
+	moveal	%a4@,%a0
+	cmpw	%a0@,%d7
+	blts	.L1000bca6
+	movel	%a4,%sp@-
+	.short	0xa9a3
+	moveml	%fp@(-8),%d7/%a4
+	unlk	%fp
+	rts
+
+sub_1000bccc:
+	linkw	%fp,#0
+	movel	%a4,%sp@-
+	moveal	%fp@(8),%a4
+	moveal	%a4@,%a0
+	movew	%a0@(2),%d0
+	addqw	#1,%a0@(2)
+	extl	%d0
+	moveal	%a4@,%a0
+	asll	#2,%d0
+	moveal	%a0@(4,%d0:l),%a0
+	movel	%a0@,%sp@-
+	.short	0xa851
+	moveal	%a4@,%a0
+	moveal	%a0,%a1
+	movew	%a0@(2),%d0
+	cmpw	%a1@,%d0
+	bnes	.L1000bcfe
+	clrw	%a0@(2)
+
+.L1000bcfe:
+	moveal	%fp@(-4),%a4
+	unlk	%fp
+	rts
 
 sub_1000bd06:
 	linkw	%fp,#-4
@@ -18012,39 +18185,212 @@ sub_1000bd54:
 	rts
 
 sub_1000bde0:
-	.short	0x4E56,0xFFFC,0x48E7,0x0138,0x4247,0x286E,0x0008,0x598F
-	.short	0x2F0C,0xA917,0x265F,0x302E,0x000C,0x0C40,0x0003,0x6254
-	.short	0xD040,0x303B,0x0006,0x4EFB,0x0000,0x004C,0x000A,0x004C
-	.short	0x0014,0x2F0C,0x303C,0x000C,0xAA73,0x605C,0x7003,0x2F00
-	.short	0x2F0C,0x4EBA,0xFBFA,0x7000,0x2F00,0x2F0C,0x4EBA,0x0132
-	.short	0x7064,0x2F00,0x2F0C,0x4EBA,0xFC78,0x7001,0x2F00,0x2F0C
-	.short	0x4EBA,0xFBBA,0x2440,0x2F0A,0x7000,0x3F00,0xA963,0x4FEF
-	.short	0x0020,0x6024,0x4A2E,0x000E,0x6710,0x7000,0x302E,0x0012
-	.short	0x2F00,0x2F0C,0x4EBA,0xFC4A,0x504F,0x2F0C,0x4EBA,0x002A
-	.short	0x7E00,0x1E00,0x4A87,0x584F,0x4A93,0x6708,0x2F13,0x4EBA
-	.short	0xFE4C,0x584F,0x1D47,0x0014,0x4CEE,0x1C80,0xFFEC,0x4E5E
-	.short	0x205F,0x4FEF,0x000C,0x4ED0
+	linkw	%fp,#-4
+	moveml	%d7/%a2-%a4,%sp@-
+	clrw	%d7
+	moveal	%fp@(8),%a4
+	subql	#4,%sp
+	movel	%a4,%sp@-
+	.short	0xa917
+	moveal	%sp@+,%a3
+	movew	%fp@(12),%d0
+	cmpiw	#3,%d0
+	bhis	.L1000be54
+	addw	%d0,%d0
+	movew	%pc@(off_1000be0a,%d0:w),%d0
+	jmp	%pc@(%d0:w)
 
-	.short	0x4E56,0xFFE4,0x48E7,0x0338
-	.short	0x286E,0x0008,0x4207,0x598F,0x2F0C,0xA917,0x265F,0x4A2B
-	.short	0x000C,0x6706,0x246B,0x000E,0x4E92,0x700A,0x41EE,0xFFEC
-	.short	0xA031,0x5240,0x4A00,0x6700,0x008C,0x302E,0xFFEC,0x5340
-	.short	0x6706,0x5540,0x6750,0x607C,0x7000,0x2D40,0xFFE4,0x2D6E
-	.short	0xFFF6,0xFFE8,0x486E,0xFFE8,0xA871,0x558F,0x2F2E,0xFFE8
-	.short	0x2F0C,0x486E,0xFFE4,0xA96C,0x3C1F,0x4AAE,0xFFE4,0x6712
-	.short	0x558F,0x2F2E,0xFFE4,0x2F2E,0xFFE8,0x7000,0x2F00,0xA968
-	.short	0x3C1F,0x4A46,0x673E,0x7001,0x2F00,0x2F0C,0x4EBA,0xFDE8
-	.short	0x1E00,0x504F,0x602E,0x2C3C,0x0000,0x00FF,0xCCAE,0xFFEE
-	.short	0x0C06,0x002E,0x660A,0x302E,0xFFFA,0xC07C,0x0100,0x6606
-	.short	0x0C06,0x001B,0x660E,0x7001,0x2F00,0x2F0C,0x4EBA,0xFDB8
-	.short	0x1E00,0x504F,0x1007,0x4CEE,0x1CC0,0xFFD0,0x4E5E,0x4E75
+off_1000be0a:
+	.word	0x4c,0x0a,0x4c,0x14
 
-	.short	0x4E56,0xFFFE,0x48E7,0x1108,0x7003,0x2F00,0x2F2E,0x0008
-	.short	0x4EBA,0xFA8A,0x2840,0x200C,0x504F,0x6604,0x70CE,0x602C
-	.short	0x4A2E,0x000F,0x57C3,0x4403,0x1D43,0xFFFF,0x558F,0x2F0C
-	.short	0x7000,0x3F00,0x2F3C,0x696E,0x6465,0x7201,0x2F01,0x486E
-	.short	0xFFFF,0x303C,0x0012,0xAA73,0x3E1F,0x3007,0x4CEE,0x1088
-	.short	0xFFF2,0x4E5E,0x4E75
+.L1000be12:
+	movel	%a4,%sp@-
+	movew	#12,%d0
+	.short	0xaa73
+	bras	.L1000be78
+
+.L1000be1c:
+	moveq	#3,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000ba1e)
+	moveq	#0,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000bf60)
+	moveq	#100,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000bab0)
+	moveq	#1,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000b9fc)
+	moveal	%d0,%a2
+	movel	%a2,%sp@-
+	moveq	#0,%d0
+	movew	%d0,%sp@-
+	.short	0xa963
+	lea	%sp@(32),%sp
+	bras	.L1000be78
+
+.L1000be54:
+	tstb	%fp@(14)
+	beqs	.L1000be6a
+	moveq	#0,%d0
+	movew	%fp@(18),%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000bab0)
+	addqw	#8,%sp
+
+.L1000be6a:
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000be98)
+	moveq	#0,%d7
+	moveb	%d0,%d7
+	tstl	%d7
+	addqw	#4,%sp
+
+.L1000be78:
+	tstl	%a3@
+	beqs	.L1000be84
+	movel	%a3@,%sp@-
+	jsr	%pc@(sub_1000bccc)
+	addqw	#4,%sp
+
+.L1000be84:
+	moveb	%d7,%fp@(20)
+	moveml	%fp@(-20),%d7/%a2-%a4
+	unlk	%fp
+	moveal	%sp@+,%a0
+	lea	%sp@(12),%sp
+	jmp	%a0@
+
+sub_1000be98:
+	linkw	%fp,#-28
+	moveml	%d6-%d7/%a2-%a4,%sp@-
+	moveal	%fp@(8),%a4
+	clrb	%d7
+	subql	#4,%sp
+	movel	%a4,%sp@-
+	.short	0xa917
+	moveal	%sp@+,%a3
+	tstb	%a3@(12)
+	beqs	.L1000beba
+	moveal	%a3@(14),%a2
+	jsr	%a2@
+
+.L1000beba:
+	moveq	#10,%d0
+	lea	%fp@(-20),%a0
+	.short	0xa031
+	addqw	#1,%d0
+	tstb	%d0
+	beqw	.L1000bf54
+	movew	%fp@(-20),%d0
+	subqw	#1,%d0
+	beqs	.L1000bed8
+	subqw	#2,%d0
+	beqs	.L1000bf26
+	bras	.L1000bf54
+
+.L1000bed8:
+	moveq	#0,%d0
+	movel	%d0,%fp@(-28)
+	movel	%fp@(-10),%fp@(-24)
+	pea	%fp@(-24)
+	.short	0xa871
+	subql	#2,%sp
+	movel	%fp@(-24),%sp@-
+	movel	%a4,%sp@-
+	pea	%fp@(-28)
+	.short	0xa96c
+	movew	%sp@+,%d6
+	tstl	%fp@(-28)
+	beqs	.L1000bf12
+	subql	#2,%sp
+	movel	%fp@(-28),%sp@-
+	movel	%fp@(-24),%sp@-
+	moveq	#0,%d0
+	movel	%d0,%sp@-
+	.short	0xa968
+	movew	%sp@+,%d6
+
+.L1000bf12:
+	tstw	%d6
+	beqs	.L1000bf54
+	moveq	#1,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000bd06)
+	moveb	%d0,%d7
+	addqw	#8,%sp
+	bras	.L1000bf54
+
+.L1000bf26:
+	movel	#255,%d6
+	andl	%fp@(-18),%d6
+	cmpib	#46,%d6
+	bnes	.L1000bf40
+	movew	%fp@(-6),%d0
+	.short	0xc07c,0x0100	/* andw #256,%d0 */
+	bnes	.L1000bf46
+
+.L1000bf40:
+	cmpib	#27,%d6
+	bnes	.L1000bf54
+
+.L1000bf46:
+	moveq	#1,%d0
+	movel	%d0,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_1000bd06)
+	moveb	%d0,%d7
+	addqw	#8,%sp
+
+.L1000bf54:
+	moveb	%d7,%d0
+	moveml	%fp@(-48),%d6-%d7/%a2-%a4
+	unlk	%fp
+	rts
+
+sub_1000bf60:
+	linkw	%fp,#-2
+	moveml	%d3/%d7/%a4,%sp@-
+	moveq	#3,%d0
+	movel	%d0,%sp@-
+	movel	%fp@(8),%sp@-
+	jsr	%pc@(sub_1000b9fc)
+	moveal	%d0,%a4
+	movel	%a4,%d0
+	addqw	#8,%sp
+	bnes	.L1000bf80
+	moveq	#-50,%d0
+	bras	.L1000bfac
+
+.L1000bf80:
+	tstb	%fp@(15)
+	seq	%d3
+	negb	%d3
+	moveb	%d3,%fp@(-1)
+	subql	#2,%sp
+	movel	%a4,%sp@-
+	moveq	#0,%d0
+	movew	%d0,%sp@-
+	movel	#1768842341,%sp@-
+	moveq	#1,%d1
+	movel	%d1,%sp@-
+	pea	%fp@(-1)
+	movew	#18,%d0
+	.short	0xaa73
+	movew	%sp@+,%d7
+	movew	%d7,%d0
+
+.L1000bfac:
+	moveml	%fp@(-14),%d3/%d7/%a4
+	unlk	%fp
+	rts
 
 sub_1000bfb6:
 	linkw	%fp,#0
@@ -18059,7 +18405,7 @@ sub_1000bfb6:
 	tstl	%a4@
 	bnes	.L1000bfde
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000bfde
 	movel	%a4,%sp@-
@@ -18071,7 +18417,7 @@ sub_1000bfb6:
 	tstl	%a4@
 	beqs	.L1000c010
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000c010
 	subql	#4,%sp
@@ -18702,7 +19048,7 @@ sub_1000c686:
 	tstl	%a3@
 	beqs	.L1000c7d4
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000c7d4
 	moveal	%a3@,%a0
@@ -19164,7 +19510,7 @@ sub_1000cc4e:
 	tstl	%a4@
 	beqs	.L1000cc96
 	subql	#2,%sp
-	.short	0xa9af
+	_ResError
 	tstw	%sp@+
 	bnes	.L1000cc96
 	movel	%a4,%sp@-
