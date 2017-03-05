@@ -17696,7 +17696,7 @@ sub_1000b5b2:
 	_HLock
 	movel	%a3,%sp@-
 	movel	%a4@,%sp@-
-	.short	0xa918
+	_SetWRefCon
 	movel	#65536,%d0
 	andl	%d7,%d0
 	sne	%d3
@@ -17731,7 +17731,7 @@ sub_1000b5b2:
 	movel	%d0,%a0@
 	movel	%a3,%sp@-
 	movel	%a4@,%sp@-
-	.short	0xa918
+	_SetWRefCon
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	.short	0xa9c8
