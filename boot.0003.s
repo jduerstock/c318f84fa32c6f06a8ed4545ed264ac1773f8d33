@@ -3958,10 +3958,10 @@ sub_10002acc:
 	bnew	.L10002b84
 	moveal	%a0,%a3
 	movew	#-21527,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%a0,%d3
 	movew	#159,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	cmpl	%a0,%d3
 	bnew	.L10002b84
 	subqw	#4,%sp
@@ -3995,10 +3995,10 @@ sub_10002acc:
 	bsrl	sub_1000a740
 	movew	%sp@+,%d0
 	movew	#-21527,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%a0,%d3
 	movew	#159,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	cmpl	%a0,%d3
 	bnes	.L10002b84
 
@@ -4611,7 +4611,7 @@ sub_1000313a:
 	movew	%sp@+,%d0
 	tstb	%d1
 	beqs	.L10003148
-	.short	0xa746
+	_GetToolTrapAddress
 	bras	.L1000314a
 
 .L10003148:
@@ -5323,7 +5323,7 @@ off_1000376c:
 .L1000378a:
 	lea	%pc@(word_10003768),%a0
 	movew	%a0@,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	moveal	%a0,%a1
 	lea	%pc@(off_1000376c),%a0
 	cmpal	%a0@,%a1
@@ -8888,7 +8888,7 @@ sub_10005eba:
 	tstb	%d0
 	bnes	.L10005f44
 	movew	#0xa89f,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%a0,%d1
 	beqs	.L10005f44
 	lea	0x6,%a3
@@ -9807,14 +9807,14 @@ sub_100067b0:
 	linkw	%fp,#-10
 	moveml	%d5-%d7,%sp@-
 	clrb	%d6
-	.short	0xa077
+	_CountADBs
 	movew	%d0,%d7
 	bras	.L100067e4
 
 .L100067c0:
 	lea	%fp@(-10),%a0
 	movew	%d7,%d0
-	.short	0xa078
+	_GetIndADB
 	extw	%d0
 	movew	%d0,%d5
 	moveq	#7,%d0
@@ -9950,13 +9950,13 @@ str_100068e8:
 sub_100068ee:
 	linkw	%fp,#-10
 	moveml	%d6-%d7,%sp@-
-	.short	0xa077
+	_CountADBs
 	movew	%d0,%d7
 
 .L100068fa:
 	lea	%fp@(-10),%a0
 	movew	%d7,%d0
-	.short	0xa078
+	_GetIndADB
 	extw	%d0
 	movew	%d0,%d6
 	moveq	#0,%d0
@@ -10144,7 +10144,7 @@ sub_10006aa6:
 	linkw	%fp,#-60
 	moveml	%d5-%d7/%a4,%sp@-
 	lea	%fp@(-50),%a4
-	.short	0xa077
+	_CountADBs
 	movew	%d0,%d6
 	clrw	%fp@(-34)
 	clrw	%d7
@@ -10166,7 +10166,7 @@ sub_10006aa6:
 .L10006ada:
 	lea	%fp@(-60),%a0
 	movew	%d6,%d0
-	.short	0xa078
+	_GetIndADB
 	moveb	%d0,%d5
 	moveq	#0,%d0
 	moveb	%fp@(-60),%d0
@@ -10233,7 +10233,7 @@ sub_10006b68:
 	moveq	#4,%d5
 
 .L10006b7c:
-	.short	0xa077
+	_CountADBs
 	movew	%d0,%d7
 	clrb	%d6
 
@@ -10377,7 +10377,7 @@ sub_10006d4a:
 	linkw	%fp,#0
 	moveml	%d4-%d7/%a4,%sp@-
 	moveb	%fp@(15),%d4
-	.short	0xa077
+	_CountADBs
 	movew	%d0,%d7
 	clrw	%d6
 	clrb	%d5
@@ -12915,10 +12915,10 @@ sub_100086e0:
 	tstw	%d0
 	bnew	.L100089a8
 	movew	#-21527,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%a0,%fp@(-300)
 	movew	#-22369,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%fp@(-300),%d0
 	cmpal	%d0,%a0
 	beqw	.L100089a8
@@ -17581,10 +17581,10 @@ sub_1000b50a:
 	movew	%fp@(14),%d6
 	clrw	%d7
 	movew	#-21926,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%a0,%fp@(-136)
 	movew	#-22369,%d0
-	.short	0xa746
+	_GetToolTrapAddress
 	movel	%fp@(-136),%d0
 	cmpal	%d0,%a0
 	beqs	.L1000b5a2

@@ -98,6 +98,14 @@ CurMap	=	0xa5a
 	.short	0xa06d
 .endm
 
+.macro	_CountADBs
+	.short	0xa077
+.endm
+
+.macro	_GetIndADB
+	.short	0xa078
+.endm
+
 .macro	_ADBOp
 	.short	0xa07c
 .endm
@@ -176,6 +184,10 @@ CurMap	=	0xa5a
 
 .macro	_NewHandleSysClear
 	.short	0xa722
+.endm
+
+.macro	_GetToolTrapAddress
+	.short	0xa746
 .endm
 
 .macro	_Get1IndResource
