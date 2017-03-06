@@ -8429,7 +8429,7 @@ sub_10005aa0:
 	pea	%fp@(-16)
 	_InitGraf
 	.short	0xa912
-	.short	0xa930
+	_InitMenus
 	_TEInit
 	clrl	%sp@-
 	_InitDialogs
@@ -17646,7 +17646,7 @@ sub_1000b5b2:
 	movel	%sp@+,%fp@(-46)
 	.short	0xa8fe
 	.short	0xa912
-	.short	0xa930
+	_InitMenus
 	_TEInit
 	moveq	#0,%d0
 	movel	%d0,%sp@-
