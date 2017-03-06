@@ -17716,7 +17716,7 @@ sub_1000b5b2:
 	movew	#525,%d0
 	_DialogDispatch
 	movel	%a3,%sp@-
-	.short	0xa915
+	_ShowWindow
 	_InitCursor
 	movel	#-6078,%sp@-
 	jsr	%pc@(sub_1000bc04)
