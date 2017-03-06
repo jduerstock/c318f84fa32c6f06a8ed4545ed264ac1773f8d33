@@ -444,8 +444,7 @@ str_10000162:
 	moveal	%d0,%a0
 
 .L10000500:
-	moveq	#24,%d0
-	.short	0xfe0a
+	_nkMakePageWriteThrough
 	addqw	#1,%a0
 	subql	#1,%d2
 	bnes	.L10000500
@@ -582,8 +581,7 @@ str_10000162:
 	beqs	.L100006b8
 	bsrw	sub_100020d6
 	bsrw	sub_100020e0
-	moveq	#2,%d0
-	.short	0xfe0a
+	_nkMMUFinalInit
 	bsrw	sub_10002270
 	moveq	#-1,%d0
 	.short	0xa0ac
@@ -611,8 +609,7 @@ str_10000162:
 	movel	%sp@+,%d0
 	bsrw	sub_100020d6
 	bsrw	sub_100020e0
-	moveq	#2,%d0
-	.short	0xfe0a
+	_nkMMUFinalInit
 	bsrw	sub_10002270
 	moveq	#-1,%d0
 	.short	0xa0ac
@@ -14998,8 +14995,7 @@ sub_10009a38:
 	lsrl	#8,%d0
 	lsrl	#4,%d0
 	moveal	%d0,%a0
-	moveq	#10,%d0
-	.short	0xfe0a
+	_nkMMUGetPhysicalPage
 	lsll	#8,%d0
 	lsll	#4,%d0
 	movel	%d0,%sp@(284)
@@ -15008,8 +15004,7 @@ sub_10009a38:
 	lsrl	#8,%d0
 	lsrl	#4,%d0
 	moveal	%d0,%a0
-	moveq	#10,%d0
-	.short	0xfe0a
+	_nkMMUGetPhysicalPage
 	lsll	#8,%d0
 	lsll	#4,%d0
 	movel	%d0,%sp@(292)
@@ -15019,8 +15014,7 @@ sub_10009a38:
 	lsrl	#4,%d0
 	subql	#1,%d0
 	moveal	%d0,%a0
-	moveq	#10,%d0
-	.short	0xfe0a
+	_nkMMUGetPhysicalPage
 	lsll	#8,%d0
 	lsll	#4,%d0
 	movel	%d0,%sp@(308)

@@ -524,3 +524,22 @@ UnimplTrap	=	0xa89f
 	.short	0xabff
 .endm
 
+.macro	_KernelVMDispatch
+	.short	0xfe0a
+.endm
+
+.macro	_nkMMUFinalInit
+	moveq	#2,%d0
+	_KernelVMDispatch
+.endm
+
+.macro	_nkMMUGetPhysicalPage
+	moveq	#10,%d0
+	_KernelVMDispatch
+.endm
+
+.macro	_nkMakePageWriteThrough
+	moveq	#24,%d0
+	_KernelVMDispatch
+.endm
+
