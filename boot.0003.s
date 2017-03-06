@@ -5587,7 +5587,7 @@ sub_10003ac8:
 	movel	%a3,%sp@-
 	subqw	#4,%sp
 	movel	%sp,%sp@-
-	.short	0xa874
+	_GetPort
 	movel	0x9de,%sp@-
 	_SetPort
 	subqw	#4,%sp
@@ -7189,7 +7189,7 @@ sub_10004d92:
 	movel	%a4,%sp@-
 	moveal	%fp@(8),%a4
 	pea	%fp@(-4)
-	.short	0xa874
+	_GetPort
 	moveal	%fp@(-4),%a0
 	movew	%a0@(68),%a4@
 	moveal	%fp@(-4),%a0
@@ -7225,7 +7225,7 @@ sub_10004dfc:
 	moveml	%a2-%a4,%sp@-
 	moveal	%fp@(8),%a4
 	pea	%fp@(-4)
-	.short	0xa874
+	_GetPort
 	moveq	#0,%d0
 	movel	%d0,%a4@(34)
 	movel	%d0,%a4@(38)
@@ -7298,7 +7298,7 @@ sub_10004ebe:
 	moveb	%fp@(15),%d7
 	beqs	.L10004ef0
 	pea	%fp@(-8)
-	.short	0xa874
+	_GetPort
 	pea	%fp@(-4)
 	.short	0xaa48
 	movel	%fp@(-8),%d0
@@ -7334,7 +7334,7 @@ sub_10004f16:
 	linkw	%fp,#-8
 	movel	%a4,%sp@-
 	pea	%fp@(-8)
-	.short	0xa874
+	_GetPort
 	pea	%fp@(-4)
 	.short	0xaa48
 	movel	%fp@(-8),%d0
@@ -7366,7 +7366,7 @@ sub_10004f5c:
 	movel	%a4,%sp@-
 	moveal	%fp@(8),%a4
 	pea	%fp@(-4)
-	.short	0xa874
+	_GetPort
 	movel	%fp@(-4),%sp@-
 	jsr	%pc@(sub_10003d9c)
 	moveq	#0,%d1
@@ -7581,7 +7581,7 @@ sub_1000519e:
 	moveml	%d3-%d7/%a4,%sp@-
 	clrb	%d6
 	pea	%fp@(-4)
-	.short	0xa874
+	_GetPort
 	movel	%fp@(-4),%sp@-
 	jsr	%pc@(sub_10003d9c)
 	tstb	%d0
@@ -7824,7 +7824,7 @@ sub_1000539a:
 	bsrw	sub_10005644
 	clrl	%sp@-
 	movel	%sp,%sp@-
-	.short	0xa874
+	_GetPort
 	pea	%a5@(112)
 	_SetPort
 	movel	%a2,%sp@-
@@ -8135,7 +8135,7 @@ sub_100056ae:
 	subw	%d0,%a3@(4)
 	clrl	%sp@-
 	movel	%sp,%sp@-
-	.short	0xa874
+	_GetPort
 	pea	%a5@(112)
 	_SetPort
 	subqw	#4,%sp
@@ -17654,7 +17654,7 @@ sub_1000b5b2:
 	.short	0xa97b
 	_InitCursor
 	pea	%fp@(-54)
-	.short	0xa874
+	_GetPort
 	subql	#4,%sp
 	movew	#-20886,%sp@-
 	moveq	#0,%d0

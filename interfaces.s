@@ -257,6 +257,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa873
 .endm
 
+.macro	_GetPort
+	.short	0xa874
+.endm
+
 .macro	_InitGraf
 	.short	0xa86e
 .endm
