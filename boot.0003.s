@@ -620,7 +620,7 @@ str_10000700:
 	.ascii	"MacsBug was loaded before VM as requested"
 
 .L1000072a:
-	movew	#-21708,%d0
+	movew	#0xab34,%d0
 	bsrw	sub_10002366
 	jsr	%pc@(sub_10007bda)
 	jsr	%pc@(sub_10005e0a)
