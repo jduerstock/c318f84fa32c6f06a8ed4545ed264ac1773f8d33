@@ -493,6 +493,10 @@ UnimplTrap	=	0xa89f
 	.short	0xaa1e
 .endm
 
+.macro	_PlotCIcon
+	.short	0xaa1f
+.endm
+
 .macro	_DisposeCIcon
 	.short	0xaa25
 .endm

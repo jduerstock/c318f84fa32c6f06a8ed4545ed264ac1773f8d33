@@ -8564,7 +8564,7 @@ sub_10005bf2:
 	bsrs	sub_10005c68
 	movel	%sp,%sp@-
 	movel	%d2,%sp@-
-	.short	0xaa1f
+	_PlotCIcon
 	addqw	#8,%sp
 	_DisposeCIcon
 
