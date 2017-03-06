@@ -1,4 +1,5 @@
 
+_fcc_krnl	=	0x6b726e6c
 SysMap		=	0xa58
 CurMap		=	0xa5a
 
@@ -79,6 +80,11 @@ UnimplTrap	=	0xa89f
 
 .macro	_MemoryDispatch
 	.short	0xa05c
+.endm
+
+.macro	_LockMemoryContiguous
+	moveq	#4,%d0
+	_MemoryDispatch
 .endm
 
 .macro	_NMInstall

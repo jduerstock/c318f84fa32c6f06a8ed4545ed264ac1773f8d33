@@ -14914,7 +14914,7 @@ sub_10009a38:
 
 .L10009a56:
 	subqw	#4,%sp
-	movel	#1802661484,%sp@-
+	movel	#_fcc_krnl,%sp@-
 	clrw	%sp@-
 	_GetResource
 	moveal	%sp@+,%a3
@@ -14961,12 +14961,11 @@ sub_10009a38:
 	moveal	%d0,%a2
 	moveal	%a2,%a0
 	moveal	%d6,%a1
-	moveq	#4,%d0
-	_MemoryDispatch
+	_LockMemoryContiguous
 	tstw	%d0
 	bnew	.L10009bd6
 	subqw	#4,%sp
-	movel	#1802661484,%sp@-
+	movel	#_fcc_krnl,%sp@-
 	clrw	%sp@-
 	_GetResource
 	moveal	%sp@+,%a3
