@@ -8566,7 +8566,7 @@ sub_10005bf2:
 	movel	%d2,%sp@-
 	.short	0xaa1f
 	addqw	#8,%sp
-	.short	0xaa25
+	_DisposeCIcon
 
 .L10005c12:
 	rts
