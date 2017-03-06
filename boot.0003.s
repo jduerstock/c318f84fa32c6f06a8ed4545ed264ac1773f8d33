@@ -28,7 +28,7 @@ sub_10000000:
 	clrl	%a0@(18)
 	clrw	%a0@(28)
 	clrw	%a0@(22)
-	movew	0xa58,%a0@(24)
+	movew	SysMap,%a0@(24)
 	moveq	#8,%d0
 	_HFSDispatch
 	cmpiw	#0,%d0
@@ -37,7 +37,7 @@ sub_10000000:
 	movel	%a0@(58),%a5@(52)
 
 .L10000074:
-	movew	0xa58,%d0
+	movew	SysMap,%d0
 	cmpw	CurMap,%d0
 	beqw	.L100000de
 	movew	CurMap,%a0@(24)
@@ -53,7 +53,7 @@ sub_10000000:
 
 .L100000a6:
 	addaw	#80,%sp
-	movew	0xa58,%d0
+	movew	SysMap,%d0
 	cmpw	CurMap,%d0
 	beqw	.L100000de
 	moveal	0xa54,%a0
@@ -147,7 +147,7 @@ str_10000162:
 
 .L100001d2:
 	movew	CurMap,%d0
-	cmpw	0xa58,%d0
+	cmpw	SysMap,%d0
 	beqs	.L100001e4
 	moveal	0x2b6,%a0
 	movew	%d0,%a0@(674)
@@ -880,7 +880,7 @@ str_10000700:
 	moveal	0x2b6,%a0
 	movel	#65536,%d0
 	movel	%d0,%a0@(430)
-	movew	0xa58,%d0
+	movew	SysMap,%d0
 	.short	0x2070,0x81e2,0x2058,0x0068	/* moveal	@(0x2058)@(0x68),%a0 */
 	jsr	%a0@
 	clrl	%a0@+
@@ -944,7 +944,7 @@ str_10000ac0:
 	movew	CurMap,%d0
 	cmpiw	#3,%d0
 	beqs	.L10000afa
-	cmpw	0xa58,%d0
+	cmpw	SysMap,%d0
 	beqs	.L10000afa
 	lea	%pc@(dword_10002562),%a0
 	moveal	%a0@,%a0
@@ -3319,12 +3319,12 @@ sub_1000251c:
 
 .L10002530:
 	movel	0xa54,%sp@-
-	movew	0xa58,%sp@-
+	movew	SysMap,%sp@-
 	movel	%pc@(word_1000255c),0xa54
-	movew	CurMap,0xa58
+	movew	CurMap,SysMap
 	moveal	%pc@(word_10002558),%a0
 	jsr	%a0@
-	movew	%sp@+,0xa58
+	movew	%sp@+,SysMap
 	movel	%sp@+,0xa54
 	moveml	%sp@+,%d0/%a0
 	rts
@@ -3689,7 +3689,7 @@ off_100026be:
 	movew	%sp@+,%d0
 	bmiw	.L1000291e
 	bnes	.L1000286c
-	movew	0xa58,%d0
+	movew	SysMap,%d0
 
 .L1000286c:
 	movew	CurMap,%sp@-
@@ -7914,13 +7914,13 @@ sub_10005506:
 	bsrw	sub_100059a4
 	moveq	#0,%d0
 	bsrw	sub_10001922
-	movew	0xa58,%sp@-
+	movew	SysMap,%sp@-
 	moveal	0xa50,%a0
 	moveal	%a0@,%a0
-	movew	%a0@(20),0xa58
+	movew	%a0@(20),SysMap
 	moveq	#40,%d0
 	_SysError
-	movew	%sp@+,0xa58
+	movew	%sp@+,SysMap
 	btst	#5,0xb20
 	bnes	.L1000557c
 	moveq	#-13,%d0
@@ -11674,7 +11674,7 @@ sub_10007918:
 	beqs	.L100079b4
 	tstw	%d6
 	bnes	.L1000798e
-	movew	0xa58,%d6
+	movew	SysMap,%d6
 
 .L1000798e:
 	movew	%d6,%sp@-
@@ -11769,7 +11769,7 @@ sub_10007a14:
 .L10007a5a:
 	tstw	%d5
 	bnes	.L10007a62
-	movew	0xa58,%d5
+	movew	SysMap,%d5
 
 .L10007a62:
 	pea	%fp@(-94)
@@ -14601,7 +14601,7 @@ sub_1000970e:
 	andl	%fp@(-4),%d0
 	beqs	.L10009780
 	movew	CurMap,%d7
-	movew	0xa58,CurMap
+	movew	SysMap,CurMap
 	subql	#4,%sp
 	movel	#1986359923,%sp@-
 	moveq	#1,%d0

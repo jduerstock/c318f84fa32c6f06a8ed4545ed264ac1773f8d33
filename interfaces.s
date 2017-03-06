@@ -1,4 +1,5 @@
 
+SysMap	=	0xa58
 CurMap	=	0xa5a
 
 .macro	_Open
