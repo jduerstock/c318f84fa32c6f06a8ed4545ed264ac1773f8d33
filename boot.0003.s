@@ -17662,7 +17662,7 @@ sub_1000b5b2:
 	moveq	#0,%d0
 	movel	%d0,%sp@-
 	.short	0xa97b
-	.short	0xa850
+	_InitCursor
 	pea	%fp@(-54)
 	.short	0xa874
 	subql	#4,%sp
@@ -17720,7 +17720,7 @@ sub_1000b5b2:
 	_DialogDispatch
 	movel	%a3,%sp@-
 	.short	0xa915
-	.short	0xa850
+	_InitCursor
 	movel	#-6078,%sp@-
 	jsr	%pc@(sub_1000bc04)
 	moveal	%a4@,%a0
@@ -17851,7 +17851,7 @@ sub_1000b5b2:
 	_DialogDispatch
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_1000bad8)
-	.short	0xa850
+	_InitCursor
 	lea	%sp@(22),%sp
 
 .L1000b7a2:
@@ -18937,7 +18937,7 @@ sub_1000c03c:
 	rts
 
 sub_1000c128:
-	.short	0x6000,0x16BA
+	braw	sub_1000d7e4
 
 sub_1000c12c:
 	linkw	%fp,#-6
@@ -18971,12 +18971,37 @@ sub_1000c12c:
 	rts
 
 sub_1000c170:
-	.short	0x4E56,0x0000,0x48E7,0x0108,0x4878,0x0FF1,0x487A,0x0038
-	.short	0x2F2E,0x0008,0x4EBA,0xFFA6,0x2840,0x200C,0x4FEF,0x000C
-	.short	0x6604,0x7094,0x6016,0x2F2E,0x0014,0x2F2E,0x0010,0x2F2E
-	.short	0x000C,0x204C,0x4E90,0x2E00,0x4FEF,0x000C,0x4CEE,0x1080
-	.short	0xFFF8,0x4E5E,0x4E75,0x1752,0x6567,0x6973,0x7472,0x7943
-	.short	0x5374,0x7245,0x6E74,0x7279,0x4C6F,0x6F6B,0x7570,0x0000
+	linkw	%fp,#0
+	moveml	%d7/%a4,%sp@-
+	pea	0xff1
+	pea	%pc@(str_1000c1b6)
+	movel	%fp@(8),%sp@-
+	jsr	%pc@(sub_1000c12c)
+	moveal	%d0,%a4
+	movel	%a4,%d0
+	lea	%sp@(12),%sp
+	bnes	.L1000c196
+	moveq	#-108,%d0
+	bras	.L1000c1ac
+
+.L1000c196:
+	movel	%fp@(20),%sp@-
+	movel	%fp@(16),%sp@-
+	movel	%fp@(12),%sp@-
+	moveal	%a4,%a0
+	jsr	%a0@
+	movel	%d0,%d7
+	lea	%sp@(12),%sp
+
+.L1000c1ac:
+	moveml	%fp@(-8),%d7/%a4
+	unlk	%fp
+	rts
+
+str_1000c1b6:
+	.byte	0x17
+	.string	"RegistryCStrEntryLookup"
+	.align	2
 
 sub_1000c1d0:
 	.short	0x4E56,0x0000,0x48E7,0x0108,0x4878,0x3FF1,0x487A,0x003C

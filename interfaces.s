@@ -210,6 +210,10 @@ CurMap	=	0xa5a
 	.short	0xa82a
 .endm
 
+.macro	_InitCursor
+	.short	0xa850
+.endm
+
 .macro	_SetCursor
 	.short	0xa851
 .endm
