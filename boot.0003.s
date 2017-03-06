@@ -5723,7 +5723,7 @@ sub_10003de8:
 	_ChangedResource
 	moveq	#0,%d0
 	movew	%d0,%sp@-
-	.short	0xa999
+	_UpdateResFile
 
 .L10003e90:
 	movel	%fp@(-4),%sp@-
@@ -11594,7 +11594,7 @@ sub_1000780e:
 
 .L100078ec:
 	movew	%d6,%sp@-
-	.short	0xa999
+	_UpdateResFile
 	subql	#2,%sp
 	_ResError
 	movew	%sp@+,%d7
@@ -13409,7 +13409,7 @@ sub_10008af4:
 	bnes	.L10008bee
 	moveq	#0,%d0
 	movew	%d0,%sp@-
-	.short	0xa999
+	_UpdateResFile
 
 .L10008bee:
 	moveal	%a4,%a0
