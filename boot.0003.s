@@ -4227,7 +4227,7 @@ sub_10002d1e:
 
 .L10002d9c:
 	pea	%fp@(-330)
-	.short	0xa87d
+	_ClosePort
 	moveal	%fp@(-4),%a5
 	unlk	%fp
 
@@ -7991,7 +7991,7 @@ sub_100055a8:
 	bras	.L10005616
 
 .L10005612:
-	.short	0xa87d
+	_ClosePort
 	.short	0xa86f
 
 .L10005616:
@@ -8036,7 +8036,7 @@ sub_10005644:
 
 sub_1000566e:
 	pea	%a5@(112)
-	.short	0xa87d
+	_ClosePort
 	clrw	%sp@-
 	bsrw	sub_100055a8
 	bset	#2,0xb21
