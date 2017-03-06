@@ -7888,7 +7888,7 @@ sub_10005506:
 	btst	#2,0xb21
 	bnew	.L100055a6
 	jsr	%pc@(sub_10002ce2)
-	.short	0xa912
+	_InitWindows
 	pea	%a5@(112)
 	movew	%a5@(118),%d0
 	andiw	#-16384,%d0
@@ -8047,7 +8047,7 @@ sub_10005682:
 	bnes	.L100056a8
 	tstl	0x9d6
 	beqs	.L10005694
-	.short	0xa912
+	_InitWindows
 	bras	.L100056a0
 
 .L10005694:
@@ -8428,7 +8428,7 @@ sub_10005aa0:
 	moveb	0x8f2,%fp@(-4)
 	pea	%fp@(-16)
 	_InitGraf
-	.short	0xa912
+	_InitWindows
 	_InitMenus
 	_TEInit
 	clrl	%sp@-
@@ -17645,7 +17645,7 @@ sub_1000b5b2:
 	_GetResource
 	movel	%sp@+,%fp@(-46)
 	.short	0xa8fe
-	.short	0xa912
+	_InitWindows
 	_InitMenus
 	_TEInit
 	moveq	#0,%d0
