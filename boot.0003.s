@@ -1666,7 +1666,7 @@ str_100013e0:
 
 .L100013f0:
 	bsrl	sub_1000cc4e
-	movel	#1886675816,%d5
+	movel	#_fcc_ptch,%d5
 	movew	#-20917,%d6
 	bsrw	sub_1000193e
 	clrw	%sp@-
@@ -3107,7 +3107,7 @@ sub_1000231a:
 	rts
 
 sub_10002366:
-	movel	#1886675816,%d1
+	movel	#_fcc_ptch,%d1
 
 sub_1000236c:
 	subqw	#4,%sp
@@ -3512,7 +3512,7 @@ off_100026be:
 	movew	%a2@(6),%d0
 	movel	%a2,%sp@-
 	subqw	#4,%sp
-	movel	#1886675816,%sp@-
+	movel	#_fcc_ptch,%sp@-
 	movew	%d0,%sp@-
 	_GetResource
 	tstl	%sp@

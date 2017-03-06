@@ -1,5 +1,6 @@
 
 _fcc_krnl	=	0x6b726e6c
+_fcc_ptch	=	0x70746368
 SysMap		=	0xa58
 CurMap		=	0xa5a
 
