@@ -8557,7 +8557,7 @@ sub_10005bf2:
 	bnes	.L10005c14
 	subqw	#4,%sp
 	movew	%d0,%sp@-
-	.short	0xaa1e
+	_GetCIcon
 	movel	%sp@+,%d2
 	beqs	.L10005c12
 	movel	%d2,%sp@-
