@@ -7727,7 +7727,7 @@ sub_100052ea:
 	bsrw	sub_10005c9c
 	movel	%a2,%sp@-
 	pea	%sp@(4)
-	.short	0xa8f6
+	_DrawPicture
 	addqw	#8,%sp
 	bset	#2,0xb21
 	bset	#1,0xb21
@@ -7829,7 +7829,7 @@ sub_1000539a:
 	_SetPort
 	movel	%a2,%sp@-
 	movel	%a4,%sp@-
-	.short	0xa8f6
+	_DrawPicture
 	movel	%a2,%sp@-
 	_ReleaseResource
 	_SetPort
@@ -8145,7 +8145,7 @@ sub_100056ae:
 	beqs	.L1000579c
 	movel	%a2,%sp@-
 	movel	%a3,%sp@-
-	.short	0xa8f6
+	_DrawPicture
 	movel	%a2,%sp@-
 	_ReleaseResource
 	moveml	%d0-%d2/%a0-%a3,%sp@-
@@ -8195,7 +8195,7 @@ word_100057ce:
 	beqs	.L10005816
 	movel	%a2,%sp@-
 	movel	%a3,%sp@-
-	.short	0xa8f6
+	_DrawPicture
 	movel	%a2,%sp@-
 	_ReleaseResource
 
@@ -8767,7 +8767,7 @@ sub_10005cc2:
 .L10005dea:
 	movel	%a4,%sp@-
 	pea	%fp@(-8)
-	.short	0xa8f6
+	_DrawPicture
 
 .L10005df2:
 	movel	%a4,%sp@-
