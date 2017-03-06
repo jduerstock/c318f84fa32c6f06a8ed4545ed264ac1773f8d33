@@ -3374,7 +3374,7 @@ sub_100025a8:
 
 sub_100025b4:
 	movew	#-24489,%d0
-	.short	0xa346
+	_GetOSTrapAddress
 	lea	%pc@(.L100025aa),%a1
 	movel	%a0,%a1@(2)
 	moveq	#12,%d0
@@ -4615,7 +4615,7 @@ sub_1000313a:
 	bras	.L1000314a
 
 .L10003148:
-	.short	0xa346
+	_GetOSTrapAddress
 
 .L1000314a:
 	movel	%a0,%sp@
@@ -5274,7 +5274,7 @@ sub_10003712:
 	movel	%a1,%a0@
 	lea	%pc@(word_10003766),%a0
 	movew	%a0@,%d0
-	.short	0xa346
+	_GetOSTrapAddress
 	moveal	%a0,%a1
 	lea	%pc@(off_1000376c),%a0
 	cmpal	%a0@,%a1
@@ -10103,7 +10103,7 @@ sub_100069d2:
 	tstw	%a4@(4)
 	beqs	.L10006a88
 	movew	#-24453,%d0
-	.short	0xa346
+	_GetOSTrapAddress
 	movel	%a0,%a4@
 	lea	%pc@(sub_100069d2),%a0
 	lea	%pc@(sub_10006928),%a1

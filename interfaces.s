@@ -165,6 +165,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa260
 .endm
 
+.macro	_GetOSTrapAddress
+	.short	0xa346
+.endm
+
 .macro	_NewGestalt
 	.short	0xa3ad
 .endm
