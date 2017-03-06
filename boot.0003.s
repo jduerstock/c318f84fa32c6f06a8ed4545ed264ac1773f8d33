@@ -7897,7 +7897,7 @@ sub_10005506:
 	bras	.L1000552a
 
 .L10005528:
-	.short	0xa86d
+	_InitPort
 
 .L1000552a:
 	bsrw	sub_100056ae
