@@ -16822,28 +16822,25 @@ sub_1000acda:
 
 str_1000ae26:
 	.byte	0x0a
-	.ascii	"nubCPUType"
-	.byte	0x00
+	.string	"nubCPUType"
 
 str_1000ae32:
 	.byte	0x0a
-	.ascii	"nubEnables"
-	.byte	0x00
+	.string	"nubEnables"
 
 str_1000ae3e:
 	.byte	0x16
-	.ascii	"processMgrHandlerParam"
-	.byte	0x00
+	.string	"processMgrHandlerParam"
 
 str_1000ae56:
 	.byte	0x15
-	.ascii	"processMgrHandlerAddr"
-	.short	0x0000
+	.string	"processMgrHandlerAddr"
+	.align	2
 
 str_1000ae6e:
 	.byte	0x05
-	.ascii	"nubPB"
-	.short	0x0000
+	.string	"nubPB"
+	.align	2
 
 sub_1000ae76:	
 	linkw	%fp,#-4
