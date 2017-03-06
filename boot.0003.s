@@ -1330,7 +1330,7 @@ str_10000f5c:
 	subqw	#4,%sp
 	movel	#1835823725,%sp@-
 	movew	#1,%sp@-
-	.short	0xa99d
+	_GetIndResource
 	movel	#25165824,%d0
 	movel	%sp@+,%d1
 	moveal	%d1,%a0
@@ -14102,7 +14102,7 @@ sub_10009278:
 	subql	#4,%sp
 	movel	#1684632422,%sp@-
 	movew	%d7,%sp@-
-	.short	0xa99d
+	_GetIndResource
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqw	.L10009340
