@@ -2,6 +2,7 @@
 SysMap		=	0xa58
 CurMap		=	0xa5a
 
+ADBReInit	=	0xa07b
 UnimplTrap	=	0xa89f
 
 .macro	_Open
@@ -106,6 +107,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_GetIndADB
 	.short	0xa078
+.endm
+
+.macro	_ADBReInit
+	.short	0xa07b
 .endm
 
 .macro	_ADBOp

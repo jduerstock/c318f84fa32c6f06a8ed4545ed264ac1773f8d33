@@ -2469,7 +2469,7 @@ sub_10001a7a:
 	bsrw	sub_100067b0
 	tstb	%sp@+
 	beqs	.L10001d2c
-	.short	0xa07b
+	_ADBReInit
 
 .L10001d2c:
 	moveml	%sp@+,%d1/%d6-%d7
@@ -10102,7 +10102,7 @@ sub_100069d2:
 .L10006a50:
 	tstw	%a4@(4)
 	beqs	.L10006a88
-	movew	#0xa07b,%d0
+	movew	#ADBReInit,%d0
 	_GetOSTrapAddress
 	movel	%a0,%a4@
 	lea	%pc@(sub_100069d2),%a0
@@ -10119,7 +10119,7 @@ sub_100069d2:
 	movel	%d7,%d0
 	_BlockMove
 	moveal	%a3,%a0
-	movew	#0xa07b,%d0
+	movew	#ADBReInit,%d0
 	_SetOSTrapAddress
 	bras	.L10006a9c
 
