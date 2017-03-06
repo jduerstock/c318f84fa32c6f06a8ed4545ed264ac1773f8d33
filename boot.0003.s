@@ -18146,9 +18146,9 @@ sub_1000ba1e:
 .L1000ba72:
 	movel	%a2,%sp@-
 	movel	%a4,%sp@-
-	.short	0xa98f
+	_SetDialogItemText
 	movel	%a3,%sp@-
-	.short	0xa981
+	_DrawDialog
 	moveml	%fp@(-308),%d7/%a2-%a4
 	unlk	%fp
 	rts
@@ -18162,7 +18162,7 @@ sub_1000ba86:
 	clrb	%a0@
 	clrw	%fp@(-94)
 	lea	%fp@(-122),%a0
-	.short	0xa207
+	_PBHGetVInfoSync
 	movew	%d0,%d7
 	movel	%fp@(-126),%d7
 	unlk	%fp
