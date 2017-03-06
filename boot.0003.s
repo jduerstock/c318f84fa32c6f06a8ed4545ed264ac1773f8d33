@@ -16339,13 +16339,12 @@ sub_1000a85e:
 
 str_1000a91a:
 	.byte	0x13
-	.ascii	"_CFM68KTrapHandler_"
-	.short	0x0000
+	.string	"_CFM68KTrapHandler_"
+	.align	2
 
 str_1000a930:
 	.byte	0x18
-	.ascii	"CFragInitializationRDesc"
-	.byte	0x00
+	.string	"CFragInitializationRDesc"
 
 sub_1000a94a:
 	linkw	%fp,#-92
