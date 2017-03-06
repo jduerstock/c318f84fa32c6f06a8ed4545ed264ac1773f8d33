@@ -169,6 +169,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa20c
 .endm
 
+.macro	_PBHSetFInfoSync
+	.short	0xa20d
+.endm
+
 .macro	_BlockMoveData
 	.short	0xa22e
 .endm

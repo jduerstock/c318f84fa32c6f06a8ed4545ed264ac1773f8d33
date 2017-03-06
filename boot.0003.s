@@ -2433,7 +2433,7 @@ sub_10001a7a:
 	lea	%a5@(-400),%a0
 	bset	#7,%a0@(41)
 	movel	%d7,%a0@(48)
-	.short	0xa20d
+	_PBHSetFInfoSync
 
 .L10001cd8:
 	movel	%a0,%sp@-
@@ -13289,7 +13289,7 @@ sub_10008a9a:
 	beqs	.L10008ae4
 	movel	%d7,%fp@(-74)
 	lea	%fp@(-122),%a0
-	.short	0xa20d
+	_PBHSetFInfoSync
 
 .L10008ae4:
 	moveml	%fp@(-130),%d6-%d7
@@ -16429,7 +16429,7 @@ sub_1000a94a:
 	movel	#1853186659,%fp@(-44)
 	clrw	%fp@(-40)
 	lea	%fp@(-80),%a0
-	.short	0xa20d
+	_PBHSetFInfoSync
 
 .L1000aa5a:
 	moveq	#16,%d0
