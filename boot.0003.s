@@ -11497,7 +11497,7 @@ sub_100077e2:
 	movel	%a4,%d0
 	beqs	.L10007802
 	movel	%a4,%sp@-
-	.short	0xa9ad
+	_RemoveResource
 	moveal	%a4,%a0
 	_DisposeHandle
 
@@ -13399,7 +13399,7 @@ sub_10008af4:
 	movew	%d0,%sp@-
 	_UseResFile
 	movel	%a3,%sp@-
-	.short	0xa9ad
+	_RemoveResource
 	subql	#2,%sp
 	_ResError
 	movew	%sp@+,%d6
