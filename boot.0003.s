@@ -7685,11 +7685,27 @@ sub_10005280:
 	braw	sub_10003394
 
 sub_10005284:
-	.short	0x4E56,0xFF00,0x48E7,0x0018,0x266E,0x0008
-	.short	0x49EE,0xFF00,0x18BC,0x0001,0x197C,0x0028,0x0001,0x2F0B
-	.short	0x2F0C,0x4EBA,0xFF9C,0x487A,0x001A,0x2F0C,0x4EBA,0xFF92
-	.short	0x2F0C,0x2F0B,0x4EBA,0xFF68,0x4CEE,0x1800,0xFEF8,0x4E5E
-	.short	0x4E75,0x0129,0x0000
+	linkw	%fp,#-256
+	moveml	%a3-%a4,%sp@-
+	moveal	%fp@(8),%a3
+	lea	%fp@(-256),%a4
+	moveb	#1,%a4@
+	moveb	#40,%a4@(1)
+	movel	%a3,%sp@-
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_10005240)
+	pea	%pc@(str_100052c2)
+	movel	%a4,%sp@-
+	jsr	%pc@(sub_10005240)
+	movel	%a4,%sp@-
+	movel	%a3,%sp@-
+	jsr	%pc@(sub_1000521e)
+	moveml	%fp@(-264),%a3-%a4
+	unlk	%fp
+	rts
+
+str_100052c2:
+	.short	0x0129,0x0000
 
 sub_100052c6:
 	moveal	0xa50,%a0
