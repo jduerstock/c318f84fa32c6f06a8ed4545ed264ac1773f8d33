@@ -8432,7 +8432,7 @@ sub_10005aa0:
 	.short	0xa930
 	_TEInit
 	clrl	%sp@-
-	.short	0xa97b
+	_InitDialogs
 	subqw	#2,%sp
 	movew	%d5,%sp@-
 	pea	%pc@(sub_10005af0)
@@ -17651,7 +17651,7 @@ sub_1000b5b2:
 	_TEInit
 	moveq	#0,%d0
 	movel	%d0,%sp@-
-	.short	0xa97b
+	_InitDialogs
 	_InitCursor
 	pea	%fp@(-54)
 	_GetPort
