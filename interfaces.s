@@ -282,6 +282,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa918
 .endm
 
+.macro	_SelectWindow
+	.short	0xa91f
+.endm
+
 .macro	_ShowControl
 	.short	0xa957
 .endm

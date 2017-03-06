@@ -17710,7 +17710,7 @@ sub_1000b5b2:
 	movel	%a3,%sp@-
 	_SetPort
 	movel	%a3,%sp@-
-	.short	0xa91f
+	_SelectWindow
 	subql	#2,%sp
 	movel	%a3,%sp@-
 	movew	#525,%d0
