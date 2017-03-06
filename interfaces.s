@@ -357,6 +357,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa983
 .endm
 
+.macro	_Alert
+	.short	0xa985
+.endm
+
 .macro	_GetDialogItem
 	.short	0xa98d
 .endm

@@ -8436,7 +8436,7 @@ sub_10005aa0:
 	subqw	#2,%sp
 	movew	%d5,%sp@-
 	pea	%pc@(sub_10005af0)
-	.short	0xa985
+	_Alert
 	addqw	#2,%sp
 	moveb	%fp@(-4),0x8f2
 	moveb	%fp@(-2),0x8f3
