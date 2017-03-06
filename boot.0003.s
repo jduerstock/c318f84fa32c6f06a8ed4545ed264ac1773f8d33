@@ -789,7 +789,7 @@ str_10000700:
 .L100008ea:
 	movew	#156,%d0
 	lea	%pc@(sub_10002434),%a0
-	.short	0xa247
+	_SetOSTrapAddress
 	lea	%pc@(sub_10002478),%a1
 	lea	%pc@(sub_10002484),%a2
 	subal	%a1,%a2
@@ -2010,7 +2010,7 @@ str_100017d6:
 	bsrw	sub_10001fe6
 	moveal	%a5@(12),%a0
 	movew	#156,%d0
-	.short	0xa247
+	_SetOSTrapAddress
 	.short	0xa996
 	clrl	%a5@(26)
 	clrl	%a5@(22)
@@ -3385,7 +3385,7 @@ sub_100025b4:
 	_BlockMove
 	moveal	%a1,%a0
 	movew	#-24489,%d0
-	.short	0xa247
+	_SetOSTrapAddress
 	rts
 
 sub_100025da:
@@ -3546,7 +3546,7 @@ off_100026be:
 	bras	.L10002716
 
 .L1000272a:
-	.short	0xa247
+	_SetOSTrapAddress
 	bras	.L10002716
 
 .L1000272e:
@@ -4632,7 +4632,7 @@ sub_1000314e:
 	bras	.L10003160
 
 .L1000315e:
-	.short	0xa247
+	_SetOSTrapAddress
 
 .L10003160:
 	jmp	%a1@
@@ -5293,7 +5293,7 @@ sub_10003712:
 	movew	%a0@,%d0
 	lea	%pc@(off_1000376c),%a0
 	moveal	%a0@,%a0
-	.short	0xa247
+	_SetOSTrapAddress
 
 .L10003764:
 	rts
@@ -10102,7 +10102,7 @@ sub_100069d2:
 .L10006a50:
 	tstw	%a4@(4)
 	beqs	.L10006a88
-	movew	#-24453,%d0
+	movew	#0xa07b,%d0
 	_GetOSTrapAddress
 	movel	%a0,%a4@
 	lea	%pc@(sub_100069d2),%a0
@@ -10119,8 +10119,8 @@ sub_100069d2:
 	movel	%d7,%d0
 	_BlockMove
 	moveal	%a3,%a0
-	movew	#-24453,%d0
-	.short	0xa247
+	movew	#0xa07b,%d0
+	_SetOSTrapAddress
 	bras	.L10006a9c
 
 .L10006a88:

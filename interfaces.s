@@ -161,6 +161,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa22e
 .endm
 
+.macro	_SetOSTrapAddress
+	.short	0xa247
+.endm
+
 .macro	_HFSDispatch
 	.short	0xa260
 .endm
