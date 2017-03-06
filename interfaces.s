@@ -229,6 +229,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa81a
 .endm
 
+.macro	_HCreateResFile
+	.short	0xa81b
+.endm
+
 .macro	_Get1Resource
 	.short	0xa81f
 .endm

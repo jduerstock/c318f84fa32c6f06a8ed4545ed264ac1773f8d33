@@ -16400,7 +16400,7 @@ sub_1000a94a:
 	movew	%fp@(-90),%sp@-
 	movel	%fp@(-84),%sp@-
 	pea	%pc@(str_1000aaf0)
-	.short	0xa81b
+	_HCreateResFile
 	subql	#2,%sp
 	movew	%fp@(-90),%sp@-
 	movel	%fp@(-84),%sp@-
