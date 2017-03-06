@@ -7601,7 +7601,7 @@ sub_1000519e:
 	cmpiw	#4,%d7
 	blts	.L10005212
 	subql	#4,%sp
-	.short	0xaa2a
+	_GetMainDevice
 	moveal	%sp@+,%a4
 	movel	%a4,%d0
 	beqs	.L10005212
@@ -8019,7 +8019,7 @@ sub_100055a8:
 sub_10005644:
 	moveml	%d0-%d2/%a0-%a1,%sp@-
 	clrl	%sp@-
-	.short	0xaa2a
+	_GetMainDevice
 	moveal	%sp@+,%a0
 	moveal	%a0@,%a0
 	moveal	%a0@(22),%a0
