@@ -8887,7 +8887,7 @@ sub_10005eba:
 .L10005eee:
 	tstb	%d0
 	bnes	.L10005f44
-	movew	#0xa89f,%d0
+	movew	#UnimplTrap,%d0
 	_GetToolTrapAddress
 	movel	%a0,%d1
 	beqs	.L10005f44
@@ -9443,8 +9443,7 @@ sub_1000643e:
 	movew	#172,%fp@(-174)
 	moveb	#0xff,%fp@(-167)
 	lea	%fp@(-180),%a0
-	moveq	#1,%d0
-	.short	0xa089
+	_SCSIAction
 	tstw	%fp@(-170)
 	addqw	#8,%sp
 	beqs	.L10006480
@@ -9489,8 +9488,7 @@ sub_1000643e:
 .L100064cc:
 	moveb	%d7,%fp@(-167)
 	lea	%fp@(-180),%a0
-	moveq	#1,%d0
-	.short	0xa089
+	_SCSIAction
 	tstw	%fp@(-170)
 	bnes	.L1000652c
 	moveq	#0,%d0
@@ -9560,8 +9558,7 @@ sub_1000643e:
 	movel	%d0,%a4@(16)
 	moveb	#1,%a4@(103)
 	moveal	%a4,%a0
-	moveq	#1,%d0
-	.short	0xa089
+	_SCSIAction
 	cmpiw	#-7926,%a4@(10)
 	beqs	.L1000659a
 	moveq	#1,%d6

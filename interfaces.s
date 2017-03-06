@@ -1,6 +1,8 @@
 
-SysMap	=	0xa58
-CurMap	=	0xa5a
+SysMap		=	0xa58
+CurMap		=	0xa5a
+
+UnimplTrap	=	0xa89f
 
 .macro	_Open
 	.short	0xa000
@@ -108,6 +110,15 @@ CurMap	=	0xa5a
 
 .macro	_ADBOp
 	.short	0xa07c
+.endm
+
+.macro	_SCSIAtomic
+	.short	0xa089
+.endm
+
+.macro	_SCSIAction
+	moveq	#1,%d0
+	_SCSIAtomic
 .endm
 
 .macro	_GetZone
