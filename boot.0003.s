@@ -4853,7 +4853,7 @@ sub_10003328:
 	clrb	%fp@(-98)
 	movel	%fp@(8),%fp@(-96)
 	lea	%fp@(-124),%a0
-	.short	0xa20b
+	_PBHRenameSync
 	movew	%d0,%fp@(22)
 	unlk	%fp
 	moveal	%sp@+,%a0
@@ -8473,7 +8473,7 @@ sub_10005af0:
 	pea	%fp@
 	pea	%fp@(4)
 	pea	%fp@(8)
-	.short	0xa98d
+	_GetDialogItem
 	movel	%fp@(4),%sp@-
 	movew	#1,%sp@-
 	_HiliteControl
@@ -9637,7 +9637,7 @@ sub_100065b4:
 	extl	%d0
 	_BlockMoveData
 	moveal	%a4,%a0
-	.short	0xa05e
+	_NMInstall
 
 .L1000662c:
 	movel	%a3,%sp@-
@@ -9746,7 +9746,7 @@ sub_1000663e:
 	movel	%a3@(48),%fp@(-458)
 	movel	%a4,%fp@(-478)
 	lea	%fp@(-506),%a0
-	.short	0xa20b
+	_PBHRenameSync
 	movew	%d0,%d6
 	bras	.L10006738
 
@@ -18107,7 +18107,7 @@ sub_1000b9fc:
 	pea	%fp@(-14)
 	pea	%fp@(-4)
 	pea	%fp@(-12)
-	.short	0xa98d
+	_GetDialogItem
 	movel	%fp@(-4),%d0
 	unlk	%fp
 	rts

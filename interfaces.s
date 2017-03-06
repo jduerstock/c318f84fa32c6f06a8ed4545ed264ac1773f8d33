@@ -78,6 +78,10 @@ CurMap	=	0xa5a
 	.short	0xa05c
 .endm
 
+.macro	_NMInstall
+	.short	0xa05e
+.endm
+
 .macro	_MoveHHi
 	.short	0xa064
 .endm
@@ -124,6 +128,10 @@ CurMap	=	0xa5a
 
 .macro	_PBHGetVInfoSync
 	.short	0xa207
+.endm
+
+.macro	_PBHRenameSync
+	.short	0xa20b
 .endm
 
 .macro	_PBHGetFInfoSync
@@ -280,6 +288,10 @@ CurMap	=	0xa5a
 
 .macro	_DisposeDialog
 	.short	0xa983
+.endm
+
+.macro	_GetDialogItem
+	.short	0xa98d
 .endm
 
 .macro	_SetDialogItemText
