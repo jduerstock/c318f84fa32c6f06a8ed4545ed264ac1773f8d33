@@ -7893,7 +7893,7 @@ sub_10005506:
 	movew	%a5@(118),%d0
 	andiw	#-16384,%d0
 	beqs	.L10005528
-	.short	0xaa01
+	_InitCPort
 	bras	.L1000552a
 
 .L10005528:
