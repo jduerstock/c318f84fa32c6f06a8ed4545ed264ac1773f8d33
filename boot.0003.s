@@ -8600,7 +8600,7 @@ sub_10005bf2:
 	pea	%a0@(6)
 	movel	%sp@,%sp@-
 	movel	%sp@,%sp@-
-	.short	0xa817
+	_CopyMask
 	lea	%sp@(28),%sp
 	moveal	%sp@+,%a0
 	_HUnlock
