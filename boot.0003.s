@@ -3682,7 +3682,7 @@ off_100026be:
 	beqw	.L1000291e
 	subqw	#2,%sp
 	movel	%d0,%sp@-
-	.short	0xa9a4
+	_HomeResFile
 	movew	%sp@+,%d0
 	bmiw	.L1000291e
 	bnes	.L1000286c
@@ -8792,7 +8792,7 @@ sub_10005cc2:
 	beqs	.L10005d0a
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa9a4
+	_HomeResFile
 	tstw	%sp@+
 	bnes	.L10005d0a
 	clrb	%d6
@@ -11778,7 +11778,7 @@ sub_10007918:
 	beqs	.L100079b8
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa9a4
+	_HomeResFile
 	movew	%sp@+,%d6
 	cmpiw	#-1,%d7
 	beqs	.L100079b4
@@ -11869,7 +11869,7 @@ sub_10007a14:
 	movel	%a0@(4),%d4
 	subql	#2,%sp
 	movel	%a3,%sp@-
-	.short	0xa9a4
+	_HomeResFile
 	movew	%sp@+,%d5
 	cmpiw	#-1,%d5
 	bnes	.L10007a5a
@@ -17287,7 +17287,7 @@ sub_1000b166:
 	moveal	%fp@(12),%a4
 	subql	#2,%sp
 	movel	%fp@(8),%sp@-
-	.short	0xa9a4
+	_HomeResFile
 	movew	%sp@+,%d7
 	bnes	.L1000b182
 	moveq	#2,%d7

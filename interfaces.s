@@ -502,6 +502,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa9a3
 .endm
 
+.macro	_HomeResFile
+	.short	0xa9a4
+.endm
+
 .macro	_GetResourceSizeOnDisk
 	.short	0xa9a5
 .endm
