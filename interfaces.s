@@ -1,6 +1,7 @@
 
 _fcc_krnl	=	0x6b726e6c
 _fcc_ptch	=	0x70746368
+TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
 
@@ -347,6 +348,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_DrawPicture
 	.short	0xa8f6
+.endm
+
+.macro	_InitFonts
+	.short	0xa8fe
 .endm
 
 .macro	_InitWindows

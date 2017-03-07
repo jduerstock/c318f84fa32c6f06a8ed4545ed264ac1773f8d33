@@ -59,7 +59,7 @@ sub_10000000:
 	moveal	0xa54,%a0
 	moveal	%a0@,%a0
 	moveal	%a0@(16),%a0
-	movel	%a0,0xa50
+	movel	%a0,TopMapHndl
 	moveal	%a0@,%a0
 	movel	%a0@(16),%d0
 	movel	0xa54,%a0@(16)
@@ -814,7 +814,7 @@ str_10000700:
 	movew	#-1,%a0@(488)
 
 .L1000094e:
-	moveal	0xa50,%a0
+	moveal	TopMapHndl,%a0
 
 .L10000952:
 	movel	%a0,%d0
@@ -831,7 +831,7 @@ str_10000700:
 	bset	#2,%a0@(23)
 	bset	#3,%a0@(23)
 	movew	CurMap,%sp@-
-	moveal	0xa50,%a0
+	moveal	TopMapHndl,%a0
 	moveal	%a0@,%a0
 	movew	%a0@(20),CurMap
 	moveml	%d2/%a1-%a3,%sp@-
@@ -946,7 +946,7 @@ str_10000ac0:
 	lea	%pc@(dword_10002562),%a0
 	moveal	%a0@,%a0
 	clrb	%a0@(68)
-	movel	0xa50,%sp@-
+	movel	TopMapHndl,%sp@-
 	movel	0xa54,%sp@-
 	moveq	#5,%d0
 	.short	0xa822
@@ -3346,7 +3346,7 @@ sub_10002568:
 	lea	%pc@(sub_1000251c),%a0
 	moveq	#74,%d0
 	_BlockMove
-	moveal	0xa50,%a0
+	moveal	TopMapHndl,%a0
 	movel	%a0,%a1@(64)
 	moveal	%a0@,%a0
 	andib	#1,%a0@(23)
@@ -4114,7 +4114,7 @@ sub_10002c24:
 	_DisplayDispatch
 	addqw	#2,%sp
 	jsr	%pc@(sub_1000a09a)
-	.short	0xa8fe
+	_InitFonts
 	movew	0x17a,%d0
 	cmpiw	#-30715,%d0
 	beqs	.L10002c9e
@@ -7802,7 +7802,7 @@ str_100052c2:
 	.align	2
 
 sub_100052c6:
-	moveal	0xa50,%a0
+	moveal	TopMapHndl,%a0
 	moveal	%a0@,%a0
 	movew	%a0@(20),CurMap
 	moveq	#0,%d0
@@ -8022,7 +8022,7 @@ sub_10005506:
 	moveq	#0,%d0
 	bsrw	sub_10001922
 	movew	SysMap,%sp@-
-	moveal	0xa50,%a0
+	moveal	TopMapHndl,%a0
 	moveal	%a0@,%a0
 	movew	%a0@(20),SysMap
 	moveq	#40,%d0
@@ -17760,7 +17760,7 @@ sub_1000b5b2:
 	movew	#-20886,%sp@-
 	_GetResource
 	movel	%sp@+,%fp@(-46)
-	.short	0xa8fe
+	_InitFonts
 	_InitWindows
 	_InitMenus
 	_TEInit
