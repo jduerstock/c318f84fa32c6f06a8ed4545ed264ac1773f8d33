@@ -6578,7 +6578,7 @@ sub_10004668:
 .L10004756:
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%a3@(256),%d0
 	cmpw	%sp@+,%d0
 	sgt	%d3
@@ -6590,7 +6590,7 @@ sub_10004668:
 .L1000476e:
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 
 .L10004776:
@@ -6655,7 +6655,7 @@ sub_10004668:
 	jsr	%pc@(sub_1000521e)
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%a3@(256)
 	movel	%fp@(8),%sp@-
 	movel	%a4,%sp@-
@@ -6689,17 +6689,17 @@ sub_10004668:
 	bnes	.L10004888
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d7
 	bras	.L100048b6
 
 .L10004888:
 	subql	#2,%sp
 	pea	%a3@(258)
-	.short	0xa88c
+	_StringWidth
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 	cmpw	%sp@+,%d0
 	slt	%d3
@@ -6707,14 +6707,14 @@ sub_10004668:
 	beqs	.L100048ac
 	subql	#2,%sp
 	pea	%a3@(258)
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 	bras	.L100048b4
 
 .L100048ac:
 	subql	#2,%sp
 	movel	%a4,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 
 .L100048b4:
@@ -8231,7 +8231,7 @@ word_100057ce:
 	_TextFace
 	clrw	%sp@-
 	movel	%a2@,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 	btst	#1,0xb21
 	bnes	.L10005854
@@ -8241,7 +8241,7 @@ word_100057ce:
 	_TextFace
 	clrw	%sp@-
 	movel	%a2@,%sp@-
-	.short	0xa88c
+	_StringWidth
 	movew	%sp@+,%d0
 
 .L10005854:

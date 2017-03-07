@@ -289,6 +289,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa888
 .endm
 
+.macro	_StringWidth
+	.short	0xa88c
+.endm
+
 .macro	_LineTo
 	.short	0xa891
 .endm
