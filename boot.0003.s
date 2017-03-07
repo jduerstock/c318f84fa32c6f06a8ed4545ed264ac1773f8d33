@@ -5721,7 +5721,7 @@ sub_10003de8:
 	movel	#1885495666,%sp@-
 	movew	#-20034,%sp@-
 	pea	%pc@(word_10003ea2)
-	.short	0xa9ab
+	_AddResource
 	subql	#2,%sp
 	_ResError
 	tstw	%sp@+
@@ -11689,7 +11689,7 @@ sub_1000780e:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	pea	%pc@(word_1000790a)
-	.short	0xa9ab
+	_AddResource
 	subql	#2,%sp
 	_ResError
 	movew	%sp@+,%d7
@@ -11703,7 +11703,7 @@ sub_1000780e:
 	moveq	#2,%d0
 	movew	%d0,%sp@-
 	pea	%pc@(word_1000790a)
-	.short	0xa9ab
+	_AddResource
 
 .L100078ec:
 	movew	%d6,%sp@-
@@ -16571,7 +16571,7 @@ sub_1000a94a:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	pea	%pc@(str_1000aad4)
-	.short	0xa9ab
+	_AddResource
 	bras	.L1000aac2
 
 .L1000aa8e:
