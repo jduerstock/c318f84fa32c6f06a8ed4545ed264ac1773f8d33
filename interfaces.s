@@ -309,6 +309,18 @@ UnimplTrap	=	0xa89f
 	.short	0xa895
 .endm
 
+.macro	_PenNormal
+	.short	0xa89e
+.endm
+
+.macro	_FrameRect
+	.short	0xa8a1
+.endm
+
+.macro	_InsetRect
+	.short	0xa8a9
+.endm
+
 .macro	_ScriptUtil
 	.short	0xa8b5
 .endm
@@ -335,6 +347,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_SelectWindow
 	.short	0xa91f
+.endm
+
+.macro	_CloseWindow
+	.short	0xa92d
 .endm
 
 .macro	_InitMenus

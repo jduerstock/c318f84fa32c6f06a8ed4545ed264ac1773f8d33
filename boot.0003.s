@@ -4215,12 +4215,12 @@ sub_10002d1e:
 	movel	%a0@+,%a1@+
 	movel	%a0@,%a1@
 	movel	#-131075,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	movel	#196611,%sp@-
 	.short	0xa89b
 	movel	#1441814,%sp@-
 	.short	0xa8b0
-	.short	0xa89e
+	_PenNormal
 	movel	#1048592,%sp@-
 	pea	%a2@(-24)
 	.short	0xa8b4
@@ -5518,7 +5518,7 @@ sub_10003988:
 	_SetPort
 	pea	%fp@(-30)
 	.short	0xa898
-	.short	0xa89e
+	_PenNormal
 	pea	%fp@(-12)
 	.short	0xaa19
 	pea	%fp@(-6)
@@ -5527,7 +5527,7 @@ sub_10003988:
 	jsr	%pc@(sub_10003f4c)
 	pea	%fp@(-42)
 	movel	#65537,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	tstw	%a5@(40)
 	beqs	.L10003a52
 	movew	%fp@(-36),%d0
@@ -5819,7 +5819,7 @@ sub_10003f4c:
 	moveq	#-1,%d0
 	movew	%d0,%sp@-
 	movew	%d0,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	jsr	%pc@(sub_1000519e)
 	tstb	%d0
 	beqw	.L1000400a
@@ -5882,9 +5882,9 @@ sub_10003f4c:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	movew	%d0,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	pea	%fp@(-8)
-	.short	0xa8a1
+	_FrameRect
 	unlk	%fp
 	movel	%sp@+,%sp@
 	rts
@@ -6262,7 +6262,7 @@ sub_10004380:
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	movew	%d0,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	addqw	#2,%fp@(-6)
 	movew	#-17477,%fp@(-10)
 	movew	#-17477,%fp@(-12)
@@ -6275,7 +6275,7 @@ sub_10004380:
 	moveq	#-1,%d0
 	movew	%d0,%sp@-
 	movew	%d0,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	subqw	#2,%fp@(-6)
 	clrl	%fp@(-12)
 	clrw	%fp@(-14)
@@ -8341,7 +8341,7 @@ sub_10005994:
 	beqs	.L100059a2
 	clrl	%a0@
 	movel	%d0,%sp@-
-	.short	0xa92d
+	_CloseWindow
 
 .L100059a2:
 	rts
@@ -8400,12 +8400,12 @@ sub_10005a16:
 	beqs	.L10005a2c
 	clrl	%a0@
 	movel	%d0,%sp@-
-	.short	0xa92d
+	_CloseWindow
 
 .L10005a2c:
 	pea	0x9fa
 	movel	#524296,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	clrl	%sp@-
 	pea	%pc@(off_100058e8)
 	pea	0x9fa
@@ -8425,7 +8425,7 @@ sub_10005a16:
 .L10005a64:
 	pea	0x9fa
 	movel	#-458760,%sp@-
-	.short	0xa8a9
+	_InsetRect
 	lea	0x9fa,%a0
 	movel	%a0,%sp@-
 	movel	%a0,%sp@-
@@ -8433,15 +8433,15 @@ sub_10005a16:
 	movel	%a0,%sp@-
 	movel	%a0,%sp@-
 	.short	0xa8a3
-	.short	0xa8a1
+	_FrameRect
 	movel	#131074,%sp@-
 	.short	0xa89b
 	movel	#196611,%sp@-
-	.short	0xa8a9
-	.short	0xa8a1
+	_InsetRect
+	_FrameRect
 	movel	#-131075,%sp@-
-	.short	0xa8a9
-	.short	0xa89e
+	_InsetRect
+	_PenNormal
 	rts
 
 sub_10005aa0:
