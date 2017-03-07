@@ -5288,7 +5288,7 @@ sub_10003712:
 	rts
 
 word_10003766:
-	.short	0xa092
+	_Egret
 
 word_10003768:
 	_ExpansionBusDispatch
@@ -10533,7 +10533,7 @@ sub_10006c78:
 	clrw	%fp@(-6)
 	clrl	%fp@(-4)
 	lea	%fp@(-20),%a0
-	.short	0xa092
+	_Egret
 	unlk	%fp
 	moveml	%sp@+,%a0-%a1
 

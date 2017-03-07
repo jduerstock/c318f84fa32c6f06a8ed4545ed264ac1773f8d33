@@ -148,6 +148,10 @@ UnimplTrap	=	0xa89f
 	_SCSIAtomic
 .endm
 
+.macro	_Egret
+	.short	0xa092
+.endm
+
 .macro	_HWPriv
 	.short	0xa098
 .endm
