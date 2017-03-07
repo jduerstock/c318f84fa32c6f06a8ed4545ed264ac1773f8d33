@@ -79,6 +79,14 @@ UnimplTrap	=	0xa89f
 	.short	0xa052
 .endm
 
+.macro	_RmvTime
+	.short	0xa059
+.endm
+
+.macro	_PrimeTime
+	.short	0xa05a
+.endm
+
 .macro	_MemoryDispatch
 	.short	0xa05c
 .endm
@@ -199,6 +207,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_ReserveMemSys
 	.short	0xa440
+.endm
+
+.macro	_InsXTime
+	.short	0xa458
 .endm
 
 .macro	_NewPtrSys

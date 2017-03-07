@@ -6910,11 +6910,11 @@ sub_100049fa:
 	movel	%a0,%a1@(584)
 	moveal	%fp@(-12),%a0
 	lea	%a0@(578),%a0
-	.short	0xa458
+	_InsXTime
 	moveal	%fp@(-12),%a0
 	lea	%a0@(578),%a0
 	movel	#2000,%d0
-	.short	0xa05a
+	_PrimeTime
 	bras	.L10004b16
 
 .L10004b10:
@@ -6946,7 +6946,7 @@ sub_10004b2e:
 	jsr	%pc@(sub_10003af6)
 	moveal	%sp@+,%a4
 	lea	%a4@(578),%a0
-	.short	0xa059
+	_RmvTime
 	moveal	%a4@(562),%a0
 	_DisposePtr
 	moveq	#0,%d0
