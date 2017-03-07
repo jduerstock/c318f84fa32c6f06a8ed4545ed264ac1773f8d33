@@ -1039,7 +1039,7 @@ str_10000bf0:
 .L10000c04:
 	moveaw	#7,%a0
 	moveq	#18,%d0
-	.short	0xfe05
+	_MoveToECR
 	moveml	%a0-%a1,%sp@-
 	moveal	0x2b6,%a0
 	lea	%pc@(str_10000c26),%a1
@@ -15399,15 +15399,15 @@ sub_10009caa:
 	moveal	%fp@(-28),%a0
 	moveal	%a0@,%a0
 	moveq	#1,%d0
-	.short	0xfe05
+	_MoveToECR
 	moveal	%fp@(-28),%a0
 	moveal	%a0@(4),%a0
 	moveq	#2,%d0
-	.short	0xfe05
+	_MoveToECR
 	moveal	%fp@(-24),%a0
 	moveal	%a0@,%a0
 	moveq	#13,%d0
-	.short	0xfe05
+	_MoveToECR
 	moveq	#3,%d0
 	_MoveFromECR
 	moveal	%fp@(-16),%a1
