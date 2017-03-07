@@ -10389,15 +10389,69 @@ sub_10006b68:
 	rts
 
 sub_10006bd6:
-	.short	0x4E56,0x0000,0x48E7,0x0F08,0x1A2E
-	.short	0x000B,0x286E,0x000C,0x4206,0x4207,0x4204,0x4A05,0x675E
-	.short	0x7000,0x1014,0xBA34,0x0000,0x630C,0x5214,0x7000,0x1014
-	.short	0x1985,0x0000,0x6048,0x1C14,0x7000,0x1006,0xBA34,0x0000
-	.short	0x6332,0x1014,0x5200,0x1E00,0x7000,0x1007,0x5340,0x7200
-	.short	0x1207,0x19B4,0x0000,0x1000,0x5307,0x7000,0x1007,0x7200
-	.short	0x1206,0x5241,0xB240,0x65E0,0x5214,0x7000,0x1007,0x1985
-	.short	0x0000,0x7801,0x5306,0x4A06,0x6704,0x4A04,0x67BA,0x4CEE
-	.short	0x10F0,0xFFEC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d4-%d7/%a4,%sp@-
+	moveb	%fp@(11),%d5
+	moveal	%fp@(12),%a4
+	clrb	%d6
+	clrb	%d7
+	clrb	%d4
+	tstb	%d5
+	beqs	.L10006c4e
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	cmpb	%a4@(%d0:w),%d5
+	blss	.L10006c06
+	addqb	#1,%a4@
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveb	%d5,%a4@(%d0:w)
+	bras	.L10006c4e
+
+.L10006c06:
+	moveb	%a4@,%d6
+
+.L10006c08:
+	moveq	#0,%d0
+	moveb	%d6,%d0
+	cmpb	%a4@(%d0:w),%d5
+	blss	.L10006c44
+	moveb	%a4@,%d0
+	addqb	#1,%d0
+	moveb	%d0,%d7
+
+.L10006c18:
+	moveq	#0,%d0
+	moveb	%d7,%d0
+	subqw	#1,%d0
+	moveq	#0,%d1
+	moveb	%d7,%d1
+	moveb	%a4@(%d0:w),%a4@(%d1:w)
+	subqb	#1,%d7
+	moveq	#0,%d0
+	moveb	%d7,%d0
+	moveq	#0,%d1
+	moveb	%d6,%d1
+	addqw	#1,%d1
+	cmpw	%d0,%d1
+	bcss	.L10006c18
+	addqb	#1,%a4@
+	moveq	#0,%d0
+	moveb	%d7,%d0
+	moveb	%d5,%a4@(%d0:w)
+	moveq	#1,%d4
+
+.L10006c44:
+	subqb	#1,%d6
+	tstb	%d6
+	beqs	.L10006c4e
+	tstb	%d4
+	beqs	.L10006c08
+
+.L10006c4e:
+	moveml	%fp@(-20),%d4-%d7/%a4
+	unlk	%fp
+	rts
 
 sub_10006c58:
 	.short	0x4E56,0x0000,0x226E,0x0008
