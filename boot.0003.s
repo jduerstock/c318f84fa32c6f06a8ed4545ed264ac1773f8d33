@@ -17105,7 +17105,7 @@ off_1000aef2:
 	_UseResFile
 	subql	#2,%sp
 	movel	%d5,%sp@-
-	.short	0xa80d
+	_Count1Resources
 	movew	%sp@+,%d3
 	moveq	#1,%d6
 	braw	.L1000b02a
