@@ -8931,8 +8931,7 @@ sub_10005e0a:
 	movel	0x6c,%a0@(2)
 	movel	%a0,%sp@-
 	lea	0x6,%a1
-	moveq	#9,%d0
-	.short	0xa098
+	_FlushCodeCacheRange
 	movel	%sp@+,0x6c
 
 .L10005e60:

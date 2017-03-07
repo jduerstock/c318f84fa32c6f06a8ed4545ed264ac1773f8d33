@@ -142,6 +142,15 @@ UnimplTrap	=	0xa89f
 	_SCSIAtomic
 .endm
 
+.macro	_HWPriv
+	.short	0xa098
+.endm
+
+.macro	_FlushCodeCacheRange
+	moveq	#9,%d0
+	_HWPriv
+.endm
+
 .macro	_GetZone
 	.short	0xa11a
 .endm
