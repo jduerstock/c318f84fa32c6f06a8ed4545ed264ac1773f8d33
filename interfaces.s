@@ -309,6 +309,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa895
 .endm
 
+.macro	_PenSize
+	.short	0xa89b
+.endm
+
 .macro	_PenNormal
 	.short	0xa89e
 .endm

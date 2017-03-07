@@ -4217,7 +4217,7 @@ sub_10002d1e:
 	movel	#-131075,%sp@-
 	_InsetRect
 	movel	#196611,%sp@-
-	.short	0xa89b
+	_PenSize
 	movel	#1441814,%sp@-
 	.short	0xa8b0
 	_PenNormal
@@ -8435,7 +8435,7 @@ sub_10005a16:
 	.short	0xa8a3
 	_FrameRect
 	movel	#131074,%sp@-
-	.short	0xa89b
+	_PenSize
 	movel	#196611,%sp@-
 	_InsetRect
 	_FrameRect
