@@ -7650,7 +7650,7 @@ sub_1000514c:
 	moveal	%a4@,%a0
 	movel	%d7,%d0
 	asll	#3,%d0
-	pea	%a0@(0xa,%d0:l)
+	pea	%a0@(10,%d0:l)
 	_RGBForeColor
 	bras	.L10005194
 
