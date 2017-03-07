@@ -6256,7 +6256,7 @@ sub_10004028:
 	movel	%fp@(-4),%sp@-
 	jsr	%pc@(sub_1000514c)
 	movel	%a4,%sp@-
-	.short	0xa8a2
+	_PaintRect
 	addqw	#8,%sp
 
 .L10004360:
@@ -6268,7 +6268,7 @@ sub_10004028:
 
 .L1000436c:
 	movel	%a4,%sp@-
-	.short	0xa8a2
+	_PaintRect
 
 .L10004370:
 	moveml	%fp@(-16),%d6-%d7/%a4
@@ -6310,7 +6310,7 @@ sub_10004380:
 	pea	%fp@(-14)
 	_RGBForeColor
 	pea	%fp@(-8)
-	.short	0xa8a2
+	_PaintRect
 	pea	%fp@(-8)
 	moveq	#-1,%d0
 	movew	%d0,%sp@-
