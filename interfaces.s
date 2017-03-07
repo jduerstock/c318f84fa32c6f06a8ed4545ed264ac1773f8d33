@@ -285,6 +285,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa87d
 .endm
 
+.macro	_DrawString
+	.short	0xa884
+.endm
+
 .macro	_TextFace
 	.short	0xa888
 .endm

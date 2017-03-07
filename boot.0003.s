@@ -6649,7 +6649,7 @@ sub_10004668:
 	movew	%d5,%sp@-
 	_MoveTo
 	movel	%a4,%sp@-
-	.short	0xa884
+	_DrawString
 	movel	%fp@(-4),%sp@-
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_1000521e)
@@ -6754,7 +6754,7 @@ sub_10004668:
 	movew	%d5,%sp@-
 	_MoveTo
 	movel	%a4,%sp@-
-	.short	0xa884
+	_DrawString
 	movel	%a4,%sp@-
 	pea	%a3@(258)
 	jsr	%pc@(sub_1000521e)
@@ -8262,7 +8262,7 @@ word_100057ce:
 	movew	%d0,%sp@-
 	_MoveTo
 	movel	%a2@,%sp@-
-	.short	0xa884
+	_DrawString
 	movel	%a2,%sp@-
 	_ReleaseResource
 
