@@ -473,6 +473,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa9ba
 .endm
 
+.macro	_GetPicture
+	.short	0xa9bc
+.endm
+
 .macro	_SysBeep
 	.short	0xa9c8
 .endm

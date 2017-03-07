@@ -7735,7 +7735,7 @@ sub_100052ea:
 	movew	%d0,%sp@-
 	subqw	#4,%sp
 	clrw	%sp@-
-	.short	0xa9bc
+	_GetPicture
 	movel	%sp@+,%d0
 	beqs	.L10005334
 	moveal	%d0,%a2
@@ -7816,7 +7816,7 @@ sub_1000539a:
 	movew	%a0@(6),%d4
 	subqw	#4,%sp
 	movew	%a0@(%d1:w),%sp@-
-	.short	0xa9bc
+	_GetPicture
 	movel	%sp@+,%d0
 	beqs	.L10005442
 	moveal	%d0,%a2
@@ -8130,7 +8130,7 @@ sub_100056ae:
 	subqw	#4,%sp
 	movew	%d0,%d1
 	movew	%d0,%sp@-
-	.short	0xa9bc
+	_GetPicture
 	movel	%sp@+,%d0
 	beqs	.L1000570a
 	movel	%a2,%sp@-
@@ -8158,7 +8158,7 @@ sub_100056ae:
 	_SetPort
 	subqw	#4,%sp
 	movew	#-20235,%sp@-
-	.short	0xa9bc
+	_GetPicture
 	movel	%sp@+,%d0
 	beqs	.L1000579c
 	movel	%a2,%sp@-
