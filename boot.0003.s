@@ -882,7 +882,7 @@ str_10000700:
 	_UseResFile
 	movel	0xa54,%sp@-
 	moveq	#4,%d0
-	.short	0xa822
+	_ResourceDispatch
 	movew	%sp@,CurMap
 	bsrw	sub_100023ac
 	movew	%sp@,CurMap
@@ -945,7 +945,7 @@ str_10000ac0:
 	movel	TopMapHndl,%sp@-
 	movel	0xa54,%sp@-
 	moveq	#5,%d0
-	.short	0xa822
+	_ResourceDispatch
 
 .L10000afa:
 	movel	0x33c,%d0
@@ -12227,20 +12227,19 @@ sub_10007bde:
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
 	moveq	#-2,%d0
-	.short	0xa822
+	_ResourceDispatch
 	movew	%sp@+,%d6
 	cmpiw	#-1,%d6
 	beqs	.L10007d0c
 	subql	#2,%sp
 	movew	%d6,%sp@-
 	moveq	#-3,%d0
-	.short	0xa822
+	_ResourceDispatch
 	addqw	#2,%sp
 	bras	.L10007d10
 
 .L10007d0c:
-	moveq	#27,%d0
-	_SysError
+	_SysError 27
 
 .L10007d10:
 	moveml	%fp@(-300),%d5-%d7/%a3-%a4

@@ -281,6 +281,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa81f
 .endm
 
+.macro	_ResourceDispatch
+	.short	0xa822
+.endm
+
 .macro	_AliasDispatch
 	.short	0xa823
 .endm
