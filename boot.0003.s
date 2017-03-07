@@ -11790,10 +11790,10 @@ sub_1000790c:
 	braw	sub_1000c80e
 
 sub_10007910:
-	.short	0x6000,0x10D8
+	braw	sub_100089ea
 
 sub_10007914:
-	.short	0x6000,0x2122
+	braw	sub_10009a38
 
 sub_10007918:
 	linkw	%fp,#-8
@@ -12248,8 +12248,7 @@ sub_10007bde:
 
 str_10007d1a:
 	.byte	0x10
-	.ascii	"System Resources"
-	.byte	0x00
+	.string	"System Resources"
 
 sub_10007d2c:
 	linkw	%fp,#-8
