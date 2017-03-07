@@ -342,6 +342,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa8a2
 .endm
 
+.macro	_EraseRect
+	.short	0xa8a3
+.endm
+
 .macro	_InsetRect
 	.short	0xa8a9
 .endm

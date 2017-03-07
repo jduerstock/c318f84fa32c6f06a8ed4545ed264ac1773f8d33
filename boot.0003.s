@@ -6524,7 +6524,7 @@ sub_10004380:
 	pea	%fp@(-6)
 	_RGBBackColor
 	movel	%a4,%sp@-
-	.short	0xa8a3
+	_EraseRect
 
 .L1000465c:
 	moveml	%fp@(-28),%d7/%a4
@@ -6684,7 +6684,7 @@ sub_10004668:
 	pea	%fp@(-524)
 	_RGBBackColor
 	pea	%fp@(-532)
-	.short	0xa8a3
+	_EraseRect
 	movew	%fp@(-530),%sp@-
 	movew	%d5,%sp@-
 	_MoveTo
@@ -6789,7 +6789,7 @@ sub_10004668:
 	movew	%fp@(-540),%d5
 	addw	%d4,%d5
 	pea	%fp@(-532)
-	.short	0xa8a3
+	_EraseRect
 	movew	%fp@(-530),%sp@-
 	movew	%d5,%sp@-
 	_MoveTo
@@ -8524,7 +8524,7 @@ sub_10005a16:
 	movel	%a0,%sp@-
 	movel	%a0,%sp@-
 	movel	%a0,%sp@-
-	.short	0xa8a3
+	_EraseRect
 	_FrameRect
 	movel	#131074,%sp@-
 	_PenSize
