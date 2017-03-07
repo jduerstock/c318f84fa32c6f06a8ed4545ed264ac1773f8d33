@@ -6558,7 +6558,7 @@ sub_10004668:
 	pea	%fp@(-518)
 	.short	0xa900
 	movew	%fp@(-518),%sp@-
-	.short	0xa887
+	_TextFont
 	moveq	#9,%d0
 	movew	%d0,%sp@-
 	.short	0xa88a
@@ -7209,7 +7209,7 @@ sub_10004dd4:
 	movel	%a4,%sp@-
 	moveal	%fp@(8),%a4
 	movew	%a4@,%sp@-
-	.short	0xa887
+	_TextFont
 	movew	%a4@(2),%sp@-
 	.short	0xa88a
 	movew	%a4@(4),%sp@-

@@ -301,6 +301,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa884
 .endm
 
+.macro	_TextFont
+	.short	0xa887
+.endm
+
 .macro	_TextFace
 	.short	0xa888
 .endm
