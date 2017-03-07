@@ -10454,9 +10454,23 @@ sub_10006bd6:
 	rts
 
 sub_10006c58:
-	.short	0x4E56,0x0000,0x226E,0x0008
-	.short	0x4A11,0x670E,0x5311,0x7000,0x1011,0x5240,0x1031,0x0000
-	.short	0x6002,0x7000,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveal	%fp@(8),%a1
+	tstb	%a1@
+	beqs	.L10006c72
+	subqb	#1,%a1@
+	moveq	#0,%d0
+	moveb	%a1@,%d0
+	addqw	#1,%d0
+	moveb	%a1@(%d0:w),%d0
+	bras	.L10006c74
+
+.L10006c72:
+	moveq	#0,%d0
+
+.L10006c74:
+	unlk	%fp
+	rts
 
 sub_10006c78:
 	linkw	%fp,#-4
