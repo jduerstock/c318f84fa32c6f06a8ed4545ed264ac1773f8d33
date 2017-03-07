@@ -1950,7 +1950,7 @@ str_1000174c:
 	movew	#1,%d0
 	swap	%d0
 	movew	#19,%d0
-	.short	0xa09e
+	_PowerMgrDispatch
 
 .L10001770:
 	movew	#1,%d0
@@ -9090,13 +9090,13 @@ sub_10005f4c:
 
 str_10005fcc:
 	.byte	0x11
-	.ascii	"LoadNativeDrivers"
-	.short	0x0000
+	.string	"LoadNativeDrivers"
+	.align	2
 
 str_10005fe0:
 	.byte	0x15
-	.ascii	"NativeDriverLoaderLib"
-	.short	0x0000
+	.string	"NativeDriverLoaderLib"
+	.align	2
 
 sub_10005ff8:
 	linkw	%fp,#-270
@@ -9480,7 +9480,7 @@ sub_10006388:
 	andl	%fp@(-4),%d0
 	beqs	.L100063bc
 	moveq	#26,%d0
-	.short	0xa09e
+	_PowerMgrDispatch
 	tstw	%d0
 	beqs	.L100063bc
 	moveq	#1,%d7

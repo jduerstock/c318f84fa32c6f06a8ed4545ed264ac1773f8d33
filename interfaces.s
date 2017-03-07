@@ -152,6 +152,10 @@ UnimplTrap	=	0xa89f
 	_HWPriv
 .endm
 
+.macro	_PowerMgrDispatch
+	.short	0xa09e
+.endm
+
 .macro	_GetZone
 	.short	0xa11a
 .endm
