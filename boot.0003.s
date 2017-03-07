@@ -5429,15 +5429,46 @@ sub_1000389c:
 	rts
 
 sub_100038a8:
-	.short	0x3B6D,0x0026,0x002A,0x426D
-	.short	0x0026,0x3B7C,0x0001,0x0028,0x302F,0x0004,0x48E7,0x01C0
-	.short	0x2078,0x02B6,0x43FA,0x0052,0x2149,0x0324,0x0838,0x0005
-	.short	0x0B20,0x6732,0x5040,0x3B40,0x0028,0x41FA,0x00AA,0x30AD
-	.short	0x0028,0x41FA,0x0030,0x4850,0x4EBA,0x04CE,0x41FA,0x0026
-	.short	0x4A90,0x6712,0x2050,0x2050,0x3010,0xB06D,0x0028,0x6606
-	.short	0x3B68,0x0002,0x0028,0x4CDF,0x0380,0x201F,0x544F,0x2F00
-	.short	0x4EFA,0x0076,0x0000,0x0000,0x0A45,0x7874,0x656E,0x7369
-	.short	0x6F6E,0x7300
+	movew	%a5@(38),%a5@(42)
+	clrw	%a5@(38)
+	movew	#1,%a5@(40)
+	movew	%sp@(4),%d0
+	moveml	%d7-%a1,%sp@-
+	moveal	0x2b6,%a0
+	lea	%pc@(str_10003918),%a1
+	movel	%a1,%a0@(804)
+	btst	#5,0xb20
+	beqs	.L10003906
+	addqw	#8,%d0
+	movew	%d0,%a5@(40)
+	lea	%pc@(word_10003986),%a0
+	movew	%a5@(40),%a0@
+	lea	%pc@(dword_10003914),%a0
+	pea	%a0@
+	jsr	%pc@(sub_10003db8)
+	lea	%pc@(dword_10003914),%a0
+	tstl	%a0@
+	beqs	.L10003906
+	moveal	%a0@,%a0
+	moveal	%a0@,%a0
+	movew	%a0@,%d0
+	cmpw	%a5@(40),%d0
+	bnes	.L10003906
+	movew	%a0@(2),%a5@(40)
+
+.L10003906:
+	moveml	%sp@+,%d7-%a1
+	movel	%sp@+,%d0
+	addqw	#2,%sp
+	movel	%d0,%sp@-
+	jmp	%pc@(sub_10003988)
+
+dword_10003914:
+	.short	0x0000,0x0000
+
+str_10003918:
+	.byte	0x0a
+	.string	"Extensions"
 
 sub_10003924:
 	moveal	%sp@+,%a0
