@@ -8939,7 +8939,7 @@ sub_10005e0a:
 	rts
 
 .L10005e66:
-	.short	0xfe07
+	_HandleMixedModeFault
 	bnes	.L10005e6c
 	rte
 
@@ -8975,7 +8975,7 @@ sub_10005eb4:
 sub_10005eba:
 	movew	%sr,%sp@-
 	moveml	%a0-%a1,%sp@-
-	movel	#1651861368,%d0
+	movel	#_fcc_bugx,%d0
 	_Gestalt
 	bnes	.L10005ed4
 	movel	%a0,%d0

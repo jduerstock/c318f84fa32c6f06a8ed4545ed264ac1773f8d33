@@ -1,4 +1,5 @@
 
+_fcc_bugx	=	0x62756778
 _fcc_krnl	=	0x6b726e6c
 _fcc_ptch	=	0x70746368
 TopMapHndl	=	0xa50
@@ -681,6 +682,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_DebugStr
 	.short	0xabff
+.endm
+
+.macro	_HandleMixedModeFault
+	.short	0xfe07
 .endm
 
 .macro	_KernelVMDispatch
