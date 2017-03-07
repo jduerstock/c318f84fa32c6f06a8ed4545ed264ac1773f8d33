@@ -10053,8 +10053,8 @@ sub_100068bc:
 	rts
 
 str_100068e8:
-	.ascii	"ATY,"
-	.short	0x0000
+	.string	"ATY,"
+	.align	2
 
 sub_100068ee:
 	linkw	%fp,#-10
