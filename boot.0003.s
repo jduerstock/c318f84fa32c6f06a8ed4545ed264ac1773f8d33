@@ -16192,7 +16192,7 @@ sub_1000a5ec:
 	pea	%fp@(-2)
 	pea	%fp@(-6)
 	pea	%a4@(10)
-	.short	0xa9a8
+	_GetResInfo
 	moveq	#0,%d0
 	moveb	%a4@(10),%d0
 	cmpib	#63,%d0
@@ -16257,7 +16257,7 @@ sub_1000a66e:
 	pea	%fp@(-6)
 	pea	%fp@(-4)
 	movel	%a3,%sp@-
-	.short	0xa9a8
+	_GetResInfo
 	moveq	#0,%d0
 	moveb	%a3@,%d0
 	cmpib	#63,%d0
@@ -17067,7 +17067,7 @@ off_1000aef2:
 	pea	%fp@(-284)
 	pea	%fp@(-288)
 	pea	%fp@(-272)
-	.short	0xa9a8
+	_GetResInfo
 	moveq	#0,%d0
 	moveb	%fp@(-272),%d0
 	cmpib	#63,%d0

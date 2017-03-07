@@ -510,6 +510,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa9a5
 .endm
 
+.macro	_GetResInfo
+	.short	0xa9a8
+.endm
+
 .macro	_ChangedResource
 	.short	0xa9aa
 .endm
