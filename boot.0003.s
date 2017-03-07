@@ -8271,8 +8271,13 @@ word_100057ce:
 	bras	.L1000589c
 
 .L1000588a:
-	.short	0x0C43,0x0002,0x6706
-	.short	0x5243,0x6000,0xFE4A,0x08F8,0x0002,0x0B21
+	cmpiw	#2,%d3
+	beqs	.L10005896
+	addqw	#1,%d3
+	braw	.L100056de
+
+.L10005896:
+	bset	#2,0xb21
 
 .L1000589c:
 	.short	0x21DF,0x0118
