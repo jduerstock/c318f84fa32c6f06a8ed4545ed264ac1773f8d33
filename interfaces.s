@@ -577,7 +577,14 @@ UnimplTrap	=	0xa89f
 	.short	0xa9c8
 .endm
 
-.macro	_SysError
+.macro	_SysError p1
+	.ifnb	\p1
+		.ifge	\p1-128
+			movew	#\p1,%d0
+		.else
+			moveq	#\p1,%d0
+		.endif
+	.endif
 	.short	0xa9c9
 .endm
 
@@ -691,6 +698,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_DebugStr
 	.short	0xabff
+.endm
+
+.macro	_ExecuteRiscContext
+	.short	0xfe03
 .endm
 
 .macro	_HandleMixedModeFault

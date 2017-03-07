@@ -205,8 +205,7 @@ str_10000162:
 	blss	.L10000274
 
 .L10000270:
-	moveq	#105,%d0
-	_SysError
+	_SysError 105
 
 .L10000274:
 	movel	#1869637239,%d0
@@ -342,8 +341,7 @@ str_10000162:
 	bsrw	sub_100052c6
 	btst	#2,0xb20
 	beqs	.L100003e2
-	moveq	#102,%d0
-	_SysError
+	_SysError 102
 
 .L100003e2:
 	jsr	%pc@(sub_10007914)
@@ -365,8 +363,7 @@ str_10000162:
 	jsr	%pc@(sub_10007f70)
 	movew	%sp@+,%d1
 	beqs	.L1000041c
-	moveq	#99,%d0
-	_SysError
+	_SysError 99
 
 .L1000041c:
 	moveal	0xbb8,%a0
@@ -839,8 +836,7 @@ str_10000700:
 	bsrl	sub_1000970e
 	movel	%sp@+,%d1
 	bnes	.L100009a0
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L100009a0:
 	moveml	%sp@+,%d2/%a1-%a3
@@ -2097,8 +2093,7 @@ sub_10001922:
 	rts
 
 sub_1000193a:
-	moveq	#99,%d0
-	_SysError
+	_SysError 99
 
 sub_1000193e:
 	moveq	#-1,%d4
@@ -2939,8 +2934,7 @@ sub_100020e0:
 
 .L1000218e:
 	movel	%sp@+,%d0
-	moveq	#12,%d0
-	_SysError
+	_SysError 12
 
 .L10002194:
 	movel	#1986863136,%d0
@@ -3394,8 +3388,7 @@ sub_100025da:
 	movel	%sp@+,%d0
 	moveal	%d0,%a4
 	bnew	.L100025f8
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L100025f8:
 	movel	%a4,%sp@-
@@ -3422,8 +3415,7 @@ sub_100025da:
 	moveq	#0,%d0
 	bsrw	sub_10001922
 	movel	%d0,%d6
-	moveq	#102,%d0
-	_SysError
+	_SysError 102
 	movel	%sp@+,0x2ba
 	movel	%d6,%sp@-
 	_ReleaseResource
@@ -15217,7 +15209,7 @@ sub_10009a38:
 	jsr	%pc@(sub_10009c28)
 	bnew	.L10009bae
 	movel	%sp,%sp@-
-	.short	0xfe03
+	_ExecuteRiscContext
 	addql	#4,%sp
 
 .L10009bae:
@@ -15242,16 +15234,13 @@ sub_10009a38:
 	rts
 
 .L10009bd6:
-	movew	#666,%d0
-	_SysError
+	_SysError 666
 
 .L10009bdc:
-	movew	#667,%d0
-	_SysError
+	_SysError 667
 
 .L10009be2:
-	movew	#668,%d0
-	_SysError
+	_SysError 668
 
 	.int	0x3C604761
 	.int	0x60637279
@@ -19698,8 +19687,7 @@ sub_1000c686:
 .L1000c7d4:
 	tstb	%d6
 	bnes	.L1000c7dc
-	moveq	#102,%d0
-	_SysError
+	_SysError 102
 
 .L1000c7dc:
 	moveml	%fp@(-552),%d6-%d7/%a2-%a4
@@ -20152,8 +20140,7 @@ sub_1000cc4e:
 	bras	.L1000cc9a
 
 .L1000cc96:
-	moveq	#15,%d0
-	_SysError
+	_SysError 15
 
 .L1000cc9a:
 	movel	#_fcc_bbox,%d0
