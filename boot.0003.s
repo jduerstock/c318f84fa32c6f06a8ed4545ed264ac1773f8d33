@@ -5440,8 +5440,14 @@ sub_100038a8:
 	.short	0x6F6E,0x7300
 
 sub_10003924:
-	.short	0x205F,0x301F,0x5240,0x3B40,0x0026,0x301F
-	.short	0x5040,0x3B40,0x0028,0x4ED0
+	moveal	%sp@+,%a0
+	movew	%sp@+,%d0
+	addqw	#1,%d0
+	movew	%d0,%a5@(38)
+	movew	%sp@+,%d0
+	addqw	#8,%d0
+	movew	%d0,%a5@(40)
+	jmp	%a0@
 
 sub_10003938:
 	btst	#1,0xb21
