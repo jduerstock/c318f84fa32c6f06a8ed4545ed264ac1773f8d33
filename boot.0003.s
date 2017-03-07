@@ -15225,7 +15225,7 @@ sub_10009a38:
 	beqs	.L10009bce
 	clrl	%a0@(472)
 	moveq	#5,%d0
-	.short	0xfe04
+	_MoveFromECR
 	movel	%d1,%a0@(216)
 
 .L10009bce:
@@ -15409,17 +15409,17 @@ sub_10009caa:
 	moveq	#13,%d0
 	.short	0xfe05
 	moveq	#3,%d0
-	.short	0xfe04
+	_MoveFromECR
 	moveal	%fp@(-16),%a1
 	movel	%a0,%a1@
 	moveq	#4,%d0
-	.short	0xfe04
+	_MoveFromECR
 	moveal	%fp@(-12),%a1
 	movel	%a0,%a1@
 	tstl	%fp@(-20)
 	beqs	.L10009de0
 	moveq	#15,%d0
-	.short	0xfe04
+	_MoveFromECR
 	beqs	.L10009dda
 	subal	%a0,%a0
 
@@ -15472,30 +15472,26 @@ str_10009e6a:
 
 str_10009e8a:
 	.byte	0x0e
-	.ascii	"EmulatorReturn"
-	.byte	0x00
+	.string	"EmulatorReturn"
 
 str_10009e9a:
 	.byte	0x12
-	.ascii	"Emulated68KContext"
-	.byte	0x00
+	.string	"Emulated68KContext"
 
 str_10009eae:
 	.byte	0x0e
-	.ascii	"ReturnFromM68k"
-	.byte	0x00
+	.string	"ReturnFromM68k"
 
 str_10009ebe:
 	.byte	0x12
-	.ascii	"M68kToPowerPCEntry"
-	.byte	0x00
+	.string	"M68kToPowerPCEntry"
 
 sub_10009ed2:
 	linkw	%fp,#-14
 	moveml	%d7/%a3-%a4,%sp@-
 	moveal	%fp@(8),%a3
 	moveq	#5,%d0
-	.short	0xfe04
+	_MoveFromECR
 	moveal	%a0,%a4
 	subql	#2,%sp
 	moveq	#1,%d0
@@ -16848,7 +16844,7 @@ sub_1000acda:
 	moveml	%d5-%d7/%a3-%a4,%sp@-
 	moveal	%fp@(8),%a3
 	moveq	#5,%d0
-	.short	0xfe04
+	_MoveFromECR
 	moveal	%a0,%a4
 	tstl	%fp@(12)
 	bnes	.L1000acf8

@@ -708,6 +708,10 @@ UnimplTrap	=	0xa89f
 	.short	0xfe03
 .endm
 
+.macro	_MoveFromECR
+	.short	0xfe04
+.endm
+
 .macro	_HandleMixedModeFault
 	.short	0xfe07
 .endm
