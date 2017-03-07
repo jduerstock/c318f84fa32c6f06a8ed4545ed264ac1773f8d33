@@ -7090,7 +7090,7 @@ sub_10004b60:
 	beqs	.L10004cbc
 	lea	%a4@(578),%a0
 	movel	%d6,%d0
-	.short	0xa05a
+	_PrimeTime
 
 .L10004cbc:
 	moveml	%fp@(-20),%d3/%d5-%d7/%a4
@@ -7098,10 +7098,10 @@ sub_10004b60:
 	rts
 
 sub_10004cc6:
-	.short	0x6000,0xE70A
+	braw	sub_100033d2
 
 sub_10004cca:
-	.short	0x6000,0xE496
+	braw	sub_10003162
 
 sub_10004cce:
 	linkw	%fp,#0
