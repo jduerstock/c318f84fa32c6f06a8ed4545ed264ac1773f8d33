@@ -8280,8 +8280,9 @@ word_100057ce:
 	bset	#2,0xb21
 
 .L1000589c:
-	.short	0x21DF,0x0118
-	.short	0x4CDF,0x0F1F,0x4E75
+	movel	%sp@+,0x118
+	moveml	%sp@+,%d0-%d4/%a0-%a3
+	rts
 
 word_100058a6:
 	.short	0x0000,0xBF8B,0xFFFF,0xFFFF,0xBF8A
@@ -8293,7 +8294,7 @@ word_100058b8:
 	.short	0xBF86
 
 sub_100058ca:
-	.short	0x6000,0xE0BC
+	braw	sub_10003988
 
 word_100058ce:
 	.short	0x0000
