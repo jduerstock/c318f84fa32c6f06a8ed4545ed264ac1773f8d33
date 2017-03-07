@@ -347,7 +347,7 @@ str_10000162:
 
 .L100003e2:
 	jsr	%pc@(sub_10007914)
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	beqs	.L1000040a
 	clrb	%sp@-
@@ -374,7 +374,7 @@ str_10000162:
 	movew	%sp@+,CurMap
 	bsrw	sub_10002acc
 	jsr	%pc@(sub_1000790c)
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	beqs	.L10000452
 	lea	%pc@(dword_1000250c),%a1
@@ -508,7 +508,7 @@ str_10000162:
 
 .L100005a6:
 	bsrw	sub_100025b4
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnew	.L10000696
 	movel	%a0,%d0
@@ -958,7 +958,7 @@ str_10000ac0:
 	jsr	%a0@
 
 .L10000b04:
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnes	.L10000b1a
 	movel	%a0,%d0
@@ -1671,7 +1671,7 @@ str_100013e0:
 	bsrw	sub_1000193e
 	clrw	%sp@-
 	bsrw	sub_10005682
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnew	.L10001442
 	movel	%a0,%d0
@@ -2045,7 +2045,7 @@ sub_1000188e:
 	movel	%a5,0x904
 	movel	%sp,0x908
 	movel	%sp,0x110
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnes	.L10001902
 	movel	%a0,%d0
@@ -5310,7 +5310,7 @@ off_1000376c:
 .L10003770:
 	btst	#6,0x240b
 	bnes	.L100037aa
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnes	.L1000378a
 	movel	%a0,%d0
@@ -5400,7 +5400,7 @@ sub_100037f0:
 	subiw	#80,%a5@(32)
 
 .L10003864:
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnes	.L1000388e
 	movel	%a0,%d0
@@ -5530,7 +5530,7 @@ sub_10003988:
 	bsrw	sub_10005682
 
 .L100039b6:
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnes	.L100039d0
 	movel	%a0,%d0
@@ -14767,7 +14767,7 @@ sub_1000970e:
 	movel	%a0@,%fp@(-8)
 	movel	%a4,%sp@-
 	_ReleaseResource
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -14804,7 +14804,7 @@ sub_1000970e:
 sub_10009790:
 	linkw	%fp,#-4
 	moveml	%a3-%a4,%sp@-
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -15085,7 +15085,7 @@ sub_100099bc:
 sub_10009a38:
 	linkw	%fp,#0
 	moveml	%d0-%a3,%sp@-
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	_Gestalt
 	bnew	.L10009a56
 	movel	%a0,%d0
@@ -20157,7 +20157,7 @@ sub_1000cc4e:
 	_SysError
 
 .L1000cc9a:
-	movel	#1650618232,%d0
+	movel	#_fcc_bbox,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
