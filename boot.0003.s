@@ -5245,8 +5245,7 @@ sub_100035be:
 
 str_100036fc:
 	.byte	0x0a
-	.ascii	".Backlight"
-	.byte	0x00
+	.string	".Backlight"
 
 sub_10003708:
 	bsrw	sub_10003712
@@ -10499,7 +10498,7 @@ sub_10006c78:
 	moveq	#0,%d2
 	moveb	%a4@(2,%d1:l),%d2
 	movew	%d2,%sp@-
-	.short	0xa85c
+	_BitShift
 	movel	%sp@+,%d0
 	movew	%d0,%d6
 	moveq	#0,%d0

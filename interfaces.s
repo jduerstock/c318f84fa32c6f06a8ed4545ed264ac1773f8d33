@@ -305,6 +305,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa851
 .endm
 
+.macro	_BitShift
+	.short	0xa85c
+.endm
+
 .macro	_GlobalToLocal
 	.short	0xa871
 .endm
