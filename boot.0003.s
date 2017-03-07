@@ -7213,7 +7213,7 @@ sub_10004dd4:
 	movew	%a4@(2),%sp@-
 	.short	0xa88a
 	movew	%a4@(4),%sp@-
-	.short	0xa888
+	_TextFace
 	movew	%a4@(6),%sp@-
 	.short	0xa889
 	moveal	%fp@(-4),%a4
@@ -8228,7 +8228,7 @@ word_100057ce:
 	beqs	.L10005886
 	moveal	%d0,%a2
 	clrw	%sp@-
-	.short	0xa888
+	_TextFace
 	clrw	%sp@-
 	movel	%a2@,%sp@-
 	.short	0xa88c
@@ -8238,7 +8238,7 @@ word_100057ce:
 	cmpiw	#162,%d0
 	blsw	.L10005854
 	movew	#32,%sp@-
-	.short	0xa888
+	_TextFace
 	clrw	%sp@-
 	movel	%a2@,%sp@-
 	.short	0xa88c
