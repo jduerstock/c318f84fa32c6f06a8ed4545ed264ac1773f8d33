@@ -15026,13 +15026,12 @@ sub_10009850:
 	rts
 
 str_10009994:
-	.ascii	"AAPL,MacOSMachineName"
-	.byte	0x00
+	.string	"AAPL,MacOSMachineName"
 
 str_100099aa:
 	.byte	0x0f
-	.ascii	"NameRegistryLib"
-	.short	0x0000
+	.string	"NameRegistryLib"
+	.align	2
 
 sub_100099bc:
 	linkw	%fp,#-36
