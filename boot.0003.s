@@ -15457,18 +15457,16 @@ sub_10009caa:
 
 str_10009e24:
 	.byte	0x28
-	.ascii	"gMixedModeSecondaryInitRoutineDescriptor"
-	.byte	0x00
+	.string	"gMixedModeSecondaryInitRoutineDescriptor"
 
 str_10009e4e:
 	.byte	0x19
-	.ascii	"MMFlushEmulatorCacheRange"
-	.short	0x0000
+	.string	"MMFlushEmulatorCacheRange"
+	.align	2
 
 str_10009e6a:
 	.byte	0x1e
-	.ascii	"_MixedModeDispatchTrapHandler_"
-	.byte	0x00
+	.string	"_MixedModeDispatchTrapHandler_"
 
 str_10009e8a:
 	.byte	0x0e
