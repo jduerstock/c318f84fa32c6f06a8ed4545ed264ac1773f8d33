@@ -7705,7 +7705,9 @@ sub_10005284:
 	rts
 
 str_100052c2:
-	.short	0x0129,0x0000
+	.byte	0x01
+	.string	")"
+	.align	2
 
 sub_100052c6:
 	moveal	0xa50,%a0
@@ -7727,7 +7729,7 @@ sub_100052ea:
 	bclr	#1,0xb21
 	subqw	#2,%sp
 	pea	%a5@(698)
-	.short	0xa997
+	_OpenResFile
 	movew	%sp@+,%d0
 	bmis	.L10005336
 	movew	%d0,%sp@-

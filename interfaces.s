@@ -409,6 +409,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa994
 .endm
 
+.macro	_OpenResFile
+	.short	0xa997
+.endm
+
 .macro	_UseResFile
 	.short	0xa998
 .endm
