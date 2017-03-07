@@ -362,6 +362,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa8fe
 .endm
 
+.macro	_PaintBehind
+	.short	0xa90d
+.endm
+
 .macro	_InitWindows
 	.short	0xa912
 .endm

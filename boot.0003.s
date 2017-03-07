@@ -5638,7 +5638,7 @@ sub_10003ac8:
 	pea	0x3f8
 	.short	0xa8df
 	movel	%a3,%sp@-
-	.short	0xa90d
+	_PaintBehind
 	movel	%a3,%sp@-
 	.short	0xa8d9
 	_SetPort
