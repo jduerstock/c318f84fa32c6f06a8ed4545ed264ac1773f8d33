@@ -134,6 +134,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa07c
 .endm
 
+.macro	_GetDefaultStartup
+	.short	0xa07d
+.endm
+
 .macro	_SCSIAtomic
 	.short	0xa089
 .endm

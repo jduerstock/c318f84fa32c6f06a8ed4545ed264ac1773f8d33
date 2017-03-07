@@ -9547,7 +9547,7 @@ sub_1000643e:
 	linkw	%fp,#-180
 	moveml	%d4-%d7/%a3-%a4,%sp@-
 	lea	%fp@(-4),%a0
-	.short	0xa07d
+	_GetDefaultStartup
 	pea	0xac
 	pea	%fp@(-180)
 	jsr	%pc@(sub_10006422)
