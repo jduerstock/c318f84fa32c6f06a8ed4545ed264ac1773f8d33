@@ -10940,7 +10940,9 @@ sub_10006fa2:
 	rts
 
 sub_100070e6:
-	.short	0x4E56,0x0000,0x4E5E,0x4E75
+	linkw	%fp,#0
+	unlk	%fp
+	rts
 
 sub_100070ee:
 	linkw	%fp,#-8
@@ -11038,8 +11040,8 @@ sub_1000718a:
 .L100071d2:
 	tstb	%d7
 	bnes	.L100071e0
-	moveq	#118,%d0
-	_SysError
+	_SysError 118
+
 	movew	#2,%sp@-
 	_ShutDown
 
@@ -11226,8 +11228,8 @@ sub_1000725a:
 
 str_100073aa:
 	.byte	0x07
-	.ascii	"MacsBug"
-	.short	0x0000
+	.string	"MacsBug"
+	.align	2
 
 sub_100073b4:
 	linkw	%fp,#-264
