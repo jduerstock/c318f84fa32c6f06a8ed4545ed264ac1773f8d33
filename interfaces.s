@@ -193,6 +193,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa1ad
 .endm
 
+.macro	_PBControlImmed
+	.short	0xa204
+.endm
+
 .macro	_PBStatusImmed
 	.short	0xa205
 .endm

@@ -1293,7 +1293,7 @@ str_10000eda:
 	blew	.L10000f32
 	moveal	%a2,%a0
 	movew	#126,%a0@(26)
-	.short	0xa204
+	_PBControlImmed
 
 .L10000f32:
 	lea	%sp@(50),%sp
@@ -4258,7 +4258,7 @@ sub_10002dae:
 	movew	%a2@,%a0@(24)
 	movew	#3,%a0@(26)
 	movel	%a1,%a0@(28)
-	.short	0xa204
+	_PBControlImmed
 	moveal	%sp@+,%a0
 	_HUnlock
 
@@ -4278,7 +4278,7 @@ sub_10002e0a:
 	movew	%a2@,%a0@(24)
 	movew	#4,%a0@(26)
 	movel	%a1,%a0@(28)
-	.short	0xa204
+	_PBControlImmed
 	moveml	%sp@+,%a2-%a3
 	unlk	%fp
 	rts
