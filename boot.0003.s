@@ -4077,10 +4077,10 @@ sub_10002bf8:
 sub_10002c24:
 	movel	%a0,%sp@-
 	movew	CurMap,%sp@-
-	.short	0xa9e6
+	_InitAllPacks
 	_TEInit
 	movel	%a1,%sp@-
-	.short	0x2070,0x81e2,0x2010,0x006c	/* moveal	@(2010)@(6c),%a0 */
+	.short	0x2070,0x81e2,0x2010,0x006c	/* moveal @(2010)@(6c),%a0 */
 	lea	%pc@(sub_10002cda),%a1
 	cmpml	%a0@+,%a1@+
 	bnes	.L10002c44
@@ -4190,7 +4190,7 @@ sub_10002d1e:
 	pea	%fp@(-12)
 	_InitGraf
 	pea	%fp@(-330)
-	.short	0xa86f
+	_OpenPort
 	moveal	%a5@,%a2
 	lea	%a2@(-116),%a0
 	movel	%a0,%sp@-
@@ -8093,7 +8093,7 @@ sub_100055a8:
 
 .L10005612:
 	_ClosePort
-	.short	0xa86f
+	_OpenPort
 
 .L10005616:
 	bsrw	sub_10005644

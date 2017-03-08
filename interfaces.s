@@ -361,6 +361,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa86e
 .endm
 
+.macro	_OpenPort
+	.short	0xa86f
+.endm
+
 .macro	_ClosePort
 	.short	0xa87d
 .endm
@@ -642,6 +646,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_Munger
 	.short	0xa9e0
+.endm
+
+.macro	_InitAllPacks
+	.short	0xa9e6
 .endm
 
 .macro	_Pack7
