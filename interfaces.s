@@ -70,6 +70,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa03b
 .endm
 
+.macro	_SetTrapAddress
+	.short	0xa047
+.endm
+
 .macro	_RelString
 	.short	0xa050
 .endm
@@ -610,6 +614,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_Munger
 	.short	0xa9e0
+.endm
+
+.macro	_Launch
+	.short	0xa9f2
 .endm
 
 .macro	_Debugger

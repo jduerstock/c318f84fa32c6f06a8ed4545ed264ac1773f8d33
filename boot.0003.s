@@ -1105,7 +1105,7 @@ str_10000ccc:
 .L10000ce2:
 	lea	%pc@(sub_1000188e),%a0
 	movew	#0xa9f2,%d0
-	.short	0xa047
+	_SetTrapAddress
 	moveml	%a0-%a1,%sp@-
 	moveal	0x2b6,%a0
 	lea	%pc@(str_10000d06),%a1
@@ -2029,7 +2029,7 @@ str_100017d6:
 	clrl	%sp@-
 	pea	%pc@(str_10002ba2)
 	moveal	%sp,%a0
-	.short	0xa9f2
+	_Launch
 
 sub_1000188e:
 	clrl	0x110
