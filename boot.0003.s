@@ -16687,19 +16687,19 @@ sub_1000ab2c:
 	moveml	%d7/%a3-%a4,%sp@-
 	movel	%fp@(8),%d7
 	lea	%fp@(-26),%a3
-	movew	#20176,%a3@(24)
-	movew	#20559,%a3@(22)
-	movew	#8287,%a3@(20)
-	movew	#20062,%a3@(18)
-	movew	#16,%a3@(16)
-	movew	#17006,%a3@(14)
-	movew	#-1,%a3@(12)
-	movew	#4369,%a3@(10)
-	movew	#8380,%a3@(8)
-	movew	#8,%a3@(6)
-	movew	#8302,%a3@(4)
+	movew	#0x4ed0,%a3@(24)
+	movew	#0x504f,%a3@(22)
+	movew	#0x205f,%a3@(20)
+	movew	#0x4e5e,%a3@(18)
+	movew	#0x0010,%a3@(16)
+	movew	#0x426e,%a3@(14)
+	movew	#0xffff,%a3@(12)
+	movew	#0x1111,%a3@(10)
+	movew	#0x20bc,%a3@(8)
+	movew	#0x0008,%a3@(6)
+	movew	#0x206e,%a3@(4)
 	clrw	%a3@(2)
-	movew	#20054,%a3@
+	movew	#0x4e56,%a3@
 	moveq	#26,%d0
 	_NewPtrSys
 	moveal	%a0,%a4
