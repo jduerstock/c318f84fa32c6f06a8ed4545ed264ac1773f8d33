@@ -3925,7 +3925,7 @@ sub_10002a64:
 	lea	0x1f8,%a0
 	moveq	#-1,%d0
 	moveb	%d0,%a0@
-	.short	0xa038
+	_WriteParam
 	.short	0xa03f
 	moveal	%sp,%a0
 	movel	#262328,%d0
@@ -4741,21 +4741,21 @@ sub_1000324a:
 	beqs	.L10003272
 	tstb	%fp@(10)
 	beqs	.L1000326e
-	.short	0xa450
+	_CaseSensitiveRelString
 	bras	.L1000327e
 
 .L1000326e:
-	.short	0xa050
+	_RelString
 	bras	.L1000327e
 
 .L10003272:
 	tstb	%fp@(10)
 	beqs	.L1000327c
-	.short	0xa650
+	_CaseAndMarkSensitiveRelString
 	bras	.L1000327e
 
 .L1000327c:
-	.short	0xa250
+	_MarkSensitiveRelString
 
 .L1000327e:
 	movew	%d0,%fp@(20)

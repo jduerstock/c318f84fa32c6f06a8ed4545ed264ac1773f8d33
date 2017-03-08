@@ -73,6 +73,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa031
 .endm
 
+.macro	_WriteParam
+	.short	0xa038
+.endm
+
 .macro	_Delay
 	.short	0xa03b
 .endm
@@ -244,6 +248,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa247
 .endm
 
+.macro	_MarkSensitiveRelString	/* ??? */
+	.short	0xa250
+.endm
+
 .macro	_HFSDispatch
 	.short	0xa260
 .endm
@@ -268,6 +276,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa440
 .endm
 
+.macro	_CaseSensitiveRelString	/* ??? */
+	.short	0xa450
+.endm
+
 .macro	_InsXTime
 	.short	0xa458
 .endm
@@ -286,6 +298,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_SetToolTrapAddress
 	.short	0xa647
+.endm
+
+.macro	_CaseAndMarkSensitiveRelString	/* ??? */
+	.short	0xa650
 .endm
 
 .macro	_NewPtrSysClear
