@@ -653,6 +653,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa994
 .endm
 
+.macro	_RsrcZoneInit
+	.short	0xa996
+.endm
+
 .macro	_OpenResFile
 	.short	0xa997
 .endm

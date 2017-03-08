@@ -2001,9 +2001,9 @@ str_100017d6:
 	addqw	#2,%sp
 	bsrw	sub_10001fe6
 	moveal	%a5@(12),%a0
-	movew	#156,%d0
+	movew	#0x9c,%d0
 	_SetOSTrapAddress
-	.short	0xa996
+	_RsrcZoneInit
 	clrl	%a5@(26)
 	clrl	%a5@(22)
 	moveq	#-1,%d4
