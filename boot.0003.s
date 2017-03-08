@@ -4197,7 +4197,7 @@ sub_10002d1e:
 	tstb	0xb3e
 	bnes	.L10002d6a
 	pea	%a2@(-24)
-	.short	0xa8a5
+	_FillRect
 	bras	.L10002d9c
 
 .L10002d6a:
@@ -4312,11 +4312,11 @@ sub_10002e6c:
 	clrl	%sp@-
 	movel	#1734438241,%sp@-
 	clrw	%sp@-
-	.short	0xa80c
+	_rGetResource
 	movel	%sp@,%sp@-
 	_DetachResource
 	moveal	%sp@+,%a0
-	.short	0xa04a
+	_HNoPurge
 	moveal	%a0,%a2
 	moveal	0x8a8,%a3
 
@@ -4722,7 +4722,7 @@ sub_10003224:
 	movew	%fp@(14),%a0@(24)
 	movew	%fp@(12),%a0@(44)
 	movel	%fp@(8),%a0@(46)
-	.short	0xa044
+	_SetFPos
 	movew	%d0,%fp@(16)
 	unlk	%fp
 	moveal	%sp@+,%a1

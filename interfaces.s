@@ -89,8 +89,16 @@ UnimplTrap	=	0xa89f
 	.short	0xa03f
 .endm
 
+.macro	_SetFPos
+	.short	0xa044
+.endm
+
 .macro	_SetTrapAddress
 	.short	0xa047
+.endm
+
+.macro	_HNoPurge
+	.short	0xa04a
 .endm
 
 .macro	_RelString
@@ -333,6 +341,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa746
 .endm
 
+.macro	_rGetResource
+	.short	0xa80c
+.endm
+
 .macro	_Count1Resources
 	.short	0xa80d
 .endm
@@ -459,6 +471,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_EraseRect
 	.short	0xa8a3
+.endm
+
+.macro	_FillRect
+	.short	0xa8a5
 .endm
 
 .macro	_InsetRect
