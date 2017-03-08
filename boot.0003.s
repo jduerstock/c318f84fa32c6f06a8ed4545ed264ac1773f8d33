@@ -1952,7 +1952,7 @@ str_1000174c:
 	movew	#1,%d0
 	swap	%d0
 	movew	#99,%d0
-	.short	0xa09f
+	_PowerDispatch
 
 .L1000177c:
 	moveml	%a0-%a1,%sp@-
@@ -1965,8 +1965,7 @@ str_1000174c:
 
 str_10001796:
 	.byte	0x20
-	.ascii	"MakeObjectSupportLibResidentHack"
-	.byte	0x00
+	.string	"MakeObjectSupportLibResidentHack"
 
 .L100017b8:
 	bsrw	sub_10006232
@@ -7491,9 +7490,9 @@ sub_10004f5c:
 
 .L10004fd2:
 	pea	%a4@(42)
-	.short	0xa87c
+	_BackPat
 	movel	%a4@(50),%sp@-
-	.short	0xa862
+	_ForeColor
 	movel	%a4@(54),%sp@-
 	_BackColor
 

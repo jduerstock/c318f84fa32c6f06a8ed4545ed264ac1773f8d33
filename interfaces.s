@@ -429,6 +429,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa874
 .endm
 
+.macro	_ForeColor
+	.short	0xa862
+.endm
+
 .macro	_BackColor
 	.short	0xa863
 .endm
@@ -447,6 +451,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_MovePortTo
 	.short	0xa877
+.endm
+
+.macro	_BackPat
+	.short	0xa87c
 .endm
 
 .macro	_ClosePort
