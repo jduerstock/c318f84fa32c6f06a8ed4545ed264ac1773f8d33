@@ -707,7 +707,7 @@ str_10000700:
 	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
-	.short	0xa024
+	_SetHandleSize
 	moveal	%a0@,%a0
 	movew	%a0@,%d0
 	moveal	%a0,%a1
@@ -1848,7 +1848,7 @@ str_100015a4:
 	moveal	%a0@,%a1
 	clrw	%a1@(12)
 	moveq	#14,%d0
-	.short	0xa024
+	_SetHandleSize
 
 .L1000163a:
 	movel	#1702392942,%sp@-
@@ -3542,7 +3542,7 @@ off_100026be:
 	movel	%d1,%d0
 	subl	%d2,%d0
 	moveal	%sp@+,%a0
-	.short	0xa024
+	_SetHandleSize
 	bras	.L10002740
 
 .L10002738:
