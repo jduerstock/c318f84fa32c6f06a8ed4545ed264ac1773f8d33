@@ -15315,7 +15315,7 @@ sub_10009ca2:
 	braw	sub_1000b1c0
 
 sub_10009ca6:
-	.short	0x6000,0x1862
+	braw	sub_1000b50a
 
 sub_10009caa:
 	linkw	%fp,#-34
