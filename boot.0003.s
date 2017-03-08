@@ -6804,19 +6804,25 @@ sub_10004668:
 	jmp	%a0@
 
 str_1000494c:
-	.short	0x022C,0x2000
+	.byte	0x02
+	.string	", "
 
 str_10004950:
-	.short	0x012F,0x0000
+	.byte	0x01
+	.string	"/"
+	.align	2
 
 str_10004954:
-	.short	0x0647,0x656E,0x6576,0x6100
+	.byte	0x06
+	.string	"Geneva"
 
 str_1000495c:
-	.short	0x0120,0x0000
+	.byte	0x01
+	.string	" "
+	.align	2
 
 sub_10004960:
-	.short	0x6000,0xE778
+	braw	sub_100030da
 
 sub_10004964:
 	linkw	%fp,#0
