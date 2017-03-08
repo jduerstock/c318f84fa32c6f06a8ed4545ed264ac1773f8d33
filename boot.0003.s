@@ -3146,7 +3146,7 @@ sub_100023ac:
 	moveal	0x2a6,%a0
 	addal	#10485760,%a0
 	bsrw	sub_100023e2
-	.short	0xa057
+	_SetAppBase
 	moveal	0x2a6,%a0
 	movel	%a0,0x2aa
 	movel	%a0,0x118
