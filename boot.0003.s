@@ -12476,13 +12476,13 @@ sub_10007f0e:
 	rts
 
 sub_10007f64:
-	.short	0x6000,0x30D6
+	braw	sub_1000b03c
 
 sub_10007f68:
-	.short	0x6000,0x1A52
+	braw	sub_100099bc
 
 sub_10007f6c:
-	.short	0x6000,0x4718
+	braw	sub_1000c686
 
 sub_10007f70:
 	linkw	%fp,#-1274
