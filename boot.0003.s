@@ -326,7 +326,7 @@ str_10000162:
 	bnes	.L100003ba
 	lea	%a5@(-400),%a0
 	movew	0x210,%a0@(22)
-	.short	0xa00f
+	_MountVol
 
 .L100003ba:
 	movew	#-21623,%d0
@@ -517,7 +517,7 @@ str_10000162:
 	bsrl	sub_100020d6
 	bsrl	sub_10002270
 	moveq	#-1,%d0
-	.short	0xa0ac
+	_FSM
 	subql	#2,%sp
 	movel	#1986359923,%d0
 	_Gestalt
@@ -581,7 +581,7 @@ str_10000162:
 	_nkMMUFinalInit
 	bsrw	sub_10002270
 	moveq	#-1,%d0
-	.short	0xa0ac
+	_FSM
 	bsrw	sub_10002296
 	bras	.L1000072a
 
@@ -609,7 +609,7 @@ str_10000162:
 	_nkMMUFinalInit
 	bsrw	sub_10002270
 	moveq	#-1,%d0
-	.short	0xa0ac
+	_FSM
 	bras	.L1000072a
 
 str_10000700:

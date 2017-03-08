@@ -25,6 +25,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa005
 .endm
 
+.macro	_MountVol
+	.short	0xa00f
+.endm
+
 .macro	_SetEOF
 	.short	0xa012
 .endm
@@ -202,6 +206,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_PowerMgrDispatch
 	.short	0xa09e
+.endm
+
+.macro	_FSM
+	.short	0xa0ac
 .endm
 
 .macro	_GetZone
