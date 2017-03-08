@@ -6667,7 +6667,7 @@ sub_10004668:
 	addw	%d4,%d5
 	movel	%fp@(-532),%sp@-
 	pea	%fp@(-524)
-	.short	0xaa17
+	_GetCPixel
 	clrl	%fp@(-616)
 	clrw	%fp@(-618)
 	pea	%fp@(-618)
@@ -7481,7 +7481,7 @@ sub_10004f5c:
 	tstl	%a4@(38)
 	beqs	.L10004fc6
 	movel	%a4@(38),%sp@-
-	.short	0xaa0b
+	_BackPixPat
 	bras	.L10004fe4
 
 .L10004fc6:

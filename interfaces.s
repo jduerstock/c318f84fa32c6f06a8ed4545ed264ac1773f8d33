@@ -624,12 +624,20 @@ UnimplTrap	=	0xa89f
 	.short	0xaa02
 .endm
 
+.macro	_BackPixPat
+	.short	0xaa0b
+.endm
+
 .macro	_RGBForeColor
 	.short	0xaa14
 .endm
 
 .macro	_RGBBackColor
 	.short	0xaa15
+.endm
+
+.macro	_GetCPixel
+	.short	0xaa17
 .endm
 
 .macro	_GetForeColor
