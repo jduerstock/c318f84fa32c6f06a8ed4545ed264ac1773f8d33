@@ -910,7 +910,7 @@ str_10000700:
 	clrw	%d0
 	swap	%d0
 	movew	#99,%d0
-	.short	0xa09f
+	_PowerDispatch
 
 .L10000a88:
 	bsrw	sub_10002a1c
@@ -6594,7 +6594,7 @@ sub_10004668:
 	.short	0xa88a
 	moveq	#1,%d0
 	movew	%d0,%sp@-
-	.short	0xa889
+	_TextMode
 	pea	%fp@(-540)
 	.short	0xa88b
 	moveq	#0,%d0
@@ -7297,7 +7297,7 @@ sub_10004dd4:
 	movew	%a4@(4),%sp@-
 	_TextFace
 	movew	%a4@(6),%sp@-
-	.short	0xa889
+	_TextMode
 	moveal	%fp@(-4),%a4
 	unlk	%fp
 	rts
@@ -7499,7 +7499,7 @@ sub_10004f5c:
 
 .L10004fe4:
 	movew	%a4@(32),%sp@-
-	.short	0xa889
+	_TextMode
 	moveal	%fp@(-8),%a4
 	unlk	%fp
 	rts

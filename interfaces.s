@@ -212,6 +212,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa09e
 .endm
 
+.macro	_PowerDispatch
+	.short	0xa09f
+.endm
+
 .macro	_FSM
 	.short	0xa0ac
 .endm
@@ -451,6 +455,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_TextFace
 	.short	0xa888
+.endm
+
+.macro	_TextMode
+	.short	0xa889
 .endm
 
 .macro	_StringWidth
