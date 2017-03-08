@@ -8471,7 +8471,7 @@ sub_100059b6:
 .L10005a0c:
 	bsrs	sub_10005a16
 	movel	0x3f8,%sp@-
-	.short	0xa877
+	_MovePortTo
 	bras	.L100059ac
 
 sub_10005a16:
