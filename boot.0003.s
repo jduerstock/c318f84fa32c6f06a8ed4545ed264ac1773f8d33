@@ -8498,7 +8498,7 @@ sub_10005a16:
 	movel	#-1,%sp@-
 	clrb	%sp@-
 	clrl	%sp@-
-	.short	0xaa45
+	_NewCWindow
 	movel	%sp@+,%d0
 	beqs	.L10005a64
 	lea	%pc@(off_100058e4),%a0
