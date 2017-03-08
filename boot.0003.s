@@ -4347,13 +4347,13 @@ sub_10002e6c:
 	movew	#1,%a0@(44)
 	clrw	%a0@(52)
 	moveq	#21,%d0
-	.short	0xa06e
+	_SlotManager
 	bnes	.L10002f24
 	cmpiw	#1,%a0@(46)
 	beqs	.L10002f24
 	moveb	#64,%a0@(50)
 	moveq	#6,%d0
-	.short	0xa06e
+	_SlotManager
 	beqs	.L10002f24
 
 .L10002f0a:
@@ -4474,11 +4474,11 @@ sub_10002f78:
 	moveb	%a1@(41),%a0@(50)
 	moveb	%a1@(50),%a0@(51)
 	moveq	#22,%d0
-	.short	0xa06e
+	_SlotManager
 	bnew	.L100030ca
 	moveb	#7,%a0@(50)
 	moveq	#1,%d0
-	.short	0xa06e
+	_SlotManager
 	bnes	.L1000303e
 	movel	%a0@,%d0
 	btst	#2,%d0

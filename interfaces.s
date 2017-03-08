@@ -123,6 +123,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa06d
 .endm
 
+.macro	_SlotManager
+	.short	0xa06e
+.endm
+
 .macro	_CountADBs
 	.short	0xa077
 .endm
