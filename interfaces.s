@@ -624,6 +624,10 @@ UnimplTrap	=	0xa89f
 	.short	0xaa02
 .endm
 
+.macro	_PenPixPat
+	.short	0xaa0a
+.endm
+
 .macro	_BackPixPat
 	.short	0xaa0b
 .endm

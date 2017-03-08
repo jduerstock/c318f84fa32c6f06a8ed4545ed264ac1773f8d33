@@ -7473,7 +7473,7 @@ sub_10004f5c:
 	tstl	%a4@(34)
 	beqs	.L10004fb2
 	movel	%a4@(34),%sp@-
-	.short	0xaa0a
+	_PenPixPat
 
 .L10004fb2:
 	tstb	%a4@(1)
