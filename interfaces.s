@@ -632,6 +632,14 @@ UnimplTrap	=	0xa89f
 	.short	0xaa15
 .endm
 
+.macro	_GetForeColor
+	.short	0xaa19
+.endm
+
+.macro	_GetBackColor
+	.short	0xaa1a
+.endm
+
 .macro	_GetCIcon
 	.short	0xaa1e
 .endm

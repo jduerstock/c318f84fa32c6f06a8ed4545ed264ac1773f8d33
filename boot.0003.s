@@ -5142,7 +5142,7 @@ sub_100035be:
 	_Gestalt
 	movel	%a0,%a1@
 	subql	#4,%sp
-	.short	0xaa29
+	_GetDeviceList
 	moveal	%sp@+,%a4
 	braw	.L100036e8
 
@@ -5551,9 +5551,9 @@ sub_10003988:
 	.short	0xa898
 	_PenNormal
 	pea	%fp@(-12)
-	.short	0xaa19
+	_GetForeColor
 	pea	%fp@(-6)
-	.short	0xaa1a
+	_GetBackColor
 	pea	%fp@(-42)
 	jsr	%pc@(sub_10003f4c)
 	pea	%fp@(-42)
@@ -7329,9 +7329,9 @@ sub_10004dfc:
 	addqw	#4,%sp
 	beqs	.L10004ea4
 	pea	%a4@(2)
-	.short	0xaa19
+	_GetForeColor
 	pea	%a4@(8)
-	.short	0xaa1a
+	_GetBackColor
 	moveal	%fp@(-4),%a0
 	moveal	%a0@(58),%a2
 	moveal	%a0@(32),%a3
