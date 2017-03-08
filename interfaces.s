@@ -648,6 +648,10 @@ UnimplTrap	=	0xa89f
 	.short	0xaa2a
 .endm
 
+.macro	_GetNextDevice
+	.short	0xaa2b
+.endm
+
 .macro	_TestDeviceAttribute
 	.short	0xaa2c
 .endm

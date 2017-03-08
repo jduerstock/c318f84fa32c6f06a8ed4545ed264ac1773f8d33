@@ -5229,7 +5229,7 @@ sub_100035be:
 .L100036e0:
 	subql	#4,%sp
 	movel	%a4,%sp@-
-	.short	0xaa2b
+	_GetNextDevice
 	moveal	%sp@+,%a4
 
 .L100036e8:
