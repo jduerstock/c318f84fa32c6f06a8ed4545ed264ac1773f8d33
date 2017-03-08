@@ -549,6 +549,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa8a9
 .endm
 
+.macro	_FrameRoundRect
+	.short	0xa8b0
+.endm
+
 .macro	_ScriptUtil
 	.short	0xa8b5
 .endm
