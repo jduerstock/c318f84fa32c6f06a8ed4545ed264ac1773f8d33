@@ -3546,7 +3546,7 @@ off_100026be:
 	bras	.L10002740
 
 .L10002738:
-	clrl	0xa8c
+	clrl	RestProc
 	moveq	#99,%d0
 	_SysError
 
