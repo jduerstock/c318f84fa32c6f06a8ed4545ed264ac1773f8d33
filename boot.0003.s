@@ -3754,7 +3754,7 @@ off_100026be:
 	beqs	.L10002918
 	cmpil	#-1,%d0
 	beqs	.L10002918
-	.short	0xa9ff
+	_Debugger
 
 .L10002918:
 	movel	%sp@+,%d0

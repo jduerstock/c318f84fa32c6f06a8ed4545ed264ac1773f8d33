@@ -612,6 +612,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa9e0
 .endm
 
+.macro	_Debugger
+	.short	0xa9ff
+.endm
+
 .macro	_OpenCPort
 	.short	0xaa00
 .endm
