@@ -5546,7 +5546,7 @@ sub_10003988:
 	pea	%a5@(112)
 	_SetPort
 	pea	%fp@(-30)
-	.short	0xa898
+	_GetPenState
 	_PenNormal
 	pea	%fp@(-12)
 	_GetForeColor
@@ -5593,7 +5593,7 @@ sub_10003988:
 	pea	%fp@(-6)
 	_RGBBackColor
 	pea	%fp@(-30)
-	.short	0xa899
+	_SetPenState
 	moveq	#0,%d0
 	movew	%a5@(40),%d0
 	moveq	#0,%d1
@@ -7394,7 +7394,7 @@ sub_10004ebe:
 
 .L10004ef0:
 	movel	%fp@(8),%sp@-
-	.short	0xa899
+	_SetPenState
 	tstb	%d7
 	beqs	.L10004f08
 	movel	%fp@(-8),%d0

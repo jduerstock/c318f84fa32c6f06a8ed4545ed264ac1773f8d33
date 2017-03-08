@@ -521,6 +521,14 @@ UnimplTrap	=	0xa89f
 	.short	0xa895
 .endm
 
+.macro	_GetPenState
+	.short	0xa898
+.endm
+
+.macro	_SetPenState
+	.short	0xa899
+.endm
+
 .macro	_PenSize
 	.short	0xa89b
 .endm
