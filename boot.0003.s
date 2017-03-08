@@ -7854,7 +7854,7 @@ sub_100052ea:
 	movel	%sp@,%sp@-
 	clrw	%sp@-
 	clrl	%sp@-
-	.short	0xa8ec
+	_CopyBits
 	lea	%sp@(14),%sp
 	bset	#2,0xb21
 	bset	#1,0xb21

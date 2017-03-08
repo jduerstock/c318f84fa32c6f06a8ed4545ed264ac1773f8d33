@@ -501,6 +501,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa8b5
 .endm
 
+.macro	_CopyBits
+	.short	0xa8ec
+.endm
+
 .macro	_DrawPicture
 	.short	0xa8f6
 .endm
