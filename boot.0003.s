@@ -16687,19 +16687,19 @@ sub_1000ab2c:
 	moveml	%d7/%a3-%a4,%sp@-
 	movel	%fp@(8),%d7
 	lea	%fp@(-26),%a3
-	movew	#0x4ed0,%a3@(24)
-	movew	#0x504f,%a3@(22)
-	movew	#0x205f,%a3@(20)
-	movew	#0x4e5e,%a3@(18)
+	movew	#0x4ed0,%a3@(24)	/* jmp		%a0@ */
+	movew	#0x504f,%a3@(22)	/* addqw	#8,%sp */
+	movew	#0x205f,%a3@(20)	/* moveal	%sp@+,%a0 */
+	movew	#0x4e5e,%a3@(18)	/* unlk		%fp */
 	movew	#0x0010,%a3@(16)
-	movew	#0x426e,%a3@(14)
+	movew	#0x426e,%a3@(14)	/* clrw		%fp@(16) */
 	movew	#0xffff,%a3@(12)
 	movew	#0x1111,%a3@(10)
-	movew	#0x20bc,%a3@(8)
+	movew	#0x20bc,%a3@(8)		/* movel	#0x1111ffff,%a0@ */
 	movew	#0x0008,%a3@(6)
-	movew	#0x206e,%a3@(4)
+	movew	#0x206e,%a3@(4)		/* moveal	%fp@(8),%a0 */
 	clrw	%a3@(2)
-	movew	#0x4e56,%a3@
+	movew	#0x4e56,%a3@		/* linkw	%fp,#0 */
 	moveq	#26,%d0
 	_NewPtrSys
 	moveal	%a0,%a4
@@ -16718,7 +16718,7 @@ sub_1000ab2c:
 	moveal	%a4,%a1
 	moveq	#26,%d0
 	_BlockMove
-	movel	#1668179566,%d0
+	movel	#_fcc_cnfn,%d0
 	moveal	%a4,%a0
 	lea	%fp@(-30),%a1
 	movel	%a1,%sp@-
@@ -16734,7 +16734,7 @@ sub_1000ab2c:
 .L1000abca:
 	cmpiw	#-5551,%d7
 	bnes	.L1000abdc
-	movel	#1668179566,%d0
+	movel	#_fcc_cnfn,%d0
 	moveal	%a4,%a0
 	_NewGestalt
 	movew	%d0,%d7
