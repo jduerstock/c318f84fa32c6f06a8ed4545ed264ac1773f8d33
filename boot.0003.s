@@ -8743,7 +8743,7 @@ sub_10005c9c:
 	bsrs	sub_10005cae
 	moveq	#0,%d0
 	bsrs	sub_10005cae
-	.short	0xa8a8
+	_OffsetRect
 	rts
 
 sub_10005cae:
