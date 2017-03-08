@@ -5620,12 +5620,12 @@ sub_10003ac8:
 	movel	0x9de,%sp@-
 	_SetPort
 	subqw	#4,%sp
-	.short	0xa924
+	_FrontWindow
 	subqw	#4,%sp
-	.short	0xa8d8
+	_NewRgn
 	moveal	%sp@,%a3
 	pea	0x3f8
-	.short	0xa8df
+	_RectRgn
 	movel	%a3,%sp@-
 	_PaintBehind
 	movel	%a3,%sp@-

@@ -577,6 +577,18 @@ UnimplTrap	=	0xa89f
 	.short	0xa8b5
 .endm
 
+.macro	_NewRgn
+	.short	0xa8d8
+.endm
+
+.macro	_DisposeRgn
+	.short	0xa8d9
+.endm
+
+.macro	_RectRgn
+	.short	0xa8df
+.endm
+
 .macro	_CopyBits
 	.short	0xa8ec
 .endm
@@ -611,6 +623,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_SelectWindow
 	.short	0xa91f
+.endm
+
+.macro	_FrontWindow
+	.short	0xa924
 .endm
 
 .macro	_CloseWindow
