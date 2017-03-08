@@ -2649,7 +2649,7 @@ sub_10001e8e:
 	bsrw	sub_10005682
 	tstw	0x8d0
 	beqs	.L10001f02
-	.short	0xa853
+	_ShowCursor
 
 .L10001f02:
 	movew	0xa60,%d0
@@ -2697,7 +2697,7 @@ sub_10001f4e:
 
 .L10001f64:
 	movel	%d5,%d0
-	.short	0xa44c
+	_CompactMemSys
 	subl	%d5,%d0
 	bges	.L10001f90
 	movel	%d5,%d2
@@ -2717,9 +2717,9 @@ sub_10001f4e:
 	addal	%d2,%a0
 	lea	%a0@(16384),%a0
 	bsrw	sub_100023e2
-	.short	0xa057
+	_SetAppBase
 	movel	%d5,%d0
-	.short	0xa44c
+	_CompactMemSys
 
 .L10001f90:
 	tstw	%d1
@@ -3075,7 +3075,7 @@ sub_1000231a:
 	movel	%a1,%a2@
 	_Open
 	bnes	.L10002362
-	.short	0xa011
+	_GetEOF
 	bnes	.L10002360
 	movel	%a2@+,%d2
 	subl	%d1,%d2
@@ -3088,12 +3088,12 @@ sub_1000231a:
 	addqw	#4,%a1
 	movew	#1,%a1@+
 	movel	%d1,%a1@
-	.short	0xa002
+	_Read
 	bnes	.L10002360
 	moveq	#0,%d3
 
 .L10002360:
-	.short	0xa001
+	_Close
 
 .L10002362:
 	tstb	%d3

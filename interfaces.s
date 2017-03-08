@@ -17,6 +17,14 @@ UnimplTrap	=	0xa89f
 	.short	0xa000
 .endm
 
+.macro	_Close
+	.short	0xa001
+.endm
+
+.macro	_Read
+	.short	0xa002
+.endm
+
 .macro	_Control
 	.short	0xa004
 .endm
@@ -27,6 +35,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_MountVol
 	.short	0xa00f
+.endm
+
+.macro	_GetEOF
+	.short	0xa011
 .endm
 
 .macro	_SetEOF
@@ -123,6 +135,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_WriteXPRAM
 	.short	0xa052
+.endm
+
+.macro	_SetAppBase
+	.short	0xa057
 .endm
 
 .macro	_RmvTime
@@ -325,6 +341,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa440
 .endm
 
+.macro	_CompactMemSys
+	.short	0xa44c
+.endm
+
 .macro	_CaseSensitiveRelString	/* ??? */
 	.short	0xa450
 .endm
@@ -411,6 +431,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_SetCursor
 	.short	0xa851
+.endm
+
+.macro	_ShowCursor
+	.short	0xa853
 .endm
 
 .macro	_BitShift
