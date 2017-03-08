@@ -4641,17 +4641,17 @@ sub_10003162:
 	bras	.L10003192
 
 .L10003182:
-	.short	0xa03c
+	_CmpString
 	bras	.L10003192
 
 .L10003186:
 	tstb	%sp@(6)
 	beqs	.L10003190
-	.short	0xa63c
+	_CaseAndMarkSensitiveEqualString
 	bras	.L10003192
 
 .L10003190:
-	.short	0xa23c
+	_MarkSensitiveEqualString
 
 .L10003192:
 	eorib	#1,%d0

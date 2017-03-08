@@ -70,6 +70,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa03b
 .endm
 
+.macro	_CmpString
+	.short	0xa03c
+.endm
+
 .macro	_SetTrapAddress
 	.short	0xa047
 .endm
@@ -225,6 +229,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa22e
 .endm
 
+.macro	_MarkSensitiveEqualString
+	.short	0xa23c
+.endm
+
 .macro	_SetOSTrapAddress
 	.short	0xa247
 .endm
@@ -245,6 +253,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa41c
 .endm
 
+.macro	_CaseSensitiveEqualString
+	.short	0xa43c
+.endm
+
 .macro	_ReserveMemSys
 	.short	0xa440
 .endm
@@ -259,6 +271,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_ReplaceGestalt
 	.short	0xa5ad
+.endm
+
+.macro	_CaseAndMarkSensitiveEqualString
+	.short	0xa63c
 .endm
 
 .macro	_SetToolTrapAddress
