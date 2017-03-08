@@ -33,6 +33,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa012
 .endm
 
+.macro	_GetVol
+	.short	0xa014
+.endm
+
 .macro	_SetZone
 	.short	0xa01b
 .endm

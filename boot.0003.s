@@ -796,7 +796,7 @@ str_10000700:
 	movel	%a1,%a5@(12)
 	lea	%a5@(-400),%a0
 	clrl	%a0@(18)
-	.short	0xa014
+	_GetVol
 	movew	%a0@(22),0x210
 	movew	#-5,%a0@(24)
 	movew	#9,%a0@(26)
