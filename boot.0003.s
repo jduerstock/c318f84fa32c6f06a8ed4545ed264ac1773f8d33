@@ -1147,7 +1147,7 @@ str_10000d3a:
 	bsrw	sub_1000643e
 	bles	.L10000d8c
 	moveaw	#5,%a0
-	.short	0xa07f
+	_InternalWait
 
 .L10000d8c:
 	moveml	%a0-%a1,%sp@-

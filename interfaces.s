@@ -186,6 +186,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa07d
 .endm
 
+.macro	_InternalWait
+	.short	0xa07f
+.endm
+
 .macro	_SCSIAtomic
 	.short	0xa089
 .endm
