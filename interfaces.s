@@ -25,6 +25,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa002
 .endm
 
+.macro	_Write
+	.short	0xa003
+.endm
+
 .macro	_Control
 	.short	0xa004
 .endm
@@ -525,6 +529,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa89e
 .endm
 
+.macro	_UnimplTrap
+	.short	0xa89f
+.endm
+
 .macro	_FrameRect
 	.short	0xa8a1
 .endm
@@ -551,6 +559,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_FrameRoundRect
 	.short	0xa8b0
+.endm
+
+.macro	_FillRoundRect
+	.short	0xa8b4
 .endm
 
 .macro	_ScriptUtil

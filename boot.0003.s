@@ -4210,11 +4210,11 @@ sub_10002d1e:
 	movel	#196611,%sp@-
 	_PenSize
 	movel	#1441814,%sp@-
-	.short	0xa8b0
+	_FrameRoundRect
 	_PenNormal
 	movel	#1048592,%sp@-
 	pea	%a2@(-24)
-	.short	0xa8b4
+	_FillRoundRect
 
 .L10002d9c:
 	pea	%fp@(-330)
@@ -4636,7 +4636,7 @@ sub_10003162:
 	beqs	.L10003186
 	tstb	%sp@(6)
 	beqs	.L10003182
-	.short	0xa43c
+	_CaseSensitiveEqualString
 	bras	.L10003192
 
 .L10003182:
@@ -4692,7 +4692,7 @@ sub_100031c0:
 	bras	.L100031ee
 
 .L100031ec:
-	.short	0xa003
+	_Write
 
 .L100031ee:
 	movew	%d0,%fp@(18)
@@ -5291,7 +5291,7 @@ word_10003768:
 	_ExpansionBusDispatch
 
 word_1000376a:
-	.short	0xa89f
+	_UnimplTrap
 
 off_1000376c:
 	.short	0x0000,0x0000
