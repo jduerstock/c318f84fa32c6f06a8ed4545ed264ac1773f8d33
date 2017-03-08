@@ -204,6 +204,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa12f
 .endm
 
+.macro	_GetTrapAddress
+	.short	0xa146
+.endm
+
 .macro	_PtrZone
 	.short	0xa148
 .endm
@@ -222,6 +226,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_PBHGetVInfoSync
 	.short	0xa207
+.endm
+
+.macro	_PBHDeleteSync
+	.short	0xa209
 .endm
 
 .macro	_PBHRenameSync
@@ -254,6 +262,11 @@ UnimplTrap	=	0xa89f
 
 .macro	_HFSDispatch
 	.short	0xa260
+.endm
+
+.macro	_PBCatMoveSync
+	moveq	#5,%d0
+	_HFSDispatch
 .endm
 
 .macro	_GetOSTrapAddress
@@ -673,6 +686,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_Munger
 	.short	0xa9e0
+.endm
+
+.macro	_HandToHand
+	.short	0xa9e1
 .endm
 
 .macro	_InitAllPacks

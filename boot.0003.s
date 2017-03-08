@@ -3344,12 +3344,12 @@ sub_10002568:
 	movel	%a0,%a1@(64)
 	moveal	%a0@,%a0
 	andib	#1,%a0@(23)
-	movew	#-22122,%d0
-	.short	0xa146
+	movew	#0xa996,%d0	/* RsrcZoneInit */
+	_GetTrapAddress
 	movel	%a0,%a1@(60)
-	movew	#-22122,%d0
+	movew	#0xa996,%d0
 	moveal	%a1,%a0
-	.short	0xa047
+	_SetTrapAddress
 	lea	%pc@(dword_10002562),%a0
 	movel	%a1,%a0@
 	moveml	%sp@+,%d0/%a0-%a1
@@ -4776,7 +4776,7 @@ sub_1000328c:
 sub_1000329e:
 	moveal	%sp@(4),%a0
 	moveal	%a0@,%a0
-	.short	0xa9e1
+	_HandToHand
 	moveal	%sp@(4),%a1
 	movel	%a0,%a1@
 	movew	%d0,%sp@(8)
@@ -4827,7 +4827,7 @@ sub_100032fa:
 	movel	%fp@(8),%fp@(-106)
 	clrb	%fp@(-98)
 	lea	%fp@(-124),%a0
-	.short	0xa209
+	_PBHDeleteSync
 	movew	%d0,%fp@(18)
 	unlk	%fp
 	moveal	%sp@+,%a0
@@ -4857,8 +4857,7 @@ sub_1000335c:
 	movel	%fp@(12),%fp@(-16)
 	movel	%fp@(8),%fp@(-24)
 	lea	%fp@(-52),%a0
-	moveq	#5,%d0
-	_HFSDispatch
+	_PBCatMoveSync
 	movew	%d0,%fp@(26)
 	unlk	%fp
 	moveal	%sp@+,%a0
@@ -5256,7 +5255,7 @@ sub_10003712:
 	moveq	#0,%d1
 	lea	%pc@(word_1000376a),%a0
 	movew	%a0@,%d0
-	.short	0xa146
+	_GetTrapAddress
 	moveal	%a0,%a1
 	lea	%pc@(off_1000376c),%a0
 	movel	%a1,%a0@
