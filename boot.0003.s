@@ -531,7 +531,7 @@ str_10000162:
 	pea	%sp@(-4)
 	pea	%sp@(-4)
 	movel	#131078,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	moveal	%sp@+,%a0
 	movel	%sp@+,%d1
 	tstl	%d0
@@ -2058,7 +2058,7 @@ sub_1000188e:
 	movel	0x10c,%sp@-
 	movel	0x2aa,%sp@-
 	movel	#131080,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	addqw	#8,%sp
 	moveal	0x68ffeff0,%a0
 	moveal	%a0@(4),%a0
@@ -5399,7 +5399,7 @@ sub_100037f0:
 	pea	%a5@(38)
 	pea	%a5@(30)
 	movel	#198425,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	addqw	#8,%sp
 	addqw	#4,%sp
 
@@ -5526,7 +5526,7 @@ sub_10003988:
 	btst	#0,%d0
 	beqs	.L100039d0
 	movel	#1818,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 
 .L100039d0:
 	addqw	#1,%a5@(38)
@@ -5629,7 +5629,7 @@ sub_10003ac8:
 	movel	%a3,%sp@-
 	_PaintBehind
 	movel	%a3,%sp@-
-	.short	0xa8d9
+	_DisposeRgn
 	_SetPort
 	moveal	%sp@+,%a3
 	jmp	%pc@(sub_10004d70)
@@ -5904,7 +5904,7 @@ sub_10003f4c:
 .L1000400a:
 	moveq	#33,%d0
 	movel	%d0,%sp@-
-	.short	0xa862
+	_ForeColor
 
 .L10004010:
 	pea	%fp@(-8)
@@ -6585,17 +6585,17 @@ sub_10004668:
 	jsr	%pc@(sub_10004d92)
 	pea	%pc@(str_10004954)
 	pea	%fp@(-518)
-	.short	0xa900
+	_GetFNum
 	movew	%fp@(-518),%sp@-
 	_TextFont
 	moveq	#9,%d0
 	movew	%d0,%sp@-
-	.short	0xa88a
+	_TextSize
 	moveq	#1,%d0
 	movew	%d0,%sp@-
 	_TextMode
 	pea	%fp@(-540)
-	.short	0xa88b
+	_GetFontInfo
 	moveq	#0,%d0
 	moveb	%a3@,%d0
 	tstl	%d0
@@ -7292,7 +7292,7 @@ sub_10004dd4:
 	movew	%a4@,%sp@-
 	_TextFont
 	movew	%a4@(2),%sp@-
-	.short	0xa88a
+	_TextSize
 	movew	%a4@(4),%sp@-
 	_TextFace
 	movew	%a4@(6),%sp@-
@@ -7366,7 +7366,7 @@ sub_10004dfc:
 
 .L10004ea4:
 	pea	%a4@(14)
-	.short	0xa898
+	_GetPenState
 	moveal	%fp@(-4),%a0
 	movew	%a0@(72),%a4@(32)
 	moveml	%fp@(-20),%a2-%a4
@@ -7430,7 +7430,7 @@ sub_10004f16:
 
 .L10004f40:
 	movel	%fp@(8),%sp@-
-	.short	0xa87c
+	_BackPat
 	movel	%fp@(-8),%d0
 	cmpl	%fp@(-4),%d0
 	bnes	.L10004f54
@@ -12277,7 +12277,7 @@ sub_10007d2c:
 	pea	%fp@(-4)
 	movel	%fp@(-8),%sp@-
 	movel	#134147,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	movel	%d0,%d7
 	addqw	#8,%sp
 	bras	.L10007d98
@@ -12287,7 +12287,7 @@ sub_10007d2c:
 	movel	%d0,%sp@-
 	movel	%fp@(-8),%sp@-
 	movel	#134147,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	movel	%d0,%d7
 	addqw	#8,%sp
 
@@ -12303,7 +12303,7 @@ sub_10007d2c:
 	movel	%d0,%sp@-
 	movel	#1919181156,%sp@-
 	movel	#202285,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	lea	%sp@(12),%sp
 	moveml	%fp@(-16),%d6-%d7
 	unlk	%fp
@@ -14016,7 +14016,7 @@ sub_10008ff4:
 	movel	%a0@,%sp@-
 	pea	%fp@(-4)
 	movel	#196610,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	tstl	%d0
 	lea	%sp@(12),%sp
 	bnes	.L1000904e
@@ -20150,7 +20150,7 @@ sub_1000cc4e:
 	movel	%d1,%sp@-
 	movel	#1919181156,%sp@-
 	movel	#202285,%d0
-	.short	0xfe22
+	_BlueBoxDispatch
 	lea	%sp@(12),%sp
 
 .L1000ccd0:

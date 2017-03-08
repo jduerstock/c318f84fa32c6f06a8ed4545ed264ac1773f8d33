@@ -505,6 +505,14 @@ UnimplTrap	=	0xa89f
 	.short	0xa889
 .endm
 
+.macro	_TextSize
+	.short	0xa88a
+.endm
+
+.macro	_GetFontInfo
+	.short	0xa88b
+.endm
+
 .macro	_StringWidth
 	.short	0xa88c
 .endm
@@ -599,6 +607,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_InitFonts
 	.short	0xa8fe
+.endm
+
+.macro	_GetFNum
+	.short	0xa900
 .endm
 
 .macro	_PaintBehind
@@ -1017,5 +1029,9 @@ UnimplTrap	=	0xa89f
 .macro	_nkMakePageWriteThrough
 	moveq	#24,%d0
 	_KernelVMDispatch
+.endm
+
+.macro	_BlueBoxDispatch	/* ??? */
+	.short	0xfe22
 .endm
 
