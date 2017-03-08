@@ -7383,7 +7383,7 @@ sub_10004ebe:
 	pea	%fp@(-8)
 	_GetPort
 	pea	%fp@(-4)
-	.short	0xaa48
+	_GetCWMgrPort
 	movel	%fp@(-8),%d0
 	cmpl	%fp@(-4),%d0
 	bnes	.L10004ef0
@@ -7419,7 +7419,7 @@ sub_10004f16:
 	pea	%fp@(-8)
 	_GetPort
 	pea	%fp@(-4)
-	.short	0xaa48
+	_GetCWMgrPort
 	movel	%fp@(-8),%d0
 	cmpl	%fp@(-4),%d0
 	bnes	.L10004f40

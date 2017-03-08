@@ -652,6 +652,10 @@ UnimplTrap	=	0xa89f
 	.short	0xaa2c
 .endm
 
+.macro	_GetCWMgrPort
+	.short	0xaa48
+.endm
+
 .macro	_HighLevelFSDispatch
 	.short	0xaa52
 .endm
