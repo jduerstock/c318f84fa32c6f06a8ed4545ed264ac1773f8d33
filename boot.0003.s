@@ -4663,7 +4663,7 @@ sub_100031a2:
 	linkw	%fp,#-50
 	moveal	%sp,%a0
 	movew	%fp@(8),%a0@(24)
-	.short	0xa001
+	_Close
 	movew	%d0,%fp@(10)
 	unlk	%fp
 	moveal	%sp@+,%a0
@@ -4688,7 +4688,7 @@ sub_100031c0:
 	clrl	%a0@(46)
 	tstb	%d1
 	bnes	.L100031ec
-	.short	0xa002
+	_Read
 	bras	.L100031ee
 
 .L100031ec:
