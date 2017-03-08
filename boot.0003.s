@@ -7495,7 +7495,7 @@ sub_10004f5c:
 	movel	%a4@(50),%sp@-
 	.short	0xa862
 	movel	%a4@(54),%sp@-
-	.short	0xa863
+	_BackColor
 
 .L10004fe4:
 	movew	%a4@(32),%sp@-
