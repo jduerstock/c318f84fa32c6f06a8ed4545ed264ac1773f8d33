@@ -39,6 +39,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa023
 .endm
 
+.macro	_SetHandleSize
+	.short	0xa024
+.endm
+
 .macro	_GetHandleSize
 	.short	0xa025
 .endm

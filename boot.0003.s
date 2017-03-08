@@ -267,7 +267,7 @@ str_10000162:
 	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
-	.short	0xa024
+	_SetHandleSize
 	moveal	%a0@,%a0
 	movew	%a0@,%d0
 	moveal	%a0,%a1
