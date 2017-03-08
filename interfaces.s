@@ -85,6 +85,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa03c
 .endm
 
+.macro	_InitUtil
+	.short	0xa03f
+.endm
+
 .macro	_SetTrapAddress
 	.short	0xa047
 .endm

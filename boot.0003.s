@@ -3926,7 +3926,7 @@ sub_10002a64:
 	moveq	#-1,%d0
 	moveb	%d0,%a0@
 	_WriteParam
-	.short	0xa03f
+	_InitUtil
 	moveal	%sp,%a0
 	movel	#262328,%d0
 	_WriteXPRAM
