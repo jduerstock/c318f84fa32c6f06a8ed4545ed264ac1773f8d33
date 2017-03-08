@@ -193,6 +193,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa1ad
 .endm
 
+.macro	_PBStatusImmed
+	.short	0xa205
+.endm
+
 .macro	_PBHGetVInfoSync
 	.short	0xa207
 .endm
@@ -614,6 +618,10 @@ UnimplTrap	=	0xa89f
 
 .macro	_Munger
 	.short	0xa9e0
+.endm
+
+.macro	_Pack7
+	.short	0xa9ee
 .endm
 
 .macro	_Launch

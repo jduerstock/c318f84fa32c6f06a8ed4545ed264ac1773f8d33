@@ -4295,7 +4295,7 @@ sub_10002e38:
 	movew	%a2@,%a0@(24)
 	movew	#20,%a0@(26)
 	movel	%a1,%a0@(28)
-	.short	0xa205
+	_PBStatusImmed
 	moveal	%sp@+,%a2
 	unlk	%fp
 	rts
@@ -4768,7 +4768,7 @@ sub_1000328c:
 	moveal	%sp@(4),%a0
 	movel	%sp@(8),%d0
 	clrw	%sp@-
-	.short	0xa9ee
+	_Pack7
 	moveal	%sp@+,%a0
 	addqw	#8,%sp
 	jmp	%a0@
