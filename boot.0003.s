@@ -4709,7 +4709,7 @@ sub_10003204:
 	moveal	%sp,%a0
 	movew	%fp@(12),%a0@(24)
 	movel	%fp@(8),%a0@(28)
-	.short	0xa012
+	_SetEOF
 	movew	%d0,%fp@(14)
 	unlk	%fp
 	moveal	%sp@+,%a1

@@ -25,6 +25,10 @@ UnimplTrap	=	0xa89f
 	.short	0xa005
 .endm
 
+.macro	_SetEOF
+	.short	0xa012
+.endm
+
 .macro	_SetZone
 	.short	0xa01b
 .endm
