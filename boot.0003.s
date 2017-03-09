@@ -19489,11 +19489,10 @@ sub_1000c4a8:
 	rts
 
 str_1000c52a:
-	.short	0x6D6F,0x6465,0x6C00
+	.string	"model"
 
 str_1000c530:
-	.short	0x4465,0x7669,0x6365,0x733A,0x6465,0x7669,0x6365,0x2D74
-	.short	0x7265,0x6500
+	.string	"Devices:device-tree"
 
 sub_1000c544:
 	linkw	%fp,#0
