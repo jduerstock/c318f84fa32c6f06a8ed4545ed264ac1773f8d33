@@ -3,6 +3,7 @@ _fcc_bbox	=	0x62626f78
 _fcc_bugx	=	0x62756778
 _fcc_cnfn	=	0x636e666e
 _fcc_icon	=	0x69636f6e
+_fcc_init	=	0x696e6974
 _fcc_krnl	=	0x6b726e6c
 _fcc_ptch	=	0x70746368
 _fcc_show	=	0x73686f77

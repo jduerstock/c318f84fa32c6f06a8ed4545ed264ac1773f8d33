@@ -20301,7 +20301,7 @@ sub_1000cda2:
 	bnes	.L1000ce74
 	subql	#2,%sp
 	movel	#_fcc_show,%sp@-
-	movel	#1768843636,%sp@-
+	movel	#_fcc_init,%sp@-
 	pea	%fp@(-400)
 	movew	%d6,%sp@-
 	pea	%fp@(-404)
@@ -20327,7 +20327,7 @@ sub_1000cda2:
 .L1000ce60:
 	subql	#2,%sp
 	movel	#_fcc_show,%sp@-
-	movel	#1768843636,%sp@-
+	movel	#_fcc_init,%sp@-
 	moveq	#8,%d0
 	_IconServicesDispatch
 	addqw	#2,%sp
