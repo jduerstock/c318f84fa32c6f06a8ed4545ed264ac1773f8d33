@@ -20014,11 +20014,37 @@ off_1000c9ae:
 	jmp	%a0@
 
 sub_1000ca4e:
-	.short	0x4E56
-	.short	0x0000,0x2F06,0x1C38,0x01FB,0x7000,0x1006,0x740F,0xC400
-	.short	0x7000,0x1002,0x0C40,0x000F,0x6708,0x7000,0x1002,0x4A80
-	.short	0x6616,0x7000,0x1006,0x323C,0x00F0,0xC200,0x7000,0x1001
-	.short	0x7201,0x8200,0x11C1,0x01FB,0x2C2E,0xFFFC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	movel	%d6,%sp@-
+	moveb	0x1fb,%d6
+	moveq	#0,%d0
+	moveb	%d6,%d0
+	moveq	#15,%d2
+	andb	%d0,%d2
+	moveq	#0,%d0
+	moveb	%d2,%d0
+	cmpiw	#15,%d0
+	beqs	.L1000ca72
+	moveq	#0,%d0
+	moveb	%d2,%d0
+	tstl	%d0
+	bnes	.L1000ca88
+
+.L1000ca72:
+	moveq	#0,%d0
+	moveb	%d6,%d0
+	movew	#240,%d1
+	andb	%d0,%d1
+	moveq	#0,%d0
+	moveb	%d1,%d0
+	moveq	#1,%d1
+	orb	%d0,%d1
+	moveb	%d1,0x1fb
+
+.L1000ca88:
+	movel	%fp@(-4),%d6
+	unlk	%fp
+	rts
 
 sub_1000ca90:
 	.short	0x4E56,0x0000,0x48E7,0x0118,0x266E,0x0008,0x2E0B,0x2047
