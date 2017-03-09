@@ -19776,11 +19776,12 @@ sub_1000c686:
 	rts
 
 str_1000c7e6:
-	.short	0x0669,0x4D61,0x632C,0x3100
+	.byte	0x06
+	.string	"iMac,1"
 
 str_1000c7ee:
-	.short	0x636F
-	.short	0x6D70,0x6174,0x6962,0x6C65,0x0000
+	.string	"compatible"
+	.align	2
 
 str_1000c7fa:
 	.string	"Devices:device-tree"
