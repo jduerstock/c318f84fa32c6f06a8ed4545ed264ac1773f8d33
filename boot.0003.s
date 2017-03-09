@@ -89,7 +89,7 @@ sub_100000fa:
 	movel	%a0,0x0
 	movel	%sp,0x908
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 	_SetApplLimit
 	beqs	.L10000120
 	movew	#25,%d0
@@ -301,7 +301,7 @@ str_10000162:
 	_BlockMove
 	movel	%sp,0x908
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 	_SetApplLimit
 	lea	%a5@(1648),%a0
 	cmpal	%a5@(16),%a0
@@ -732,7 +732,7 @@ str_10000700:
 	_BlockMove
 	movel	%sp,0x908
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 	_SetApplLimit
 	lea	%a5@(1648),%a0
 	cmpal	%a5@(16),%a0
@@ -751,9 +751,9 @@ str_10000700:
 	subal	%a0,%a1
 	moveq	#1,%d0
 	_MemoryDispatch
-	movel	0x322,%d0
+	movel	DefltStack,%d0
 	addl	%d0,%d0
-	addl	0x322,%d0
+	addl	DefltStack,%d0
 	lea	%pc@(.L1000087c),%a0
 	subal	%d0,%a0
 	moveal	%d0,%a1
@@ -2053,7 +2053,7 @@ sub_1000188e:
 	btst	#0,%d0
 	beqs	.L10001914
 	movel	%sp,0x10c
-	movel	0x322,%d0
+	movel	DefltStack,%d0
 	subl	%d0,0x10c
 	movel	0x10c,%sp@-
 	movel	0x2aa,%sp@-
@@ -2074,7 +2074,7 @@ sub_1000188e:
 
 .L10001914:
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 
 .L1000191a:
 	_SetApplLimit
@@ -2737,7 +2737,7 @@ sub_10001f4e:
 sub_10001fa2:
 	moveml	%d0-%d1/%a0,%sp@-
 	movel	%sp,%d1
-	subl	0x322,%d1
+	subl	DefltStack,%d1
 	subil	#262144,%d1
 	subil	#262144,%d1
 	subl	%a5@(22),%d1
@@ -3133,7 +3133,7 @@ sub_10002396:
 .L100023a0:
 	_InitApplZone
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 	_SetApplLimit
 	rts
 
@@ -3152,14 +3152,14 @@ sub_100023ac:
 	movel	%a0,0x118
 	movel	%a0@,0x114
 	moveal	%sp,%a0
-	subal	0x322,%a0
+	subal	DefltStack,%a0
 	subal	#262144,%a0
 	_SetApplLimit
 	rts
 
 sub_100023e2:
 	moveal	%sp,%a1
-	subal	0x322,%a1
+	subal	DefltStack,%a1
 	subal	#262144,%a1
 	subal	%a5@(22),%a1
 	cmpal	%a0,%a1
@@ -4110,9 +4110,9 @@ sub_10002c24:
 .L10002c9e:
 	tstl	0xb78
 	bmis	.L10002cc0
-	movel	0x322,%d0
+	movel	DefltStack,%d0
 	addl	%d0,%d0
-	addl	0x322,%d0
+	addl	DefltStack,%d0
 	lea	%pc@(.L1000087c),%a0
 	subal	%d0,%a0
 	moveal	%d0,%a1
@@ -13709,7 +13709,7 @@ sub_10008d62:
 	linkw	%fp,#-12
 	moveml	%d3-%d7/%a3-%a4,%sp@-
 	moveq	#0,%d5
-	movel	0x322,%d0
+	movel	DefltStack,%d0
 	addl	%d0,%d0
 	movel	%d0,%fp@(-8)
 	moveal	ExpandMem,%a0

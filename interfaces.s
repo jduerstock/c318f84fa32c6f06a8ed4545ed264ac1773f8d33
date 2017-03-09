@@ -10,6 +10,7 @@ _fcc_show	=	0x73686f77
 _fcc_sysv	=	0x73797376
 
 ExpandMem	=	0x2b6
+DefltStack	=	0x322
 TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
