@@ -21194,22 +21194,60 @@ sub_1000d774:
 	rts
 
 sub_1000d77e:
-	.short	0x202F
-	.short	0x0004,0x222F,0x0008
+	movel	%sp@(4),%d0
+	movel	%sp@(8),%d1
 
 sub_1000d786:
-	.short	0x2F00,0xC0C1,0x2040,0x2001,0xC2DF
-	.short	0x4240,0x4840,0x6702,0xC0D7,0x548F,0xD041,0x4840,0x4240
-	.short	0xD088,0x4E75,0x8606,0x554C,0x4D55,0x4C54,0x0000,0x222F
-	.short	0x0004,0x202F,0x0008
+	movel	%d0,%sp@-
+	muluw	%d1,%d0
+	moveal	%d0,%a0
+	movel	%d1,%d0
+	muluw	%sp@+,%d1
+	clrw	%d0
+	swap	%d0
+	beqs	.L1000d798
+	muluw	%sp@,%d0
+
+.L1000d798:
+	addql	#2,%sp
+	addw	%d1,%d0
+	swap	%d0
+	clrw	%d0
+	addl	%a0,%d0
+	rts
+
+	.byte	0x86
+	.byte	0x06
+	.string	"ULMULT"
+	.align	2
+
+	movel	%sp@(4),%d1
+	movel	%sp@(8),%d0
 
 sub_1000d7b6:
-	.short	0x41FA,0x000A,0x327C,0x0002,0x4EF0
-	.short	0x92FE,0x6006,0x4C41,0x0801,0x4E75,0x4EBA,0x002E,0x2001
-	.short	0x4E75,0x8505,0x4C44,0x4956,0x5400,0x0000,0x222F,0x0004
+	lea	%pc@(.L1000d7c2),%a0
+	moveaw	#2,%a1
+	jmp	%a0@(-2,%a1:w:2)
+
+.L1000d7c2:
+	bras	.L1000d7ca
+	divsll	%d1,%d1,%d0
+	rts
+
+.L1000d7ca:
+	jsr	%pc@(sub_1000d7fa)
+	movel	%d1,%d0
+	rts
+
+	.byte	0x85
+	.byte	0x05
+	.string	"LDIVT"
+	.align	4
+
+	movel	%sp@(4),%d1
 
 .L1000d7e0:
-	.short	0x202F,0x0008
+	movel	%sp@(8),%d0
 
 sub_1000d7e4:
 	lea	%pc@(.L1000d7f0),%a0
@@ -21217,13 +21255,13 @@ sub_1000d7e4:
 	jmp	%a0@(-2,%a1:w:2)
 
 .L1000d7f0:
-	bras	.L1000d7fa
+	bras	sub_1000d7fa
 
 	divsll	%d1,%d1,%d0
 	exg	%d1,%d0
 	rts
 
-.L1000d7fa:
+sub_1000d7fa:
 	tstl	%d0
 	bmis	.L1000d812
 	tstl	%d1
