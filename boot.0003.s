@@ -14955,8 +14955,7 @@ sub_10009850:
 	pea	%a4@(1)
 	movel	%a3,%sp@-
 	pea	%fp@(-24)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movew	%d0,%d6
 	lea	%sp@(16),%sp
 	bnes	.L1000997e
@@ -14990,8 +14989,7 @@ sub_10009850:
 
 .L1000997e:
 	pea	%fp@(-24)
-	moveq	#3,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDDispose
 	addqw	#4,%sp
 
 .L10009988:
@@ -19342,20 +19340,92 @@ sub_1000c2e4:
 	rts
 
 str_1000c400:
-	.short	0x0F4E,0x616D,0x6552,0x6567,0x6973,0x7472,0x794C,0x6962
-	.short	0x0000
+	.byte	0x0f
+	.string	"NameRegistryLib"
+	.align	2
 
 sub_1000c412:
-	.short	0x4E56,0x0000,0x48E7,0x1318,0x3C2E,0x000E,0x266E
-	.short	0x0008,0x284B,0x598F,0x2F0B,0x4EBA,0x8AE8,0x2E1F,0x601C
-	.short	0x524C,0x7000,0x3006,0x4A80,0x630C,0x200C,0x908B,0xBE80
-	.short	0x6304,0x4A14,0x66EA,0x524C,0x3006,0x5346,0x7000,0x3006
-	.short	0x4A80,0x6308,0x200C,0x908B,0xBE80,0x62D6,0x206E,0x0010
-	.short	0x4210,0x6014,0x206E,0x0010,0x5210,0x7000,0x1010,0x206E
-	.short	0x0010,0x1194,0x0000,0x524C,0x200C,0x908B,0xBE80,0x6304
-	.short	0x4A14,0x66E0,0x7601,0x206E,0x0010,0x7000,0x1010,0x4A80
-	.short	0x620A,0x200C,0x908B,0xBE80,0x6202,0x7600,0x1003,0x4CEE
-	.short	0x18C8,0xFFEC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d3/%d6-%d7/%a3-%a4,%sp@-
+	movew	%fp@(14),%d6
+	moveal	%fp@(8),%a3
+	moveal	%a3,%a4
+	subql	#4,%sp
+	movel	%a3,%sp@-
+	jsr	%pc@(sub_10004f12)
+	movel	%sp@+,%d7
+	bras	.L1000c44c
+
+.L1000c430:
+	addqw	#1,%a4
+
+.L1000c432:
+	moveq	#0,%d0
+	movew	%d6,%d0
+	tstl	%d0
+	blss	.L1000c446
+	movel	%a4,%d0
+	subl	%a3,%d0
+	cmpl	%d0,%d7
+	blss	.L1000c446
+	tstb	%a4@
+	bnes	.L1000c430
+
+.L1000c446:
+	addqw	#1,%a4
+	movew	%d6,%d0
+	subqw	#1,%d6
+
+.L1000c44c:
+	moveq	#0,%d0
+	movew	%d6,%d0
+	tstl	%d0
+	blss	.L1000c45c
+	movel	%a4,%d0
+	subl	%a3,%d0
+	cmpl	%d0,%d7
+	bhis	.L1000c432
+
+.L1000c45c:
+	moveal	%fp@(16),%a0
+	clrb	%a0@
+	bras	.L1000c478
+
+.L1000c464:
+	moveal	%fp@(16),%a0
+	addqb	#1,%a0@
+	moveq	#0,%d0
+	moveb	%a0@,%d0
+	moveal	%fp@(16),%a0
+	moveb	%a4@,%a0@(%d0:w)
+	addqw	#1,%a4
+
+.L1000c478:
+	movel	%a4,%d0
+	subl	%a3,%d0
+	cmpl	%d0,%d7
+	blss	.L1000c484
+	tstb	%a4@
+	bnes	.L1000c464
+
+.L1000c484:
+	moveq	#1,%d3
+	moveal	%fp@(16),%a0
+	moveq	#0,%d0
+	moveb	%a0@,%d0
+	tstl	%d0
+	bhis	.L1000c49c
+	movel	%a4,%d0
+	subl	%a3,%d0
+	cmpl	%d0,%d7
+	bhis	.L1000c49c
+	moveq	#0,%d3
+
+.L1000c49c:
+	moveb	%d3,%d0
+	moveml	%fp@(-20),%d3/%d6-%d7/%a3-%a4
+	unlk	%fp
+	rts
 
 sub_1000c4a8:
 	linkw	%fp,#-8
@@ -19700,8 +19770,7 @@ sub_1000c80e:
 	movew	%d0,%d7
 	bnew	.L1000c924
 	pea	%fp@(-52)
-	moveq	#0,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDInit
 	movew	%d0,%d7
 	addqw	#4,%sp
 	bnew	.L1000c924
@@ -19709,8 +19778,7 @@ sub_1000c80e:
 	pea	%pc@(str_1000c976)
 	moveq	#0,%d0
 	movel	%d0,%sp@-
-	moveq	#12,%d0
-	_NameRegistryDispatch
+	_RegistryCStrEntryLookup
 	movew	%d0,%d7
 	lea	%sp@(12),%sp
 	bnew	.L1000c91a
@@ -19720,8 +19788,7 @@ sub_1000c80e:
 	movel	%a4,%sp@-
 	pea	%pc@(str_1000c970)
 	pea	%fp@(-52)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movew	%d0,%d7
 	lea	%sp@(16),%sp
 	bnew	.L1000c91a
@@ -19741,8 +19808,7 @@ sub_1000c80e:
 	pea	%fp@(-54)
 	pea	%pc@(str_1000c958)
 	pea	%fp@(-52)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movew	%d0,%d7
 	lea	%sp@(16),%sp
 	bnes	.L1000c91a
@@ -19785,8 +19851,7 @@ sub_1000c80e:
 
 .L1000c91a:
 	pea	%fp@(-52)
-	moveq	#3,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDDispose
 	addqw	#4,%sp
 
 .L1000c924:
