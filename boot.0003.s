@@ -19521,14 +19521,47 @@ sub_1000c544:
 	rts
 
 sub_1000c57a:
-	.short	0x4E56,0xFF00,0x48E7
-	.short	0x0018,0x286E,0x000C,0x4214,0x598F,0x486E,0xFF00,0x2F2E
-	.short	0x0008,0x4EBA,0x8732,0x7000,0x2F00,0x2F3C,0x9674,0x626C
-	.short	0x4EBA,0xFA14,0x2640,0x200B,0x4FEF,0x000C,0x6714,0x2F2E
-	.short	0x0010,0x2F0C,0x486E,0xFF00,0x2F0B,0x4EBA,0xFA80,0x4FEF
-	.short	0x0010,0x2F0B,0x4EBA,0xFA5C,0x7000,0x1014,0x4A80,0x584F
-	.short	0x660E,0x598F,0x2F0C,0x486E,0xFF00,0x4EBA,0x86EA,0x584F
-	.short	0x4CEE,0x1800,0xFEF8,0x4E5E,0x4E75
+	linkw	%fp,#-256
+	moveml	%a3-%a4,%sp@-
+	moveal	%fp@(12),%a4
+	clrb	%a4@
+	subql	#4,%sp
+	pea	%fp@(-256)
+	movel	%fp@(8),%sp@-
+	jsr	%pc@(sub_10004cc6)
+	moveq	#0,%d0
+	movel	%d0,%sp@-
+	movel	#-1770757524,%sp@-
+	jsr	%pc@(sub_1000bfb6)
+	moveal	%d0,%a3
+	movel	%a3,%d0
+	lea	%sp@(12),%sp
+	beqs	.L1000c5c2
+	movel	%fp@(16),%sp@-
+	movel	%a4,%sp@-
+	pea	%fp@(-256)
+	movel	%a3,%sp@-
+	jsr	%pc@(sub_1000c03c)
+	lea	%sp@(16),%sp
+
+.L1000c5c2:
+	movel	%a3,%sp@-
+	jsr	%pc@(sub_1000c022)
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	tstl	%d0
+	addqw	#4,%sp
+	bnes	.L1000c5e0
+	subql	#4,%sp
+	movel	%a4,%sp@-
+	pea	%fp@(-256)
+	jsr	%pc@(sub_10004cc6)
+	addqw	#4,%sp
+
+.L1000c5e0:
+	moveml	%fp@(-264),%a3-%a4
+	unlk	%fp
+	rts
 
 sub_1000c5ea:
 	linkw	%fp,#-516
