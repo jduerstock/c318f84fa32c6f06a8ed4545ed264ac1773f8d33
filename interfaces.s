@@ -1020,6 +1020,11 @@ UnimplTrap	=	0xa89f
 	_NameRegistryDispatch
 .endm
 
+.macro	_RegistryEntrySearch
+	moveq	#11,%d0
+	_NameRegistryDispatch
+.endm
+
 .macro	_RegistryCStrEntryLookup
 	moveq	#12,%d0
 	_NameRegistryDispatch

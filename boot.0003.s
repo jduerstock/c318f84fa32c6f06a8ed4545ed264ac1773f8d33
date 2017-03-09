@@ -13076,17 +13076,16 @@ sub_100086e0:
 	movel	%a0,%a1@
 	tstw	%d0
 	bnew	.L100089a8
-	movew	#-21527,%d0
+	movew	#0xabe9,%d0
 	_GetToolTrapAddress
 	movel	%a0,%fp@(-300)
-	movew	#-22369,%d0
+	movew	#0xa89f,%d0
 	_GetToolTrapAddress
 	movel	%fp@(-300),%d0
 	cmpal	%d0,%a0
 	beqw	.L100089a8
 	pea	%fp@(-22)
-	moveq	#0,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDInit
 	movew	%d0,%d7
 	addqw	#4,%sp
 	bnew	.L1000899e
@@ -13096,8 +13095,7 @@ sub_100086e0:
 	movel	%a0,%sp@-
 	moveq	#0,%d0
 	movel	%d0,%sp@-
-	moveq	#12,%d0
-	_NameRegistryDispatch
+	_RegistryCStrEntryLookup
 	movew	%d0,%d7
 	lea	%sp@(12),%sp
 	bnew	.L1000899e
@@ -13108,8 +13106,7 @@ sub_100086e0:
 	pea	%a4@(1)
 	movel	%fp@(-30),%sp@-
 	pea	%fp@(-22)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movew	%d0,%d7
 	cmpiw	#-2539,%d7
 	lea	%sp@(16),%sp
@@ -13342,8 +13339,7 @@ sub_100086e0:
 
 .L1000899e:
 	pea	%fp@(-22)
-	moveq	#3,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDDispose
 	addqw	#4,%sp
 
 .L100089a8:
@@ -14929,11 +14925,9 @@ sub_10009850:
 	movel	%d0,%fp@(-362)
 	clrb	%fp@(-353)
 	pea	%fp@(-24)
-	moveq	#0,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDInit
 	pea	%fp@(-358)
-	moveq	#7,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIterateCreate
 	movew	%d0,%d6
 	addqw	#8,%sp
 	bnes	.L1000992a
@@ -14946,12 +14940,10 @@ sub_10009850:
 	moveq	#5,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-358)
-	moveq	#11,%d0
-	_NameRegistryDispatch
+	_RegistryEntrySearch
 	movew	%d0,%d6
 	pea	%fp@(-358)
-	moveq	#8,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIterateDispose
 	lea	%sp@(32),%sp
 
 .L1000992a:
