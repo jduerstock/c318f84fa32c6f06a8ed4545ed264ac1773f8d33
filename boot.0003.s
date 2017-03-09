@@ -87,7 +87,7 @@ sub_100000fa:
 	moveal	ROMBase,%a0
 	addal	#65536,%a0
 	movel	%a0,0x0
-	movel	%sp,0x908
+	movel	%sp,CurStackBase
 	moveal	%sp,%a0
 	subal	DefltStack,%a0
 	_SetApplLimit
@@ -299,7 +299,7 @@ str_10000162:
 	subal	%d0,%sp
 	moveal	%sp,%a1
 	_BlockMove
-	movel	%sp,0x908
+	movel	%sp,CurStackBase
 	moveal	%sp,%a0
 	subal	DefltStack,%a0
 	_SetApplLimit
@@ -540,8 +540,8 @@ str_10000162:
 	movel	%a0,%a0@-
 	movel	%d1,%a0@-
 	movel	0x108,%a0@-
-	movel	0x10c,%a0@-
-	movel	%a0,0x10c
+	movel	BufPtr,%a0@-
+	movel	%a0,BufPtr
 	moveal	%sp@,%a0
 	movel	%a0,0x108
 	subql	#2,%sp
@@ -563,8 +563,8 @@ str_10000162:
 	bsrl	sub_10002296
 	bsrl	sub_10008ff4
 	moveal	%sp@+,%a0
-	moveal	0x10c,%a1
-	movel	%a0@(-16),0x10c
+	moveal	BufPtr,%a1
+	movel	%a0@(-16),BufPtr
 	movel	%a1,%a0@(-16)
 	movel	%a0@(-12),0x108
 	braw	.L1000072a
@@ -730,7 +730,7 @@ str_10000700:
 	subal	%d0,%sp
 	moveal	%sp,%a1
 	_BlockMove
-	movel	%sp,0x908
+	movel	%sp,CurStackBase
 	moveal	%sp,%a0
 	subal	DefltStack,%a0
 	_SetApplLimit
@@ -778,7 +778,7 @@ str_10000700:
 	movel	%a0@(-4),0x108
 	movel	%a0@(-4),%a5@(8)
 	movel	%a0@(-8),%a5@(16)
-	movel	%a0@(-16),0x10c
+	movel	%a0@(-16),BufPtr
 
 .L100008ea:
 	movew	#156,%d0
@@ -846,7 +846,7 @@ str_10000700:
 	bsrw	sub_100024d6
 	btst	#5,0xb20
 	bnes	.L100009d4
-	movel	0x10c,%d2
+	movel	BufPtr,%d2
 	subil	#180800,%d2
 	movel	%a5@(16),%d0
 	addil	#409600,%d0
@@ -1197,7 +1197,7 @@ str_10000de6:
 	subl	%a1@,%d1
 	movel	%d1,%a1@(4)
 	movel	0x1ef4,%d1
-	subl	0x10c,%d1
+	subl	BufPtr,%d1
 	movel	%d1,%a1@(8)
 	moveml	%a0-%a1,%sp@-
 	moveal	ExpandMem,%a0
@@ -2019,7 +2019,7 @@ str_100017d6:
 	subl	%a1@(4),%d1
 	movel	%d1,%a1@(12)
 	movel	0x1ef4,%d1
-	subl	0x10c,%d1
+	subl	BufPtr,%d1
 	subl	%a1@(8),%d1
 	movel	%d1,%a1@(16)
 	moveal	ExpandMem,%a0
@@ -2032,13 +2032,13 @@ str_100017d6:
 
 sub_1000188e:
 	clrl	0x110
-	moveal	0x10c,%sp
+	moveal	BufPtr,%sp
 	clrl	0x964
 	_InitApplZone
 	subaw	#40,%sp
 	moveal	%sp,%a5
 	movel	%a5,0x904
-	movel	%sp,0x908
+	movel	%sp,CurStackBase
 	movel	%sp,0x110
 	movel	#_fcc_bbox,%d0
 	_Gestalt
@@ -2052,10 +2052,10 @@ sub_1000188e:
 	movel	%a0,%d0
 	btst	#0,%d0
 	beqs	.L10001914
-	movel	%sp,0x10c
+	movel	%sp,BufPtr
 	movel	DefltStack,%d0
-	subl	%d0,0x10c
-	movel	0x10c,%sp@-
+	subl	%d0,BufPtr
+	movel	BufPtr,%sp@-
 	movel	0x2aa,%sp@-
 	movel	#131080,%d0
 	_BlueBoxDispatch
@@ -2069,7 +2069,7 @@ sub_1000188e:
 	moveal	ExpandMem,%a0
 	movel	%a0@(800),%d0
 	beqs	.L10001914
-	movel	%sp,0x10c
+	movel	%sp,BufPtr
 	jsr	%pc@(sub_10008d62)
 
 .L10001914:
@@ -2879,7 +2879,7 @@ sub_100020e0:
 	beqw	.L100021da
 	movel	#420,%d0
 	movel	0x108,%sp@-
-	movel	0x10c,%sp@-
+	movel	BufPtr,%sp@-
 	lea	%pc@(str_100054b6),%a0
 	movel	%a0,0x914
 	bsrw	sub_10002366
@@ -2911,7 +2911,7 @@ sub_100020e0:
 	_MemoryDispatch
 	tstw	%d0
 	bnes	.L10002160
-	movel	%sp@,0x10c
+	movel	%sp@,BufPtr
 	bras	.L10002194
 
 .L10002160:
@@ -2944,7 +2944,7 @@ sub_100020e0:
 	btst	#4,%d0
 	beqs	.L100021d6
 	bsrl	sub_10002b8e
-	moveal	0x10c,%a1
+	moveal	BufPtr,%a1
 	subal	%sp@,%a1
 	subaw	#4097,%a1
 	moveal	%sp@+,%a0
@@ -3014,7 +3014,7 @@ sub_10002296:
 	beqs	.L1000230a
 	bclr	#3,0xb21
 	moveb	0xb21,%sp@-
-	subql	#4,0x10c
+	subql	#4,BufPtr
 	clrb	%sp@-
 	lea	%a5@(666),%a1
 	pea	%a1@
@@ -3026,7 +3026,7 @@ sub_10002296:
 	beqs	.L100022cc
 
 .L100022c6:
-	addql	#4,0x10c
+	addql	#4,BufPtr
 	bras	.L100022f6
 
 .L100022cc:
@@ -3079,7 +3079,7 @@ sub_1000231a:
 	bnes	.L10002360
 	movel	%a2@+,%d2
 	subl	%d1,%d2
-	moveal	0x10c,%a2
+	moveal	BufPtr,%a2
 	subal	%d2,%a2
 	movel	%a2,%a2@
 	lea	%a0@(32),%a1
@@ -3128,7 +3128,7 @@ sub_1000238c:
 sub_10002396:
 	bsrs	sub_1000238c
 	bnes	.L100023a0
-	movel	0x10c,0x2aa
+	movel	BufPtr,0x2aa
 
 .L100023a0:
 	_InitApplZone
@@ -3199,14 +3199,14 @@ sub_10002434:
 	addql	#3,%d0
 	andib	#0xfc,%d0
 	movel	%d0,%d2
-	movel	0x10c,%d1
+	movel	BufPtr,%d1
 	subl	%d0,%d1
 	bcss	.L10002474
 	bsrl	sub_100024b4
 	bnes	.L10002474
 	andib	#0xfc,%d1
 	moveal	%d1,%a0
-	movel	%a0,0x10c
+	movel	%a0,BufPtr
 	btst	#9,%d3
 	beqs	.L10002468
 	movel	%d2,%d1
@@ -3246,7 +3246,7 @@ sub_10002490:
 	rts
 
 sub_100024a4:
-	movel	0x10c,%d1
+	movel	BufPtr,%d1
 	bsrs	sub_100024b4
 	beqs	.L100024b2
 	movew	#25,%d0
@@ -8905,8 +8905,8 @@ sub_10005e0a:
 .L10005e2c:
 	tstl	0x6c
 	bpls	.L10005e60
-	subql	#8,0x10c
-	moveal	0x10c,%a0
+	subql	#8,BufPtr
+	moveal	BufPtr,%a0
 	tstl	0xb78
 	bmis	.L10005e48
 	lea	0x6,%a1
@@ -13714,7 +13714,7 @@ sub_10008d62:
 	movel	%d0,%fp@(-8)
 	moveal	ExpandMem,%a0
 	moveal	%a0@(800),%a3
-	movel	0x10c,%d0
+	movel	BufPtr,%d0
 	subl	%fp@(-8),%d0
 	movel	#-4096,%d6
 	andl	%d0,%d6

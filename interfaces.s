@@ -9,6 +9,7 @@ _fcc_ptch	=	0x70746368
 _fcc_show	=	0x73686f77
 _fcc_sysv	=	0x73797376
 
+BufPtr		=	0x10c
 ROMBase		=	0x2ae
 ExpandMem	=	0x2b6
 DefltStack	=	0x322
@@ -16,6 +17,7 @@ TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
 RestProc	=	0xa8c
+CurStackBase	=	0x908
 
 ADBReInit	=	0xa07b
 UnimplTrap	=	0xa89f
