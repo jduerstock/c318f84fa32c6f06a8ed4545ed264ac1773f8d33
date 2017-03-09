@@ -13,6 +13,12 @@ RestProc	=	0xa8c
 ADBReInit	=	0xa07b
 UnimplTrap	=	0xa89f
 
+.macro	CallVector base vector
+		.short	0x2f30,0x81e2
+		.short	\base
+		.short	(\vector) << 2
+	.endm
+
 .macro	_Open
 	.short	0xa000
 .endm
