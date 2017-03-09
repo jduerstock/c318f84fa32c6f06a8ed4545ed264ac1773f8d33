@@ -12983,12 +12983,10 @@ sub_1000851c:
 	movel	%a4,%sp@-
 	pea	%pc@(str_10008576)
 	pea	%fp@(-20)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movew	%d0,%d7
 	pea	%fp@(-20)
-	moveq	#3,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDDispose
 	lea	%sp@(20),%sp
 
 .L1000856a:
@@ -13015,14 +13013,12 @@ sub_100085a4:
 	moveq	#0,%d6
 	movel	%d0,%fp@(-4)
 	pea	%fp@(-24)
-	moveq	#0,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDInit
 	pea	%fp@(-24)
 	pea	%pc@(str_10008624)
 	moveq	#0,%d0
 	movel	%d0,%sp@-
-	moveq	#12,%d0
-	_NameRegistryDispatch
+	_RegistryCStrEntryLookup
 	movel	%d0,%d7
 	lea	%sp@(16),%sp
 	bnes	.L10008608
@@ -13032,8 +13028,7 @@ sub_100085a4:
 	pea	%fp@(-4)
 	pea	%pc@(str_1000861e)
 	pea	%fp@(-24)
-	moveq	#23,%d0
-	_NameRegistryDispatch
+	_RegistryPropertyGet
 	movel	%d0,%d7
 	lea	%sp@(16),%sp
 	bnes	.L10008608
@@ -13043,8 +13038,7 @@ sub_100085a4:
 
 .L10008608:
 	pea	%fp@(-24)
-	moveq	#3,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIDDispose
 	movel	%d6,%d0
 	addqw	#4,%sp
 	moveml	%fp@(-32),%d6-%d7
