@@ -20047,10 +20047,24 @@ sub_1000ca4e:
 	rts
 
 sub_1000ca90:
-	.short	0x4E56,0x0000,0x48E7,0x0118,0x266E,0x0008,0x2E0B,0x2047
-	.short	0x3028,0x0008,0x48C0,0xD087,0x2840,0x554C,0x3014,0x48C0
-	.short	0xD087,0x2840,0x21CC,0x0B18,0x4CEE,0x1880,0xFFF4,0x4E5E
-	.short	0x4E75
+	linkw	%fp,#0
+	moveml	%d7/%a3-%a4,%sp@-
+	moveal	%fp@(8),%a3
+	movel	%a3,%d7
+	moveal	%d7,%a0
+	movew	%a0@(8),%d0
+	extl	%d0
+	addl	%d7,%d0
+	moveal	%d0,%a4
+	subqw	#2,%a4
+	movew	%a4@,%d0
+	extl	%d0
+	addl	%d7,%d0
+	moveal	%d0,%a4
+	movel	%a4,0xb18
+	moveml	%fp@(-12),%d7/%a3-%a4
+	unlk	%fp
+	rts
 
 sub_1000cac2:
 	linkw	%fp,#0
