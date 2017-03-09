@@ -21302,18 +21302,70 @@ sub_1000d7fa:
 	jmp	%a0@(-2,%a1:w:2)
 
 .L1000d84a:
-	.short	0x6008,0x4C41,0x0001
-	.short	0xC340,0x4E75
+	bras	sub_1000d854
+
+.L1000d84c:
+	divull	%d1,%d1,%d0
+	exg	%d1,%d0
+	rts
 
 sub_1000d854:
-	.short	0x3F01,0x4841,0x4A41,0x661C,0x2200,0x4241
-	.short	0x4841,0x670A,0x82D7,0x4841,0x4840,0x3001,0x4840,0x80DF
-	.short	0x3200,0x4240,0x4840,0x4E75,0x4841,0x3E82,0x2F03,0x3400
-	.short	0x2601,0x7201,0x4240,0x4840,0x660C,0x4840,0x3002,0x7200
-	.short	0x6016,0xD241,0x6512,0xD442,0xD180,0xB083,0x65F4,0x9083
-	.short	0xD241,0x08C1,0x0000,0x64EE,0x261F,0x341F,0x4E75
+	movew	%d1,%sp@-
+	swap	%d1
+	tstw	%d1
+	bnes	.L1000d878
+	movel	%d0,%d1
+	clrw	%d1
+	swap	%d1
+	beqs	.L1000d86e
+	divuw	%sp@,%d1
+	swap	%d1
+	swap	%d0
+	movew	%d1,%d0
+	swap	%d0
+
+.L1000d86e:
+	divuw	%sp@+,%d0
+	movew	%d0,%d1
+	clrw	%d0
+	swap	%d0
+	rts
+
+.L1000d878:
+	swap	%d1
+	movew	%d2,%sp@
+	movel	%d3,%sp@-
+	movew	%d0,%d2
+	movel	%d1,%d3
+	moveq	#1,%d1
+	clrw	%d0
+	swap	%d0
+	bnes	.L1000d896
+	swap	%d0
+	movew	%d2,%d0
+	moveq	#0,%d1
+	bras	.L1000d8a8
+
+.L1000d892:
+	addw	%d1,%d1
+	bcss	.L1000d8a8
+
+.L1000d896:
+	addw	%d2,%d2
+	addxl	%d0,%d0
+	cmpl	%d3,%d0
+	bcss	.L1000d892
+	subl	%d3,%d0
+	addw	%d1,%d1
+	bset	#0,%d1
+	bccs	.L1000d896
+
+.L1000d8a8:
+	movel	%sp@+,%d3
+	movew	%sp@+,%d2
+	rts
 
 	.byte	0x86
 	.byte	0x06
-	.ascii	"ULMODT"
-	.short	0x0000
+	.string	"ULMODT"
+	.align	2
