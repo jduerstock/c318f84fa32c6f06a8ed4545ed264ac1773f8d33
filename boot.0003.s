@@ -3433,8 +3433,7 @@ sub_100025da:
 	_GetResource
 	movel	%sp@+,%d0
 	bnew	.L1000266e
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L1000266e:
 	movel	%d0,%a4@(20)
@@ -3446,8 +3445,7 @@ sub_100025da:
 	_GetResource
 	movel	%sp@+,%d0
 	bnew	.L1000268c
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L1000268c:
 	movel	%d0,%a4@(16)
@@ -3469,8 +3467,7 @@ sub_100025da:
 	jmp	%pc@(off_100026be,%d1:w)
 
 .L100026b8:
-	moveq	#99,%d0
-	_SysError
+	_SysError 99
 
 word_100026bc:
 	.short	0x0015
@@ -3546,8 +3543,7 @@ off_100026be:
 
 .L10002738:
 	clrl	RestProc
-	moveq	#99,%d0
-	_SysError
+	_SysError 99
 
 .L10002740:
 	moveal	%sp@+,%a2
@@ -3606,8 +3602,7 @@ off_100026be:
 	bnes	.L100027cc
 	btst	#1,%a4@(10)
 	bnes	.L100027e4
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 	bras	.L100027e4
 
 .L100027cc:
@@ -3657,8 +3652,7 @@ off_100026be:
 	bsrl	sub_1000a740
 	movew	%sp@+,%d0
 	beqs	.L10002840
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L10002840:
 	moveal	%sp@+,%a2
@@ -3694,8 +3688,7 @@ off_100026be:
 	jsr	%pc@(sub_10009ca6)
 	movew	%sp@+,%d0
 	beqs	.L10002896
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
 
 .L10002896:
 	moveal	%sp@+,%a2
@@ -3721,13 +3714,12 @@ off_100026be:
 	movew	%sp@+,%d0
 	moveal	%sp@+,%a2
 	beqw	.L1000291e
-	moveq	#98,%d0
-	_SysError
+	_SysError 98
+
 	braw	.L1000291e
 
 .L100028d4:
-	moveq	#12,%d0
-	_SysError
+	_SysError 12
 
 .L100028d8:
 	movel	%a2,%sp@-
@@ -8020,8 +8012,8 @@ sub_10005506:
 	moveal	TopMapHndl,%a0
 	moveal	%a0@,%a0
 	movew	%a0@(20),SysMap
-	moveq	#40,%d0
-	_SysError
+	_SysError 40
+
 	movew	%sp@+,SysMap
 	btst	#5,0xb20
 	bnes	.L1000557c
@@ -8963,8 +8955,7 @@ byte_10005e9c:
 	.byte	0x08,0x0B,0x02,0x01,0x01,0x01,0x01,0x01
 
 sub_10005eb4:
-	moveq	#12,%d0
-	_SysError
+	_SysError 12
 	rts
 
 sub_10005eba:
@@ -12296,8 +12287,7 @@ sub_10007d2c:
 .L10007d98:
 	cmpil	#-1754,%d7
 	bnes	.L10007da4
-	moveq	#102,%d0
-	_SysError
+	_SysError 102
 
 .L10007da4:
 	moveq	#0,%d0
@@ -12950,8 +12940,7 @@ sub_10008472:
 	bras	.L10008502
 
 .L100084fe:
-	moveq	#15,%d0
-	_SysError
+	_SysError 15
 
 .L10008502:
 	moveml	%fp@(-304),%d7/%a4
@@ -13424,8 +13413,7 @@ sub_10008a2e:
 	movel	%fp@(-4),%d0
 	cmpl	%a0@,%d0
 	bccs	.L10008a92
-	moveq	#120,%d0
-	_SysError
+	_SysError 120
 
 .L10008a92:
 	moveal	%fp@(-8),%a4
@@ -13710,8 +13698,7 @@ sub_10008c54:
 	bras	.L10008d58
 
 .L10008d54:
-	moveq	#105,%d0
-	_SysError
+	_SysError 105
 
 .L10008d58:
 	moveml	%fp@(-20),%d5-%d7/%a3-%a4
@@ -13831,8 +13818,7 @@ sub_10008d62:
 
 .L10008e7e:
 	movel	%d2,%sp@-
-	moveq	#105,%d0
-	_SysError
+	_SysError 105
 
 .L10008e84:
 	movel	%sp@+,%d2
@@ -13968,8 +13954,8 @@ sub_10008e90:
 	bras	.L10008fe2
 
 .L10008fcc:
-	moveq	#105,%d0
-	_SysError
+	_SysError 105
+
 	movel	#-620,%d7
 	moveal	%fp@(-4),%a0
 	movel	%a0@(56),%fp@(12)
@@ -14507,8 +14493,7 @@ sub_1000943a:
 	clrb	%a0@
 	movel	#65711,%d0
 	_WriteXPRAM
-	moveq	#122,%d0
-	_SysError
+	_SysError 122
 
 .L10009534:
 	moveml	%fp@(-26),%d7/%a3-%a4
