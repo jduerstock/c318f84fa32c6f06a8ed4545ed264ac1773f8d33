@@ -995,6 +995,31 @@ UnimplTrap	=	0xa89f
 	.short	0xabe9
 .endm
 
+.macro	_RegistryEntryIterateCreate
+	moveq	#7,%d0
+	_NameRegistryDispatch
+.endm
+
+.macro	_RegistryEntryIterateDispose
+	moveq	#8,%d0
+	_NameRegistryDispatch
+.endm
+
+.macro	_RegistryEntryIterate
+	moveq	#10,%d0
+	_NameRegistryDispatch
+.endm
+
+.macro	_RegistryCStrEntryLookup
+	moveq	#12,%d0
+	_NameRegistryDispatch
+.endm
+
+.macro	_RegistryCStrEntryToName
+	moveq	#15,%d0
+	_NameRegistryDispatch
+.endm
+
 .macro	_DisplayDispatch
 	.short	0xabeb
 .endm

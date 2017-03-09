@@ -9973,8 +9973,7 @@ sub_10006828:
 	lea	%fp@(-86),%a4
 	clrb	%d7
 	pea	%fp@(-4)
-	moveq	#7,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIterateCreate
 	tstl	%d0
 	addqw	#4,%sp
 	bnes	.L100068b0
@@ -9987,8 +9986,7 @@ sub_10006828:
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-4)
-	moveq	#10,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIterate
 	tstl	%d0
 	lea	%sp@(16),%sp
 	bnes	.L100068a0
@@ -9999,8 +9997,7 @@ sub_10006828:
 	movel	%a4,%sp@-
 	pea	%fp@(-38)
 	pea	%fp@(-22)
-	moveq	#15,%d0
-	_NameRegistryDispatch
+	_RegistryCStrEntryToName
 	tstl	%d0
 	lea	%sp@(16),%sp
 	bnes	.L100068a0
@@ -10017,8 +10014,7 @@ sub_10006828:
 	tstb	%fp@(-6)
 	beqs	.L1000684e
 	pea	%fp@(-4)
-	moveq	#8,%d0
-	_NameRegistryDispatch
+	_RegistryEntryIterateDispose
 	addqw	#4,%sp
 
 .L100068b0:
@@ -12963,8 +12959,9 @@ sub_10008472:
 	rts
 
 str_1000850c:
-	.short	0x0D50,0x726F
-	.short	0x6365,0x7373,0x4D67,0x724C,0x6962,0x0000
+	.byte	0x0d
+	.string	"ProcessMgrLib"
+	.align	2
 
 sub_1000851c:
 	linkw	%fp,#-20
@@ -12976,8 +12973,7 @@ sub_1000851c:
 	pea	%pc@(str_10008584)
 	moveq	#0,%d0
 	movel	%d0,%sp@-
-	moveq	#12,%d0
-	_NameRegistryDispatch
+	_RegistryCStrEntryLookup
 	movew	%d0,%d7
 	lea	%sp@(12),%sp
 	bnes	.L1000856a
