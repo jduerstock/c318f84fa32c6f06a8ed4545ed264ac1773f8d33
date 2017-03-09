@@ -138,7 +138,7 @@ str_10000162:
 	_BlockMoveData
 	movew	#363,%a1@
 	movel	#842,%a1@(2)
-	movel	%a1,0x2b6
+	movel	%a1,ExpandMem
 	_DisposePtr
 	beqs	.L100001d2
 
@@ -12259,7 +12259,7 @@ sub_10007d2c:
 	linkw	%fp,#-8
 	moveml	%d6-%d7,%sp@-
 	moveq	#1,%d7
-	movel	#1937339254,%d0
+	movel	#_fcc_sysv,%d0
 	lea	%fp@(-8),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -20244,7 +20244,7 @@ sub_1000cd14:
 	exg	%a0,%a1
 	movel	%d1,%d0
 	_BlockMoveData
-	movel	%a1,0x2b6
+	movel	%a1,ExpandMem
 	movew	%sp@+,%sr
 	_DisposePtr
 	moveal	%a1,%a0
@@ -20262,7 +20262,7 @@ sub_1000cda2:
 	linkw	%fp,#-404
 	moveml	%d5-%d7,%sp@-
 	movew	%fp@(10),%d6
-	movel	#1937339254,%d0
+	movel	#_fcc_sysv,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -20283,7 +20283,7 @@ sub_1000cda2:
 	jsr	%pc@(sub_1000cf0e)
 	pea	%fp@(-120)
 	_OpenCPort
-	movel	#1768124270,%d0
+	movel	#_fcc_icon,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -20300,7 +20300,7 @@ sub_1000cda2:
 	addqw	#4,%sp
 	bnes	.L1000ce74
 	subql	#2,%sp
-	movel	#1936224119,%sp@-
+	movel	#_fcc_show,%sp@-
 	movel	#1768843636,%sp@-
 	pea	%fp@(-400)
 	movew	%d6,%sp@-
@@ -20326,7 +20326,7 @@ sub_1000cda2:
 
 .L1000ce60:
 	subql	#2,%sp
-	movel	#1936224119,%sp@-
+	movel	#_fcc_show,%sp@-
 	movel	#1768843636,%sp@-
 	moveq	#8,%d0
 	_IconServicesDispatch
