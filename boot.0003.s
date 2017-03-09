@@ -84,7 +84,7 @@ sub_10000000:
 sub_100000fa:
 	movel	%a3,%sp@-
 	_ReleaseResource
-	moveal	0x2ae,%a0
+	moveal	ROMBase,%a0
 	addal	#65536,%a0
 	movel	%a0,0x0
 	movel	%sp,0x908
@@ -388,7 +388,7 @@ str_10000162:
 	bsrw	sub_100052ea
 	moveq	#40,%d0
 	bsrw	sub_1000539a
-	moveal	0x2ae,%a0
+	moveal	ROMBase,%a0
 	moveb	%a0@(18),%d0
 	cmpib	#66,%d0
 	beqw	.L10000514
@@ -624,7 +624,7 @@ str_10000700:
 	movel	0xcc0,%d0
 	notl	%d0
 	bnes	.L10000748
-	movel	0x2ae,0xcc0
+	movel	ROMBase,0xcc0
 
 .L10000748:
 	bsrw	sub_100024d6
@@ -8646,7 +8646,7 @@ sub_10005b8a:
 	moveml	%sp@+,%d2-%d3/%a3
 
 .L10005be4:
-	moveal	0x2ae,%a0
+	moveal	ROMBase,%a0
 	addal	%a0@(68),%a0
 	jsr	%a0@
 	rts
@@ -15160,7 +15160,7 @@ sub_10009a38:
 	lsll	#8,%d0
 	lsll	#4,%d0
 	movel	%d0,%sp@(308)
-	moveal	0x2ae,%a0
+	moveal	ROMBase,%a0
 	moveq	#0,%d0
 	movew	%a0@(18),%d0
 	movel	%d0,%sp@(316)
@@ -15254,7 +15254,7 @@ sub_10009c28:
 	bnew	.L10009c82
 
 .L10009c72:
-	moveal	0x2ae,%a0
+	moveal	ROMBase,%a0
 	movel	#1048576,%d0
 
 .L10009c7c:

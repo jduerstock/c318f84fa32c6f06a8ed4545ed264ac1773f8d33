@@ -9,6 +9,7 @@ _fcc_ptch	=	0x70746368
 _fcc_show	=	0x73686f77
 _fcc_sysv	=	0x73797376
 
+ROMBase		=	0x2ae
 ExpandMem	=	0x2b6
 DefltStack	=	0x322
 TopMapHndl	=	0xa50
