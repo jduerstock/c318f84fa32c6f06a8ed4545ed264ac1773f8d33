@@ -125,7 +125,7 @@ str_10000162:
 	.byte	0x00
 
 .L10000196:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(2),%d0
 	cmpil	#0x34a,%d0
 	bccs	.L100001d2
@@ -149,24 +149,24 @@ str_10000162:
 	movew	CurMap,%d0
 	cmpw	SysMap,%d0
 	beqs	.L100001e4
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movew	%d0,%a0@(674)
 
 .L100001e4:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstl	%a0@(738)
 	bnes	.L100001fc
 	moveq	#8,%d0
 	_NewPtrSysClear
 	bnes	.L100001fc
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	movel	%a0,%a1@(738)
 
 .L100001fc:
 	moveq	#20,%d0
 	_NewPtrSysClear
 	bnes	.L10000270
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	movel	%a0,%a1@(772)
 	moveal	%a0,%a1
 	moveal	0x2a6,%a0
@@ -282,7 +282,7 @@ str_10000162:
 	movel	%a1,%a5@(-134)
 	lea	%a5@(-148),%a0
 	movel	%a0,%a1@
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(800),%d0
 	beqs	.L10000358
 	lea	%pc@(.L1000038a),%a0
@@ -313,7 +313,7 @@ str_10000162:
 
 .L1000038a:
 	jsr	%pc@(sub_1000780a)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(800),%a0
 	moveal	%a0@,%a0
 	movel	%a0,%a5@(16)
@@ -331,7 +331,7 @@ str_10000162:
 .L100003ba:
 	movew	#-21623,%d0
 	bsrw	sub_10002366
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(746),%d0
 	beqw	.L100003d2
 	moveal	%d0,%a0
@@ -511,7 +511,7 @@ str_10000162:
 	movel	%a0,%d0
 	btst	#0,%d0
 	beqw	.L10000696
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movew	#1,%d0
 	moveb	%d0,%a0@(827)
 	bsrl	sub_100020d6
@@ -629,7 +629,7 @@ str_10000700:
 .L10000748:
 	bsrw	sub_100024d6
 	movel	0x108,%a5@(8)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(800),%d0
 	beqs	.L10000760
 	braw	.L100008aa
@@ -807,7 +807,7 @@ str_10000700:
 	beqs	.L1000094e
 	cmpib	#1,%d0
 	beqs	.L1000094e
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movew	#-1,%a0@(488)
 
 .L1000094e:
@@ -870,7 +870,7 @@ str_10000700:
 	bsrw	sub_10002366
 
 .L100009f6:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	#65536,%d0
 	movel	%d0,%a0@(430)
 	movew	SysMap,%d0
@@ -894,7 +894,7 @@ str_10000700:
 	movel	%a5@(52),%sp@-
 	pea	0xad8
 	bsrl	sub_10008a9a
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	bnew	.L10000a68
 	jsr	%pc@(sub_10005ff8)
@@ -921,7 +921,7 @@ str_10000700:
 	bsrw	sub_100035be
 	bsrw	sub_10005506
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000ac0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -964,7 +964,7 @@ str_10000ac0:
 
 .L10000b1a:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000b34),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -979,7 +979,7 @@ str_10000b34:
 	moveq	#42,%d0
 	_ComponentDispatch
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000b68),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1006,7 +1006,7 @@ str_10000b68:
 
 .L10000b90:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000baa),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1025,7 +1025,7 @@ str_10000baa:
 	bsrw	sub_100024a4
 	movel	#-1,0x914
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000bf0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1041,7 +1041,7 @@ str_10000bf0:
 	moveq	#18,%d0
 	_MoveToECR
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000c26),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1061,7 +1061,7 @@ str_10000c26:
 
 .L10000c46:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000c60),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1076,7 +1076,7 @@ str_10000c60:
 .L10000c78:
 	jsr	%pc@(sub_100070ee)
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000c96),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1091,7 +1091,7 @@ str_10000c96:
 	movew	#-20641,%d0
 	bsrw	sub_10002366
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000ccc),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1107,7 +1107,7 @@ str_10000ccc:
 	movew	#0xa9f2,%d0
 	_SetTrapAddress
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000d06),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1121,7 +1121,7 @@ str_10000d06:
 .L10000d1c:
 	bsrw	sub_10002396
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000d3a),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1151,7 +1151,7 @@ str_10000d3a:
 
 .L10000d8c:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000da6),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1175,7 +1175,7 @@ str_10000da6:
 .L10000dc8:
 	bsrw	sub_1000619a
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000de6),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1188,7 +1188,7 @@ str_10000de6:
 	.byte	0x00
 
 .L10000dfa:
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	moveal	%a1@(772),%a1
 	moveal	0x2a6,%a0
 	movel	%a0@,%d1
@@ -1200,7 +1200,7 @@ str_10000de6:
 	subl	0x10c,%d1
 	movel	%d1,%a1@(8)
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000e38),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1256,7 +1256,7 @@ str_10000e38:
 
 .L10000ec0:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000eda),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1306,7 +1306,7 @@ str_10000f38:
 
 .L10000f42:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000f5c),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1354,7 +1354,7 @@ str_10000f5c:
 
 .L10000fc6:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10000fe0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1369,7 +1369,7 @@ str_10000fe0:
 .L10000ff4:
 	btst	#5,0xb20
 	beqs	.L10001068
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	beqs	.L1000101a
 	lea	0xaa0,%a0
@@ -1409,7 +1409,7 @@ str_10000fe0:
 
 .L10001068:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001082),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1424,7 +1424,7 @@ str_10001082:
 	moveq	#-1,%d4
 	bsrw	sub_10002028
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100010c0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1442,7 +1442,7 @@ str_100010c0:
 	bsrw	sub_10001f4e
 	bsrw	sub_10006296
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100010fe),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1457,7 +1457,7 @@ str_100010fe:
 .L10001116:
 	jsr	%pc@(sub_10008c08)
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001134),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1477,7 +1477,7 @@ str_10001134:
 	clrw	%d3
 	bsrw	sub_1000193e
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000117a),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1491,7 +1491,7 @@ str_1000117a:
 .L10001194:
 	bsrw	sub_10001a16
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100011b2),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1513,11 +1513,11 @@ str_100011b2:
 	cmpml	%a0@+,%a1@+
 	dbne	%d0,.L100011d8
 	beqw	.L1000128a
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	bnew	.L10001244
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001208),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1540,7 +1540,7 @@ str_10001208:
 
 .L10001244:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000125e),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1558,7 +1558,7 @@ str_1000125e:
 
 .L1000128a:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100012a4),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1573,7 +1573,7 @@ str_100012a4:
 	movew	#44,%d0
 	_ExpansionBusDispatch
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100012e8),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1587,11 +1587,11 @@ str_100012e8:
 
 .L100012f6:
 	jsr	%pc@(sub_100060e4)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	bnew	.L1000133e
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001320),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1608,7 +1608,7 @@ str_10001320:
 
 .L1000133e:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001358),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1622,11 +1622,11 @@ str_10001358:
 
 .L10001372:
 	bsrw	sub_1000632a
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	bnew	.L100013b0
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000139c),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1648,7 +1648,7 @@ str_1000139c:
 	btst	#4,0xb21
 	bnew	.L100014b6
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100013e0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1685,7 +1685,7 @@ str_100013e0:
 
 .L10001442:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000145c),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1703,7 +1703,7 @@ str_1000145c:
 	clrw	%d3
 	bsrw	sub_1000193e
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001498),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1723,7 +1723,7 @@ str_10001498:
 
 .L100014b6:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100014d0),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1742,7 +1742,7 @@ str_100014d0:
 	tstw	%d0
 	bnes	.L10001524
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001510),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1759,7 +1759,7 @@ str_10001510:
 
 .L10001524:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000153e),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1774,7 +1774,7 @@ str_1000153e:
 .L10001552:
 	bsrw	sub_10002a22
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001570),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1788,7 +1788,7 @@ str_10001570:
 .L10001586:
 	bsrw	sub_10002396
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100015a4),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1831,7 +1831,7 @@ str_100015a4:
 	braw	.L10001656
 
 .L10001608:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	bnes	.L1000163a
 	movew	#-1,%sp@-
@@ -1864,7 +1864,7 @@ str_100015a4:
 	moveq	#-5,%d0
 	_StartupDispatch
 	movew	%sp@+,%d0
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	beqw	.L10001676
 	pea	%a5@(74)
@@ -1890,7 +1890,7 @@ str_100015a4:
 	btst	#4,0xb21
 	bnes	.L100016de
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100016c4),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1908,7 +1908,7 @@ str_100016c4:
 
 .L100016de:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100016f8),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1929,7 +1929,7 @@ str_100016f8:
 	cmpil	#512,%d0
 	blts	.L1000177c
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_1000174c),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1956,7 +1956,7 @@ str_1000174c:
 
 .L1000177c:
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10001796),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -1970,7 +1970,7 @@ str_10001796:
 .L100017b8:
 	bsrw	sub_10006232
 	moveml	%a0-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_100017d6),%a1
 	movel	%a1,%a0@(804)
 	bsrw	sub_10003988
@@ -2009,7 +2009,7 @@ str_100017d6:
 	moveq	#-1,%d4
 	movel	#409600,%d5
 	bsrw	sub_10001f4e
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	moveal	%a1@(772),%a1
 	moveal	0x2a6,%a0
 	movel	%a0@,%d1
@@ -2022,7 +2022,7 @@ str_100017d6:
 	subl	0x10c,%d1
 	subl	%a1@(8),%d1
 	movel	%d1,%a1@(16)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movew	#28523,%a0@(616)
 	clrw	%sp@-
 	clrl	%sp@-
@@ -2066,7 +2066,7 @@ sub_1000188e:
 	bras	.L1000191a
 
 .L10001902:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(800),%d0
 	beqs	.L10001914
 	movel	%sp,0x10c
@@ -2271,7 +2271,7 @@ sub_10001a7a:
 	btst	#5,0xb20
 	beqs	.L10001b42
 	movel	%a0,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	moveal	%sp@+,%a0
 	beqw	.L10001b0c
@@ -2318,7 +2318,7 @@ sub_10001a7a:
 	cmpal	#1953788789,%a4
 	bnew	.L10001e52
 	movel	%a0,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	moveal	%sp@+,%a0
 	beqw	.L10001c86
@@ -2384,7 +2384,7 @@ sub_10001a7a:
 	cmpil	#1852076662,%d0
 	bnes	.L10001c6c
 	movel	%a0,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
 	moveal	%sp@+,%a0
 	beqs	.L10001c86
@@ -2444,7 +2444,7 @@ sub_10001a7a:
 
 .L10001cf8:
 	movel	%a0,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstw	%a0@(488)
 	moveal	%sp@+,%a0
 	beqs	.L10001c86
@@ -4095,7 +4095,7 @@ sub_10002c24:
 	jsr	%pc@(sub_1000a0ae)
 	jsr	%pc@(sub_1000a0aa)
 	jsr	%pc@(sub_1000a0a6)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	#2147450879,%a0@(344)
 	movel	#-2147450880,%a0@(348)
 	jsr	%pc@(sub_1000a0a2)
@@ -5423,7 +5423,7 @@ sub_100038a8:
 	movew	#1,%a5@(40)
 	movew	%sp@(4),%d0
 	moveml	%d7-%a1,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	lea	%pc@(str_10003918),%a1
 	movel	%a1,%a0@(804)
 	btst	#5,0xb20
@@ -5477,7 +5477,7 @@ sub_10003938:
 .L10003942:
 	lea	%pc@(word_10003ac6),%a0
 	st	%a0@
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	clrl	%a0@(804)
 	btst	#5,0xb20
 	beqs	.L10003978
@@ -5830,7 +5830,7 @@ sub_10003ed8:
 	_HighLevelFSDispatch
 	tstw	%sp@+
 	bnes	.L10003f44
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveb	#1,%a0@(763)
 
 .L10003f44:
@@ -6529,10 +6529,10 @@ sub_10004668:
 	jsr	%pc@(sub_10003af6)
 	moveal	%sp@+,%a3
 	addql	#1,%a3@(518)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(763)
 	beqw	.L1000493c
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(804),%fp@(-4)
 	beqw	.L1000493c
 	jsr	%pc@(sub_1000519e)
@@ -6837,7 +6837,7 @@ sub_10004964:
 	subql	#4,%sp
 	jsr	%pc@(sub_10003af6)
 	moveal	%sp@+,%a4
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(710),%a3
 	moveal	%a3@,%a0
 	moveal	%a0@,%a0
@@ -6866,7 +6866,7 @@ sub_10004964:
 	movew	%d7,%a4@(554)
 
 .L100049c0:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(763)
 	beqs	.L100049e6
 	moveal	%fp@(8),%a0
@@ -6874,7 +6874,7 @@ sub_10004964:
 	pea	%a4@(522)
 	jsr	%pc@(sub_1000521e)
 	lea	%a4@(522),%a0
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	movel	%a0,%a1@(804)
 	addqw	#8,%sp
 
@@ -7518,10 +7518,10 @@ sub_10004ff2:
 	beqw	.L10005140
 	moveq	#0,%d0
 	movel	%d0,%a3@
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstl	%a0@(680)
 	beqw	.L10005140
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(680),%a0
 	movel	%a0@,%a3@
 	bnew	.L10005140
@@ -8764,7 +8764,7 @@ sub_10005cc2:
 	linkw	%fp,#-16
 	moveml	%d5-%d7/%a3-%a4,%sp@-
 	moveal	%fp@(8),%a3
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movew	%a0@(674),%d7
 	moveq	#1,%d6
 	tstw	%d7
@@ -9174,7 +9174,7 @@ sub_100060a2:
 	bnes	.L100060da
 	cmpil	#513,%fp@(-4)
 	blts	.L100060da
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(780),%d7
 	movel	%d7,%d0
 	addql	#4,%d0
@@ -9492,14 +9492,14 @@ sub_100063c6:
 	jsr	%pc@(sub_10006388)
 	tstb	%d0
 	beqs	.L1000641a
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveb	#1,%a0@(57)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	clrb	%a0@(63)
 	moveq	#1,%d0
 	moveb	%d0,%sp@-
 	jsr	%pc@(sub_1000d69c)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveq	#0,%d0
 	moveb	%a0@(63),%d0
 	tstl	%d0
@@ -9512,9 +9512,9 @@ sub_100063c6:
 	addqw	#2,%sp
 
 .L1000640a:
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	clrb	%a0@(57)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	clrb	%a0@(63)
 
 .L1000641a:
@@ -13639,7 +13639,7 @@ sub_10008c08:
 sub_10008c54:
 	linkw	%fp,#0
 	moveml	%d5-%d7/%a3-%a4,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(800),%a3
 	moveal	0x2a6,%a4
 	bras	.L10008c6e
@@ -13739,7 +13739,7 @@ sub_10008d62:
 	movel	0x322,%d0
 	addl	%d0,%d0
 	movel	%d0,%fp@(-8)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(800),%a3
 	movel	0x10c,%d0
 	subl	%fp@(-8),%d0
@@ -13860,7 +13860,7 @@ sub_10008e90:
 	linkw	%fp,#-20
 	moveml	%d3-%d7/%a2-%a4,%sp@-
 	moveq	#0,%d7
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(800),%fp@(-4)
 	movel	#-4096,%d0
 	andl	%fp@(8),%d0
@@ -14027,10 +14027,10 @@ sub_10008ff4:
 	lea	%sp@(12),%sp
 	bnes	.L1000904e
 	moveal	%fp@(-4),%a0
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	movel	%a0@,%a1@(722)
 	moveal	%a4@,%a0
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	movel	%a0@,%a1@(726)
 
 .L1000904e:
@@ -19482,7 +19482,7 @@ sub_1000c57a:
 sub_1000c5ea:
 	linkw	%fp,#-516
 	moveml	%a3-%a4,%sp@-
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveal	%a0@(758),%a4
 	movel	%a4,%d0
 	bnes	.L1000c628
@@ -19498,7 +19498,7 @@ sub_1000c5ea:
 	movel	%a0,%d0
 	addqw	#4,%sp
 	beqs	.L1000c628
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a4,%a0@(758)
 
 .L1000c628:
@@ -19523,7 +19523,7 @@ sub_1000c5ea:
 	movew	0x220,%sp@
 	tstw	%sp@+
 	bnes	.L1000c67c
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a3,%a0@(754)
 	subql	#2,%sp
 	movel	#1835950445,%sp@-
@@ -19592,7 +19592,7 @@ sub_1000c686:
 	blss	.L1000c72a
 	movel	%a4,%sp@-
 	jsr	%pc@(sub_1000c544)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%d0,%a0@(758)
 	addqw	#4,%sp
 	bras	.L1000c73a
@@ -19600,7 +19600,7 @@ sub_1000c686:
 .L1000c72a:
 	movel	%a3,%sp@-
 	jsr	%pc@(sub_1000c544)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%d0,%a0@(758)
 	addqw	#4,%sp
 
@@ -19633,11 +19633,11 @@ sub_1000c686:
 .L1000c76a:
 	tstb	%d6
 	bnes	.L1000c790
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstl	%a0@(758)
 	beqs	.L1000c790
 	subql	#2,%sp
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(758),%sp@-
 	pea	%pc@(str_1000c7e6)
 	jsr	%pc@(sub_10005280)
@@ -20174,7 +20174,7 @@ sub_1000ccd8:
 	_NewPtrSysClear
 	bnes	.L1000cd0a
 	movew	%d2,%a0@
-	moveal	0x2b6,%a1
+	moveal	ExpandMem,%a1
 	lea	%a1@(116),%a1
 	movel	%fp@(12),%a0@(494)
 	movel	%a0,%a1@
@@ -20230,7 +20230,7 @@ sub_1000cd14:
 	moveal	0xd1c,%a0
 	_HLock
 	moveq	#0,%d0
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	_GetPtrSize
 	cmpil	#490,%d0
 	bges	.L1000cd96
@@ -20572,7 +20572,7 @@ sub_1000d0a4:
 	movel	%a4,%d0
 	addqw	#4,%sp
 	beqs	.L1000d0d2
-	moveal	0x2b6,%a2
+	moveal	ExpandMem,%a2
 	moveal	%a2@(818),%a3
 	movel	%a2@(822),%d6
 
@@ -20765,17 +20765,17 @@ sub_1000d252:
 	beqs	.L1000d2c6
 	tstb	%d6
 	beqs	.L1000d2c6
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	tstb	%a0@(57)
 	beqs	.L1000d2c6
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveq	#0,%d0
 	moveb	%a0@(63),%d0
 	movel	%fp@(12),%d1
 	moveq	#1,%d2
 	lsll	%d1,%d2
 	orl	%d0,%d2
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveb	%d2,%a0@(63)
 
 .L1000d2c6:
@@ -20798,7 +20798,7 @@ sub_1000d2d6:
 	moveal	%sp@+,%a0
 	_SetZone
 	lea	%pc@(sub_1000d040),%a4
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%a0@(818),%fp@(-8)
 	beqs	.L1000d332
 	moveq	#0,%d0
@@ -20811,10 +20811,10 @@ sub_1000d2d6:
 	_DisplayDispatch
 	tstw	%sp@+
 	bnes	.L1000d332
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveq	#0,%d0
 	movel	%d0,%a0@(818)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%d0,%a0@(822)
 	movel	%d0,%fp@(-8)
 
@@ -20833,9 +20833,9 @@ sub_1000d2d6:
 	_DisplayDispatch
 	tstw	%sp@+
 	bnes	.L1000d36a
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%fp@(-8),%a0@(818)
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	movel	%fp@(-12),%a0@(822)
 
 .L1000d36a:
@@ -20843,7 +20843,7 @@ sub_1000d2d6:
 	moveb	%d7,%d0
 	cmpiw	#2,%d0
 	bnes	.L1000d3ac
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveq	#0,%d0
 	moveb	%a0@(826),%d0
 	tstl	%d0
@@ -20861,7 +20861,7 @@ sub_1000d2d6:
 	movel	%d0,%sp@-
 	movew	#2031,%d0
 	_DisplayDispatch
-	moveal	0x2b6,%a0
+	moveal	ExpandMem,%a0
 	moveb	#1,%a0@(826)
 	addqw	#2,%sp
 

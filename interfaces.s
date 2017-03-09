@@ -5,6 +5,7 @@ _fcc_cnfn	=	0x636e666e
 _fcc_krnl	=	0x6b726e6c
 _fcc_ptch	=	0x70746368
 
+ExpandMem	=	0x2b6
 TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
