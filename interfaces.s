@@ -9,6 +9,7 @@ _fcc_ptch	=	0x70746368
 _fcc_show	=	0x73686f77
 _fcc_sysv	=	0x73797376
 
+BusErrVct	=	0x8
 MemTop		=	0x108
 BufPtr		=	0x10c
 BootDrive	=	0x210
@@ -28,6 +29,7 @@ ExtensionsEnabledByte	=	0xb20
 FSVarsPtr	=	0xbb8
 PortList	=	0xd66
 BootGlobPtr	=	0xddc
+FakeHandleRange	=	0x1e10
 RealMemTop	=	0x1ef4
 
 ADBReInit	=	0xa07b

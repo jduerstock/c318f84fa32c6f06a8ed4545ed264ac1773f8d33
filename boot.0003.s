@@ -13746,12 +13746,12 @@ sub_10008c54:
 	movel	%a3@(28),%a3@(20)
 
 .L10008d2a:
-	movel	0x8,%a3@(56)
+	movel	BusErrVct,%a3@(56)
 	lea	%pc@(sub_10002bf8),%a0
 	movel	%a0,%a3@(52)
 	lea	%a3@(50),%a0
-	movel	%a0,0x8
-	movel	%d7,0x1e10
+	movel	%a0,BusErrVct
+	movel	%d7,FakeHandleRange
 	movel	%a3@(4),%d0
 	.short	0x90bc,0x0000,0x0200	/* subl	#512,%d0 */
 	movel	%d0,BootGlobPtr
