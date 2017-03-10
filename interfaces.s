@@ -11,6 +11,7 @@ _fcc_sysv	=	0x73797376
 
 MemTop		=	0x108
 BufPtr		=	0x10c
+BootDrive	=	0x210
 ROMBase		=	0x2ae
 ExpandMem	=	0x2b6
 DefltStack	=	0x322

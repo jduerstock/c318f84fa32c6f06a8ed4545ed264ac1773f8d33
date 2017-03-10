@@ -325,7 +325,7 @@ str_10000162:
 	tstb	%a0@(175)
 	bnes	.L100003ba
 	lea	%a5@(-400),%a0
-	movew	0x210,%a0@(22)
+	movew	BootDrive,%a0@(22)
 	_MountVol
 
 .L100003ba:
@@ -797,7 +797,7 @@ str_10000700:
 	lea	%a5@(-400),%a0
 	clrl	%a0@(18)
 	_GetVol
-	movew	%a0@(22),0x210
+	movew	%a0@(22),BootDrive
 	movew	#-5,%a0@(24)
 	movew	#9,%a0@(26)
 	movew	#-255,%a0@(28)
