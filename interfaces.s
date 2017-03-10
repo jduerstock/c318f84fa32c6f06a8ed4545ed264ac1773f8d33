@@ -20,6 +20,8 @@ TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
 RestProc	=	0xa8c
+ExtensionsEnabledByte	=	0xb20
+FSVarsPtr	=	0xbb8
 PortList	=	0xd66
 
 ADBReInit	=	0xa07b

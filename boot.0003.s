@@ -321,7 +321,7 @@ str_10000162:
 	movel	%a0,%a5@(8)
 
 .L100003a4:
-	moveal	0xbb8,%a0
+	moveal	FSVarsPtr,%a0
 	tstb	%a0@(175)
 	bnes	.L100003ba
 	lea	%a5@(-400),%a0
@@ -339,7 +339,7 @@ str_10000162:
 
 .L100003d2:
 	bsrw	sub_100052c6
-	btst	#2,0xb20
+	btst	#2,ExtensionsEnabledByte
 	beqs	.L100003e2
 	_SysError 102
 
@@ -366,7 +366,7 @@ str_10000162:
 	_SysError 99
 
 .L1000041c:
-	moveal	0xbb8,%a0
+	moveal	FSVarsPtr,%a0
 	st	%a0@(2927)
 	movew	%sp@+,CurMap
 	bsrw	sub_10002acc
@@ -483,7 +483,7 @@ str_10000162:
 	bclr	#3,0xb21
 
 .L10000568:
-	bclr	#5,0xb20
+	bclr	#5,ExtensionsEnabledByte
 	moveq	#-13,%d0
 	bsrw	sub_1000539a
 
@@ -844,7 +844,7 @@ str_10000700:
 	movew	%d1,0x15a
 	movew	%sp@,CurMap
 	bsrw	sub_100024d6
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	bnes	.L100009d4
 	movel	BufPtr,%d2
 	subil	#180800,%d2
@@ -1216,7 +1216,7 @@ str_10000e38:
 	movel	#-2113863718,%sp@-
 	_ScriptUtil
 	addqw	#2,%sp
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10000e76
 	bsrl	sub_10009278
 	movel	#1702392942,%sp@-
@@ -1318,7 +1318,7 @@ str_10000f5c:
 	.ascii	"CheckForMinimumLogicalRAM"
 
 .L10000f76:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10000fc6
 	subqw	#4,%sp
 	movel	#1835823725,%sp@-
@@ -1350,7 +1350,7 @@ str_10000f5c:
 .L10000fb8:
 	movew	#-16506,%d5
 	bsrw	sub_10005aa0
-	bclr	#5,0xb20
+	bclr	#5,ExtensionsEnabledByte
 
 .L10000fc6:
 	moveml	%a0-%a1,%sp@-
@@ -1367,7 +1367,7 @@ str_10000fe0:
 	.byte	0x00
 
 .L10000ff4:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10001068
 	moveal	ExpandMem,%a0
 	tstb	%a0@(827)
@@ -1818,7 +1818,7 @@ str_100015a4:
 	moveq	#-6,%d0
 	_StartupDispatch
 	movew	%sp@+,%d0
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	bnes	.L10001608
 	moveq	#-1,%d4
 	movel	#262144,%d5
@@ -1882,7 +1882,7 @@ str_100015a4:
 	_ReleaseResource
 
 .L1000168e:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L100016de
 	moveq	#-1,%d4
 	movel	#1048576,%d5
@@ -1941,7 +1941,7 @@ str_1000174c:
 	.ascii	"PMSecondaryInit"
 
 .L1000175c:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	bnes	.L10001770
 	movew	#1,%d0
 	swap	%d0
@@ -1990,7 +1990,7 @@ str_100017d6:
 	bsrw	sub_1000566e
 	btst	#4,0xb21
 	beqs	.L1000181c
-	bclr	#5,0xb20
+	bclr	#5,ExtensionsEnabledByte
 	movew	#-16504,%d5
 	bsrw	sub_10005aa0
 
@@ -2199,7 +2199,7 @@ sub_100019fa:
 	rts
 
 sub_10001a16:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10001a3a
 	movel	#1702392942,%sp@-
 	movel	#1229867348,%sp@-
@@ -2268,7 +2268,7 @@ sub_10001a7a:
 	bnew	.L10001dfc
 	movel	%a0@(32),%d0
 	moveal	%a0@(36),%a4
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10001b42
 	movel	%a0,%sp@-
 	moveal	ExpandMem,%a0
@@ -2875,7 +2875,7 @@ sub_100020d6:
 	rts
 
 sub_100020e0:
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqw	.L100021da
 	movel	#420,%d0
 	movel	MemTop,%sp@-
@@ -5418,7 +5418,7 @@ sub_100038a8:
 	moveal	ExpandMem,%a0
 	lea	%pc@(str_10003918),%a1
 	movel	%a1,%a0@(804)
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10003906
 	addqw	#8,%d0
 	movew	%d0,%a5@(40)
@@ -5471,7 +5471,7 @@ sub_10003938:
 	st	%a0@
 	moveal	ExpandMem,%a0
 	clrl	%a0@(804)
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	beqs	.L10003978
 	lea	%pc@(dword_10003982),%a0
 	lea	%pc@(word_10003986),%a1
@@ -8015,7 +8015,7 @@ sub_10005506:
 	_SysError 40
 
 	movew	%sp@+,SysMap
-	btst	#5,0xb20
+	btst	#5,ExtensionsEnabledByte
 	bnes	.L1000557c
 	moveq	#-13,%d0
 	bsrw	sub_1000539a
@@ -9424,8 +9424,8 @@ sub_1000632a:
 	movel	%fp@(-4),%d0
 	.short	0xc0bc,0x0000,0x0001	/* andl	#1,%d0 */
 	beqs	.L1000637e
-	moveq	#32,%d0
-	andb	0xb20,%d0
+	moveq	#(1 << 5),%d0
+	andb	ExtensionsEnabledByte,%d0
 	moveq	#0,%d1
 	moveb	%d0,%d1
 	tstl	%d1
@@ -11074,9 +11074,9 @@ sub_100071ea:
 	movel	%fp@(-4),%d0
 	cmpl	%a0@,%d0
 	bges	.L1000724c
-	movew	0xb20,%d7
-	andiw	#-8193,%d7
-	movew	%d7,0xb20
+	movew	ExtensionsEnabledByte,%d7
+	andiw	#0xdfff,%d7
+	movew	%d7,ExtensionsEnabledByte
 
 .L1000724c:
 	movel	%a4,%sp@-
@@ -20155,8 +20155,8 @@ sub_1000cbbc:
 	moveml	%d7/%a4,%sp@-
 	lea	%fp@(-256),%a4
 	clrb	%d7
-	moveq	#32,%d0
-	andb	0xb20,%d0
+	moveq	#(1 << 5),%d0
+	andb	ExtensionsEnabledByte,%d0
 	moveq	#0,%d1
 	moveb	%d0,%d1
 	tstl	%d1
