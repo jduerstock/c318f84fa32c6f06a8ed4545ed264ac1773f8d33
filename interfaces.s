@@ -27,6 +27,7 @@ RestProc	=	0xa8c
 ExtensionsEnabledByte	=	0xb20
 FSVarsPtr	=	0xbb8
 PortList	=	0xd66
+BootGlobPtr	=	0xddc
 RealMemTop	=	0x1ef4
 
 ADBReInit	=	0xa07b

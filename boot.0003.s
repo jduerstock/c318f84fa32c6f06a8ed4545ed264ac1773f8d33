@@ -13754,7 +13754,7 @@ sub_10008c54:
 	movel	%d7,0x1e10
 	movel	%a3@(4),%d0
 	.short	0x90bc,0x0000,0x0200	/* subl	#512,%d0 */
-	movel	%d0,0xddc
+	movel	%d0,BootGlobPtr
 	bras	.L10008d58
 
 .L10008d54:
