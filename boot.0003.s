@@ -169,7 +169,7 @@ str_10000162:
 	moveal	ExpandMem,%a1
 	movel	%a0,%a1@(772)
 	moveal	%a0,%a1
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	movel	%a0@,%d1
 	_FreeMemSys
 	subl	%d0,%d1
@@ -329,7 +329,7 @@ str_10000162:
 	_MountVol
 
 .L100003ba:
-	movew	#-21623,%d0
+	movew	#0xab89,%d0
 	bsrw	sub_10002366
 	moveal	ExpandMem,%a0
 	movel	%a0@(746),%d0
@@ -1190,7 +1190,7 @@ str_10000de6:
 .L10000dfa:
 	moveal	ExpandMem,%a1
 	moveal	%a1@(772),%a1
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	movel	%a0@,%d1
 	_FreeMemSys
 	subl	%d0,%d1
@@ -2011,7 +2011,7 @@ str_100017d6:
 	bsrw	sub_10001f4e
 	moveal	ExpandMem,%a1
 	moveal	%a1@(772),%a1
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	movel	%a0@,%d1
 	_FreeMemSys
 	subl	%d0,%d1
@@ -2056,7 +2056,7 @@ sub_1000188e:
 	movel	DefltStack,%d0
 	subl	%d0,BufPtr
 	movel	BufPtr,%sp@-
-	movel	0x2aa,%sp@-
+	movel	ApplZone,%sp@-
 	movel	#131080,%d0
 	_BlueBoxDispatch
 	addqw	#8,%sp
@@ -2710,7 +2710,7 @@ sub_10001f4e:
 	bsrs	sub_10001f38
 
 .L10001f7a:
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 
 .L10001f7e:
 	moveal	%a0@,%a0
@@ -2741,7 +2741,7 @@ sub_10001fa2:
 	subil	#262144,%d1
 	subil	#262144,%d1
 	subl	%a5@(22),%d1
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	subl	%a0@,%d1
 	tstl	0xb78
 	bmis	.L10001fde
@@ -3121,14 +3121,14 @@ sub_1000236c:
 	rts
 
 sub_1000238c:
-	movel	0x2aa,%d0
-	cmpl	0x2a6,%d0
+	movel	ApplZone,%d0
+	cmpl	SysZone,%d0
 	rts
 
 sub_10002396:
 	bsrs	sub_1000238c
 	bnes	.L100023a0
-	movel	BufPtr,0x2aa
+	movel	BufPtr,ApplZone
 
 .L100023a0:
 	_InitApplZone
@@ -3143,12 +3143,12 @@ sub_100023ac:
 	_InitApplZone
 
 .L100023b2:
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	addal	#10485760,%a0
 	bsrw	sub_100023e2
 	_SetAppBase
-	moveal	0x2a6,%a0
-	movel	%a0,0x2aa
+	moveal	SysZone,%a0
+	movel	%a0,ApplZone
 	movel	%a0,0x118
 	movel	%a0@,0x114
 	moveal	%sp,%a0
@@ -3172,7 +3172,7 @@ sub_100023e2:
 	tstl	0xb78
 	bmis	.L10002430
 	movel	%a0,%d1
-	moveal	0x2a6,%a1
+	moveal	SysZone,%a1
 	subl	%a1@,%d1
 	moveq	#-3,%d0
 	_MemoryDispatch
@@ -3259,7 +3259,7 @@ sub_100024b4:
 	moveal	%a5@(16),%a0
 	cmpl	%a0,%d1
 	bcss	.L100024d4
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	moveal	%a0@,%a0
 	subl	%a0,%d1
 	bcss	.L100024d4
@@ -3274,7 +3274,7 @@ sub_100024b4:
 	rts
 
 sub_100024d6:
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	movel	%a0,%d0
 	moveal	%a0@,%a0
 	addil	#10485760,%d0
@@ -5532,7 +5532,7 @@ sub_10003988:
 	movel	%a5@(30),%fp@(-42)
 	movel	%a5@(34),%fp@(-38)
 	movel	0x118,%sp@-
-	movel	0x2a6,0x118
+	movel	SysZone,0x118
 	moveal	%a5@,%a0
 	movel	%a0@,%fp@(-34)
 	pea	%a5@(112)
@@ -6899,7 +6899,7 @@ sub_100049fa:
 	_GetZone
 	movel	%a0,%fp@(-8)
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	moveal	%a3@,%a0
@@ -7386,7 +7386,7 @@ sub_10004ebe:
 	_GetZone
 	moveal	%a0,%a4
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 
@@ -7422,7 +7422,7 @@ sub_10004f16:
 	_GetZone
 	moveal	%a0,%a4
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 
@@ -7520,7 +7520,7 @@ sub_10004ff2:
 	_GetZone
 	moveal	%a0,%a2
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#4,%sp
@@ -8170,7 +8170,7 @@ sub_100056ae:
 .L100056b8:
 	moveml	%d0-%d4/%a0-%a3,%sp@-
 	movel	0x118,%sp@-
-	movel	0x2a6,0x118
+	movel	SysZone,0x118
 	bsrw	sub_10005644
 	movew	#1,%d3
 	movew	%a5@(-116),%d0
@@ -9253,7 +9253,7 @@ sub_1000619a:
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#4,%sp
@@ -9287,7 +9287,7 @@ sub_100061e6:
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#4,%sp
@@ -10984,7 +10984,7 @@ sub_100070ee:
 	_PtrZone
 	movel	%a0,%fp@(-8)
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	movel	%fp@(-8),%d0
 	cmpl	%sp@+,%d0
 	bnes	.L10007180
@@ -11228,7 +11228,7 @@ sub_100073b4:
 	_GetZone
 	moveal	%a0,%a4
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#2,%sp
@@ -11269,7 +11269,7 @@ sub_10007424:
 	_GetZone
 	movel	%a0,%fp@(-8)
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	movel	#1937339233,%d0
@@ -11498,7 +11498,7 @@ sub_10007634:
 	_GetZone
 	moveal	%a0,%a2
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#2,%sp
@@ -12853,7 +12853,7 @@ sub_100083e8:
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#2,%sp
@@ -12917,7 +12917,7 @@ sub_10008472:
 	moveb	#7,%fp@(-30)
 	movew	#-21762,%fp@(-32)
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#2,%sp
@@ -13582,7 +13582,7 @@ sub_10008c08:
 	moveml	%a3-%a4,%sp@-
 	_GetZone
 	moveal	%a0,%a3
-	moveal	0x2a6,%a0
+	moveal	SysZone,%a0
 	_SetZone
 	subql	#4,%sp
 	movel	#1935896420,%sp@-
@@ -13615,7 +13615,7 @@ sub_10008c54:
 	moveml	%d5-%d7/%a3-%a4,%sp@-
 	moveal	ExpandMem,%a0
 	moveal	%a0@(800),%a3
-	moveal	0x2a6,%a4
+	moveal	SysZone,%a4
 	bras	.L10008c6e
 
 .L10008c6a:
@@ -13756,7 +13756,7 @@ sub_10008d62:
 	addl	%d3,%a3@(8)
 
 .L10008dea:
-	moveal	0x2a6,%a4
+	moveal	SysZone,%a4
 	bras	.L10008df4
 
 .L10008df0:
@@ -14347,7 +14347,7 @@ sub_1000935e:
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	subql	#2,%sp
@@ -16267,7 +16267,7 @@ sub_1000a66e:
 	_GetZone
 	moveal	%a0,%a2
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	movel	%a4,%sp@-
@@ -18084,7 +18084,7 @@ sub_1000b87e:
 	_GetZone
 	moveal	%a0,%a3
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	movel	#1970496032,%d0
@@ -20899,7 +20899,7 @@ sub_1000d2d6:
 	_GetZone
 	moveal	%a0,%a2
 	subql	#4,%sp
-	movel	0x2a6,%sp@
+	movel	SysZone,%sp@
 	moveal	%sp@+,%a0
 	_SetZone
 	lea	%pc@(sub_1000d040),%a4
