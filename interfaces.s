@@ -453,6 +453,16 @@ UnimplTrap	=	0xa89f
 	.short	0xa823
 .endm
 
+.macro	_FindFolder
+	moveq	#0,%d0
+	_AliasDispatch
+.endm
+
+.macro	_ResolveAlias
+	moveq	#3,%d0
+	_AliasDispatch
+.endm
+
 .macro	_ComponentDispatch
 	.short	0xa82a
 .endm

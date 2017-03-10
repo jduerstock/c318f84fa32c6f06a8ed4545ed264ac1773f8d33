@@ -2192,8 +2192,7 @@ sub_100019fa:
 	clrb	%sp@-
 	pea	%a5@(476)
 	pea	%a5@(478)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movel	%a5@(478),%d7
 	movew	%sp@+,%d0
 	rts
@@ -5800,8 +5799,7 @@ sub_10003ed8:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnes	.L10003f44
 	movel	%a4,%sp@-
@@ -9757,8 +9755,7 @@ sub_1000663e:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d6
 	bnew	.L10006770
 	clrb	%d4
@@ -11116,8 +11113,7 @@ sub_1000725a:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnew	.L1000739a
 	moveq	#0,%d0
@@ -11453,8 +11449,7 @@ sub_10007598:
 	moveb	%d0,%sp@-
 	pea	%fp@(-18)
 	pea	%fp@(-16)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L1000761c
 	subql	#2,%sp
@@ -12121,8 +12116,7 @@ sub_10007bde:
 	moveb	%d0,%sp@-
 	pea	%fp@(-204)
 	pea	%fp@(-202)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnew	.L10007d0c
 	movel	%a4,%sp@-
@@ -12168,8 +12162,7 @@ sub_10007bde:
 	moveb	%d0,%sp@-
 	pea	%fp@(-280)
 	pea	%fp@(-278)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L10007cbe
 	subql	#2,%sp
@@ -13549,8 +13542,7 @@ sub_10008af4:
 	movel	%a3,%sp@-
 	pea	%fp@(-72)
 	pea	%fp@(-1)
-	moveq	#3,%d0
-	_AliasDispatch
+	_ResolveAlias
 	movew	%sp@+,%d6
 
 .L10008b58:
@@ -14212,8 +14204,7 @@ sub_1000905a:
 	moveb	%d0,%sp@-
 	pea	%fp@(-148)
 	pea	%fp@(-146)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L100091cc
 	movew	%fp@(-120),%d0
@@ -14239,8 +14230,7 @@ sub_1000905a:
 	moveb	%d0,%sp@-
 	pea	%fp@(-148)
 	pea	%fp@(-146)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L10009216
 	movew	%fp@(-120),%d0
@@ -14322,8 +14312,7 @@ sub_10009278:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnes	.L100092d4
 	movew	%fp@(-6),%sp@-
@@ -14340,8 +14329,7 @@ sub_10009278:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnes	.L10009308
 	movew	%fp@(-6),%sp@-
@@ -14358,8 +14346,7 @@ sub_10009278:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnes	.L1000933c
 	movew	%fp@(-6),%sp@-
@@ -16553,8 +16540,7 @@ sub_1000a94a:
 	moveb	%d0,%sp@-
 	pea	%fp@(-90)
 	pea	%fp@(-84)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnew	.L1000aaca
 	subql	#2,%sp
@@ -16574,8 +16560,7 @@ sub_1000a94a:
 	moveb	%d0,%sp@-
 	pea	%fp@(-92)
 	pea	%fp@(-88)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	tstw	%sp@+
 	bnew	.L1000aaca
 	subql	#2,%sp
@@ -17254,8 +17239,7 @@ sub_1000b03c:
 	moveb	%d0,%sp@-
 	pea	%fp@(-262)
 	pea	%fp@(-260)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d6
 	bnew	.L1000b158
 	subql	#2,%sp
@@ -18102,8 +18086,7 @@ sub_1000b80c:
 	moveb	%d0,%sp@-
 	pea	%fp@(-34)
 	pea	%fp@(-38)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L1000b86e
 	moveq	#2,%d0
@@ -18228,8 +18211,7 @@ sub_1000b958:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d6
 	bnes	.L1000b9ec
 	movel	%a3,%sp@-
@@ -20152,8 +20134,7 @@ sub_1000cb06:
 	moveb	%d0,%sp@-
 	pea	%fp@(-6)
 	pea	%fp@(-4)
-	moveq	#0,%d0
-	_AliasDispatch
+	_FindFolder
 	movew	%sp@+,%d7
 	bnes	.L1000cbb0
 	moveq	#0,%d3
