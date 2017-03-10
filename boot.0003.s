@@ -200,7 +200,7 @@ str_10000162:
 	movel	%a1@,%d0
 	addl	%a5@(66),%d0
 	addl	%a5@(70),%d0
-	movel	0x108,%d1
+	movel	MemTop,%d1
 	cmpl	%d1,%d0
 	blss	.L10000274
 
@@ -212,7 +212,7 @@ str_10000162:
 	_Gestalt
 	tstw	%d0
 	bnew	.L100003a4
-	movel	0x108,%d0
+	movel	MemTop,%d0
 	lsrl	#1,%d0
 	movel	%a5@(16),%d1
 	addil	#1048576,%d1
@@ -220,7 +220,7 @@ str_10000162:
 	bcsw	.L100003a4
 	pea	%a5@(112)
 	clrl	%sp@-
-	movel	0xd66,%sp@-
+	movel	PortList,%sp@-
 	movel	#2,%sp@-
 	pea	%sp@(12)
 	movel	#4,%sp@-
@@ -229,13 +229,13 @@ str_10000162:
 	_Munger
 	movel	%sp@+,%d0
 	bmis	.L100002c6
-	moveal	0xd66,%a0
+	moveal	PortList,%a0
 	moveal	%a0@,%a0
 	subqw	#1,%a0@
 
 .L100002c6:
 	addqw	#4,%sp
-	movel	0x108,%d0
+	movel	MemTop,%d0
 	lsrl	#1,%d0
 	moveal	%d0,%a1
 	lea	%pc@(sub_10000000),%a0
@@ -263,7 +263,7 @@ str_10000162:
 	movel	%a5,0x904
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
-	moveal	0xd66,%a0
+	moveal	PortList,%a0
 	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
@@ -317,7 +317,7 @@ str_10000162:
 	moveal	%a0@(800),%a0
 	moveal	%a0@,%a0
 	movel	%a0,%a5@(16)
-	moveal	0x108,%a0
+	moveal	MemTop,%a0
 	movel	%a0,%a5@(8)
 
 .L100003a4:
@@ -489,7 +489,7 @@ str_10000162:
 
 .L10000574:
 	bsrw	sub_10002a64
-	movel	0x108,%a5@(4)
+	movel	MemTop,%a5@(4)
 	clrw	%sp@-
 	movel	#2019716975,%sp@-
 	_CountResources
@@ -539,11 +539,11 @@ str_10000162:
 	movel	%a0,%sp@-
 	movel	%a0,%a0@-
 	movel	%d1,%a0@-
-	movel	0x108,%a0@-
+	movel	MemTop,%a0@-
 	movel	BufPtr,%a0@-
 	movel	%a0,BufPtr
 	moveal	%sp@,%a0
-	movel	%a0,0x108
+	movel	%a0,MemTop
 	subql	#2,%sp
 	movel	#1819435373,%sp@-
 	movel	%a0,%sp@-
@@ -566,7 +566,7 @@ str_10000162:
 	moveal	BufPtr,%a1
 	movel	%a0@(-16),BufPtr
 	movel	%a1,%a0@(-16)
-	movel	%a0@(-12),0x108
+	movel	%a0@(-12),MemTop
 	braw	.L1000072a
 
 .L1000068c:
@@ -628,7 +628,7 @@ str_10000700:
 
 .L10000748:
 	bsrw	sub_100024d6
-	movel	0x108,%a5@(8)
+	movel	MemTop,%a5@(8)
 	moveal	ExpandMem,%a0
 	movel	%a0@(800),%d0
 	beqs	.L10000760
@@ -637,7 +637,7 @@ str_10000700:
 .L10000760:
 	pea	%a5@(112)
 	clrl	%sp@-
-	movel	0xd66,%sp@-
+	movel	PortList,%sp@-
 	movel	#2,%sp@-
 	pea	%sp@(12)
 	movel	#4,%sp@-
@@ -646,7 +646,7 @@ str_10000700:
 	_Munger
 	movel	%sp@+,%d0
 	bmis	.L1000078e
-	moveal	0xd66,%a0
+	moveal	PortList,%a0
 	moveal	%a0@,%a0
 	subqw	#1,%a0@
 
@@ -703,7 +703,7 @@ str_10000700:
 	movel	%a5,0x904
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
-	moveal	0xd66,%a0
+	moveal	PortList,%a0
 	_GetHandleSize
 	movel	%d0,%d3
 	addql	#4,%d0
@@ -775,7 +775,7 @@ str_10000700:
 	beqs	.L100008ea
 	movel	#1819435373,%d0
 	_Gestalt
-	movel	%a0@(-4),0x108
+	movel	%a0@(-4),MemTop
 	movel	%a0@(-4),%a5@(8)
 	movel	%a0@(-8),%a5@(16)
 	movel	%a0@(-16),BufPtr
@@ -2818,7 +2818,7 @@ sub_10002028:
 	movel	0x7c,%a0@
 	bsrw	sub_10002490
 	bsrs	sub_100020a2
-	movel	%a5@(8),0x108
+	movel	%a5@(8),MemTop
 	moveal	0x7c,%a0
 	cmpiw	#20083,%a0@
 	bnew	.L1000208c
@@ -2878,7 +2878,7 @@ sub_100020e0:
 	btst	#5,0xb20
 	beqw	.L100021da
 	movel	#420,%d0
-	movel	0x108,%sp@-
+	movel	MemTop,%sp@-
 	movel	BufPtr,%sp@-
 	lea	%pc@(str_100054b6),%a0
 	movel	%a0,0x914
@@ -2896,7 +2896,7 @@ sub_100020e0:
 	beqs	.L10002194
 	cmpil	#-1,%d0
 	beqs	.L10002194
-	movel	0x108,%d0
+	movel	MemTop,%d0
 	movel	%d0,%d1
 	lsrl	#2,%d1
 	subl	%d1,%d0
@@ -3242,7 +3242,7 @@ sub_10002490:
 	moveal	%a5@(16),%a0
 	subaw	#1024,%a0
 	addal	%a0,%a0
-	movel	%a0,0x108
+	movel	%a0,MemTop
 	rts
 
 sub_100024a4:
@@ -15082,7 +15082,7 @@ sub_10009a38:
 
 .L10009aaa:
 	extl	%d5
-	movel	0x108,%d0
+	movel	MemTop,%d0
 	lsrl	#8,%d0
 	lsrl	#8,%d0
 	lsrl	#4,%d0
