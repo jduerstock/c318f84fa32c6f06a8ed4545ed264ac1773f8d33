@@ -9032,7 +9032,7 @@ sub_10005f4c:
 	lea	%fp@(-260),%a4
 	subql	#2,%sp
 	pea	%pc@(str_10005fe0)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-266)
@@ -9088,7 +9088,7 @@ sub_10005ff8:
 	lea	%fp@(-256),%a3
 	subql	#2,%sp
 	pea	%pc@(str_1000609a)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-262)
@@ -9182,7 +9182,7 @@ sub_100060e4:
 	lea	%fp@(-256),%a3
 	subql	#2,%sp
 	pea	%pc@(str_10006186)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-262)
@@ -9329,7 +9329,7 @@ sub_10006232:
 	beqs	.L1000627c
 	subql	#2,%sp
 	pea	%pc@(str_10006284)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-268)
@@ -11229,7 +11229,7 @@ sub_100073b4:
 	_SetZone
 	subql	#2,%sp
 	pea	%pc@(str_10007412)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-8)
@@ -11498,7 +11498,7 @@ sub_10007634:
 	_SetZone
 	subql	#2,%sp
 	pea	%pc@(str_100077d0)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#5,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-570)
@@ -12301,7 +12301,7 @@ sub_10007dc6:
 	movel	%d0,%fp@(-4)
 	subql	#2,%sp
 	pea	%pc@(str_10007e50)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-8)
@@ -12354,7 +12354,7 @@ sub_10007e62:
 	lea	%fp@(-270),%a3
 	subql	#2,%sp
 	pea	%pc@(str_10007f02)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-14)
@@ -12650,7 +12650,7 @@ sub_10007f70:
 	pea	%a4@(%d2:l)
 	moveq	#2,%d0
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-1018)
 	pea	%fp@(-1014)
 	pea	%fp@(-1009)
@@ -12851,7 +12851,7 @@ sub_100083e8:
 	_SetZone
 	subql	#2,%sp
 	pea	%pc@(str_10008462)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-264)
@@ -12915,7 +12915,7 @@ sub_10008472:
 	_SetZone
 	subql	#2,%sp
 	pea	%pc@(str_1000850c)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	0x101
 	pea	%fp@(-296)
 	pea	%fp@(-292)
@@ -13552,8 +13552,7 @@ sub_10008af4:
 	pea	%fp@(-72)
 	moveq	#3,%d0
 	moveb	%d0,%sp@-
-	moveq	#13,%d0
-	_HighLevelFSDispatch
+	_FSpOpenResFile
 	movew	%sp@+,%d5
 	cmpiw	#-1,%d5
 	beqw	.L10008bfa
@@ -14943,7 +14942,7 @@ sub_10009850:
 	beqw	.L10009988
 	subql	#2,%sp
 	pea	%fp@(-352)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	movel	%a2,%sp@-
@@ -15627,7 +15626,7 @@ sub_1000a010:
 	movel	%d1,%sp@-
 	pea	%a3@(10)
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-10)
 	pea	%fp@(-6)
 	pea	%fp@(-1)
@@ -15722,7 +15721,7 @@ sub_1000a0be:
 .L1000a0ec:
 	extbl	%d0
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-270)
 	pea	%fp@(-266)
 	pea	%fp@(-261)
@@ -15765,7 +15764,7 @@ sub_1000a0be:
 	movel	%a2,%sp@-
 	pea	%a4@(10)
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-274)
 	pea	%fp@(-266)
 	pea	%fp@(-261)
@@ -16044,7 +16043,7 @@ sub_1000a3c4:
 	pea	%fp@(-282)
 	pea	%a4@(10)
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-266)
 	pea	%fp@(-4)
 	pea	%fp@(-5)
@@ -17608,7 +17607,7 @@ sub_1000b3b6:
 	pea	%a3@(10)
 	moveq	#2,%d0
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-266)
 	pea	%fp@(-6)
 	pea	%fp@(-1)
@@ -17638,7 +17637,7 @@ sub_1000b3b6:
 	movel	%a4,%sp@-
 	pea	%a3@(10)
 	movel	%d0,%sp@-
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	pea	%fp@(-270)
 	pea	%fp@(-6)
 	pea	%fp@(-1)
@@ -18101,8 +18100,7 @@ sub_1000b80c:
 	movel	%fp@(-38),%sp@-
 	movel	%a4,%sp@-
 	pea	%fp@(-108)
-	moveq	#1,%d0
-	_HighLevelFSDispatch
+	_FSMakeFSSpec
 	movew	%sp@+,%d7
 	cmpiw	#-43,%d7
 	bnes	.L1000b86e
@@ -18142,7 +18140,7 @@ sub_1000b87e:
 	beqs	.L1000b920
 	subql	#2,%sp
 	pea	%pc@(str_1000b944)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-270)
@@ -19300,7 +19298,7 @@ sub_1000c2e4:
 	movel	%d0,%fp@(-352)
 	subql	#2,%sp
 	pea	%fp@(-88)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#2,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-352)
@@ -20217,7 +20215,7 @@ sub_1000cbbc:
 	jsr	%pc@(sub_1000cda2)
 	subql	#2,%sp
 	pea	%pc@(str_1000cc42)
-	movel	#1886875747,%sp@-
+	movel	#_fcc_pwpc,%sp@-
 	moveq	#1,%d0
 	movel	%d0,%sp@-
 	pea	%fp@(-264)

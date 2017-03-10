@@ -6,6 +6,7 @@ _fcc_icon	=	0x69636f6e
 _fcc_init	=	0x696e6974
 _fcc_krnl	=	0x6b726e6c
 _fcc_ptch	=	0x70746368
+_fcc_pwpc	=	0x70777063
 _fcc_show	=	0x73686f77
 _fcc_sysv	=	0x73797376
 
@@ -972,6 +973,16 @@ UnimplTrap	=	0xa89f
 
 .macro	_HighLevelFSDispatch
 	.short	0xaa52
+.endm
+
+.macro	_FSMakeFSSpec
+	moveq	#1,%d0
+	_HighLevelFSDispatch
+.endm
+
+.macro	_FSpOpenResFile
+	moveq	#13,%d0
+	_HighLevelFSDispatch
 .endm
 
 .macro	_TextServicesDispatch
