@@ -12,6 +12,7 @@ _fcc_sysv	=	0x73797376
 MemTop		=	0x108
 BufPtr		=	0x10c
 BootDrive	=	0x210
+MemErr		=	0x220
 SysZone		=	0x2a6
 ApplZone	=	0x2aa
 ROMBase		=	0x2ae
@@ -26,6 +27,7 @@ RestProc	=	0xa8c
 ExtensionsEnabledByte	=	0xb20
 FSVarsPtr	=	0xbb8
 PortList	=	0xd66
+RealMemTop	=	0x1ef4
 
 ADBReInit	=	0xa07b
 UnimplTrap	=	0xa89f

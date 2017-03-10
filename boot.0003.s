@@ -1196,7 +1196,7 @@ str_10000de6:
 	subl	%d0,%d1
 	subl	%a1@,%d1
 	movel	%d1,%a1@(4)
-	movel	0x1ef4,%d1
+	movel	RealMemTop,%d1
 	subl	BufPtr,%d1
 	movel	%d1,%a1@(8)
 	moveml	%a0-%a1,%sp@-
@@ -2018,7 +2018,7 @@ str_100017d6:
 	subl	%a1@,%d1
 	subl	%a1@(4),%d1
 	movel	%d1,%a1@(12)
-	movel	0x1ef4,%d1
+	movel	RealMemTop,%d1
 	subl	BufPtr,%d1
 	subl	%a1@(8),%d1
 	movel	%d1,%a1@(16)
@@ -3216,7 +3216,7 @@ sub_10002434:
 .L10002468:
 	moveml	%sp@+,%d2-%d3
 	moveq	#0,%d0
-	movew	%d0,0x220
+	movew	%d0,MemErr
 	rts
 
 .L10002474:
@@ -3225,7 +3225,7 @@ sub_10002434:
 sub_10002478:
 	subal	%a0,%a0
 	movew	#-108,%d0
-	movew	%d0,0x220
+	movew	%d0,MemErr
 	rts
 
 sub_10002484:
@@ -13041,16 +13041,76 @@ str_10008624:
 	.string	"Devices:device-tree:cpus:dead"
 
 sub_10008642:
-	.short	0x4E56,0x0000,0x48E7,0x1138,0x246E,0x0008,0x266E
-	.short	0x000C,0x286E,0x0010,0x7E00,0x4A12,0x6778,0x7600,0x1014
-	.short	0xB013,0x6222,0x7000,0x1014,0x7200,0x1233,0x0000,0x0C01
-	.short	0x0030,0x6512,0x7000,0x1014,0x7200,0x1233,0x0000,0x0C01
-	.short	0x0039,0x6202,0x7601,0x1483,0x6020,0x2207,0xD281,0x2001
-	.short	0xE589,0xD280,0x7000,0x1014,0x7400,0x1433,0x0000,0x947C
-	.short	0x0030,0x48C2,0xD481,0x2E02,0x5214,0x4A12,0x6726,0x1014
-	.short	0xB013,0x6220,0x7000,0x1014,0x7200,0x1233,0x0000,0x0C01
-	.short	0x0030,0x6510,0x7000,0x1014,0x7200,0x1233,0x0000,0x0C01
-	.short	0x0039,0x63B6,0x2007,0x4CEE,0x1C88,0xFFEC,0x4E5E,0x4E75
+	linkw	%fp,#0
+	moveml	%d3/%d7/%a2-%a4,%sp@-
+	moveal	%fp@(8),%a2
+	moveal	%fp@(12),%a3
+	moveal	%fp@(16),%a4
+	moveq	#0,%d7
+	tstb	%a2@
+	beqs	.L100086d4
+	moveq	#0,%d3
+	moveb	%a4@,%d0
+	cmpb	%a3@,%d0
+	bhis	.L10008686
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d1
+	moveb	%a3@(%d0:w),%d1
+	cmpib	#48,%d1
+	bcss	.L10008686
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d1
+	moveb	%a3@(%d0:w),%d1
+	cmpib	#57,%d1
+	bhis	.L10008686
+	moveq	#1,%d3
+
+.L10008686:
+	moveb	%d3,%a2@
+	bras	.L100086aa
+
+.L1000868a:
+	movel	%d7,%d1
+	addl	%d1,%d1
+	movel	%d1,%d0
+	lsll	#2,%d1
+	addl	%d0,%d1
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d2
+	moveb	%a3@(%d0:w),%d2
+	.short	0x947c,0x0030	/* subw	#48,%d2 */
+	extl	%d2
+	addl	%d1,%d2
+	movel	%d2,%d7
+	addqb	#1,%a4@
+
+.L100086aa:
+	tstb	%a2@
+	beqs	.L100086d4
+	moveb	%a4@,%d0
+	cmpb	%a3@,%d0
+	bhis	.L100086d4
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d1
+	moveb	%a3@(%d0:w),%d1
+	cmpib	#48,%d1
+	bcss	.L100086d4
+	moveq	#0,%d0
+	moveb	%a4@,%d0
+	moveq	#0,%d1
+	moveb	%a3@(%d0:w),%d1
+	cmpib	#57,%d1
+	blss	.L1000868a
+
+.L100086d4:
+	movel	%d7,%d0
+	moveml	%fp@(-20),%d3/%d7/%a2-%a4
+	unlk	%fp
+	rts
 
 sub_100086e0:
 	linkw	%fp,#-300
