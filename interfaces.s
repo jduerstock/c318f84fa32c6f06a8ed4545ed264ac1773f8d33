@@ -14,12 +14,13 @@ BufPtr		=	0x10c
 ROMBase		=	0x2ae
 ExpandMem	=	0x2b6
 DefltStack	=	0x322
+CurrentA5	=	0x904
+CurStackBase	=	0x908
 TopMapHndl	=	0xa50
 SysMap		=	0xa58
 CurMap		=	0xa5a
 RestProc	=	0xa8c
 PortList	=	0xd66
-CurStackBase	=	0x908
 
 ADBReInit	=	0xa07b
 UnimplTrap	=	0xa89f

@@ -260,7 +260,7 @@ str_10000162:
 	_BlockMoveData
 	lea	%a1@(400),%a5
 	lea	%a5@(624),%fp
-	movel	%a5,0x904
+	movel	%a5,CurrentA5
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
 	moveal	PortList,%a0
@@ -700,7 +700,7 @@ str_10000700:
 	_BlockMoveData
 	lea	%a1@(400),%a5
 	lea	%a5@(624),%fp
-	movel	%a5,0x904
+	movel	%a5,CurrentA5
 	lea	%a5@(-4),%a0
 	movel	%a0,%a5@
 	moveal	PortList,%a0
@@ -2037,7 +2037,7 @@ sub_1000188e:
 	_InitApplZone
 	subaw	#40,%sp
 	moveal	%sp,%a5
-	movel	%a5,0x904
+	movel	%a5,CurrentA5
 	movel	%sp,CurStackBase
 	movel	%sp,0x110
 	movel	#_fcc_bbox,%d0
@@ -6981,7 +6981,7 @@ sub_100049fa:
 	moveal	%fp@(-12),%a0
 	movel	%d0,%a0@(566)
 	movel	%a5,%d0
-	moveal	0x904,%a5
+	moveal	CurrentA5,%a5
 	moveal	%fp@(-12),%a0
 	movel	%d0,%a0@(574)
 	lea	%pc@(sub_10004b60),%a0
