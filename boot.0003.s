@@ -15256,21 +15256,21 @@ sub_10009a38:
 .L10009be2:
 	_SysError 668
 
-	.int	0x3C604761
-	.int	0x60637279
-	.int	0x3C800505
-	.int	0x60841956
-	.int	0x6005C000
-	.int	0x3CE068FF
-	.int	0x60E7E648
-	.int	0x80E70000
-	.int	0x38E70008
-	.int	0x7CE803A6
-	.int	0x38E00000
-	.int	0x4E800021
-	.int	0x63C36084
-	.int	0x7C6903A6
-	.int	0x4E800420
+	.int	0x3C604761	/*	lis	%r3,0x4761	; Ga		*/
+	.int	0x60637279	/*	ori	%r3,%r3,0x7279	; ry		*/
+	.int	0x3C800505	/*	lis	%r4,0x0505	; 0x0505	*/
+	.int	0x60841956	/*	ori	%r4,%r4,0x1956	; 0x1956	*/
+	.int	0x6005C000	/*	ori	%r5,%r0,0xc000	; 0xc000	*/
+	.int	0x3CE068FF	/*	lis	%r7,0x68ff	; 0x68ff	*/
+	.int	0x60E7E648	/*	ori	%r7,%r7,0xe648	; 0xe648	*/
+	.int	0x80E70000	/*	lwz	%r7,0(%r7)			*/
+	.int	0x38E70008	/*	addi	%r7,%r7,8			*/
+	.int	0x7CE803A6	/*	mtlr	%r7				*/
+	.int	0x38E00000	/*	li	%r7,0				*/
+	.int	0x4E800021	/*	blrl					*/
+	.int	0x63C36084	/*	ori	%r3,%r30,0x6084			*/
+	.int	0x7C6903A6	/*	mtctr	%r3				*/
+	.int	0x4E800420	/*	bctr					*/
 	.int	0x00000000
 
 sub_10009c28:
