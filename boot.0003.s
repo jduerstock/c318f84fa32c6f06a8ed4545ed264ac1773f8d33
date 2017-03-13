@@ -3789,7 +3789,7 @@ sub_1000294a:
 	movel	%sp@+,%d3
 	tstw	%d0
 	beqs	.L100029ce
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	_Gestalt
 	tstw	%d0
 	bnes	.L100029ce
@@ -3931,7 +3931,7 @@ word_10002ac2:
 	rts
 
 sub_10002acc:
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	_Gestalt
 	tstw	%d0
 	bnew	.L10002b84
@@ -3960,7 +3960,7 @@ sub_10002acc:
 	movew	%sp@+,%d0
 	bnes	.L10002b5e
 	subqw	#2,%sp
-	movel	#1852990823,%sp@-
+	movel	#_fcc_nreg,%sp@-
 	movel	#16973824,%sp@-
 	movew	#1026,%d0
 	_GestaltValueDispatch
@@ -9937,7 +9937,7 @@ sub_100067fa:
 	linkw	%fp,#-4
 	movel	%d7,%sp@-
 	clrb	%d7
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -13111,7 +13111,7 @@ sub_100086e0:
 	moveal	%fp@(8),%a3
 	lea	%fp@(-286),%a4
 	clrb	%fp@(-5)
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -14913,7 +14913,7 @@ sub_10009850:
 
 .L10009868:
 	clrb	%a4@
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -19269,7 +19269,7 @@ sub_1000c2e4:
 	moveq	#-1,%d7
 	moveq	#0,%d0
 	moveal	%d0,%a4
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	lea	%fp@(-4),%a0
 	moveal	%a0,%a1
 	_Gestalt
@@ -19819,7 +19819,7 @@ sub_1000c80e:
 	movel	%d0,%fp@(-58)
 	moveq	#0,%d6
 	clrw	%fp@(-54)
-	movel	#1852990823,%d0
+	movel	#_fcc_nreg,%d0
 	lea	%fp@(-58),%a0
 	moveal	%a0,%a1
 	_Gestalt
